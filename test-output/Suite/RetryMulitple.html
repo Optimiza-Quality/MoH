@@ -1,0 +1,2477 @@
+<html>
+<head>
+<title>TestNG:  RetryMulitple</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RetryMulitple</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/50</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Jul 08 18:20:37 EEST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (827 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1109113497", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1109113497'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.CrossBrowser()'><b>CrossBrowser</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.End()'><b>End</b><br>Test class: MoH.RNVLJordanian</td>
+<td></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='MoH.RNVLJordanian.ContactUs_Case8000()'><b>ContactUs_Case8000</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1176932104", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1176932104'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.ContactUs_Case8100()'><b>ContactUs_Case8100</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace249177573", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace249177573'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.ContactUs_Case8200()'><b>ContactUs_Case8200</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace972865270", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace972865270'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_Companies_Case7100()'><b>MyPage_Companies_Case7100</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1753150176", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1753150176'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_Companies_Case7300_2()'><b>MyPage_Companies_Case7300_2</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1231006815", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1231006815'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_EditContactDetails_HealthInstitute()'><b>MyPage_EditContactDetails_HealthInstitute</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1670993182", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1670993182'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_EditContactDetails_Jordanain()'><b>MyPage_EditContactDetails_Jordanain</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1877062907", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1877062907'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_EditContactDetails_RoyalMedicalServices()'><b>MyPage_EditContactDetails_RoyalMedicalServices</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1566511282", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1566511282'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_HealthInstitute_Case7200()'><b>MyPage_HealthInstitute_Case7200</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace509832867", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace509832867'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_HealthInstitute_Case7300_3()'><b>MyPage_HealthInstitute_Case7300_3</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2044282225", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2044282225'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_Individuals_Case7000()'><b>MyPage_Individuals_Case7000</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace319670866", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace319670866'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_Individuals_Case7300()'><b>MyPage_Individuals_Case7300</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1979274004", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1979274004'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_RoyalMedicalServices_Case7200_2()'><b>MyPage_RoyalMedicalServices_Case7200_2</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1290272762", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1290272762'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_RoyalMedicalServices_Case7300_4()'><b>MyPage_RoyalMedicalServices_Case7300_4</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2048537720", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2048537720'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_RoyalMedicalServices_Case7400()'><b>MyPage_RoyalMedicalServices_Case7400</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace573487274", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace573487274'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.MyPage_WrongVerificationCode_Case7500()'><b>MyPage_WrongVerificationCode_Case7500</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1912850431", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1912850431'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1000()'><b>SubmitNursingApp_Jordanian_Case1000</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1722570594", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1722570594'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1200()'><b>SubmitNursingApp_Jordanian_Case1200</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1262408432", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1262408432'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1300()'><b>SubmitNursingApp_Jordanian_Case1300</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace126234454", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace126234454'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1400()'><b>SubmitNursingApp_Jordanian_Case1400</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace584561912", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace584561912'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1500()'><b>SubmitNursingApp_Jordanian_Case1500</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace739333799", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace739333799'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1500_2()'><b>SubmitNursingApp_Jordanian_Case1500_2</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1307950260", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1307950260'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1510()'><b>SubmitNursingApp_Jordanian_Case1510</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1763260873", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1763260873'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600()'><b>SubmitNursingApp_Jordanian_Case1600</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1361393151", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1361393151'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_2()'><b>SubmitNursingApp_Jordanian_Case1600_2</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace573136580", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace573136580'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_3()'><b>SubmitNursingApp_Jordanian_Case1600_3</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace443942537", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace443942537'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_4()'><b>SubmitNursingApp_Jordanian_Case1600_4</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1998949977", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1998949977'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_5()'><b>SubmitNursingApp_Jordanian_Case1600_5</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2117173674", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2117173674'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_6()'><b>SubmitNursingApp_Jordanian_Case1600_6</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace857394605", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace857394605'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1600_7()'><b>SubmitNursingApp_Jordanian_Case1600_7</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace254896875", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace254896875'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1700()'><b>SubmitNursingApp_Jordanian_Case1700</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1574029810", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1574029810'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1700_2()'><b>SubmitNursingApp_Jordanian_Case1700_2</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace843710487", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace843710487'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1700_3()'><b>SubmitNursingApp_Jordanian_Case1700_3</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1963075870", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1963075870'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1710()'><b>SubmitNursingApp_Jordanian_Case1710</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1184124073", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1184124073'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1720()'><b>SubmitNursingApp_Jordanian_Case1720</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1175631958", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1175631958'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1721()'><b>SubmitNursingApp_Jordanian_Case1721</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2043106095", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2043106095'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1730()'><b>SubmitNursingApp_Jordanian_Case1730</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1140338296", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1140338296'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1731()'><b>SubmitNursingApp_Jordanian_Case1731</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace768185844", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace768185844'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1740()'><b>SubmitNursingApp_Jordanian_Case1740</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1689730682", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1689730682'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1750()'><b>SubmitNursingApp_Jordanian_Case1750</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace317562294", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace317562294'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1760()'><b>SubmitNursingApp_Jordanian_Case1760</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1429351083", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1429351083'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1800()'><b>SubmitNursingApp_Jordanian_Case1800</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1346799731", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1346799731'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1810()'><b>SubmitNursingApp_Jordanian_Case1810</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1988644427", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1988644427'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1820()'><b>SubmitNursingApp_Jordanian_Case1820</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace23880693", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace23880693'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1900()'><b>SubmitNursingApp_Jordanian_Case1900</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace186061555", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace186061555'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1910()'><b>SubmitNursingApp_Jordanian_Case1910</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1196982797", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1196982797'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.SubmitNursingApp_Jordanian_Case1920()'><b>SubmitNursingApp_Jordanian_Case1920</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace787361897", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace787361897'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.ViewApplicationAndLicense_HealthInstitute_Case2101()'><b>ViewApplicationAndLicense_HealthInstitute_Case2101</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1026483832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1026483832'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.ViewApplicationAndLicense_Jordanain_Case1101()'><b>ViewApplicationAndLicense_Jordanain_Case1101</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace42102625", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace42102625'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+<tr>
+<td title='MoH.RNVLJordanian.ViewApplicationAndLicense_RoyalMedicalServices_Case3101()'><b>ViewApplicationAndLicense_RoyalMedicalServices_Case3101</b><br>Test class: MoH.RNVLJordanian</td>
+<td><div><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace761750706", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace761750706'><pre>org.testng.TestNGException: 
+Parameter &apos;browsers&apos; is required by BeforeMethod on method CrossBrowser but has not been marked @Optional or defined
+in D:\Essra\Department Related\Selenium Web-drive\MyMoH\MoH\src\MoH\CrossBrowser.xml
+	at org.testng.internal.Parameters.createParams(Parameters.java:290)
+	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:359)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:620)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:190)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:209)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:516)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
+	at org.testng.TestNG.runSuites(TestNG.java:1028)
+	at org.testng.TestNG.run(TestNG.java:996)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>MoH.RNVLJordanian@4671e53b</td></tr>
+</table><p>
+</body>
+</html>

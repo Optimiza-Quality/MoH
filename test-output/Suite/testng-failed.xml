@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="MoH.AnnotationTransformer"/>
+  </listeners>
+  <test name="ChromeTest(failed)">
+    <parameter name="browsers" value="Chrome"/>
+    <classes>
+      <class name="MoH.RNVLJordanian">
+        <methods>
+          <include name="MyPage_RoyalMedicalServices_Case7200_2"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_3"/>
+          <include name="MyPage_RoyalMedicalServices_Case7400"/>
+          <include name="End"/>
+          <include name="MyPage_Individuals_Case7300"/>
+          <include name="SubmitNursingApp_Jordanian_Case1750"/>
+          <include name="ViewApplicationAndLicense_Jordanain_Case1101"/>
+          <include name="SubmitNursingApp_Jordanian_Case1700_3"/>
+          <include name="MyPage_Individuals_Case7000"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_6"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_7"/>
+          <include name="MyPage_Companies_Case7300_2"/>
+          <include name="SubmitNursingApp_Jordanian_Case1720"/>
+          <include name="MyPage_Companies_Case7100"/>
+          <include name="SubmitNursingApp_Jordanian_Case1721"/>
+          <include name="SubmitNursingApp_Jordanian_Case1400"/>
+          <include name="CrossBrowser"/>
+          <include name="MyPage_RoyalMedicalServices_Case7300_4"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_4"/>
+          <include name="GetDriver"/>
+          <include name="ViewApplicationAndLicense_RoyalMedicalServices_Case3101"/>
+          <include name="SubmitNursingApp_Jordanian_Case1731"/>
+          <include name="MyPage_HealthInstitute_Case7200"/>
+          <include name="SubmitNursingApp_Jordanian_Case1730"/>
+          <include name="ViewApplicationAndLicense_HealthInstitute_Case2101"/>
+          <include name="MyPage_HealthInstitute_Case7300_3"/>
+          <include name="MyPage_WrongVerificationCode_Case7500"/>
+        </methods>
+      </class> <!-- MoH.RNVLJordanian -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test name="ie(failed)">
+    <parameter name="browsers" value="ie"/>
+    <classes>
+      <class name="MoH.RNVLJordanian">
+        <methods>
+          <include name="GetDriver"/>
+          <include name="End"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600"/>
+          <include name="CrossBrowser"/>
+        </methods>
+      </class> <!-- MoH.RNVLJordanian -->
+    </classes>
+  </test> <!-- ie(failed) -->
+  <test name="RetryMulitple(failed)">
+    <classes>
+      <class name="MoH.RNVLJordanian">
+        <methods>
+          <include name="SubmitNursingApp_Jordanian_Case1600_2"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_3"/>
+          <include name="End"/>
+          <include name="SubmitNursingApp_Jordanian_Case1750"/>
+          <include name="SubmitNursingApp_Jordanian_Case1700_3"/>
+          <include name="MyPage_Individuals_Case7000"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_5"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_6"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_7"/>
+          <include name="SubmitNursingApp_Jordanian_Case1900"/>
+          <include name="ContactUs_Case8200"/>
+          <include name="MyPage_EditContactDetails_HealthInstitute"/>
+          <include name="SubmitNursingApp_Jordanian_Case1700"/>
+          <include name="MyPage_Companies_Case7300_2"/>
+          <include name="ContactUs_Case8000"/>
+          <include name="SubmitNursingApp_Jordanian_Case1500"/>
+          <include name="MyPage_Companies_Case7100"/>
+          <include name="SubmitNursingApp_Jordanian_Case1700_2"/>
+          <include name="SubmitNursingApp_Jordanian_Case1820"/>
+          <include name="CrossBrowser"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600_4"/>
+          <include name="SubmitNursingApp_Jordanian_Case1760"/>
+          <include name="SubmitNursingApp_Jordanian_Case1200"/>
+          <include name="SubmitNursingApp_Jordanian_Case1000"/>
+          <include name="MyPage_EditContactDetails_RoyalMedicalServices"/>
+          <include name="SubmitNursingApp_Jordanian_Case1910"/>
+          <include name="SubmitNursingApp_Jordanian_Case1710"/>
+          <include name="SubmitNursingApp_Jordanian_Case1510"/>
+          <include name="ViewApplicationAndLicense_HealthInstitute_Case2101"/>
+          <include name="MyPage_HealthInstitute_Case7300_3"/>
+          <include name="MyPage_WrongVerificationCode_Case7500"/>
+          <include name="MyPage_RoyalMedicalServices_Case7200_2"/>
+          <include name="MyPage_RoyalMedicalServices_Case7400"/>
+          <include name="MyPage_Individuals_Case7300"/>
+          <include name="ViewApplicationAndLicense_Jordanain_Case1101"/>
+          <include name="SubmitNursingApp_Jordanian_Case1920"/>
+          <include name="SubmitNursingApp_Jordanian_Case1800"/>
+          <include name="SubmitNursingApp_Jordanian_Case1720"/>
+          <include name="ContactUs_Case8100"/>
+          <include name="SubmitNursingApp_Jordanian_Case1600"/>
+          <include name="SubmitNursingApp_Jordanian_Case1721"/>
+          <include name="SubmitNursingApp_Jordanian_Case1400"/>
+          <include name="MyPage_RoyalMedicalServices_Case7300_4"/>
+          <include name="GetDriver"/>
+          <include name="MyPage_EditContactDetails_Jordanain"/>
+          <include name="SubmitNursingApp_Jordanian_Case1300"/>
+          <include name="SubmitNursingApp_Jordanian_Case1740"/>
+          <include name="ViewApplicationAndLicense_RoyalMedicalServices_Case3101"/>
+          <include name="SubmitNursingApp_Jordanian_Case1810"/>
+          <include name="SubmitNursingApp_Jordanian_Case1500_2"/>
+          <include name="SubmitNursingApp_Jordanian_Case1731"/>
+          <include name="MyPage_HealthInstitute_Case7200"/>
+          <include name="SubmitNursingApp_Jordanian_Case1730"/>
+        </methods>
+      </class> <!-- MoH.RNVLJordanian -->
+    </classes>
+  </test> <!-- RetryMulitple(failed) -->
+</suite> <!-- Failed suite [Suite] -->

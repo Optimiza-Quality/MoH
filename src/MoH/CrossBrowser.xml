@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite"> 
+	
+	<test name="ChromeTest">
+
+		<parameter name="browsers" value="Chrome" />
+		
+		<classes>
+
+			<class name="MoH.RNVLJordanian">
+												
+			        </class>
+		</classes>
+	</test> <!-- Test -->
+	
+	<test name="ie">
+		<parameter name="browsers" value="ie" />
+		<classes>
+
+			<class name="MoH.RNVLJordanian">
+			
+			<methods> 
+        <include name=".*1600*"/> 
+       
+      </methods>
+				      	      </class>
+		</classes>
+	</test>
+	
+	
+	<listeners>
+        <listener class-name="MoH.AnnotationTransformer"/>
+  </listeners>
+  
+  <test name="RetryMulitple">
+    <classes>
+      <class name="MoH.RNVLJordanian"/>
+    </classes>
+  </test>
+	
+	
+</suite> <!-- Suite -->
