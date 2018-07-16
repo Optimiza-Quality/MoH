@@ -28,7 +28,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/MoH/chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -47,7 +47,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "/MoH/chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("https://172.16.0.254:4443/public/index.html");
