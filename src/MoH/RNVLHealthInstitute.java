@@ -28,7 +28,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "\\git\\MoH\\MoH\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -134,7 +134,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("01-06-1996"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -252,7 +252,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("4141"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4278"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654301"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("31-12-1996"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -291,7 +291,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("7452"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4278"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654301"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("31-12-1996"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -332,7 +332,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("01-06-1996"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -649,7 +649,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("7144525"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("01-06-1996"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -687,7 +687,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -727,7 +727,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4278"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("412236698"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("16/07/2018"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("16-07-2018"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -881,7 +881,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("555444455"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("14-02-1993"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -985,7 +985,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("2487932154"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1086,7 +1086,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("712236985"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1193,7 +1193,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("712236985"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1302,7 +1302,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1406,7 +1406,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("715871237"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1509,7 +1509,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1614,7 +1614,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1672,7 +1672,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1730,7 +1730,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1790,7 +1790,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("7741"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1831,7 +1831,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("5370"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1871,7 +1871,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("668"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -1911,7 +1911,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(AssociationNumber).sendKeys("1447"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("12378954"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("29/11/2016"); // Birthdate
+		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
