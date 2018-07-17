@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class RNVLFields {
 
-	// General
+	// GeneralTest
 	By ErrorMessage = By.id("pt1:exceptionMsg");
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
 
