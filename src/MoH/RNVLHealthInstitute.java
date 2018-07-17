@@ -927,7 +927,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(StudentID).sendKeys("7822"); // StudentNumber
 
-		// University
+		// Universities
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("جامعة مؤته");
