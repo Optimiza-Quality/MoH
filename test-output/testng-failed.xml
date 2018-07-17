@@ -3,11 +3,33 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="MoH.RNVLInternal">
+      <class name="MoH.RNVLRMS">
         <methods>
-          <include name="Processing_Jordanian_Case1100"/>
+          <include name="SubmitNursingApp_RMS_Dead_Case3500"/>
+          <include name="End"/>
+          <include name="GetDriver"/>
+          <include name="SubmitNursingApp_RMS_Case3800"/>
+          <include name="CrossBrowser"/>
+          <include name="SubmitNursingApp_RMS_Case3600"/>
+          <include name="SubmitNursingApp_RMS_Case3710"/>
+          <include name="SubmitNursingApp_RMS_Case3721"/>
+          <include name="SubmitNursingApp_RMS_Case3820"/>
+          <include name="SubmitNursingApp_RMS_Case3730"/>
+          <include name="SubmitNursingApp_RMS_Case3700"/>
+          <include name="SubmitNursingApp_RMS_Case3810"/>
+          <include name="SubmitNursingApp_RMS_Case3200"/>
+          <include name="SubmitNursingApp_RMS_Case3750"/>
+          <include name="SubmitNursingApp_RMS_Case3500"/>
+          <include name="SubmitNursingApp_RMS_Case3720"/>
+          <include name="SubmitNursingApp_RMS_Case3731"/>
+          <include name="SubmitNursingApp_RMS_Case3000"/>
+          <include name="SubmitNursingApp_RMS_Case3300"/>
+          <include name="SubmitNursingApp_RMS_Case3740"/>
+          <include name="RMS_Case3400"/>
+          <include name="SubmitNursingApp_RMS_Case3210"/>
+          <include name="SubmitNursingApp_RMS_Case3760"/>
         </methods>
-      </class> <!-- MoH.RNVLInternal -->
+      </class> <!-- MoH.RNVLRMS -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
