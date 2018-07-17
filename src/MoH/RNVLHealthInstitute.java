@@ -916,7 +916,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Select Semester = new Select(driver.findElement(SemesterDDL));
 		Semester.selectByIndex(1); // Winter
 
-		// -----Bachelor-Degree-Frame-----
+		// -----Bachelor-Degree-Frame------
 
 		// University-Country
 		Thread.sleep(Const * 10);
