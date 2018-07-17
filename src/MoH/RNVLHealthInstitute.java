@@ -21,7 +21,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 	WebDriver driver;
 
-	Integer Const = 1000;
+	Integer Const = 100;
 	public static String AppNo;
 
 	@BeforeMethod(enabled = true)
