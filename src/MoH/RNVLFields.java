@@ -61,7 +61,7 @@ public class RNVLFields {
 	By SubmitGeneralCases = By.id("pt1:r1:5:rs1:b2");
 
 	// SubmissionPage-WithoutAttachemnts
-	By SuccessMessageGeneralCases = By.id("pt1:r1:6:fp1:dc_ol7");
+	By SuccessMessageGeneralCases = By.id("pt1:r1:6:fp1:dc_pgl1");
 	By ApplicationNumberGeneralCases = By.id("pt1:r1:6:fp1:dc_ol5");
 	By BackToHomeGeneralCases = By.id("pt1:r1:6:fp1:dc_b1");
 
@@ -83,7 +83,7 @@ public class RNVLFields {
 	By SubmitAttachmentCases = By.id("pt1:r1:6:rs1:b2");
 
 	// SubmissionPage-Attachments
-	By SuccessMessageAttachmentCases = By.id("pt1:r1:7:fp1:dc_ol7");
+	By SuccessMessageAttachmentCases = By.id("pt1:r1:7:fp1:dc_pgl1");
 	By ApplicationNumberAttachmentCases = By.id("pt1:r1:7:fp1:dc_ol5");
 	By BackToHomeAttachmentCases = By.id("pt1:r1:7:fp1:dc_b1");
 
@@ -98,6 +98,17 @@ public class RNVLFields {
 	By MyAddress = By.xpath("//*[@id=\"pt1:r1:2:r4:0:it4::content\" or @id=\"pt1:r1:1:r4:0:it4::content\"]");
 	By SaveEditedInfo = By.xpath("//*[@id=\"pt1:r1:2:r4:0:b1\" or @id=\"pt1:r1:1:r4:0:b1\"]");
 	By GoToHomePage = By.xpath("//*[@id=\"pt1:r1:2:b1\" or @id=\"pt1:l1::icon\"]");
+	By GoToMyPage = By.id("MyAppsImg");
+	By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
+	By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
+	By MyPageCardNo = By.id("pt1:r1:0:it2::content");
+	By MyPageSearch = By.id("pt1:r1:0:b1");
+	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
+	By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
+	By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
+	By PreviousToApps = By.id("pt1:r1:2:r1:1:b1");
+	By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
+	By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
 
 	// Internal-Login
 	By EMPUsername = By.id("pt1:lid1:dc_it1::content");
