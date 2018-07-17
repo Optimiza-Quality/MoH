@@ -30,7 +30,7 @@ public class RNVLRMS extends RNVLFields {
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -358,7 +358,7 @@ public class RNVLRMS extends RNVLFields {
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(NextToBasicInfo).click(); // Next button
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
