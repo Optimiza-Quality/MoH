@@ -23,9 +23,10 @@ public class RNVLJordanian extends RNVLFields {
 	WebDriver driver;
 
 	Integer Const = 200;
-	String AppNo = "79 / 2018";
-
-	@BeforeMethod(enabled = true)
+	
+	public static String AppNo;
+	
+		@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
@@ -92,7 +93,7 @@ public class RNVLJordanian extends RNVLFields {
 		}
 	}
 
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into
 		// if
@@ -283,7 +284,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -301,19 +302,27 @@ public class RNVLJordanian extends RNVLFields {
 
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
+		//Create Object of Internal cases Class and process apps
 		RNVLInternal internal = new RNVLInternal();
 
 		internal.Processing_Jordanian_Case1100(); // Approve
 
 		internal.Processing_Jordanian_Case1100_2();// Approve
 
+		//Create object of Mypage cases class and view apps and licenses 
+		
+		MyPage viewapps = new MyPage();
+		viewapps.ViewApplicationAndLicense_Jordanain_Case1101();
+		
+		
 	}
 
-	// «·„” Œœ„ ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
-	// —›÷ „œÌ— «·„œÌ—Ì…
-	@Test(priority = 2)
+		@Test(priority = 2)
 	public void SubmitNursingApp_Jordanian_Case1200() throws InterruptedException, IOException {
 
+		// «·„” Œœ„ ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
+		// —›÷ „œÌ— «·„œÌ—Ì…
+		
 		driver.findElement(Apply).click(); // Select-Service
 
 		// --------------------------------Select-Applicant-Type------------------------------
@@ -458,7 +467,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -932,7 +941,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1091,7 +1100,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1241,7 +1250,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1391,7 +1400,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1541,7 +1550,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1697,7 +1706,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1848,7 +1857,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -2998,7 +3007,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -3142,7 +3151,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -3412,7 +3421,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -3560,7 +3569,7 @@ public class RNVLJordanian extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -4438,747 +4447,6 @@ public class RNVLJordanian extends RNVLFields {
 
 	}
 
-	@Test(priority = 24)
-	public void ViewApplicationAndLicense_Jordanain_Case1101() throws InterruptedException, IOException {
-
-		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("√›—«œ");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("9882013944"); // National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("12345678"); // Card-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_b2")).click(); // Next
-
-		// -------------------------------View-App----------------------------------
-
-		driver.findElement(By.id("pt1:r1:2:myRequests::ti")).click(); // My-Applications-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys("64"); // Search-For-App-Number
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys(Keys.ENTER); // Search
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:t1:0:l1::text")).click(); // Details
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
-
-		driver.findElement(By.id("pt1:r1:2:r1:1:b1")).click(); // Previous
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		// -------------------------------View-License----------------------------------
-		driver.findElement(By.id("pt1:r1:2:myPermits::ti")).click(); // License-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys("64");// Search-For-License
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys(Keys.ENTER);// Search
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts1 = (TakesScreenshot) driver;
-		File source1 = ts1.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase1.1.0.1.png"));
-
-		// -------------------------------Clear----------------------------------
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		driver.findElement(By.id("pt1:r1:2:b1")).click(); // Home-Page
-
-		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1");
-
-	}
-
-	@Test(priority = 37)
-	public void ViewApplicationAndLicense_HealthInstitute_Case2101() throws InterruptedException, IOException {
-
-		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("52317954"); // Institute-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("41725"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_b2")).click(); // Next
-
-		// -------------------------------View-App----------------------------------
-
-		driver.findElement(By.id("pt1:r1:2:myRequests::ti")).click(); // My-Applications-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys("31"); // Search-For-App-Number
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys(Keys.ENTER); // Search
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:t1:0:l1::text")).click(); // Details
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case2.1.0.1_AppDetails.png"));
-
-		driver.findElement(By.id("pt1:r1:2:r1:1:b1")).click(); // Previous
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		// -------------------------------View-License----------------------------------
-		driver.findElement(By.id("pt1:r1:2:myPermits::ti")).click(); // License-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys("64");// Search-For-License
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys(Keys.ENTER);// Search
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts1 = (TakesScreenshot) driver;
-		File source1 = ts1.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase2.1.0.1.png"));
-
-		// -------------------------------Clear----------------------------------
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		driver.findElement(By.id("pt1:r1:2:b1")).click(); // Home-Page
-
-		System.out.println("Passed. Health Institute - View Application And License 2.1.0.1");
-
-	}
-
-	@Test(priority = 37)
-	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101() throws InterruptedException, IOException {
-
-		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("717144523"); // RMS-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("523317"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_b2")).click(); // Next
-
-		// -------------------------------View-App----------------------------------
-
-		driver.findElement(By.id("pt1:r1:2:myRequests::ti")).click(); // My-Applications-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys("20"); // Search-For-App-Number
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:val00::content")).sendKeys(Keys.ENTER); // Search
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r1:0:t1:0:l1::text")).click(); // Details
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case3.1.0.1_AppDetails.png"));
-
-		driver.findElement(By.id("pt1:r1:2:r1:1:b1")).click(); // Previous
-
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		// -------------------------------View-License----------------------------------
-		driver.findElement(By.id("pt1:r1:2:myPermits::ti")).click(); // License-Tab
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys("20");// Search-For-License
-
-		Thread.sleep(Const);
-
-		driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:val00::content")).sendKeys(Keys.ENTER);// Search
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
-		// capture screenshot
-
-		TakesScreenshot ts1 = (TakesScreenshot) driver;
-		File source1 = ts1.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase3.1.0.1.png"));
-
-		// -------------------------------Clear----------------------------------
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
-		driver.findElement(By.id("pt1:r1:2:b1")).click(); // Home-Page
-
-		System.out.println("Passed. Royal Medical Service - View Application And License 3.1.0.1");
-
-	}
-
-	@Test(priority = 25)
-	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
-
-		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("√›—«œ");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("98526488"); // National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("9813944"); // Card-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.0.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.0.0.0");
-
-	}
-
-	@Test(priority = 26)
-	public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
-
-		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("‘—ﬂ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("200012345"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("981944"); // Company-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.1.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.1.0.0");
-
-	}
-
-	@Test(priority = 27)
-	public void MyPage_HealthInstitute_Case7200() throws InterruptedException, IOException {
-
-		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("9882013944"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("981944"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "·« ÌÊÃœ Õ”«»";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.2.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.2.0.0");
-
-	}
-
-	@Test(priority = 28)
-	public void MyPage_RoyalMedicalServices_Case7200_2() throws InterruptedException, IOException {
-
-		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("205646454"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("981944"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "·« ÌÊÃœ Õ”«»";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.2.0.0_2.png"));
-
-		System.out.println("Passed. My Page - Individual 7.2.0.0_2");
-
-	}
-
-	@Test(priority = 29)
-	public void MyPage_Individuals_Case7300() throws InterruptedException, IOException {
-
-		// «·„⁄·Ê„«  €Ì— „ÿ«»ﬁ…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("√›—«œ");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("9882013944"); // National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("9813944"); // Card-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.3.0.0");
-
-	}
-
-	@Test(priority = 30)
-	public void MyPage_Companies_Case7300_2() throws InterruptedException, IOException {
-
-		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("‘—ﬂ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("200012345"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("981944"); // Company-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_2.png"));
-
-		System.out.println("Passed. My Page - Individual 7.3.0.0_2");
-
-	}
-
-	@Test(priority = 31)
-	public void MyPage_HealthInstitute_Case7300_3() throws InterruptedException, IOException {
-
-		Integer Const = 100;
-
-		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("200000000"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("2000"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_3.png"));
-
-		System.out.println("Passed. My Page - Individual 7.3.0.0_3");
-
-	}
-
-	@Test(priority = 32)
-	public void MyPage_RoyalMedicalServices_Case7300_4() throws InterruptedException, IOException {
-
-		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("200040000"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("4000"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_4.png"));
-
-		System.out.println("Passed. My Page - Individual 7.3.0.0_4");
-
-	}
-
-	@Test(priority = 33)
-	public void MyPage_RoyalMedicalServices_Case7400() throws InterruptedException, IOException {
-
-		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ… ñ ‰Ê⁄ «·„” Œœ„ Œÿ√
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("200000000"); // Company-National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("20000"); // Private-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì „⁄·Ê„«  «·œŒÊ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.4.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.4.0.0");
-
-	}
-
-	@Test(priority = 34)
-	public void MyPage_WrongVerificationCode_Case7500() throws InterruptedException, IOException {
-
-		// Œÿ√ ›Ì —„“ «· Õﬁﬁ «·„œŒ·
-
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
-
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
-		appType.selectByVisibleText("√›—«œ");
-
-		Thread.sleep(Const * 3);
-
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("9882013944"); // National-ID
-
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("12345678"); // Card-No
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Search
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_it1::content")).sendKeys("0010"); // Verification-Code
-
-		Thread.sleep(Const * 2);
-
-		driver.findElement(By.id("pt1:r1:1:vc1:dc_b2")).click(); // Next
-
-		Thread.sleep(Const * 10);
-
-		// Assert
-
-		String ActualResult = driver.findElement(ErrorMessage).getText();
-
-		System.out.println("Actual Message: " + ActualResult);
-
-		String ExpectedResult = "Œÿ√ ›Ì —„“ «· Õﬁﬁ «·„œŒ·";
-
-		System.out.println("Expected Message: " + ExpectedResult);
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case7.5.0.0.png"));
-
-		System.out.println("Passed. My Page - Individual 7.5.0.0");
-
-	}
-
 	@Test(priority = 35)
 	public void ContactUs_Case8000() throws InterruptedException, IOException {
 
@@ -5349,20 +4617,20 @@ public class RNVLJordanian extends RNVLFields {
 
 		//  ⁄œÌ· „⁄·Ê„«  «·« ’«·
 
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
+		driver.findElement(GoToMyPage).click(); // My-Page
 
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("√›—«œ");
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("9882013944"); // National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
 
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("12345678"); // Card-No
+		driver.findElement(MyPageCardNo).sendKeys("12345678"); // Card-No
 
 		Thread.sleep(Const * 2);
 
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Continue
+		driver.findElement(MyPageSearch).click(); // Continue
 
 		Thread.sleep(Const * 10);
 
@@ -5377,20 +4645,20 @@ public class RNVLJordanian extends RNVLFields {
 
 		//  ⁄œÌ· „⁄·Ê„«  «·« ’«·
 
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
+		driver.findElement(GoToMyPage).click(); // My-Page
 
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("52317954"); // Institute-National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("52317954"); // Institute-National-ID
 
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("41725"); // Private-No
+		driver.findElement(MyPageCardNo).sendKeys("41725"); // Private-No
 
 		Thread.sleep(Const * 2);
 
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Continue
+		driver.findElement(MyPageSearch).click(); // Continue
 
 		Thread.sleep(Const * 10);
 
@@ -5405,20 +4673,20 @@ public class RNVLJordanian extends RNVLFields {
 
 		//  ⁄œÌ· „⁄·Ê„«  «·« ’«·
 
-		driver.findElement(By.id("MyAppsImg")).click(); // My-Page
+		driver.findElement(GoToMyPage).click(); // My-Page
 
-		Select appType = new Select(driver.findElement(By.id("pt1:r1:0:soc1::content"))); // Applicant-Type
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(By.id("pt1:r1:0:it1::content")).sendKeys("717144523"); // RMS-National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("717144523"); // RMS-National-ID
 
-		driver.findElement(By.id("pt1:r1:0:it2::content")).sendKeys("523317"); // Private-No
+		driver.findElement(MyPageCardNo).sendKeys("523317"); // Private-No
 
 		Thread.sleep(Const * 2);
 
-		driver.findElement(By.id("pt1:r1:0:b1")).click(); // Continue
+		driver.findElement(MyPageSearch).click(); // Continue
 
 		Thread.sleep(Const * 10);
 

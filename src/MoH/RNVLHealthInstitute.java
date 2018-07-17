@@ -22,12 +22,11 @@ public class RNVLHealthInstitute extends RNVLFields {
 	WebDriver driver;
 
 	Integer Const = 1000;
-	String AppNo;
-	String KeepAppNo;
+	public static String AppNo;
 
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "/MoH/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -46,7 +45,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "/MoH/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("https://172.16.0.254:4443/public/index.html");
@@ -230,7 +229,27 @@ public class RNVLHealthInstitute extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("Health Institute - 2.0.0.0 test case");
 		Thread.sleep(Const * 10);
+		
+		
+		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText(); // Get-App-No
+
+		System.out.println("Application Number: " + AppNo);
+		
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		
+		//Create Object of Internal cases Class and process apps
+		RNVLInternal internal = new RNVLInternal();
+
+		internal.Processing_Jordanian_Case1100(); // Approve
+
+		internal.Processing_Jordanian_Case1100_2();// Approve
+
+		//Create object of Mypage cases class and view apps and licenses 
+		
+		MyPage viewapps = new MyPage();
+		viewapps.ViewApplicationAndLicense_HealthInstitute_Case2101();
+		
+		
 	}
 
 	// user not exists

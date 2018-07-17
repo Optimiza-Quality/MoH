@@ -16,8 +16,11 @@ public class RNVLInternal extends RNVLFields {
 	WebDriver driver;
 
 	Integer Const = 200;
-	String AppNo;
-	String KeepAppNo;
+	
+	String NewAppNo = RNVLJordanian.AppNo;
+
+	
+	public static String KeepAppNo;
 
 	public void Processing_Jordanian_Case1100() throws InterruptedException, IOException {
 
@@ -49,7 +52,7 @@ public class RNVLInternal extends RNVLFields {
 
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
+		String[] TrimmedAppNo = NewAppNo.split("/");
 
 		for (String str : TrimmedAppNo) {
 			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
@@ -266,7 +269,7 @@ public class RNVLInternal extends RNVLFields {
 
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
+		String[] TrimmedAppNo = NewAppNo.split("/");
 
 		for (String str : TrimmedAppNo) {
 			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
@@ -334,7 +337,7 @@ public class RNVLInternal extends RNVLFields {
 
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
+		String[] TrimmedAppNo = NewAppNo.split("/");
 
 		for (String str : TrimmedAppNo) {
 			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp

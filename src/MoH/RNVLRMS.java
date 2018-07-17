@@ -23,13 +23,13 @@ public class RNVLRMS extends RNVLFields {
 	WebDriver driver;
 
 	Integer Const = 200;
-	String AppNo;
-	String KeepAppNo;
+
+	public static String AppNo;
 
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "/MoH/src/MoH/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -153,9 +153,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -221,7 +219,7 @@ public class RNVLRMS extends RNVLFields {
 		String ExpectedResult = " „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
-		String AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
+		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 		// ---------------------------------Take
 		// ScreenShot------------------------------
 		Thread.sleep(Const * 10);
@@ -232,66 +230,22 @@ public class RNVLRMS extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
+		
+		System.out.println("Application Number: " + AppNo);
+		
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		
+		//Create Object of Internal cases Class and process apps
+		RNVLInternal internal = new RNVLInternal();
 
-		driver.get("https://172.16.0.254:4443/internal/faces/index.jsf");
+		internal.Processing_Jordanian_Case1100(); // Approve
 
-		driver.findElement(By.id("pt1:lid1:dc_it1::content")).sendKeys("ESRAA"); // Username
+		internal.Processing_Jordanian_Case1100_2();// Approve
 
-		driver.findElement(By.id("pt1:lid1:dc_it2::content")).sendKeys("12345"); // Password
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(By.id("pt1:lid1:dc_b1")).click(); // Login
-
-		driver.findElement(By.id("icon3")).click();
-
-		driver.findElement(By.id("icon8")).click();
-
-		driver.findElement(By.id("icon32")).click();
-
-		driver.findElement(By.id("icon58")).click();
-		Thread.sleep(Const * 20);
-
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
-
-		Thread.sleep(Const * 20);
-		System.out.println(AppNo);
-
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			System.out.println(str);
-
-			driver.findElement(By.id("pt1:r1:1:requestNo::content")).sendKeys(str);
-
-			break;
-
-		}
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:1:b1")).click(); // Search
-
-		Thread.sleep(Const * 20);
-
-		driver.findElement(By.linkText(" ›«’Ì·")).click(); // Details
-
-		Thread.sleep(Const * 20);
-
-		TakesScreenshot ts2 = (TakesScreenshot) driver;
-		File source2 = ts2.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source2, new File("./ScreenShots/Case3.1.0.0.png"));
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:sor1:_2\"]")).click(); // Radio-Reject
-
-		Thread.sleep(Const * 20);
-
-		driver.findElement(By.id("pt1:r1:2:itNotes::content")).sendKeys("notes", Keys.TAB);// Notes
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(By.id("pt1:r1:2:b2")).click(); // Process
+		//Create object of Mypage cases class and view apps and licenses 
+		
+		MyPage viewapps = new MyPage();
+		viewapps.ViewApplicationAndLicense_RoyalMedicalServices_Case3101();
 
 	}
 
@@ -625,9 +579,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -770,9 +722,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -866,9 +816,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -983,9 +931,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1083,8 +1029,8 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -1205,9 +1151,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1325,9 +1269,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1448,9 +1390,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1543,8 +1483,8 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -1634,8 +1574,8 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
