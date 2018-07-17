@@ -29,7 +29,7 @@ public class RNVLRMS extends RNVLFields {
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", "/MoH/src/MoH/chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
