@@ -29,7 +29,7 @@ public class RNVLJordanian extends RNVLFields {
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", "\\\\MoH\\\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -49,7 +49,7 @@ public class RNVLJordanian extends RNVLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+			System.setProperty("webdriver.chrome.driver", "\\\\MoH\\\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("https://ohs-vip:4443/public/index.html");
@@ -696,7 +696,7 @@ public class RNVLJordanian extends RNVLFields {
 	}
 
 	@Test(priority = 24)
-	public void SubmitNursingApp_Jordanian_Case1500_2() throws InterruptedException, IOException {
+	public void SubmitNursingApp_Jordanian_Case1500_2()throws InterruptedException, IOException {
 
 		// خطأ في معلومات الأحوال - الشخص متوفي
 

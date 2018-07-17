@@ -183,13 +183,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÇáÌÇãÚÉ ÇáÇÑÏäíÉ");
+		University.selectByVisibleText("Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø§Ø±Ø¯Ù†ÙŠØ©");
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -214,12 +214,12 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		String AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
@@ -276,7 +276,7 @@ public class RNVLRMS extends RNVLFields {
 
 		Thread.sleep(Const * 20);
 
-		driver.findElement(By.linkText("ÊİÇÕíá")).click(); // Details
+		driver.findElement(By.linkText("ØªÙØ§ØµÙŠÙ„")).click(); // Details
 
 		Thread.sleep(Const * 20);
 
@@ -329,7 +329,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "ÑŞã ŞíÏ ÇáãäÔÃÉ ÇáæØäí ÛíÑ ãæÌæÏ¡ áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ. íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÕÍÉ áÅäÔÇÁ ÍÓÇÈ ÎÇÕ Èß. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ø±Ù‚Ù… Ù‚ÙŠØ¯ Ø§Ù„Ù…Ù†Ø´Ø£Ø© Ø§Ù„ÙˆØ·Ù†ÙŠ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯ØŒ Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨. ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨ Ø®Ø§Øµ Ø¨Ùƒ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -379,7 +379,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "ÇáÑŞã ÇáÎÇÕ ÛíÑ ãØÇÈŞ¡ áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ. íÑÌì ÇáÊÃßÏ ãä ÕÍÉ ÇáÑŞã ÇáÎÇÕ. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ø§Ù„Ø±Ù‚Ù… Ø§Ù„Ø®Ø§Øµ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚ØŒ Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ£ÙƒØ¯ Ù…Ù† ØµØ­Ø© Ø§Ù„Ø±Ù‚Ù… Ø§Ù„Ø®Ø§Øµ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -427,12 +427,12 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		System.out.println(
-				"ExpectedErrorMessage: áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ áÅÕÏÇÑ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí äÙÑÇ áæÌæÏ ØáÈ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí ÓÇÈŞ ÑŞã ( / ) áÏíß áÇíÒÇá ŞíÏ ÇáÊäİíĞ¡ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545");
+				"ExpectedErrorMessage: Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù„Ø¥ØµØ¯Ø§Ø± ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ù†Ø¸Ø±Ø§ Ù„ÙˆØ¬ÙˆØ¯ Ø·Ù„Ø¨ ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ø³Ø§Ø¨Ù‚ Ø±Ù‚Ù… ( / ) Ù„Ø¯ÙŠÙƒ Ù„Ø§ÙŠØ²Ø§Ù„ Ù‚ÙŠØ¯ Ø§Ù„ØªÙ†ÙÙŠØ°ØŒ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545");
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(
-				"áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ áÅÕÏÇÑ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí äÙÑÇ áæÌæÏ ØáÈ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí ÓÇÈŞ ÑŞã"));
+				"Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù„Ø¥ØµØ¯Ø§Ø± ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ù†Ø¸Ø±Ø§ Ù„ÙˆØ¬ÙˆØ¯ Ø·Ù„Ø¨ ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ø³Ø§Ø¨Ù‚ Ø±Ù‚Ù…"));
 		System.out.println("RMS 3.3.0.0");
 
 		// ---------------------------------Take
@@ -446,7 +446,7 @@ public class RNVLRMS extends RNVLFields {
 
 	}
 
-	// ÇáãÓÊÎÏã ÍÇÕá Úáì ÑÎÕÉ ãÒÇæáÉ ãåäÉ
+	// Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø­Ø§ØµÙ„ Ø¹Ù„Ù‰ Ø±Ø®ØµØ© Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø©
 	// Nurse has an active license
 	@Test(priority = 4, enabled = true)
 	public void RMS_Case3400() throws InterruptedException, IOException {
@@ -527,7 +527,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "ÇáÑŞã ÇáæØäí ÇáãÏÎá ÛíÑ ÕÍíÍ¡ áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ. íÑÌì ÇáÊÃßÏ ãä ÕÍÉ ÑŞã ÇáæØäí. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ÙˆØ·Ù†ÙŠ Ø§Ù„Ù…Ø¯Ø®Ù„ ØºÙŠØ± ØµØ­ÙŠØ­ØŒ Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ£ÙƒØ¯ Ù…Ù† ØµØ­Ø© Ø±Ù‚Ù… Ø§Ù„ÙˆØ·Ù†ÙŠ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.5.0.0");
@@ -577,7 +577,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ áÅÕÏÇÑ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí äÙÑÇ áÃä ÇáÑŞã ÇáæØäí ÇáãÏÎá áÔÎÕ ãÊæİí. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù„Ø¥ØµØ¯Ø§Ø± ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù† Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ÙˆØ·Ù†ÙŠ Ø§Ù„Ù…Ø¯Ø®Ù„ Ù„Ø´Ø®Øµ Ù…ØªÙˆÙÙŠ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -654,13 +654,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÇáÌÇãÚÉ ÇáÇÑÏäíÉ");
+		University.selectByVisibleText("Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø§Ø±Ø¯Ù†ÙŠØ©");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -688,11 +688,11 @@ public class RNVLRMS extends RNVLFields {
 		// System.out.println("Actual Message: " + ActualErrorMessage);
 		//
 		// Thread.sleep(Const*10);
-		// String ExpectedErrorMessage ="íÑÌì ÅÑİÇŞ ÕæÑÉ Úä ÔåÇÏÉ ÇáËÇäæíÉ
-		// ÇáÚÇãÉ / ÕæÑÉ
-		// Úä ãÚÇÏáÉ ÔåÇÏÉ ÇáËÇäæíÉ ÇáÚÇãÉ İí ÕİÍÉ ÇáãÑİŞÇÊ. áãÒíÏ ãä ÇáãÚáæãÇÊ
-		// íÑÌì
-		// ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		// String ExpectedErrorMessage ="ÙŠØ±Ø¬Ù‰ Ø¥Ø±ÙØ§Ù‚ ØµÙˆØ±Ø© Ø¹Ù† Ø´Ù‡Ø§Ø¯Ø© Ø§Ù„Ø«Ø§Ù†ÙˆÙŠØ©
+		// Ø§Ù„Ø¹Ø§Ù…Ø© / ØµÙˆØ±Ø©
+		// Ø¹Ù† Ù…Ø¹Ø§Ø¯Ù„Ø© Ø´Ù‡Ø§Ø¯Ø© Ø§Ù„Ø«Ø§Ù†ÙˆÙŠØ© Ø§Ù„Ø¹Ø§Ù…Ø© ÙÙŠ ØµÙØ­Ø© Ø§Ù„Ù…Ø±ÙÙ‚Ø§Øª. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª
+		// ÙŠØ±Ø¬Ù‰
+		// Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		// System.out.println("ExpectedErrorMessage: "+ ExpectedErrorMessage);
 		//
 		//
@@ -713,7 +713,7 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
@@ -721,7 +721,7 @@ public class RNVLRMS extends RNVLFields {
 		// Submission------------------------
 		Thread.sleep(Const * 10);
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ---------------------------------Take
@@ -799,13 +799,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ãÄÊå");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ù…Ø¤ØªÙ‡");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -824,7 +824,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ¡ äÙÑÇ áÚÏã ÅÓÊÑÌÇÚ ãÚáæãÇÊ ÇáÈßÇáæÑíæÓ ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÊÚáíã ÇáÚÇáí æÇáÈÍË ÇáÚáãí áÊÕæíÈ ÇáÃæÖÇÚ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ØŒ Ù†Ø¸Ø±Ø§ Ù„Ø¹Ø¯Ù… Ø¥Ø³ØªØ±Ø¬Ø§Ø¹ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¨ÙƒØ§Ù„ÙˆØ±ÙŠÙˆØ³ ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø¹Ø§Ù„ÙŠ ÙˆØ§Ù„Ø¨Ø­Ø« Ø§Ù„Ø¹Ù„Ù…ÙŠ Ù„ØªØµÙˆÙŠØ¨ Ø§Ù„Ø£ÙˆØ¶Ø§Ø¹ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -895,13 +895,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 30);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ßáíÉ ÇáÇãíÑÉ ãäì ááÊãÑíÖ");
+		University.selectByVisibleText("ÙƒÙ„ÙŠØ© Ø§Ù„Ø§Ù…ÙŠØ±Ø© Ù…Ù†Ù‰ Ù„Ù„ØªÙ…Ø±ÙŠØ¶");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -927,13 +927,13 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		// ----------------Assert---------------------------
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ----------------------------------------------------------------------------------------------
@@ -1012,13 +1012,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáßæíÊ");
+		UniversityCountry.selectByVisibleText("Ø§Ù„ÙƒÙˆÙŠØª");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÇáßæíÊ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„ÙƒÙˆÙŠØª");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1041,7 +1041,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃä ãÚáæãÇÊ ÇáÈßÇáæÑíæÓ ÇáãÏÎáÉ ÛíÑ ÕÍíÍÉ , áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù† Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¨ÙƒØ§Ù„ÙˆØ±ÙŠÙˆØ³ Ø§Ù„Ù…Ø¯Ø®Ù„Ø© ØºÙŠØ± ØµØ­ÙŠØ­Ø© , Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ---------------------------------Take
@@ -1110,13 +1110,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáßæíÊ");
+		UniversityCountry.selectByVisibleText("Ø§Ù„ÙƒÙˆÙŠØª");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÇáßæíÊ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„ÙƒÙˆÙŠØª");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1150,12 +1150,12 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -1234,13 +1234,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ãÕÑ");
+		UniversityCountry.selectByVisibleText("Ù…ØµØ±");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÇáŞÇåÑÉ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©");
 		// Admission date
 		Thread.sleep(Const * 10);
 		Select Admission = new Select(driver.findElement(AdmissionYear));
@@ -1268,12 +1268,12 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ---------------------------------Take
@@ -1354,13 +1354,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÚÑÇŞ");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø¹Ø±Ø§Ù‚");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÊßÑíÊ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© ØªÙƒØ±ÙŠØª");
 		// Admission date
 		Thread.sleep(Const * 10);
 		Select Admission = new Select(driver.findElement(AdmissionYear));
@@ -1391,12 +1391,12 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("ÓÚíÏ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("Ø³Ø¹ÙŠØ¯"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "Êã ÊŞÏíã ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ---------------------------------Take
@@ -1477,13 +1477,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÇáÌÇãÚÉ ÇáÇÑÏäíÉ");
+		University.selectByVisibleText("Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø§Ø±Ø¯Ù†ÙŠØ©");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1501,7 +1501,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ¡ äÙÑÇ áÚÏã ÅÓÊÑÌÇÚ ãÚáæãÇÊ ÇáÈßÇáæÑíæÓ ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÊÚáíã ÇáÚÇáí æÇáÈÍË ÇáÚáãí áÊÕæíÈ ÇáÃæÖÇÚ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ØŒ Ù†Ø¸Ø±Ø§ Ù„Ø¹Ø¯Ù… Ø¥Ø³ØªØ±Ø¬Ø§Ø¹ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¨ÙƒØ§Ù„ÙˆØ±ÙŠÙˆØ³ ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø¹Ø§Ù„ÙŠ ÙˆØ§Ù„Ø¨Ø­Ø« Ø§Ù„Ø¹Ù„Ù…ÙŠ Ù„ØªØµÙˆÙŠØ¨ Ø§Ù„Ø£ÙˆØ¶Ø§Ø¹ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1568,13 +1568,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáÃÑÏä");
+		UniversityCountry.selectByVisibleText("Ø§Ù„Ø£Ø±Ø¯Ù†");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÇáÚáæã æÇáÊßäæáæÌíÇ ÇáÃÑÏäíÉ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ø£Ø±Ø¯Ù†ÙŠØ©");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1592,7 +1592,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃä ÊÎÕÕß áíÓ ÊÇÈÚ áßáíÉ ÇáÊãÑíÖ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÊÚáíã ÇáÚÇáí æÇáÈÍË ÇáÚáãí áÊÕæíÈ ÇáÃæÖÇÚ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù† ØªØ®ØµØµÙƒ Ù„ÙŠØ³ ØªØ§Ø¨Ø¹ Ù„ÙƒÙ„ÙŠØ© Ø§Ù„ØªÙ…Ø±ÙŠØ¶ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø¹Ø§Ù„ÙŠ ÙˆØ§Ù„Ø¨Ø­Ø« Ø§Ù„Ø¹Ù„Ù…ÙŠ Ù„ØªØµÙˆÙŠØ¨ Ø§Ù„Ø£ÙˆØ¶Ø§Ø¹ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1659,13 +1659,13 @@ public class RNVLRMS extends RNVLFields {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("ÇáßæíÊ");
+		UniversityCountry.selectByVisibleText("Ø§Ù„ÙƒÙˆÙŠØª");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ÌÇãÚÉ ÇáßæíÊ");
+		University.selectByVisibleText("Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„ÙƒÙˆÙŠØª");
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1685,7 +1685,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ¡ äÙÑÇ áÇä ÍÇáÉ ÔåÇÏÉ ÇáÈßÇáæÑíæÓ (ÛíÑ ãÚÇÏáÉ) ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÊÚáíã ÇáÚÇáí æÇáÈÍË ÇáÚáãí áÊÕæíÈ ÇáÃæÖÇÚ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ØŒ Ù†Ø¸Ø±Ø§ Ù„Ø§Ù† Ø­Ø§Ù„Ø© Ø´Ù‡Ø§Ø¯Ø© Ø§Ù„Ø¨ÙƒØ§Ù„ÙˆØ±ÙŠÙˆØ³ (ØºÙŠØ± Ù…Ø¹Ø§Ø¯Ù„Ø©) ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø¹Ø§Ù„ÙŠ ÙˆØ§Ù„Ø¨Ø­Ø« Ø§Ù„Ø¹Ù„Ù…ÙŠ Ù„ØªØµÙˆÙŠØ¨ Ø§Ù„Ø£ÙˆØ¶Ø§Ø¹ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1728,7 +1728,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃäß ÛíÑ ãäÊÓÈ ááäŞÇÈÉ íÑÌì ÇáÇäÊÓÇÈ ááäŞÇÈÉ æãä Ëã ÊŞÏíã ØáÈ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 06500454";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù†Ùƒ ØºÙŠØ± Ù…Ù†ØªØ³Ø¨ Ù„Ù„Ù†Ù‚Ø§Ø¨Ø© ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø§Ù†ØªØ³Ø§Ø¨ Ù„Ù„Ù†Ù‚Ø§Ø¨Ø© ÙˆÙ…Ù† Ø«Ù… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨ ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 06500454";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1771,7 +1771,7 @@ public class RNVLRMS extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃäß ÛíÑ ãÓÏÏ ááÑÓæã ÇáãÊÑÊÈÉ Úáíß İí ÇáäŞÇÈÉ íÑÌì ÊÓÏíÏ ÑÓæã ÇáäŞÇÈÉ æãä Ëã ÊŞÏíã ØáÈ ÊÕÑíÍ ãÒÇæáÉ ãåäÉ ããÑÖ ŞÇäæäí. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù†Ùƒ ØºÙŠØ± Ù…Ø³Ø¯Ø¯ Ù„Ù„Ø±Ø³ÙˆÙ… Ø§Ù„Ù…ØªØ±ØªØ¨Ø© Ø¹Ù„ÙŠÙƒ ÙÙŠ Ø§Ù„Ù†Ù‚Ø§Ø¨Ø© ÙŠØ±Ø¬Ù‰ ØªØ³Ø¯ÙŠØ¯ Ø±Ø³ÙˆÙ… Ø§Ù„Ù†Ù‚Ø§Ø¨Ø© ÙˆÙ…Ù† Ø«Ù… ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨ ØªØµØ±ÙŠØ­ Ù…Ø²Ø§ÙˆÙ„Ø© Ù…Ù‡Ù†Ø© Ù…Ù…Ø±Ø¶ Ù‚Ø§Ù†ÙˆÙ†ÙŠ. Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1814,7 +1814,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÍÏæË ÎØÃ İí ÅÓÊÑÌÇÚ ãÚáæãÇÊß ãä äŞÇÈÉ ÇáããÑÖíä¡ íÑÌì ãÑÇÌÚÉ äŞÇÈÉ ÇáããÑÖíä ááÊÃßÏ ãä ÇáÅäÊÓÇÈ æáÊÃßÏ ãä ÕÍÉ ÈíÇäÇÊß¡ áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø­Ø¯ÙˆØ« Ø®Ø·Ø£ ÙÙŠ Ø¥Ø³ØªØ±Ø¬Ø§Ø¹ Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙƒ Ù…Ù† Ù†Ù‚Ø§Ø¨Ø© Ø§Ù„Ù…Ù…Ø±Ø¶ÙŠÙ†ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© Ù†Ù‚Ø§Ø¨Ø© Ø§Ù„Ù…Ù…Ø±Ø¶ÙŠÙ† Ù„Ù„ØªØ£ÙƒØ¯ Ù…Ù† Ø§Ù„Ø¥Ù†ØªØ³Ø§Ø¨ ÙˆÙ„ØªØ£ÙƒØ¯ Ù…Ù† ØµØ­Ø© Ø¨ÙŠØ§Ù†Ø§ØªÙƒØŒ Ù„Ù…Ø²ÙŠØ¯ Ù…Ù† Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø¥ØªØµØ§Ù„ Ø¹Ù„Ù‰ Ø§Ù„Ø®Ø· Ø§Ù„Ø³Ø§Ø®Ù† Ù„ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
