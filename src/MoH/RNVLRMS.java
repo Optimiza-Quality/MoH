@@ -344,7 +344,7 @@ public class RNVLRMS extends RNVLFields {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3200-RMS_NotExistsUser.png"));
 
-		// -----------------------------------------------------------------------------------------------
+		// ------------.------------------------------------------------------------------------------------
 
 	}
 
