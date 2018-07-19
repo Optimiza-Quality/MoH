@@ -9,6 +9,7 @@ public class RNVLFields {
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
 
 	// HomePage
+	By ChangeLanguage = By.linkText("English");
 	By Apply = By.xpath("//*[@id=\"txt19\"]");
 	By ApplyCSS = By.cssSelector("#txt19");
 	By ApplicantTypeDDL = By.id("pt1:r1:0:scl1:dc_smc1::content");
@@ -38,6 +39,7 @@ public class RNVLFields {
 	By SchoolingSysDDL = By.id("pt1:r1:3:socSecondaryStudySystemRid::content");
 	By CertificateYearDDL = By.id("pt1:r1:3:socSecondaryStudyYearRid::content");
 	By SemesterDDL = By.id("pt1:r1:3:socSecondaryStudyCourse::content");
+	By HighSchoolCountry = By.id("pt1:r1:3:socSecondaryCountry::content");
 	By StudentID = By.id("pt1:r1:3:itSecondarySessionNo::content");
 	By UniversityCountryDDL = By.id("pt1:r1:3:socAcademicCountryRid::content");
 	By UniversityDDL = By.id("pt1:r1:3:soc11::content");
@@ -101,7 +103,7 @@ public class RNVLFields {
 	By GoToMyPage = By.id("MyAppsImg");
 	By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
 	By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
-	By MyPageCardNo = By.id("pt1:r1:0:it2::content");
+	By MyPageCardNo = By.id("pt1:r1:0:p1:dc_it1::content");
 	By MyPageSearch = By.id("pt1:r1:0:b1");
 	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
 	By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
@@ -133,7 +135,9 @@ public class RNVLFields {
 	By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
 	By HeadMoveAll = By.id("pt1:r1:2:smsShuttle::moveall");
 	By DetailsLink = By.linkText(" ›«’Ì·");
-
+	By HeadNavigateOut = By.id("pt1:r1:1:requestStatus::content");
+		
+	
 	// Internal-TakeAction-Director
 	By DirectorSearchld = By.id("pt1:r1:4:requestNo::content");
 	By DirectorSearchBtn = By.id("pt1:r1:4:b1");
@@ -143,5 +147,6 @@ public class RNVLFields {
 	By DirectorReject = By.xpath("//*[@id=\"pt1:r1:5:sor1:_2\"]");
 	By DirectorMoveAll = By.id("pt1:r1:5:smsShuttle::moveall");
 	By DirectorIncomplete = By.xpath("//*[@id=\"pt1:r1:5:sor1:_1\"]");
+	By DirectorNavigateOut = By.id("pt1:r1:4:requestStatus::content");
 
 }

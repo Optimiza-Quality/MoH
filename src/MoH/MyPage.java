@@ -1,12 +1,15 @@
 package MoH;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -14,14 +17,20 @@ import org.testng.Assert;
 public class MyPage extends RNVLFields{
 
 	WebDriver driver;
-	Integer Const = 200;
-	
-	String NewKeepAppNo = RNVLInternal.KeepAppNo;
+	Integer Const = 800;
 	
 	
-	public void ViewApplicationAndLicense_Jordanain_Case1101() throws InterruptedException, IOException {
+	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue) throws InterruptedException, IOException {
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -30,9 +39,9 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-		driver.findElement(MyPageCardNo).sendKeys("12345678"); // Card-No
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
 
 		Thread.sleep(Const * 2);
 
@@ -52,7 +61,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForApp).sendKeys(NewKeepAppNo); // Search-For-App-Number
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
 
 		Thread.sleep(Const);
 
@@ -85,7 +94,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForLicense).sendKeys(NewKeepAppNo);// Search-For-License
+		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
 
 		Thread.sleep(Const);
 
@@ -116,9 +125,17 @@ public class MyPage extends RNVLFields{
 	}
 
 	
-	public void ViewApplicationAndLicense_HealthInstitute_Case2101() throws InterruptedException, IOException {
+	public void ViewApplicationAndLicense_HealthInstitute_Case2101(String KeepAppNo) throws InterruptedException, IOException {
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -149,7 +166,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForApp).sendKeys(NewKeepAppNo); // Search-For-App-Number
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
 
 		Thread.sleep(Const);
 
@@ -182,7 +199,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForLicense).sendKeys(NewKeepAppNo);// Search-For-License
+		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
 
 		Thread.sleep(Const);
 
@@ -213,9 +230,17 @@ public class MyPage extends RNVLFields{
 	}
 
 	
-	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101() throws InterruptedException, IOException {
+	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101(String KeepAppNo) throws InterruptedException, IOException {
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -246,7 +271,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForApp).sendKeys(NewKeepAppNo); // Search-For-App-Number
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
 
 		Thread.sleep(Const);
 
@@ -279,7 +304,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForLicense).sendKeys(NewKeepAppNo);// Search-For-License
+		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
 
 		Thread.sleep(Const);
 
@@ -313,6 +338,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -357,6 +390,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -401,6 +442,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_HealthInstitute_Case7200() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -445,6 +494,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_RoyalMedicalServices_Case7200_2() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -489,6 +546,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_Individuals_Case7300() throws InterruptedException, IOException {
 
 		// «·„⁄·Ê„«  €Ì— „ÿ«»ﬁ…
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
