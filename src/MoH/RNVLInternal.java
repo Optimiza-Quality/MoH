@@ -53,15 +53,7 @@ public class RNVLInternal extends MyPage {
 
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+		this.TrimAppNo(AppNo);	
 
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
@@ -319,15 +311,7 @@ public class RNVLInternal extends MyPage {
 		
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+		this.TrimAppNo(AppNo);
 
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
@@ -404,15 +388,7 @@ public class RNVLInternal extends MyPage {
 	
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+		this.TrimAppNo(AppNo);
 
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
@@ -456,4 +432,19 @@ public class RNVLInternal extends MyPage {
 
 	}
 
+	public void TrimAppNo(String AppNo)
+	{
+		
+		String[] TrimmedAppNo = AppNo.split(" ");
+
+		for (String str : TrimmedAppNo) {
+			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
+
+			break;
+		}
+		
+		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+	}
+	
+	
 }

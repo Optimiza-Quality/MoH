@@ -73,7 +73,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 2);
 
-		driver.findElement(AppDetails).click(); // Details
+		driver.findElement(DetailsLink).click(); // Details
 
 		Thread.sleep(Const * 10);
 
@@ -178,7 +178,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(AppDetails).click(); // Details
+		driver.findElement(DetailsLink).click(); // Details
 
 		Thread.sleep(Const * 10);
 
@@ -283,7 +283,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(AppDetails).click(); // Details
+		driver.findElement(DetailsLink).click(); // Details
 
 		Thread.sleep(Const * 10);
 
