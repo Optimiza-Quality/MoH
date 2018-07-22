@@ -115,6 +115,48 @@ public class GPLIndividual extends GPLFields{
 
 	}
 
+	public void EditContactDetails() throws InterruptedException {
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+
+		Thread.sleep(Const * 5);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyMobileNumber).clear();
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyMobileNumber).sendKeys("987654321"); // Edit-Mobile-Number
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyEmail).clear(); // Clear-Email
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyEmail).sendKeys("SECOND.EMAIL@GMAIL.com"); // Edit-Email
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyAddress).clear(); // Clear-Address
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyAddress).sendKeys("ADDRESS 2, STREET 2, BUILDING 2"); // Edit-AdDress
+
+		Thread.sleep(Const * 5);
+
+		driver.findElement(SaveEditedInfo).click(); // Save
+
+		Thread.sleep(Const * 4);
+
+		driver.findElement(GoToHomePage).click(); // Home-Page-Icon
+
+	}
+	
 	@Test(priority = 1)
 	public void SubmitIndividualApp_Case4000() throws InterruptedException, IOException{
 		
@@ -237,6 +279,160 @@ public class GPLIndividual extends GPLFields{
 
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("Passed. Individual Pharmacist Case 4.0.0.0 " + ActualResult);
+
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+
+		System.out.println("Application Number: " + AppNo);
+
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		
+	}
+
+	@Test(priority = 2)
+	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
+		
+		//ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9851032994");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19850115");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100000822");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+		
+		Thread.sleep(Const * 10);
+		
+		// --------------------------------Edit-Contact-Details---------------------------------
+		
+		driver.findElement(ModifyContactDetails).click();
+		
+		this.EditContactDetails();
+		//-----------------------Go-Back-To-Application-Form----------------------------------
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userTypeAgain = new Select(driver.findElement(AppType));
+		userTypeAgain.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9851032994");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19850115");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100000822");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+		
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(NextToVerificationCode).click();
+		
+		//---------------------------Verification-Code---------------------------------------
+		
+		driver.findElement(VerificationCode).sendKeys("0000", Keys.TAB);
+		
+		Thread.sleep(Const * 5);
+		
+		driver.findElement(NextToOtherInfo).click();
+		
+		//---------------------------Other-Info---------------------------------------
+		
+		driver.findElement(PropertyNumber).sendKeys("51282027248131");
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(PharmCoordinates).sendKeys("45456");
+		
+		driver.findElement(SocialSecurityNo).sendKeys("9822056900");
+		
+		driver.findElement(PharmAddress).sendKeys("address 1");
+		
+		Select holiday = new Select(driver.findElement(Hoiday));
+		holiday.selectByIndex(1);
+		
+		driver.findElement(CheckBox).click();
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToAttachemnts).click();
+		
+		//---------------------------Attachments---------------------------------------
+		
+		driver.findElement(Sketch).click();
+		
+		Thread.sleep(Const * 20);
+		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
+
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(Lease).click();
+		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
+
+		Thread.sleep(Const * 40);
+		
+		driver.findElement(NextToRating).click();
+		
+		//---------------------------Review---------------------------------------
+		
+		Thread.sleep(Const * 5);
+		driver.findElement(RateNeutralAttachmentCases).click();
+		
+		Thread.sleep(Const * 5);
+		driver.findElement(NotesAttachmentCases).sendKeys("„Õ«Ìœ");
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(SubmitAttachmentCases).click();
+		
+		//----------------------Success-Message-----------------------------------
+		Thread.sleep(Const * 20);
+
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture-screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.2.0.0.png"));
+
+		// -----------------------------------------------------------------------------------------------
+		System.out.println("Passed. Individual Pharmacist Case 4.2.0.0 " + ActualResult);
 
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 
@@ -985,7 +1181,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 2)
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
 		//—ﬁ„ «‰ ”«» «·÷„«‰ €Ì— ’ÕÌÕ
@@ -1414,4 +1610,90 @@ public class GPLIndividual extends GPLFields{
 		System.out.println("Passed. Individual Pharmacist Case 4.10.1.0");
 		
 	}
+
+	@Test(priority = 17)
+	public void SubmitIndividualApp_Case41020() throws InterruptedException, IOException{
+		
+		//«·⁄ﬁ«— ⁄·ÌÂ ÿ·» ”«»ﬁ
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9831061595");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19830606");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100103923");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+		
+		Thread.sleep(Const * 8);
+		
+		try {
+
+			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
+
+			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+
+			Thread.sleep(Const * 4);
+			
+		} catch (Exception e) {// do nothing
+
+		}
+		
+		driver.findElement(NextToVerificationCode).click();
+		
+		//---------------------------Verification-Code---------------------------------------
+		
+		driver.findElement(VerificationCode).sendKeys("0000", Keys.TAB);
+		
+		Thread.sleep(Const * 5);
+		
+		driver.findElement(NextToOtherInfo).click();
+		
+		//---------------------------Other-Info---------------------------------------
+		
+		driver.findElement(PropertyNumber).sendKeys("91751103828112", Keys.TAB);
+		
+		Thread.sleep(Const * 20);
+
+		//---------------------------------
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "ÿ·»";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.10.2.0.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.10.2.0");
+		
+	}
+
 }
