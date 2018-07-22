@@ -30,7 +30,7 @@ public class RNVLRMS extends RNVLFields {
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -38,7 +38,7 @@ public class RNVLRMS extends RNVLFields {
 		// driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.get("https://172.16.0.254:4443/public/index.html");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
@@ -50,10 +50,10 @@ public class RNVLRMS extends RNVLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://ohs-vip:4443/public/index.html");
+			driver.get("https://172.16.0.254:4443/public/index.html");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
@@ -289,7 +289,6 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 20);
 
 		driver.findElement(By.id("pt1:r1:2:itNotes::content")).sendKeys("notes", Keys.TAB);// Notes
-
 		Thread.sleep(Const * 10);
 
 		driver.findElement(By.id("pt1:r1:2:b2")).click(); // Process
@@ -364,10 +363,8 @@ public class RNVLRMS extends RNVLFields {
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-
 		driver.findElement(PrivateNo).sendKeys("71445"); // Private
 															// Number
-
 		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
 		driver.findElement(MilitaryNo).sendKeys("7411325533"); // Military
 																// ID-No
