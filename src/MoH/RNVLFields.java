@@ -111,6 +111,7 @@ public class RNVLFields {
 	By PreviousToApps = By.id("pt1:r1:2:r1:1:b1");
 	By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
 	By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
+	By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
 
 	// Internal-Login
 	By EMPUsername = By.id("pt1:lid1:dc_it1::content");

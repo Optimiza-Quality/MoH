@@ -1,6 +1,9 @@
 package MoH;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -12,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 public class MyPage extends RNVLFields{
@@ -20,7 +24,7 @@ public class MyPage extends RNVLFields{
 	Integer Const = 800;
 	
 	
-	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue) throws InterruptedException, IOException {
+	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
 		
@@ -67,10 +71,6 @@ public class MyPage extends RNVLFields{
 
 		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
 
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
-		// //
-		// Search
-
 		Thread.sleep(Const * 2);
 
 		driver.findElement(DetailsLink).click(); // Details
@@ -85,27 +85,24 @@ public class MyPage extends RNVLFields{
 
 		driver.findElement(PreviousToApps).click(); // Previous
 
-		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
 
 		// -------------------------------View-License----------------------------------
 		driver.findElement(MyLicenseTab).click(); // License-Tab
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
-
-		Thread.sleep(Const);
-
-		driver.findElement(SearchForLicense).sendKeys(Keys.ENTER);// Search
-
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
-		// //
-		// Search
-
-		Thread.sleep(Const * 10);
-
+//		driver.findElement(LicenseDate).sendKeys(date1);
+//		
+//		Thread.sleep(Const);
+//
+//		driver.findElement(SearchForLicense).sendKeys(Keys.ENTER);// Search
+//
+//		Thread.sleep(Const * 5);
+//		
+//		driver.findElement(DetailsLink).click();
+//
+//		Thread.sleep(Const * 10);
+		
 		// capture screenshot
 
 		TakesScreenshot ts1 = (TakesScreenshot) driver;
@@ -114,10 +111,7 @@ public class MyPage extends RNVLFields{
 
 		// -------------------------------Clear----------------------------------
 
-		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
-		// //
-		// Clear-Search
-
+		
 		driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
 
 		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1");
@@ -824,6 +818,22 @@ public class MyPage extends RNVLFields{
 
 	}
 
+
+//	 public static String Date(String[] args) {
+//		 
+//		 // Create object of SimpleDateFormat class and decide the format
+//		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
+//		 
+//		 //get current date time with Date()
+//		 Date date = new Date();
+//		 
+//		 // Now format the date
+//		 String date1= dateFormat.format(date);
+//		 
+//		 // Print the Date
+//		return date1;
+//		 
+//		 }
 
 	
 }

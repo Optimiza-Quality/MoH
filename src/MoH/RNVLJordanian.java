@@ -1920,6 +1920,9 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		KeepAppNo=Processing_Jordanian_Case1130(AppNo);//Rejected-Head
 		
+		//KeepAppNo=Processing_Jordanian_Case1100(AppNo);
+		//Processing_Jordanian_Case1100_2(KeepAppNo);
+		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberVlaue);
 
 	}
