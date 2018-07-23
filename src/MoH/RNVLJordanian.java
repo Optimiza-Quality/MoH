@@ -29,7 +29,7 @@ public class RNVLJordanian extends RNVLFields {
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "\\\\MoH\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
@@ -37,7 +37,7 @@ public class RNVLJordanian extends RNVLFields {
 		// driver = new FirefoxDriver();
 
 		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.get("https://172.16.0.254:4443/public/index.html");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
@@ -49,10 +49,10 @@ public class RNVLJordanian extends RNVLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "\\\\MoH\\\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://ohs-vip:4443/public/index.html");
+			driver.get("");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
@@ -3080,10 +3080,12 @@ public class RNVLJordanian extends RNVLFields {
 		driver.findElement(NextToOtherInfo).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
+		Thread.sleep(Const * 10);
 
 		// Schooling-System
 		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
 		SchoolingSystem.selectByIndex(1); // Jordanian
+		Thread.sleep(Const * 10);
 
 		// Certificate-Year
 		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
@@ -3111,10 +3113,12 @@ public class RNVLJordanian extends RNVLFields {
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
 		Graduation.selectByVisibleText("2005"); // Graduation-Year
+		Thread.sleep(Const * 10);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
 		Degree.selectByIndex(1); // Bachelor
+		Thread.sleep(Const * 10);
 
 		// Equivalence-Letter
 		driver.findElement(EquivalenceLetter).sendKeys("12344");

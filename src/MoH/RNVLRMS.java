@@ -106,7 +106,7 @@ public class RNVLRMS extends RNVLFields {
 				// screenshot in our project home directory and
 				// result.getName() will return name of test case so that
 				// screenshot name will be same
-				FileUtils.copyFile(source, new File("./Screenshots/" + result.getName() + ".png"));
+				FileUtils.copyFile(source, new File("./ScreenShotsFailed/" + result.getName() + ".png"));
 
 				System.out.println("Failed. Screenshot taken " + result.getName());
 			} catch (Exception e) {
@@ -118,122 +118,122 @@ public class RNVLRMS extends RNVLFields {
 		driver.quit();
 
 	}
-
+	// submit successfully
 	@Test(priority = 1, enabled = true, retryAnalyzer = MoH.RetryAnalyzer.class)
 	public void SubmitNursingApp_RMS_Case3000() throws InterruptedException, IOException {
-		// submit successfully
-
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		Thread.sleep(Const * 10);
 
-		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7411325533"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("20177"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("452245712"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		Thread.sleep(Const * 20);
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("الجامعة الاردنية");
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2006"); // Graduation-Year
 
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
-
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		String AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
-		// ---------------------------------Take
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 		// ScreenShot------------------------------
-		Thread.sleep(Const * 10);
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3000-ApplicationNoRMS.png"));
+				Thread.sleep(Const * 10);
+				TakesScreenshot ts = (TakesScreenshot) driver;
+				File source = ts.getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3000-ApplicationNoRMS.png"));
+
+				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+
+				String ExpectedResult = "تم تقديم طلبك بنجاح";
+
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+		// ---------------------------------Take
+		
 
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
 
 		driver.get("https://172.16.0.254:4443/internal/faces/index.jsf");
 
@@ -289,6 +289,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 20);
 
 		driver.findElement(By.id("pt1:r1:2:itNotes::content")).sendKeys("notes", Keys.TAB);// Notes
+
 		Thread.sleep(Const * 10);
 
 		driver.findElement(By.id("pt1:r1:2:b2")).click(); // Process
@@ -299,30 +300,28 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 2, enabled = true)
 	public void SubmitNursingApp_RMS_Case3200() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("71445826"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("71445826"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("71445"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("71445"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7411325533"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		// --------------------Assert---------------------
 
 		Thread.sleep(Const * 10);
@@ -343,7 +342,7 @@ public class RNVLRMS extends RNVLFields {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3200-RMS_NotExistsUser.png"));
 
-		// ------------.--------------------------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------
 
 	}
 
@@ -351,28 +350,28 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 3, enabled = true)
 	public void SubmitNursingApp_RMS_Case3210() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next button
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("71445"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7411325533"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("71445"); // Private Number
+
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		Thread.sleep(Const * 10);
@@ -399,28 +398,26 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 4, enabled = true)
 	public void SubmitNursingApp_RMS_Case3300() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7411325533"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		System.out.println(
@@ -448,36 +445,36 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 4, enabled = true)
 	public void RMS_Case3400() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// RMS
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys(""); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys(""); // Military
-														// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7425"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("717144523"); // Military ID-No
 		Thread.sleep(Const * 10);
 
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 		// -------------Assert---------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، بسبب وجود تصريح مزاولة مهنة ممرض قانوني سابق، يرجى استخدام الرابط التالي لاستعراض المزاولة. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.4.0.0");
@@ -492,31 +489,29 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 5, enabled = true)
 	public void SubmitNursingApp_RMS_Case3500() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("7728"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9882773822"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7728"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9882773822"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		// ----------------------Assert-----------------------
 		Thread.sleep(Const * 20);
 		String ActualErrorMessage = driver.findElement(By.xpath("pt1:exceptionMsg")).getText();
@@ -545,33 +540,33 @@ public class RNVLRMS extends RNVLFields {
 	public void SubmitNursingApp_RMS_Dead_Case3500() throws InterruptedException, IOException {
 
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("4378"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9731006845"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("4378"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9731006845"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 
 		// ----------------------Assert-----------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لأن الرقم الوطني المدخل لشخص متوفي. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
@@ -593,83 +588,81 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3600() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9791051994"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7196"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9791051994"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("الجامعة الاردنية");
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2014"); // Graduation-Year
 
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -681,43 +674,40 @@ public class RNVLRMS extends RNVLFields {
 		// -------------------------------Attachments-Section-----------------------
 		// -----------------Assert for warning message --------------------
 		// String ActualErrorMessage =
-		// driver.findElement(ErrorMessageByXpath).getText();
+		// driver.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div")).getText();
 		// System.out.println("Actual Message: " + ActualErrorMessage);
 		//
 		// Thread.sleep(Const*10);
-		// String ExpectedErrorMessage ="يرجى إرفاق صورة عن شهادة الثانوية
-		// العامة / صورة
-		// عن معادلة شهادة الثانوية العامة في صفحة المرفقات. لمزيد من المعلومات
-		// يرجى
+		// String ExpectedErrorMessage ="يرجى إرفاق صورة عن شهادة الثانوية العامة / صورة
+		// عن معادلة شهادة الثانوية العامة في صفحة المرفقات. لمزيد من المعلومات يرجى
 		// الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		// System.out.println("ExpectedErrorMessage: "+ ExpectedErrorMessage);
 		//
 		//
 		// Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
-		driver.findElement(UploadSchoolCertificate).click(); // Choose
-																// File
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		driver.findElement(By.id("pt1:r1:4:it2hh:0:cif1:bButtonFile")).click(); // Choose File
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 		Thread.sleep(Const * 20);
-		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:bAttamentNext")).click(); // Next-Button
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 20);
-		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:5:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:6:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitAttachmentCases).click(); // Submit
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
 		// -------------------------Assert-Application
 		// Submission------------------------
 		Thread.sleep(Const * 10);
-		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		String ActualResult = driver.findElement(By.id("pt1:r1:7:fp1:dc_ol7")).getText();
 		String ExpectedResult = "تم تقديم طلبك بنجاح";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -731,90 +721,88 @@ public class RNVLRMS extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS Case3600" + ActualResult);
 		Thread.sleep(Const * 10);
-		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		driver.findElement(By.id("pt1:r1:6:fp1:dc_b1")).click(); // Home-Page
 	}
 
 	// Bachelor's degree info not retrieved in MOHE table
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3700() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("19728"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9872003176"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("19728"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9872003176"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة مؤته");
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
 
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 		// -----------------------------Assert--------------------------------------
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
@@ -838,105 +826,94 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3710() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("1279"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("1755643222"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("14374"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9831038134"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
-		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Thread.sleep(Const * 20);
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 20);
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
-		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Thread.sleep(Const * 20);
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 30);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("كلية الاميرة منى للتمريض");
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("1998"); // Graduation-Year
-		// Equivelant document number field
-		Thread.sleep(Const * 10);
-		driver.findElement(EquivalenceLetter).sendKeys("142544");
+//		// Equivelant document number field
+//		Thread.sleep(Const * 10);
+//		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("142544");
 		// Degree
-		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Thread.sleep(Const * 20);
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
-
-		// ----------------Assert---------------------------
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// ----------------------------------------------------------------------------------------------
-		System.out.println("RMS 3.0.0.0" + ActualResult);
-		Thread.sleep(Const * 10);
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -944,6 +921,16 @@ public class RNVLRMS extends RNVLFields {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3710.png"));
+		// ----------------Assert---------------------------
+		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+		String ExpectedResult = "تم تقديم طلبك بنجاح";
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// ----------------------------------------------------------------------------------------------
+		System.out.println("RMS 3.7.1.0" + ActualResult);
+		Thread.sleep(Const * 10);
+		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
+
 
 	}
 
@@ -951,85 +938,91 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3721() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("7414"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7412235474"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("6133"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9761018598"); // Military ID-No 
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 10);
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
+		Thread.sleep(Const * 10);
 
 		// University-Country
-		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Thread.sleep(Const * 20);
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الكويت");
 		// UniversityCountry.selectByIndex(139); // Jordan
+		Thread.sleep(Const * 10);
 
 		// University
-		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Thread.sleep(Const * 30);
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة الكويت");
+		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		
+		Thread.sleep(Const * 20);
+
 		// Equivelant document number field
-		Thread.sleep(Const * 10);
-		driver.findElement(EquivalenceLetter).sendKeys("142544");
+		Thread.sleep(Const * 20);
+		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("14242");
 		// Degree
-		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Thread.sleep(Const * 20);
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
-		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		Thread.sleep(Const * 20);
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ----------------------Assert-----------------------
 		Thread.sleep(Const * 20);
@@ -1037,13 +1030,13 @@ public class RNVLRMS extends RNVLFields {
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		String ExpectedErrorMessage = "لا يمكنك استمال تقديم الطلب نظرا لأن معلومات البكالوريوس المدخلة غير صحيحة , لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ---------------------------------Take
 		// ScreenShot------------------------------
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 30);
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3721-IncorrectEq.No.png"));
@@ -1054,81 +1047,82 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3720() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("7122"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9855217444"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("6133"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9761018598"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
-		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Thread.sleep(Const * 20);
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 20);
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
-		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("الكويت");
+		Thread.sleep(Const * 20);
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
+		UniversityCountry.selectByVisibleText("فرنسا");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("جامعة الكويت");
+		Thread.sleep(Const * 20);
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
+		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		Thread.sleep(Const * 20);
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
+		Graduation.selectByVisibleText("2005"); // Graduation-Year
+		Thread.sleep(Const * 20);
 
 		// Equivalent document number field
-		Thread.sleep(Const * 10);
-		driver.findElement(EquivalenceLetter).sendKeys("142544");
+		Thread.sleep(Const * 20);
+		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("12344");
 		// Degree
-		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Thread.sleep(Const * 20);
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -1139,19 +1133,19 @@ public class RNVLRMS extends RNVLFields {
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
 		String ExpectedResult = "تم تقديم طلبك بنجاح";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// ---------------------------------Take
@@ -1172,104 +1166,112 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3730() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
-		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		Thread.sleep(Const * 20);
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		Thread.sleep(Const * 20);
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		Thread.sleep(Const * 20);
 
-		driver.findElement(AssociationNumber).sendKeys("7441"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7174458234"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7441"); // Association-Number
+		Thread.sleep(Const * 20);
+
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7174458234"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
+		Thread.sleep(Const * 20);
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Thread.sleep(Const * 10);
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Thread.sleep(Const * 20);
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 		// ---------------------------------Bachelor-Degree-Frame----------------
 
 		// University-Country
-		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Thread.sleep(Const * 20);
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("مصر");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Thread.sleep(Const * 20);
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة القاهرة");
 		// Admission date
-		Thread.sleep(Const * 10);
-		Select Admission = new Select(driver.findElement(AdmissionYear));
+		Thread.sleep(Const * 20);
+		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
 		Admission.selectByVisibleText("1998"); // Graduation-Year
+		Thread.sleep(Const * 20);
+
 		// Degree
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
+		Thread.sleep(Const * 20);
+
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Thread.sleep(Const * 20);
 
 		// Equivalent document number field
 		// Thread.sleep(Const*10);
-		// driver.findElement(EquivalenceLetter).sendKeys("142544");
+		// driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("142544");
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
 		String ExpectedResult = "تم تقديم طلبك بنجاح";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1283,116 +1285,117 @@ public class RNVLRMS extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
 	}
 
 	// Governmental outside , After 2001
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3731() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("25669"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("1755236447"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("25669"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("1755236447"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("العراق");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Thread.sleep(Const * 20);
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة تكريت");
 		// Admission date
-		Thread.sleep(Const * 10);
-		Select Admission = new Select(driver.findElement(AdmissionYear));
+		Thread.sleep(Const * 20);
+		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
 		Admission.selectByVisibleText("2002");
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 
 		// Degree
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
+		Thread.sleep(Const * 20);
+
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Thread.sleep(Const * 20);
 
 		// Equivalent document number field
-		Thread.sleep(Const * 10);
-		driver.findElement(EquivalenceLetter).sendKeys("142544");
+		Thread.sleep(Const * 20);
+		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("99999");
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
 		String ExpectedResult = "تم تقديم طلبك بنجاح";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1406,7 +1409,7 @@ public class RNVLRMS extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
 	}
 
 	// Not graduated user
@@ -1415,87 +1418,87 @@ public class RNVLRMS extends RNVLFields {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\nftaiha\\eclipse-MoH-UAT\\MoH-UAT\\src\\chromedriver.exe");
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(AssociationNumber).sendKeys("2639"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9671008411"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("2639"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9671008411"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("الجامعة الاردنية");
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2013"); // Graduation-Year
 
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// --------------------------Assert----------------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، نظرا لعدم إسترجاع معلومات البكالوريوس ، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
@@ -1515,78 +1518,81 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 9, enabled = true)
 	public void SubmitNursingApp_RMS_Case3760() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("7057"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9791048710"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7057"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9791048710"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
-		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Thread.sleep(Const * 20);
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 20);
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// ------------------------Bachelor-Degree-Frame--------------------
 		// University-Country
-		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Thread.sleep(Const * 20);
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Thread.sleep(Const * 20);
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة العلوم والتكنولوجيا الأردنية");
+		Thread.sleep(Const * 20);
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Thread.sleep(Const * 20);
 
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// --------------------------Assert----------------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن تخصصك ليس تابع لكلية التمريض، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
@@ -1606,80 +1612,80 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 14, enabled = true)
 	public void SubmitNursingApp_RMS_Case3750() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("7418"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("7144582411"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7418"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7144582411"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToVerificationCode).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToOtherInfo).click(); // Next
+		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
 		// Schooling-System
 		Thread.sleep(Const * 10);
-		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
 		Thread.sleep(Const * 10);
 		// Certificate-Year
-		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 
 		// Semester
-		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// ------------------------Bachelor-Degree-Frame--------------------
 		// University-Country
 		Thread.sleep(Const * 10);
-		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الكويت");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
-		Select University = new Select(driver.findElement(UniversityDDL));
+		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة الكويت");
 
 		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
 
 		// Equivelant document number field
 		Thread.sleep(Const * 10);
-		driver.findElement(EquivalenceLetter).sendKeys("142544");
+		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("741224");
 		// Degree
 		Thread.sleep(Const * 10);
-		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 		// ----------------------Assert-----------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، نظرا لان حالة شهادة البكالوريوس (غير معادلة) ، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
@@ -1699,30 +1705,30 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 10, enabled = true)
 	public void SubmitNursingApp_RMS_Case3800() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("7412"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9791048710"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7412"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9791048710"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 
 		// ----------------------Assert-----------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير منتسب للنقابة يرجى الانتساب للنقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 06500454";
@@ -1742,30 +1748,30 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3810() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("5867"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9772009853"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("5867"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9772009853"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 
 		// ----------------------Assert-----------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير مسدد للرسوم المترتبة عليك في النقابة يرجى تسديد رسوم النقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
@@ -1785,29 +1791,29 @@ public class RNVLRMS extends RNVLFields {
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3820() throws InterruptedException, IOException {
 		// click on submit application button
-		driver.findElement(ApplyCSS).click();
+		driver.findElement(By.cssSelector("#txt19")).click();
 		// user type ddl
-		Select userType = new Select(driver.findElement(ApplicantTypeDDLCSS));
+		Select userType = new Select(
+				driver.findElement(By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content")));
 		// //health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToBasicInfo).click(); // Next
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("717144523"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("523317"); // Private
-															// Number
-		driver.findElement(AssociationNumber).sendKeys("60982"); // Association-Number
-		driver.findElement(MilitaryNo).sendKeys("9592009582"); // Military
-																// ID-No
+		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
+		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("60982"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9592009582"); // Military ID-No
 		Thread.sleep(Const * 10);
-		driver.findElement(Captcha).sendKeys("0000"); // Captcha
-														// code
+		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
-		driver.findElement(VerifyButton).click(); // VerifyButton
+		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		// -------------Assert---------------------
-		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
+		String ActualErrorMessage = driver
+				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
@@ -1825,3 +1831,6 @@ public class RNVLRMS extends RNVLFields {
 
 	}
 }
+
+	
+

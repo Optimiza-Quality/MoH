@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MoH.RNVLInternal">
+      <class name="MoH.GPLMultiple">
         <methods>
-          <include name="Processing_Jordanian_Case1100"/>
+          <include name="GetDriver"/>
+          <include name="End"/>
+          <include name="SubmitMultipleApp_Case5000"/>
+          <include name="CrossBrowser"/>
         </methods>
-      </class> <!-- MoH.RNVLInternal -->
+      </class> <!-- MoH.GPLMultiple -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
