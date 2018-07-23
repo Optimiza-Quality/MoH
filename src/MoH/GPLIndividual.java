@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,7 +21,7 @@ public class GPLIndividual extends GPLFields{
 	
 	WebDriver driver;
 
-	Integer Const = 200;
+	Integer Const = 400;
 	public static String AppNo;
 
 	@BeforeMethod(enabled = true)
@@ -86,7 +85,7 @@ public class GPLIndividual extends GPLFields{
 		}
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into if
 		// condition
@@ -102,7 +101,7 @@ public class GPLIndividual extends GPLFields{
 				// screenshot in our project home directory and
 				// result.getName() will return name of test case so that
 				// screenshot name will be same
-				FileUtils.copyFile(source, new File("./Screenshots/" + result.getName() + ".png"));
+				FileUtils.copyFile(source, new File("./GPL-Individual-Screenshots/" + result.getName() + ".png"));
 
 				System.out.println("Failed. Screenshot taken " + result.getName());
 			} catch (Exception e) {
@@ -248,10 +247,13 @@ public class GPLIndividual extends GPLFields{
 		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
 		// Give path where the au3 is saved.
 
-		Thread.sleep(Const * 30);
+		Thread.sleep(Const * 20);
+		
+		driver.findElement(NextToReview).click();
+		
+		Thread.sleep(Const * 10);
 		
 		driver.findElement(NextToRating).click();
-		
 		//---------------------------Review---------------------------------------
 		
 		Thread.sleep(Const * 5);
@@ -288,7 +290,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
 		
 		//ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
@@ -404,8 +406,12 @@ public class GPLIndividual extends GPLFields{
 
 		Thread.sleep(Const * 40);
 		
-		driver.findElement(NextToRating).click();
+		driver.findElement(NextToReview).click();
 		
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(NextToRating).click();
+			
 		//---------------------------Review---------------------------------------
 		
 		Thread.sleep(Const * 5);
@@ -497,6 +503,61 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 		
+	@Test(priority = 4)
+	public void SubmitIndividualApp_Case4400() throws InterruptedException, IOException{
+		
+		//»Ì«‰«  «·«ÕÊ«· €Ì— „ÿ«»ﬁ…
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9831061595");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19810923");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100103923");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+	
+		Thread.sleep(Const * 20);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "€Ì— „ÿ«»ﬁ";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.4.0.0.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.4.0.0");
+		
+	}
+	
 	@Test(priority = 4)
 	public void SubmitIndividualApp_Case4410() throws InterruptedException, IOException{
 		
@@ -813,6 +874,10 @@ public class GPLIndividual extends GPLFields{
 
 		Thread.sleep(Const * 20);
 		
+		driver.findElement(NextToReview).click();
+		
+		Thread.sleep(Const * 10);
+		
 		driver.findElement(NextToRating).click();
 		
 		//---------------------------Review---------------------------------------
@@ -1071,6 +1136,61 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
+	@Test(priority = 11, enabled = false)
+	public void SubmitIndividualApp_Case4620() throws InterruptedException, IOException{
+		
+		//⁄œ„ «” —Ã«⁄ »Ì«‰«  „‰ «·‰ﬁ«»…
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9851055811");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19851002");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100053864");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+	
+		Thread.sleep(Const * 20);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "€Ì— „”œœ";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.6.1.0.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.6.1.0");
+		
+	}
+
 	@Test(priority = 12)
 	public void SubmitIndividualApp_Case4700() throws InterruptedException, IOException{
 		
@@ -1181,6 +1301,118 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
+	@Test(priority = 14)
+	public void SubmitIndividualApp_Case4800() throws InterruptedException, IOException{
+		
+		//«·’Ìœ·Ì Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9842002147");
+		
+		driver.findElement(PharmIDNumber).sendKeys("19840111");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100053860");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+			
+		Thread.sleep(Const * 20);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "Ì„ ·ﬂ";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.8.2.0.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.8.2.0");
+		
+		
+	}
+	
+	@Test(priority = 14)
+	public void SubmitIndividualApp_Case4810() throws InterruptedException, IOException{
+		
+		//«·’Ìœ·Ì ﬂ«‰ Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï ﬁ»· «ﬁ· „‰ ”‰ Ì‰
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9891061943");
+		
+		driver.findElement(PharmIDNumber).sendKeys("12345678");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100123055");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+			
+		Thread.sleep(Const * 20);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "Ì„ ·ﬂ";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.8.1.0.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.8.1.0");
+		
+		
+	}
+	
 	@Test(priority = 2)
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
@@ -1245,7 +1477,7 @@ public class GPLIndividual extends GPLFields{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
-		driver.findElement(SocialSecurityNo).sendKeys("985103299");
+		driver.findElement(SocialSecurityNo).sendKeys("555878");
 		
 		driver.findElement(PharmAddress).sendKeys("address 1");
 		
@@ -1283,7 +1515,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 15)
+	@Test(priority = 16)
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
 		//«·’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» —ﬁ„ «·÷„«‰
@@ -1341,7 +1573,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Other-Info---------------------------------------
 		
-		driver.findElement(PropertyNumber).sendKeys("51282027248131");
+		driver.findElement(PropertyNumber).sendKeys("51282027248131",Keys.TAB);
 		
 		Thread.sleep(Const * 8);
 		
@@ -1388,7 +1620,7 @@ public class GPLIndividual extends GPLFields{
 	@Test(priority = 16)
 	public void SubmitIndividualApp_Case4920() throws InterruptedException, IOException{
 		
-		//’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» ”Ã· Ê“«—… «·’Õ…
+		//«·’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» Ê“«—… «·’Õ… 
 		
 		driver.findElement(Apply).click();
 		
@@ -1405,18 +1637,65 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9842002147");
+		driver.findElement(PharmNationalID).sendKeys("9691023156");
 		
-		driver.findElement(PharmIDNumber).sendKeys("19840111");
+		driver.findElement(PharmIDNumber).sendKeys("ABC12345");
 		
-		driver.findElement(CoNationalNumber).sendKeys("100053860");
+		driver.findElement(CoNationalNumber).sendKeys("100123888");
 		
 		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
 		
 		Thread.sleep(Const * 8);
 		
 		driver.findElement(VerifyBtn).click();
+		
+		Thread.sleep(Const * 8);
+		
+		try {
+
+			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
+
+			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+
+			Thread.sleep(Const * 4);
 			
+		} catch (Exception e) {// do nothing
+
+		}
+		
+		driver.findElement(NextToVerificationCode).click();
+		
+		//---------------------------Verification-Code---------------------------------------
+		
+		driver.findElement(VerificationCode).sendKeys("0000", Keys.TAB);
+		
+		Thread.sleep(Const * 5);
+		
+		driver.findElement(NextToOtherInfo).click();
+		
+		//---------------------------Other-Info---------------------------------------
+		
+		driver.findElement(PropertyNumber).sendKeys("917116018328101",Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(PharmCoordinates).sendKeys("45456");
+		
+		//driver.findElement(SocialSecurityNo).sendKeys("9832000159");
+		
+		driver.findElement(PharmAddress).sendKeys("address 1");
+		
+		Select holiday = new Select(driver.findElement(Hoiday));
+		holiday.selectByIndex(3);
+		
+		driver.findElement(CheckBox).click();
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToAttachemnts).click();
+		
+		//---------------------------------
+		
 		Thread.sleep(Const * 20);
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
@@ -1438,9 +1717,8 @@ public class GPLIndividual extends GPLFields{
 
 		System.out.println("Passed. Individual Pharmacist Case 4.9.2.0");
 		
-		
 	}
-
+	
 	@Test(priority = 17)
 	public void SubmitIndividualApp_Case41000() throws InterruptedException, IOException{
 		

@@ -82,9 +82,8 @@ public class MyPage extends RNVLFields{
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
-
+		
 		driver.findElement(PreviousToApps).click(); // Previous
-
 
 		// -------------------------------View-License----------------------------------
 		driver.findElement(MyLicenseTab).click(); // License-Tab

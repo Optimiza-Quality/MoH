@@ -22,7 +22,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	WebDriver driver;
 
-	Integer Const = 800;
+	Integer Const = 600;
 	
 	public static String AppNo;
 	
@@ -327,7 +327,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 	}
 
-		@Test(priority = 2)
+		@Test(priority = 2, retryAnalyzer = MoH.RetryAnalyzer.class)
 	public void SubmitNursingApp_Jordanian_Case1200() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
@@ -368,7 +368,7 @@ public class RNVLJordanian extends RNVLInternal {
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.2.0.0_Initial_Contact_Detials.png"));
 
 		// --------------------------------Edit-Contact-Details---------------------------------
-		driver.findElement(By.id("pt1:r1:1:lModifyAddress::text")).click(); // Edit-Contact-Details-Link
+		driver.findElement(ModifyContactDetails).click(); // Edit-Contact-Details-Link
 		this.EditContactDetails();
 		// -------------------------Go-Back-To-Application-Form---------------------------------
 
@@ -376,7 +376,6 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// --------------------------------Select-Applicant-Type------------------------------
 		Select appTypeAgain = new Select(driver.findElement(ApplicantTypeDDL)); // Applicant-Type
-
 		appTypeAgain.selectByIndex(1); // Jordanian
 
 		Thread.sleep(Const * 3);
@@ -506,7 +505,6 @@ public class RNVLJordanian extends RNVLInternal {
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberVlaue);
 
 	}
-
 
 	@Test(priority = 3)
 	public void SubmitNursingApp_Jordanian_Case1300() throws InterruptedException, IOException {

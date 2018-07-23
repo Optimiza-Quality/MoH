@@ -157,7 +157,7 @@ public class RNVLInternal extends MyPage {
 		
 		}
 
-		System.out.println("Processed by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + "Processed by Departemnt Director");
 
 	}
 
@@ -210,7 +210,7 @@ public class RNVLInternal extends MyPage {
 		catch(Exception e){//Do nothing
 			}
 		
-		System.out.println("Rejected by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + "Rejected by Departemnt Director");
 
 	}
 
@@ -274,7 +274,7 @@ public class RNVLInternal extends MyPage {
 	
 		}
 		
-		System.out.println("Incomplete by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + "Incomplete by Departemnt Director");
 
 	}
 
@@ -350,7 +350,7 @@ public class RNVLInternal extends MyPage {
 		catch (Exception e){//nothing
 		}
 		
-		System.out.println("Rejected by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + "Rejected by Head of Departemnt");
 		
 		return KeepAppNo;
 
@@ -426,7 +426,7 @@ public class RNVLInternal extends MyPage {
 		catch (Exception e){//noth
 		}
 		
-		System.out.println("Incomplete by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + "Incomplete by Head of Departemnt");
 		
 		return KeepAppNo;
 

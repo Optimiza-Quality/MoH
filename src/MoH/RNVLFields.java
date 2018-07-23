@@ -30,6 +30,7 @@ public class RNVLFields {
 	By MilitaryNo = By.id("pt1:r1:1:itMilitaryNo::content");
 	By PersonalNumber = By.id("pt1:r1:1:itForeignerNo::content");
 	By Birthdate = By.id("pt1:r1:1:idBirthDate::content");
+	By ModifyContactDetails = By.linkText(" €ÌÌ— „⁄·Ê„«  «·« ’«·");
 
 	// VerificationPage
 	By VerificationCodeText = By.id("pt1:r1:2:vc1:dc_it1::content");
