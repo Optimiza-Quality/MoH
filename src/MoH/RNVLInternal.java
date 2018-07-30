@@ -9,11 +9,12 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 
 
 public class RNVLInternal extends MyPage {
-
+	Integer Const = 300;
 		
 	public String KeepAppNo;
 	
@@ -24,7 +25,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.manage().window().maximize();
 		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		
 		// „Ê«›ﬁ… —∆Ì” «·ﬁ”„
@@ -61,11 +62,11 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -92,9 +93,15 @@ public class RNVLInternal extends MyPage {
 		
 		}
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 7);
 
-		System.out.println("Approved by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + " Approved by Head of Department");
+		
+		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+		String ExpectedResult = " „  «·⁄„·Ì… »‰Ã«Õ";
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		
+		driver.findElement(BackButtonInternal).click();
 		
 		return KeepAppNo;
 
@@ -134,7 +141,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DirectorApprove).click(); // Radio-Approve
 
@@ -157,8 +164,9 @@ public class RNVLInternal extends MyPage {
 		
 		}
 
-		System.out.println("Passed. " + KeepAppNo + "Processed by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Approved by Departemnt Director");
 
+		driver.close();
 	}
 
 	public void Processing_Jordanian_Case1110(String KeepAppNo) throws InterruptedException, IOException {
@@ -191,7 +199,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DirectorReject).click(); // Radio-Reject
 
@@ -210,7 +218,9 @@ public class RNVLInternal extends MyPage {
 		catch(Exception e){//Do nothing
 			}
 		
-		System.out.println("Passed. " + KeepAppNo + "Rejected by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Departemnt Director");
+		
+		driver.close();
 
 	}
 
@@ -263,18 +273,20 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(DirectorProcessBtn).click(); // Process
 		
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 		
 		try{
 			driver.findElement(DirectorProcessBtn).click(); // Process
 			
-			Thread.sleep(Const * 20);
+			Thread.sleep(Const * 7);
 		}
 		catch(Exception e){//nothing
 	
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + "Incomplete by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Departemnt Director");
+		
+		driver.close();
 
 	}
 
@@ -285,7 +297,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.manage().window().maximize();
 		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		
 		// —›÷ —∆Ì” «·ﬁ”„
@@ -319,11 +331,11 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -339,20 +351,28 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(HeadProcessBtn).click(); // Process
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 		
 		try{
 			
 			driver.findElement(HeadProcessBtn).click(); // Process
 
-			Thread.sleep(Const * 20);
+			Thread.sleep(Const * 7);
 		}
 		catch (Exception e){//nothing
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + "Rejected by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Head of Departemnt");
 		
+		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+		String ExpectedResult = " „  «·⁄„·Ì… »‰Ã«Õ";
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		
+		driver.findElement(BackButtonInternal).click();
+		driver.close();
 		return KeepAppNo;
+		
+		
 
 	}
 
@@ -363,7 +383,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.manage().window().maximize();
 		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		// «” ﬂ„«· ‰Ê«ﬁ’ —∆Ì” «·ﬁ”„
 
@@ -396,11 +416,11 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -416,20 +436,26 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(HeadProcessBtn).click(); // Process
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
 		try{
 			driver.findElement(HeadProcessBtn).click(); // Process
 
-			Thread.sleep(Const * 20);		
+			Thread.sleep(Const * 7);		
 		}
 		catch (Exception e){//noth
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + "Incomplete by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Head of Departemnt");
+	
+		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+		String ExpectedResult = "»‰Ã«Õ";
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		
+		driver.findElement(BackButtonInternal).click();
+		driver.close();
 		return KeepAppNo;
-
+		
 	}
 
 	public void TrimAppNo(String AppNo)
