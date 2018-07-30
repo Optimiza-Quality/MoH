@@ -109,6 +109,7 @@ public class RNVLFields {
 	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
 	By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
 	By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
+	By IncompleteApp = By.linkText("«” ﬂ„«· ‰Ê«ﬁ’");
 	By PreviousToApps = By.id("pt1:r1:2:r1:1:b1");
 	By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
 	By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
@@ -128,8 +129,10 @@ public class RNVLFields {
 	By SecondStep = By.id("icon59");
 
 	// Internal-TakeAction-Head
+	By HeadNavigateOut = By.id("pt1:r1:1:requestStatus::content");
 	By HeadSearchld = By.id("pt1:r1:1:requestNo::content");
 	By HeadSearchBtn = By.id("pt1:r1:1:b1");
+	
 	By HeadNotes = By.id("pt1:r1:2:itNotes::content");
 	By HeadProcessBtn = By.id("pt1:r1:2:b2");
 	By HeadApprove = By.xpath("//*[@id=\"pt1:r1:2:sor1:_0\"]");
@@ -137,18 +140,22 @@ public class RNVLFields {
 	By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
 	By HeadMoveAll = By.id("pt1:r1:2:smsShuttle::moveall");
 	By DetailsLink = By.linkText(" ›«’Ì·");
-	By HeadNavigateOut = By.id("pt1:r1:1:requestStatus::content");
+
+	By SuccessMessageInternal = By.id("pt1:r1:3:m1");
+	By BackButtonInternal = By.id("pt1:r1:3:b1");
 		
 	
 	// Internal-TakeAction-Director
-	By DirectorSearchld = By.id("pt1:r1:4:requestNo::content");
-	By DirectorSearchBtn = By.id("pt1:r1:4:b1");
-	By DirectorNotes = By.id("pt1:r1:5:itNotes::content");
-	By DirectorProcessBtn = By.id("pt1:r1:5:b4");
-	By DirectorApprove = By.xpath("//*[@id=\"pt1:r1:5:sor1:_0\"]");
-	By DirectorReject = By.xpath("//*[@id=\"pt1:r1:5:sor1:_2\"]");
-	By DirectorMoveAll = By.id("pt1:r1:5:smsShuttle::moveall");
-	By DirectorIncomplete = By.xpath("//*[@id=\"pt1:r1:5:sor1:_1\"]");
-	By DirectorNavigateOut = By.id("pt1:r1:4:requestStatus::content");
+	By DirectorNavigateOut = By.id("pt1:r1:5:requestStatus::content");
+	By DirectorSearchld = By.id("pt1:r1:5:requestNo::content");
+	By DirectorSearchBtn = By.id("pt1:r1:5:b1");
+	
+	By DirectorNotes = By.id("pt1:r1:6:itNotes::content");
+	By DirectorProcessBtn = By.id("pt1:r1:6:b4");
+	By DirectorApprove = By.xpath("//*[@id=\"pt1:r1:6:sor1:_0\"]");
+	By DirectorReject = By.xpath("//*[@id=\"pt1:r1:6:sor1:_2\"]");
+	By DirectorMoveAll = By.id("pt1:r1:6:smsShuttle::moveall");
+	By DirectorIncomplete = By.xpath("//*[@id=\"pt1:r1:6:sor1:_1\"]");
+	
 
 }
