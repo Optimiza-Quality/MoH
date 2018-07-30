@@ -18,11 +18,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class RNVLHealthInstitute extends RNVLFields {
+public class RNVLHealthInstitute extends RNVLInternal {
 
 	WebDriver driver;
 
-	Integer Const = 100;
+	Integer Const = 200;
 	String AppNo;
 	String KeepAppNo;
 
@@ -130,11 +130,11 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
-		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
-		driver.findElement(PersonalNumber).sendKeys("977651214"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("01-06-1996"); // Birthdate
+		driver.findElement(NationalID).sendKeys("7802506"); // National-ID
+		driver.findElement(PrivateNo).sendKeys("pO@309"); // PrivateNumber
+		driver.findElement(AssociationNumber).sendKeys("7418"); // Association-Number
+		driver.findElement(PersonalNumber).sendKeys("741335844"); // PersonalNumber
+		driver.findElement(Birthdate).sendKeys("31-12-1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -198,41 +198,53 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		// -----------------------------------Upload-Attachments--------------------------
+				driver.findElement(UploadPassport).click(); // Passport
+				Thread.sleep(Const * 10);
+				Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+				// Give path where the au3 is saved.
+
+				Thread.sleep(Const * 10);
+				driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
+				Thread.sleep(Const * 10);
+				Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+				Thread.sleep(Const * 10);
+				driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+				Thread.sleep(Const * 30);
+				Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+				Thread.sleep(Const * 10);
+
+				// Next button
+				driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
-		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		Thread.sleep(Const * 20);
+		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
 
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
 		// -------------------Assert-------------
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-
-		String ExpectedResult ="تم تقديم طلبك بنجاح";
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-		System.out.println("Passed. Jordanian Nurse Case 1.0.0.0 " + ActualResult);
-
-
-
-		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText(); // Get-App-No
-
-
-
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " +ExpectedResult );
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		System.out.println("Passed. Health Institute Nurse Case 2.4.1.0 " + ActualResult);
 
-
-
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 		// ---------------------------------Take-ScreenShot------------------------------
 		Thread.sleep(Const * 20);
 		TakesScreenshot ts = (TakesScreenshot) driver;
@@ -275,7 +287,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "رقم قيد المنشأة الوطني غير موجود، لا يمكنك استكمال تقديم الطلب. يرجى مراجعة وزارة الصحة لإنشاء حساب خاص بك. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "رقم قيد المنشأة الوطني غير موجود، يرجى مراجعة وزارة الصحة لإنشاء حساب خاص بك. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -314,7 +326,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "الرقم الخاص غير مطابق، لا يمكنك استكمال تقديم الطلب. يرجى التأكد من صحة الرقم الخاص. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "الرقم الخاص غير صحيح، يرجى التأكد من صحة الرقم المدخل. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ---------------ScreenShot--------------------
@@ -354,7 +366,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لوجود طلب تصريح مزاولة مهنة ممرض قانوني سابق رقم لديك لايزال قيد التنفيذ، لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لوجود طلب تصريح مزاولة مهنة ممرض قانوني سابق رقم ( / ) لايزال قيد التنفيذ. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -392,7 +404,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لوجود تصريح مزاولة مهنة ممرض قانوني سابق فعال لدى المؤسسة الصحية المقدمة للطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لوجود تصريح مزاولة مهنة ممرض قانوني سابق فعال للممرض لدى نفس المؤسسة الصحية. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -417,7 +429,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("2589"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("714582347"); // PersonalNumber
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
@@ -487,31 +499,61 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
-		// ---------------------------------Review-Section----------------------------
+		// -----------------------------------Upload-Attachments--------------------------
+		driver.findElement(UploadPassport).click(); // Passport
 		Thread.sleep(Const * 10);
-		// -------------------Assert-------------
-
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
-
-		// ------------------------------Rate and Submit---------------------
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
+		Thread.sleep(Const * 10);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
-		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+		Thread.sleep(Const * 30);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
-		// ---------------------------------Take
-		// ScreenShot------------------------------
 		Thread.sleep(Const * 10);
+
+		// Next button
+		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
+
+// ---------------------------------Review-Section----------------------------
+Thread.sleep(Const * 20);
+driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+
+// ------------------------------Rate and Submit---------------------
+
+Thread.sleep(Const * 10);
+driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+
+Thread.sleep(Const * 10);
+driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
+
+Thread.sleep(Const * 10);
+driver.findElement(SubmitAttachmentCases).click(); // Submit
+
+//-------------------Assert-------------
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " +ExpectedResult );
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+		System.out.println("Application Number: " + AppNo);
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		System.out.println("Passed. Health Institute Nurse Case 2.4.1.0 " + ActualResult);
+
+		// ---------------------------------TakeScreenshots ------------------------
+				Thread.sleep(Const * 10);
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case2410.png"));
 
 		// -----------------------------------------------------------------------------------------------
-		System.out.println("Health Institute - 2.0.0.0 test case");
+		System.out.println("Health Institute - 2.4.1.0 test case");
 		Thread.sleep(Const * 10);
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
@@ -533,7 +575,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("1274"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("782114553"); // PersonalNumber
 																	// //LicenseIssueDate
 																	// 2015
@@ -605,36 +647,62 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
-		// ---------------------------------Review-Section----------------------------
+		// -----------------------------------Upload-Attachments--------------------------
+		driver.findElement(UploadPassport).click(); // Passport
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
-
-		// ------------------------------Rate and Submit---------------------
-
-		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
-		// -------------------Assert-------------
-		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 10);
-		System.out.println("Case 2.0.0.0 - Actual: " + ActualErrorMessage);
-		String ExpectedErrorMessage = "تم تقديم طلبك بنجاح";
-		System.out.println("Expected" + ExpectedErrorMessage);
-		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
-		// ---------------------------------Take
-		// ScreenShot------------------------------
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+		Thread.sleep(Const * 30);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+		Thread.sleep(Const * 10);
+
+		// Next button
+		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
+
+// ---------------------------------Review-Section----------------------------
+Thread.sleep(Const * 20);
+driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+
+// ------------------------------Rate and Submit---------------------
+
+Thread.sleep(Const * 10);
+driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+
+Thread.sleep(Const * 10);
+driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
+
+Thread.sleep(Const * 10);
+driver.findElement(SubmitAttachmentCases).click(); // Submit
+
+// -------------------Assert-------------
+String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+System.out.println("Actual" + ActualResult);
+String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+System.out.println("Expected" +ExpectedResult );
+AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+System.out.println("Application Number: " + AppNo);
+driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+Assert.assertTrue(ActualResult.contains(ExpectedResult));
+System.out.println("Passed. Health Institute Nurse Case 2.4.2.0 " + ActualResult);
+
+
+		// ---------------------------------TakeScreenShot------------------------------
 		Thread.sleep(Const * 10);
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case2420.png"));
 
 		// -----------------------------------------------------------------------------------------------
-		System.out.println("Health Institute - 2.0.0.0 test case");
+		System.out.println("Health Institute - 2.4.2.0 test case");
 		Thread.sleep(Const * 10);
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
@@ -671,7 +739,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "الرقم الشخصي المدخل غير صحيح، لا يمكنك استكمال تقديم الطلب. يرجى التأكد من صحة الرقم الشخصي. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "الرقم الشخصي لغير الأردني غير صحيح، يرجى التأكد من صحة الرقم المدخل. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -709,7 +777,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "تاريخ الميلاد غير مطابق، لا يمكنك استكمال تقديم الطلب. يرجى التأكد من صحة تاريخ الميلاد. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن تاريخ الميلاد غير مطابق، يرجى التأكد من صحة تاريخ الميلاد. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -854,14 +922,16 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
 		// -------------------Assert-------------
-		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		Thread.sleep(Const * 10);
-		System.out.println("Case 2.0.0.0 - Actual: " + ActualErrorMessage);
-		String ExpectedErrorMessage = "تم تقديم طلبك بنجاح";
-		System.out.println("Expected" + ExpectedErrorMessage);
-		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
-		// ---------------------------------Take
-		// ScreenShot------------------------------
+				String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " +ExpectedResult );
+				AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+				System.out.println("Application Number: " + AppNo);
+				driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
+				System.out.println("Passed. Health Institute Nurse Case 2.4.2.0 " + ActualResult);
+		// ---------------------------------TakeScreenShot------------------------------
 		Thread.sleep(Const * 10);
 		TakesScreenshot ts2 = (TakesScreenshot) driver;
 		File source2 = ts2.getScreenshotAs(OutputType.FILE);
@@ -890,7 +960,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("62049"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("555444455"); // PersonalNumber
 		driver.findElement(Birthdate).sendKeys("14/02/1993"); // Birthdate
 		Thread.sleep(Const * 10);
@@ -969,7 +1039,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن معلومات البكالوريوس المدخلة غير صحيحة , لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage ="معلومات البكالوريوس المدخلة غير صحيحة. لا يمكنك استكمال تقديم الطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -994,7 +1064,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("62049"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("2487932154"); // PersonalNumber
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
@@ -1064,40 +1134,52 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 20);
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		Thread.sleep(Const * 20);
-		// ---------------------------------Review-Section----------------------------
-				Thread.sleep(Const * 10);
-				driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		// -----------------------------------Upload-Attachments--------------------------
+		driver.findElement(UploadPassport).click(); // Passport
+		Thread.sleep(Const * 10);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
 
-	// ------------------------------Rate and Submit---------------------
+		Thread.sleep(Const * 10);
+		driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
+		Thread.sleep(Const * 10);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
-				Thread.sleep(Const * 10);
-				driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		Thread.sleep(Const * 10);
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+		Thread.sleep(Const * 30);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
-				Thread.sleep(Const * 10);
-				driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		Thread.sleep(Const * 10);
 
-				Thread.sleep(Const * 10);
-				driver.findElement(SubmitGeneralCases).click(); // Submit
+		// Next button
+		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
 
-				// -------------------Assert-------------
-				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+// ---------------------------------Review-Section----------------------------
+Thread.sleep(Const * 20);
+driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
-				String ExpectedResult ="تم تقديم طلبك بنجاح";
+// ------------------------------Rate and Submit---------------------
 
-				Assert.assertTrue(ActualResult.contains(ExpectedResult));
-				System.out.println("Passed. Jordanian Nurse Case 1.0.0.0 " + ActualResult);
+Thread.sleep(Const * 10);
+driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
+Thread.sleep(Const * 10);
+driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
 
+Thread.sleep(Const * 10);
+driver.findElement(SubmitAttachmentCases).click(); // Submit
 
-				AppNo = driver.findElement(ApplicationNumberGeneralCases).getText(); // Get-App-No
-
-
-
-				System.out.println("Application Number: " + AppNo);
-
-
-
-				driver.findElement(BackToHomeGeneralCases).click(); // Home-Page-
+//-------------------Assert-------------
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " +ExpectedResult );
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+		System.out.println("Application Number: " + AppNo);
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		System.out.println("Passed. Health Institute Nurse Case 2.7.1.0 " + ActualResult);
 		
 		// ------------------ScreenShot---------------
 		TakesScreenshot ts = (TakesScreenshot) driver;
@@ -1201,36 +1283,52 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		Thread.sleep(Const * 10);
 
-		// -------------------Assert-------------
-		// ---------------------------------Review-Section----------------------------
+		// -----------------------------------Upload-Attachments--------------------------
+		driver.findElement(UploadPassport).click(); // Passport
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
+
+		Thread.sleep(Const * 10);
+		driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
+		Thread.sleep(Const * 10);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+		Thread.sleep(Const * 10);
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+		Thread.sleep(Const * 30);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+		Thread.sleep(Const * 10);
+
+		// Next button
+		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
+
+// ---------------------------------Review-Section----------------------------
+Thread.sleep(Const * 20);
+driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 // ------------------------------Rate and Submit---------------------
 
-		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+Thread.sleep(Const * 10);
+driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
-		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+Thread.sleep(Const * 10);
+driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
 
-		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+Thread.sleep(Const * 10);
+driver.findElement(SubmitAttachmentCases).click(); // Submit
 
-		// -------------------Assert-------------
-		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-
-		String ExpectedResult ="تم تقديم طلبك بنجاح";
-
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-		System.out.println("Passed. Jordanian Nurse Case 1.0.0.0 " + ActualResult);
-
-		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText(); // Get-App-No
-
+//-------------------Assert-------------
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " +ExpectedResult );
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
-
-		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page-
-
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		System.out.println("Passed. Health Institute Nurse Case 2.7.2.0 " + ActualResult);
 		// ------------------ScreenShot---------------
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -1255,7 +1353,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 
-		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("62049"); // Association-Number
 		driver.findElement(PersonalNumber).sendKeys("714458231"); // PersonalNumber
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
@@ -1339,7 +1437,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن معلومات البكالوريوس المدخلة غير صحيحة , لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "معلومات البكالوريوس المدخلة غير صحيحة. لا يمكنك استكمال تقديم الطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1545,7 +1643,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، نظرا لان حالة شهادة البكالوريوس (غير معادلة) ، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن حالة شهادة البكالوريوس \"غير معادلة\"، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1708,7 +1806,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، لإصدار تصريح مزاولة مهنة ممرض قانوني يرجى إصدار شهادة عدم محكومية باستخدام الرابط التالي: إصدار شهادة عدم محكومية. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لعدم وجود شهادة عدم محكومية، يرجى إصدار شهادة عدم محكومية باستخدام الرابط التالي: https://ncrc.moj.gov.jo. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1767,7 +1865,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم طلب إصدار تصريح مزاولة مهنة ممرض قانوني لوجود خطأ في المعلومات المسترجعة لشهادة عدم المحكومية. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لوجود خطأ في المعلومات المسترجعة لشهادة عدم المحكومية. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 65004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1824,7 +1922,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 20);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لأن شهادة عدم المحكومية الصادرة قد تجاوزت الثلاث أشهر من تاريخ إصدارها، يرجى إصدار شهادة عدم محكومية حديثة باستخدام الرابط التالي: إصدار شهادة عدم محكومية. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن شهادة عدم المحكومية الصادرة قد تجاوزت الثلاثة أشهر من تاريخ إصدارها، يرجى إصدار شهادة عدم محكومية حديثة باستخدام الرابط التالي: https://ncrc.moj.gov.jo. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -1853,7 +1951,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 
-		driver.findElement(AssociationNumber).sendKeys("7741"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("7741"); // Association-Number //7741
 		driver.findElement(PersonalNumber).sendKeys("987654333"); // PersonalNumber
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
@@ -1862,10 +1960,10 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		driver.findElement(VerifyButton).click(); // VerifyButton
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 50);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير منتسب للنقابة يرجى الانتساب للنقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 06500454";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن الممرض غير منتسب للنقابة، يرجى الانتساب للنقابة ومن ثم تقديم  طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 06500454";
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -1905,7 +2003,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير مسدد للرسوم المترتبة عليك في النقابة يرجى تسديد رسوم النقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن الممرض غير مسدد للرسوم المترتبة عليه في النقابة، يرجى تسديد رسوم النقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -1945,7 +2043,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		Thread.sleep(Const * 10);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لحدوث خطأ في إسترجاع معلوماتك من نقابة الممرضين، يرجى مراجعة نقابة الممرضين للتأكد من الإنتساب ولتأكد من صحة بياناتك، لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لحدوث خطأ في إسترجاع معلومات الممرض من نقابة الممرضين، يرجى مراجعة نقابة الممرضين للتأكد من الإنتساب وصحة البيانات. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -1975,7 +2073,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 
 		driver.findElement(AssociationNumber).sendKeys("4173"); // Association-Number
-		driver.findElement(PersonalNumber).sendKeys("12378954"); // PersonalNumber
+		driver.findElement(PersonalNumber).sendKeys("12378954"); // PersonalNumber 21548515
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
@@ -2113,7 +2211,7 @@ public class RNVLHealthInstitute extends RNVLFields {
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 
 		driver.findElement(AssociationNumber).sendKeys("1332"); // Association-Number
-		driver.findElement(PersonalNumber).sendKeys("14788523"); // PersonalNumber
+		driver.findElement(PersonalNumber).sendKeys("14788523"); // PersonalNumber 21548515
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
@@ -2179,27 +2277,52 @@ public class RNVLHealthInstitute extends RNVLFields {
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
-		// ---------------------------------Review-Section----------------------------
+		// -----------------------------------Upload-Attachments--------------------------
+		driver.findElement(UploadPassport).click(); // Passport
 		Thread.sleep(Const * 10);
-		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
-
-		// ------------------------------Rate and Submit---------------------
-
-		Thread.sleep(Const * 10);
-		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("سعيد"); // Notes
+		driver.findElement(UploadPersonalPhoto).click(); // Personal-Photo
 		Thread.sleep(Const * 10);
-		driver.findElement(SubmitGeneralCases).click(); // Submit
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
 
-		// -------------------Assert-------------
-		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 10);
-		System.out.println("Case 2.0.0.0 - Actual: " + ActualErrorMessage);
-		String ExpectedErrorMessage = "تم تقديم طلبك بنجاح";
-		System.out.println("Expected" + ExpectedErrorMessage);
-		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // High-School-Certificate
+		Thread.sleep(Const * 30);
+		Runtime.getRuntime().exec("C:\\Users\\nftaiha\\Desktop\\attachemnts\\Uploader.exe");
+
+		Thread.sleep(Const * 10);
+
+		// Next button
+		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
+
+// ---------------------------------Review-Section----------------------------
+Thread.sleep(Const * 20);
+driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+
+// ------------------------------Rate and Submit---------------------
+
+Thread.sleep(Const * 10);
+driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+
+Thread.sleep(Const * 10);
+driver.findElement(NotesAttachmentCases).sendKeys("سعيد"); // Notes
+
+Thread.sleep(Const * 10);
+driver.findElement(SubmitAttachmentCases).click(); // Submit
+
+//-------------------Assert-------------
+		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " +ExpectedResult );
+		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
+		System.out.println("Application Number: " + AppNo);
+		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		System.out.println("Passed. Health Institute Nurse Case 2.10.10.0 " + ActualResult);
 		// ---------------------------------Take
 		// ScreenShot------------------------------
 		TakesScreenshot ts = (TakesScreenshot) driver;
