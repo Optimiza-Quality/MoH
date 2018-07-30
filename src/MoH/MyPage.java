@@ -1,11 +1,7 @@
 package MoH;
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 
 public class MyPage extends RNVLFields{
@@ -33,7 +28,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -83,6 +78,8 @@ public class MyPage extends RNVLFields{
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
 		
+		System.out.println("Passed " + KeepAppNo + " App Details Viewed");
+		
 		driver.findElement(PreviousToApps).click(); // Previous
 
 		// -------------------------------View-License----------------------------------
@@ -106,17 +103,86 @@ public class MyPage extends RNVLFields{
 
 		TakesScreenshot ts1 = (TakesScreenshot) driver;
 		File source1 = ts1.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase1.1.0.1.png"));
+		FileUtils.copyFile(source1, new File("./ScreenShots/Case1.1.0.1_LicenseDetails.png"));
 
 		// -------------------------------Clear----------------------------------
 
 		
-		driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+		//driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
 
 		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1");
 
+		driver.close();
+	
 	}
 
+	public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// «” ﬂ„«· ‰Ê«ﬁ’
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("√›—«œ");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(IncompleteApp).click(); // Complete
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+//		TakesScreenshot ts = (TakesScreenshot) driver;
+//		File source = ts.getScreenshotAs(OutputType.FILE);
+//		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
+//		
+//		System.out.println("Passed" + KeepAppNo + " App Details Viewed");
+//		
+//		driver.findElement(PreviousToApps).click(); // Previous
+//
+//		
+//		driver.close();
+	
+	}
 	
 	public void ViewApplicationAndLicense_HealthInstitute_Case2101(String KeepAppNo) throws InterruptedException, IOException {
 
@@ -127,7 +193,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -232,7 +298,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -327,7 +393,6 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
 	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
@@ -337,7 +402,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -379,7 +444,6 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
 	public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
@@ -389,7 +453,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -441,7 +505,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -493,7 +557,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -535,7 +599,7 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
+
 	public void MyPage_Individuals_Case7300() throws InterruptedException, IOException {
 
 		// «·„⁄·Ê„«  €Ì— „ÿ«»ﬁ…
@@ -545,7 +609,7 @@ public class MyPage extends RNVLFields{
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
@@ -631,7 +695,7 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
+
 	public void MyPage_HealthInstitute_Case7300_3() throws InterruptedException, IOException {
 
 		Integer Const = 100;
@@ -677,7 +741,7 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
+
 	public void MyPage_RoyalMedicalServices_Case7300_4() throws InterruptedException, IOException {
 
 		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
@@ -769,6 +833,14 @@ public class MyPage extends RNVLFields{
 	public void MyPage_WrongVerificationCode_Case7500() throws InterruptedException, IOException {
 
 		// Œÿ√ ›Ì —„“ «· Õﬁﬁ «·„œŒ·
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -779,7 +851,7 @@ public class MyPage extends RNVLFields{
 
 		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
 
-		driver.findElement(MyPageCardNo).sendKeys("12345678"); // Card-No
+		driver.findElement(MyPageCardNo).sendKeys("ABC12345"); // Card-No
 
 		Thread.sleep(Const * 2);
 

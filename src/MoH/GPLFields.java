@@ -16,16 +16,24 @@ public class GPLFields {
 	//BasicInfo
 	By PharmNationalID = By.id("pt1:r1:1:it1::content");
 	By PharmIDNumber = By.id("pt1:r1:1:it3::content");
-	By CoNationalNumber = By.id("pt1:r1:1:it2::content");
+	By CoNationalNumber = By.id("pt1:r1:1:it2::content"); 
+	By CoNationalNumber2 = By.id("pt1:r1:1:it10::content"); 
+	By CoNumber = By.id("pt1:r1:1:it11::content"); 
+
+	By Captcha2 = By.id("pt1:r1:1:it12::content");
+	By CoVerify = By.id("pt1:r1:1:btnCheckCompany");
+	
 	By Captcha = By.id("pt1:r1:1:j_idt29::content");
 	By VerifyBtn = By.id("pt1:r1:1:btnCheck");
 	By MobileNo = By.id("pt1:r1:1:mn1:itMobileNumber::content");
+	By CoMobileNo = By.id("pt1:r1:1:mn2:itMobileNumber::content");
 	By Email = By.id("pt1:r1:1:e1:itEmail::content");
+	By CoEmail = By.id("pt1:r1:1:e2:itEmail::content");
 	By NextToVerificationCode = By.id("pt1:r1:1:b2");
-	By ModifyContactDetails = By.linkText(" ⁄œÌ· „⁄·Ê„«  «·« ’«·");
 	
-	//VerificationCode
-	By VerificationCode = By.id("pt1:r1:2:vc1:dc_it1::content");
+	By ModifyContactDetails = By.linkText(" ⁄œÌ· „⁄·Ê„«  «·« ’«·");
+	By CompanyNumber = By.id("pt1:r1:1:it11");
+	By VerificationCode = By.id("pt1:r1:2:vc1:dc_it1::content"); 
 	By NextToOtherInfo = By.id("pt1:r1:2:vc1:dc_b2");
 	
 	//OtherInfo
@@ -35,15 +43,24 @@ public class GPLFields {
 	By PharmAddress = By.id("pt1:r1:3:it13::content");
 	By Hoiday = By.id("pt1:r1:3:soc1::content");
 	By CheckBox = By.id("pt1:r1:3:sbc1::content");
+	By RadioButton = By.xpath("//*[@id=\"pt1:r1:3:t1:0:sbr1::content\"]");
+	By RadioButton2 = By.xpath("//*[@id=\"pt1:r1:3:t1:1:sbr1::content\"]");
+	By RadioButton3 = By.xpath("//*[@id=\"pt1:r1:3:t1:2:sbr1::content\"]");
+	
 	By NextToAttachemnts = By.id("pt1:r1:3:b2");
+	By CoNextToAttachemnts = By.id("pt1:r1:3:b4");
 	
 	//Attachments
 	By Sketch = By.id("pt1:r1:4:it2:0:cif1:bButtonFile");
 	By Lease = By.id("pt1:r1:4:it2:1:cif1:bButtonFile");
 	By NextToReview = By.id("pt1:r1:4:b2");
-	
+	By COSketch = By.id("pt1:r1:4:it2:2:cif1:bButtonFile");
+	By Contract = By.id("pt1:r1:4:it2:3:cif1:bButtonFile");
+
 	//Review
-	By NextToRating = By.id("pt1:r1:5:b2");
+	By NextToRating = By.id("pt1:r1:5:b2"); 
+	By CoNextToReview = By.id("pt1:r1:4:b2");
+	
 	By RateHappyAttachmentCases = By.id("pt1:r1:6:rs1:link1::icon");
 	By RateNeutralAttachmentCases = By.id("pt1:r1:6:rs1:link2::icon");
 	By RateSadAttachmentCases = By.id("pt1:r1:6:rs1:link3::icon");
@@ -79,5 +96,6 @@ public class GPLFields {
 		By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
 		By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
 		By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
+		By VerificationCodeMyPage = By.id("pt1:r1:0:vc1:dc_it1::content");
 
 }

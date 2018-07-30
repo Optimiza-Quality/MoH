@@ -484,7 +484,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ áÊÑÎíÕ ÕíÏáíÉ ÚÇãÉ ãÒÇæáÉ äÙÑÇ áæÌæÏ ØáÈ ÊÑÎíÕ ÕíÏáíÉ ÚÇãÉ ÓÇÈŞ ÑŞã";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áæÌæÏ ØáÈ ÊÑÎíÕ ÕíÏáíÉ ÚÇãÉ ÓÇÈŞ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -594,7 +594,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÇáåæíÉ ãäÊåíÉ ÇáÕáÇÍíÉ¡ áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÅäÊåÇÁ ÕáÇÍíÉ ÇáåæíÉ¡ íÑÌì ãÑÇÌÚÉ ÏÇÆÑÉ ÇáÃÍæÇá ÇáãÏäíÉ áÊÌÏíÏ ÇáåæíÉ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -649,7 +649,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃä ÇáÑŞã ÇáæØäí ÇáãÏÎá áÔÎÕ ãÊæİí";
+		String ExpectedErrorMessage = "ÇáÑŞã ÇáæØäí ÇáãÏÎá áÔÎÕ ãÊæİí. áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ";
 
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
@@ -707,7 +707,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÑŞã ÇáæØäí ááãäÔÃÉ";
+		String ExpectedErrorMessage = "ÑŞã ÇáãäÔÃÉ ÇáæØäí ÛíÑ ãæÌæÏ¡ íÑÌì ÇáÊÃßÏ ãä ÕÍÉ ÇáÑŞã ÇáãÏÎá";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -762,7 +762,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÛíÑ İÚÇáÉ";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃä ÍÇáÉ ÇáãäÔÃÉ ÛíÑ İÚÇáÉ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÕäÇÚÉ æÇáÊÌÇÑÉ Ãæ ÏÇÆÑÉ ãÑÇŞÈÉ ÇáÔÑßÇÊ áÊÕæíÈ ÇáÃæÖÇÚ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -952,7 +952,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íÌæÒ ÊŞÏíã ÇáØáÈ ÈåĞÇ ÇáäæÚ ãä ÇäæÇÚ ãŞÏãí ÇáØáÈ ßæä ÚÏÏ ÇáÔÑßÇÁ ÃßËÑ ãä æÇÍÏ¡ ÇáÑÌÇÁ ÇáÑÌæÚ áÕİÍÉ ÇáÊÍŞŞ æ ÇÎÊíÇÑ äæÚ ãŞÏã ÇáØáÈ";
+		String ExpectedErrorMessage = "áÇ íÌæÒ ÊŞÏíã ÇáØáÈ ÈåĞÇ ÇáäæÚ ãä ÇäæÇÚ ãŞÏãí ÇáØáÈ ßæä ÚÏÏ ÇáÔÑßÇÁ ÃßËÑ ãä æÇÍÏ¡ íÑÌì ÇáÑÌæÚ áÕİÍÉ ŞÇÆãÉ ÇáÊÍŞŞ æÇÎÊíÇÑ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1227,7 +1227,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ãÒÇæáÉ";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃäß ÛíÑ ãÒÇæá ááãåäÉ áËáÇË ÓäæÇÊ İÃßËÑ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1393,7 +1393,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "íãÊáß";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÇãÊáÇß ÇáÓíÏ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1573,7 +1573,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Other-Info---------------------------------------
 		
-		driver.findElement(PropertyNumber).sendKeys("51282027248131",Keys.TAB);
+		driver.findElement(PropertyNumber).sendKeys("223928003998122",Keys.TAB);
 		
 		Thread.sleep(Const * 8);
 		
@@ -1955,7 +1955,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ØáÈ";
+		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áæÌæÏ ØáÈ ÅÕÏÇÑ ÑÎÕÉ ÕíÏáíÉ ÚÇãÉ Úáì äİÓ ÇáÚŞÇÑ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
