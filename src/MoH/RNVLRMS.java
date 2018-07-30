@@ -11,6 +11,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -19,77 +21,54 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class RNVLRMS extends RNVLFields {
-
-	WebDriver driver;
-
+public class RNVLRMS extends RNVLInternal {
+	public static final String AppNo = null;
+	WebDriver driver = new ChromeDriver();
 	Integer Const = 200;
-	String AppNo;
-	String KeepAppNo;
 
-	@BeforeMethod(enabled = true)
-	public void GetDriver() throws InterruptedException {
+	@BeforeMethod
+//	@Parameters("browsers")
+//	public void CrossBrowser(String browsername) throws Exception {
+//		// Check if parameter passed from TestNG is 'Chrome'
+//		if (browsername.equalsIgnoreCase("Chrome")) {
+//			// create Chrome instance
+//			System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\chromedriver.exe");
+//			driver = new ChromeDriver();
+//			driver.manage().window().maximize();
+//			driver.get("https://172.16.0.254:4443/public/index.html");
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//		} else
+//		// Check if parameter passed from TestNG is 'firefox'
+//		if (browsername.equalsIgnoreCase("Firefox")) {
+//			// create firefox instance
+//			System.setProperty("webdriver.gecko.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\geckodriver.exe");
+//			driver = new FirefoxDriver();
+//			driver.manage().window().maximize();
+//			driver.get("https://172.16.0.254:4443/public/index.html");
+//			driver.findElement(By.xpath("//*[@id=\"advancedButton")).click(); // Advanced
+//			Thread.sleep(Const * 10);
+//			driver.findElement(By.xpath("exceptionDialogButton")).click(); // Exception
+//			Thread.sleep(Const * 100);
+//
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//		} else
+//		// Check if parameter passed from TestNG is 'firefox'
+//		if (browsername.equalsIgnoreCase("IE")) {
+//			// create firefox instance
+//			System.setProperty("webdriver.ie.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\IEDriverServer.exe");
+//			WebDriver driver = new InternetExplorerDriver();
+//			driver.manage().window().maximize();
+//			// driver.get("https://172.16.0.254:4443/public/index.html");
+//			Thread.sleep(Const * 10);
+//
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//		}
+//	}
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
-		driver = new ChromeDriver();
-
-		// System.setProperty("webdriver.gecko.driver",
-		// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
-		// driver = new FirefoxDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://172.16.0.254:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-	}
-
-	@BeforeMethod(enabled = false)
-	@Parameters("browsers")
-	public void CrossBrowser(String browsername) throws Exception {
-
-		// Check if parameter passed from TestNG is 'Chrome'
-		if (browsername.equalsIgnoreCase("Chrome")) {
-			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\git\\MoH\\MoH\\src\\MoH\\chromedriver.exe");
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.get("https://172.16.0.254:4443/public/index.html");
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-			// } else
-			//
-			// // Check if parameter passed from TestNG is 'IE'
-			// if (browsername.equalsIgnoreCase("ie")) {
-			// // create IE instance
-			//
-			// System.setProperty("webdriver.ie.driver",
-			// "C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
-			// driver = new InternetExplorerDriver();
-			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
-			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			// driver.findElement(By.id("overridelink")).click();
-			//
-			// Thread.sleep(2000);
-			// } else
-			//
-			// // Check if parameter passed from TestNG is 'firefox'
-			// if (browsername.equalsIgnoreCase("firefox")) {
-			// // create firefox instance
-			//
-			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
-			// driver = new FirefoxDriver();
-			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
-			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		}
-	}
-
+	// SS on Failure
 	@AfterMethod(enabled = true)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into if
@@ -106,17 +85,31 @@ public class RNVLRMS extends RNVLFields {
 				// screenshot in our project home directory and
 				// result.getName() will return name of test case so that
 				// screenshot name will be same
-				FileUtils.copyFile(source, new File("./ScreenShotsFailed/" + result.getName() + ".png"));
+				FileUtils.copyFile(source, new File("./ScreenshotsFailure-RMS/" + result.getName() + ".png"));
 
-				System.out.println("Failed. Screenshot taken " + result.getName());
+				System.out.println("Test Case Failed. Screenshot taken " + result.getName());
 			} catch (Exception e) {
 
-				System.out.println("Failed. Exception while taking screenshot" + e.getMessage());
+				System.out.println("Test Case Failed. Exception while taking screenshot" + e.getMessage());
 			}
 		}
 
 		driver.quit();
 
+	}
+	
+	@BeforeMethod(enabled = true)
+	public void GetDriver() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\nftaiha\\Desktop\\RNVL-MoH\\chromedriver.exe");
+		driver = new ChromeDriver();
+
+		// System.setProperty("webdriver.gecko.driver",
+		// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
+		// driver = new FirefoxDriver();
+		driver.get("https://172.16.0.254:4443/public/index.html");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 	// submit successfully
 	@Test(priority = 1, enabled = true, retryAnalyzer = MoH.RetryAnalyzer.class)
@@ -139,8 +132,8 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 		Thread.sleep(Const * 10);
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("20177"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("452245712"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("2005"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9671027235"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -191,7 +184,7 @@ public class RNVLRMS extends RNVLFields {
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
-		Graduation.selectByVisibleText("2006"); // Graduation-Year
+		Graduation.selectByVisibleText("2016"); // Graduation-Year
 
 		// Degree
 		Thread.sleep(Const * 10);
@@ -209,32 +202,29 @@ public class RNVLRMS extends RNVLFields {
 
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:link1::icon")).click(); // Rate-Happy
-
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
-		// ScreenShot------------------------------
-				Thread.sleep(Const * 10);
-				TakesScreenshot ts = (TakesScreenshot) driver;
-				File source = ts.getScreenshotAs(OutputType.FILE);
-				FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3000-ApplicationNoRMS.png"));
-
-				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-
-				String ExpectedResult = "تم تقديم طلبك بنجاح";
-
-				Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
-		// ---------------------------------Take
 		
-
-		// -----------------------------------------------------------------------------------------------
+	
+//----------------------------------------Assert-------------------------
+		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+		System.out.println("Actual " + ActualResult);
+		String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+		System.out.println("Expected " + ExpectedResult);
+		String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+		System.out.println("Application Number: " + AppNo);
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		// ---------------------------------TakeScreenSHot------------
+		Thread.sleep(Const * 10);
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3000-ApplicationNoRMS.png"));
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
-
+//----Internal-------------
 		driver.get("https://172.16.0.254:4443/internal/faces/index.jsf");
 
 		driver.findElement(By.id("pt1:lid1:dc_it1::content")).sendKeys("ESRAA"); // Username
@@ -317,7 +307,7 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("71445"); // Private Number
 
 		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9671027235"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -327,7 +317,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "رقم قيد المنشأة الوطني غير موجود، لا يمكنك استكمال تقديم الطلب. يرجى مراجعة وزارة الصحة لإنشاء حساب خاص بك. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "رقم قيد المنشأة الوطني غير موجود، يرجى مراجعة وزارة الصحة لإنشاء حساب خاص بك. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -367,7 +357,7 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("71445"); // Private Number
 
 		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9671027235"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -375,7 +365,7 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "الرقم الخاص غير مطابق، لا يمكنك استكمال تقديم الطلب. يرجى التأكد من صحة الرقم الخاص. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "الرقم الخاص غير صحيح، يرجى التأكد من صحة الرقم المدخل. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -412,14 +402,16 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10224"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7411325533"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("2005"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9671027235"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 30);
 		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
+		Thread.sleep(Const * 20);
+
 		System.out.println(
 				"ExpectedErrorMessage: لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لوجود طلب تصريح مزاولة مهنة ممرض قانوني سابق رقم ( / ) لديك لايزال قيد التنفيذ، لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545");
 
@@ -460,8 +452,8 @@ public class RNVLRMS extends RNVLFields {
 
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7425"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("717144523"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("1009"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9612004436"); // Military ID-No
 		Thread.sleep(Const * 10);
 
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
@@ -474,7 +466,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، بسبب وجود تصريح مزاولة مهنة ممرض قانوني سابق، يرجى استخدام الرابط التالي لاستعراض المزاولة. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لوجود تصريح مزاولة مهنة ممرض قانوني سابق. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.4.0.0");
@@ -505,7 +497,7 @@ public class RNVLRMS extends RNVLFields {
 
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7728"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("1009"); // Association-Number
 		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9882773822"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
@@ -519,7 +511,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "الرقم الوطني المدخل غير صحيح، لا يمكنك استكمال تقديم الطلب. يرجى التأكد من صحة رقم الوطني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "الرقم الوطني المدخل غير صحيح، يرجى التأكد من صحة الرقم الوطني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.5.0.0");
@@ -556,8 +548,8 @@ public class RNVLRMS extends RNVLFields {
 
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("4378"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9731006845"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("5882628"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9652023349"); // Military ID-No
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -569,7 +561,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب لإصدار تصريح مزاولة مهنة ممرض قانوني نظرا لأن الرقم الوطني المدخل لشخص متوفي. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage ="الرقم الوطني المدخل لشخص متوفي. لا يمكنك استكمال تقديم الطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -583,8 +575,7 @@ public class RNVLRMS extends RNVLFields {
 		// -----------------------------------------------------------------------------------------------
 
 	}
-
-	// High school info not retrieved in MOHE table
+    // High school info not retrieved in MOHE table
 	@Test(priority = 7, enabled = true)
 	public void SubmitNursingApp_RMS_Case3600() throws InterruptedException, IOException {
 		// click on submit application button
@@ -604,8 +595,9 @@ public class RNVLRMS extends RNVLFields {
 
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7196"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9791051994"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("4344"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9741013295"); // Military ID-No
+		//Database 123456789
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -704,12 +696,14 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		// -------------------------Assert-Application
-		// Submission------------------------
-		Thread.sleep(Const * 10);
-		String ActualResult = driver.findElement(By.id("pt1:r1:7:fp1:dc_ol7")).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		//----------------------------------------Assert-------------------------
+				String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " + ExpectedResult);
+				String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+				System.out.println("Application Number: " + AppNo);
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -914,24 +908,20 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
-
+		//----------------------------------------Assert-------------------------
+				String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " + ExpectedResult);
+				String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+				System.out.println("Application Number: " + AppNo);
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// ---------------------------------Take
 		// ScreenShot------------------------------
 		Thread.sleep(Const * 10);
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3710.png"));
-		// ----------------Assert---------------------------
-		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// ----------------------------------------------------------------------------------------------
-		System.out.println("RMS 3.7.1.0" + ActualResult);
-		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
-
-
 	}
 
 	// Incorrect equivalent document number
@@ -949,27 +939,25 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 
 		// --------------------------------Fill-Basic-Info---------------------------------
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
-
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
-
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("6133"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9761018598"); // Military ID-No 
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("14741"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9702025986"); // Military ID-No 
+		//DB was 12345688 in MOHE
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-
 		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:2:vc1:dc_it1::content")).sendKeys("0000"); // Verification-Code
-
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
-
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:2:vc1:dc_b2")).click(); // Next
 
@@ -979,40 +967,31 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
-
 		Thread.sleep(Const * 10);
 		// Certificate-Year
 		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 		Thread.sleep(Const * 10);
-
 		// Semester
 		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
-
 		// -----Bachelor-Degree-Frame-----
 		Thread.sleep(Const * 10);
-
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الكويت");
-		// UniversityCountry.selectByIndex(139); // Jordan
 		Thread.sleep(Const * 10);
-
 		// University
 		Thread.sleep(Const * 30);
 		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة الكويت");
 		Thread.sleep(Const * 20);
 		Thread.sleep(Const * 10);
-
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
-		
 		Thread.sleep(Const * 20);
-
 		// Equivelant document number field
 		Thread.sleep(Const * 20);
 		driver.findElement(By.id("pt1:r1:3:itEquationNo::content")).sendKeys("14242");
@@ -1020,10 +999,9 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 20);
 		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
-
 		Thread.sleep(Const * 20);
 		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
-
+		Thread.sleep(Const * 50);
 		// ----------------------Assert-----------------------
 		Thread.sleep(Const * 20);
 		String ActualErrorMessage = driver.findElement(By.xpath("pt1:exceptionMsg")).getText();
@@ -1031,7 +1009,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 20);
-		String ExpectedErrorMessage = "لا يمكنك استمال تقديم الطلب نظرا لأن معلومات البكالوريوس المدخلة غير صحيحة , لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "معلومات البكالوريوس المدخلة غير صحيحة. لا يمكنك استكمال تقديم الطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ---------------------------------Take
@@ -1124,13 +1102,6 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
-		// ---------------------------------Take
-		// ScreenShot------------------------------
-		Thread.sleep(Const * 10);
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3720-needsEquation.png"));
-
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
@@ -1145,9 +1116,14 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		//----------------------------------------Assert-------------------------
+				String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " + ExpectedResult);
+				String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+				System.out.println("Application Number: " + AppNo);
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// ---------------------------------Take
 		// ScreenShot------------------------------
 		Thread.sleep(Const * 10);
@@ -1184,10 +1160,12 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 		Thread.sleep(Const * 20);
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7441"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("1709"); // Association-Number
 		Thread.sleep(Const * 20);
 
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7174458234"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9652023349"); // Military ID-No
+		//174147441 DB MoHE 
+		//9652023124
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
@@ -1224,6 +1202,7 @@ public class RNVLRMS extends RNVLFields {
 		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 		// ---------------------------------Bachelor-Degree-Frame----------------
+		Thread.sleep(Const * 20);
 
 		// University-Country
 		Thread.sleep(Const * 20);
@@ -1232,14 +1211,14 @@ public class RNVLRMS extends RNVLFields {
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة القاهرة");
 		// Admission date
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
 		Admission.selectByVisibleText("1998"); // Graduation-Year
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
@@ -1258,6 +1237,8 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
+		//---Assert Warning----
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
 
@@ -1271,9 +1252,14 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
 
-		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		//----------------------------------------Assert-------------------------
+				String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " + ExpectedResult);
+				String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+				System.out.println("Application Number: " + AppNo);
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -1283,7 +1269,6 @@ public class RNVLRMS extends RNVLFields {
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3730.png"));
 
 		// -----------------------------------------------------------------------------------------------
-		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
 	}
@@ -1299,19 +1284,17 @@ public class RNVLRMS extends RNVLFields {
 		// health institute
 		userType.selectByIndex(3);
 		Thread.sleep(Const * 10);
-
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a")).click(); // Next
-
 		Thread.sleep(Const * 10);
-
 		// --------------------------------Fill-Basic-Info---------------------------------
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
 
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("25669"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("1755236447"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10124"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9831051441"); // Military ID-No
+		//DB MOHE 1238897452
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 
@@ -1349,30 +1332,30 @@ public class RNVLRMS extends RNVLFields {
 		// -----Bachelor-Degree-Frame-----
 
 		// University-Country
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 50);
 		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("العراق");
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة تكريت");
 		// Admission date
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
 		Admission.selectByVisibleText("2002");
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(By.id("pt1:r1:3:lastAcademicDegreeRid::content")));
 		Degree.selectByIndex(1); // Bachelor
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 50);
 
 		// Equivalent document number field
 		Thread.sleep(Const * 20);
@@ -1394,10 +1377,17 @@ public class RNVLRMS extends RNVLFields {
 		driver.findElement(By.id("pt1:r1:5:rs1:it1::content")).sendKeys("سعيد"); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:5:rs1:b2")).click(); // Submit
+		Thread.sleep(Const * 50);
 
-		String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		//----------------------------------------Assert-------------------------
+				String ActualResult = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol7")).getText();
+				System.out.println("Actual " + ActualResult);
+				String ExpectedResult ="تم تقديم طلبك بنجاح. سيتم مراجعته من قبل المعنيين وموافاتك بالتطورات خلال () عبر الرسائل القصيرة والبريد الإلكتروني. كما ويمكنك استخدام خيار صفحتي الموجود في الصفحة الرئيسية لمتابعة طلبك";
+				System.out.println("Expected " + ExpectedResult);
+				String AppNo = driver.findElement(By.id("pt1:r1:6:fp1:dc_ol5")).getText();
+				System.out.println("Application Number: " + AppNo);
+				Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		Thread.sleep(Const * 50);
 
 		// ---------------------------------Take
 		// ScreenShot------------------------------
@@ -1465,27 +1455,32 @@ public class RNVLRMS extends RNVLFields {
 		// Certificate-Year
 		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 10);
 
 		// Semester
 		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
 
 		// -----Bachelor-Degree-Frame-----
+		Thread.sleep(Const * 50);
 
 		// University-Country
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 50);
 		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
+		Thread.sleep(Const * 50);
 
 		// University
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("الجامعة الاردنية");
+		Thread.sleep(Const * 10);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2013"); // Graduation-Year
+		Thread.sleep(Const * 10);
 
 		// Degree
 		Thread.sleep(Const * 10);
@@ -1494,6 +1489,7 @@ public class RNVLRMS extends RNVLFields {
 
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
+		Thread.sleep(Const * 10);
 
 		// --------------------------Assert----------------------------
 		String ActualErrorMessage = driver
@@ -1501,6 +1497,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
+		
 		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، نظرا لعدم إسترجاع معلومات البكالوريوس ، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
@@ -1558,10 +1555,12 @@ public class RNVLRMS extends RNVLFields {
 		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
 		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 20);
 
 		// Semester
 		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
+		Thread.sleep(Const * 20);
 
 		// ------------------------Bachelor-Degree-Frame--------------------
 		// University-Country
@@ -1569,6 +1568,7 @@ public class RNVLRMS extends RNVLFields {
 		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الأردن");
 		// UniversityCountry.selectByIndex(139); // Jordan
+		Thread.sleep(Const * 20);
 
 		// University
 		Thread.sleep(Const * 20);
@@ -1588,6 +1588,7 @@ public class RNVLRMS extends RNVLFields {
 
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:3:btnOtherDataNextButton")).click(); // Next-Button
+		Thread.sleep(Const * 20);
 
 		// --------------------------Assert----------------------------
 		String ActualErrorMessage = driver
@@ -1625,13 +1626,14 @@ public class RNVLRMS extends RNVLFields {
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itUserName::content")).sendKeys("717144523"); // National-ID
 		driver.findElement(By.id("pt1:r1:1:itPrivateNo::content")).sendKeys("523317"); // Private Number
-		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("7418"); // Association-Number
-		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("7144582411"); // Military ID-No
+		driver.findElement(By.id("pt1:r1:1:itAssociationNo::content")).sendKeys("10145"); // Association-Number
+		driver.findElement(By.id("pt1:r1:1:itMilitaryNo::content")).sendKeys("9831010395"); // Military ID-No
+		//DB MOHE 123877221
 		Thread.sleep(Const * 10);
 		driver.findElement(By.id("pt1:r1:1:itCaptchaValue::content")).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
 		driver.findElement(By.xpath("//*[@id=\"pt1:r1:1:bVerifyCaptcah\"]/a")).click(); // VerifyButton
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
@@ -1643,18 +1645,21 @@ public class RNVLRMS extends RNVLFields {
 
 		// --------------------------------Fill-Other-Info---------------------------------
 
+		
 		// Schooling-System
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 30);
 		Select SchoolingSystem = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudySystemRid::content")));
 		SchoolingSystem.selectByIndex(1); // Jordanian
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		// Certificate-Year
 		Select CertificateYear = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyYearRid::content")));
 		CertificateYear.selectByIndex(1); // 1981
+		Thread.sleep(Const * 20);
 
 		// Semester
 		Select Semester = new Select(driver.findElement(By.id("pt1:r1:3:socSecondaryStudyCourse::content")));
 		Semester.selectByIndex(1); // Winter
+		Thread.sleep(Const * 20);
 
 		// ------------------------Bachelor-Degree-Frame--------------------
 		// University-Country
@@ -1662,15 +1667,18 @@ public class RNVLRMS extends RNVLFields {
 		Select UniversityCountry = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicCountryRid::content")));
 		UniversityCountry.selectByVisibleText("الكويت");
 		// UniversityCountry.selectByIndex(139); // Jordan
+		Thread.sleep(Const * 20);
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(By.id("pt1:r1:3:soc11::content")));
 		University.selectByVisibleText("جامعة الكويت");
+		Thread.sleep(Const * 20);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicGraduateYearRid::content")));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Thread.sleep(Const * 20);
 
 		// Equivelant document number field
 		Thread.sleep(Const * 10);
@@ -1688,7 +1696,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب، نظرا لان حالة شهادة البكالوريوس (غير معادلة) ، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن حالة شهادة البكالوريوس \"غير معادلة\"، يرجى مراجعة وزارة التعليم العالي والبحث العلمي لتصويب الأوضاع. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1731,7 +1739,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير منتسب للنقابة يرجى الانتساب للنقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 06500454";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن الممرض غير منتسب للنقابة، يرجى الانتساب للنقابة ومن ثم تقديم  طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 06500454";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1774,7 +1782,7 @@ public class RNVLRMS extends RNVLFields {
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأنك غير مسدد للرسوم المترتبة عليك في النقابة يرجى تسديد رسوم النقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لأن الممرض غير مسدد للرسوم المترتبة عليه في النقابة، يرجى تسديد رسوم النقابة ومن ثم تقديم طلب تصريح مزاولة مهنة ممرض قانوني. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1817,7 +1825,7 @@ public class RNVLRMS extends RNVLFields {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لحدوث خطأ في إسترجاع معلوماتك من نقابة الممرضين، يرجى مراجعة نقابة الممرضين للتأكد من الإنتساب ولتأكد من صحة بياناتك، لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الطلب نظرا لحدوث خطأ في إسترجاع معلومات الممرض من نقابة الممرضين، يرجى مراجعة نقابة الممرضين للتأكد من الإنتساب وصحة البيانات. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
@@ -1830,7 +1838,6 @@ public class RNVLRMS extends RNVLFields {
 		FileUtils.copyFile(source, new File("./ScreenShots-RMS/Case3820-DataCorrupted.png"));
 
 	}
-}
 
-	
+}
 
