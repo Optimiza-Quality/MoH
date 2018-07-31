@@ -18,7 +18,7 @@ public class RNVLInternal extends MyPage {
 		
 	public String KeepAppNo;
 	
-	public String Processing_Jordanian_Case1100(String AppNo) throws InterruptedException, IOException {
+	public String Processing_ApproveByHead_Case1100(String AppNo) throws InterruptedException, IOException {
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
@@ -107,7 +107,7 @@ public class RNVLInternal extends MyPage {
 
 	}
 
-	public void Processing_Jordanian_Case1100_2(String KeepAppNo) throws InterruptedException, IOException {
+	public void Processing_ApproveByDirector_Case1100_2(String KeepAppNo) throws InterruptedException, IOException {
 
 		System.out.println("director method " + KeepAppNo);
 		
@@ -169,7 +169,7 @@ public class RNVLInternal extends MyPage {
 		driver.close();
 	}
 
-	public void Processing_Jordanian_Case1110(String KeepAppNo) throws InterruptedException, IOException {
+	public void Processing_RejectByDirector_Case1110(String KeepAppNo) throws InterruptedException, IOException {
 
 		// —›÷ „œÌ— «·„œÌ—Ì…
 
@@ -224,7 +224,7 @@ public class RNVLInternal extends MyPage {
 
 	}
 
-	public void Processing_Jordanian_Case1120(String KeepAppNo) throws InterruptedException, IOException {
+	public void Processing_IncompleteByDirector_Case1120(String KeepAppNo) throws InterruptedException, IOException {
 
 		// «” ﬂ„«· ‰Ê«ﬁ’ „œÌ— «·„œÌ—Ì…
 
@@ -290,7 +290,7 @@ public class RNVLInternal extends MyPage {
 
 	}
 
-	public String Processing_Jordanian_Case1130(String AppNo) throws InterruptedException, IOException {
+	public String Processing_RejectByHead_Case1130(String AppNo) throws InterruptedException, IOException {
 			
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
@@ -376,7 +376,7 @@ public class RNVLInternal extends MyPage {
 
 	}
 
-	public String Processing_Jordanian_Case1140(String AppNo) throws InterruptedException, IOException {
+	public String Processing_IncompleteByHead_Case1140(String AppNo) throws InterruptedException, IOException {
 	
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
