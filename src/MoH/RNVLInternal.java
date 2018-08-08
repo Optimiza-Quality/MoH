@@ -54,7 +54,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Thread.sleep(Const * 2);
 		
@@ -106,7 +106,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -135,7 +135,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Thread.sleep(Const * 2);
 		
@@ -177,7 +177,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -200,7 +200,7 @@ public class RNVLInternal extends MyPage {
 
 		System.out.println("Approve App: " + KeepAppNo);
 		
-		// ãæÇİŞÉ ãÏíÑ ÇáãÏíÑíÉ
+		// Ù…ÙˆØ§ÙÙ‚Ø© Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		driver.findElement(HomeMenu).click(); // Home-Page
 
@@ -210,7 +210,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 												 
 
 		Thread.sleep(Const * 2);
@@ -256,7 +256,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalDirector).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -275,7 +275,7 @@ public class RNVLInternal extends MyPage {
 
 		this.CallandLogin();
 		
-		// ãæÇİŞÉ ãÏíÑ ÇáãÏíÑíÉ - ÇáËÇäíÉ
+		// Ù…ÙˆØ§ÙÙ‚Ø© Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ© - Ø§Ù„Ø«Ø§Ù†ÙŠØ©
 
 		driver.findElement(Applications).click();
 
@@ -283,7 +283,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 												 
 
 		Thread.sleep(Const * 2);
@@ -329,7 +329,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {// do nothing
@@ -346,7 +346,7 @@ public class RNVLInternal extends MyPage {
 	
 	public void Processing_RejectByDirector_Case1110(String KeepAppNo) throws InterruptedException, IOException {
 
-		// ÑİÖ ãÏíÑ ÇáãÏíÑíÉ
+		// Ø±ÙØ¶ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		driver.findElement(HomeMenu).click(); // Home-Page
 
@@ -356,7 +356,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ  
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©  
 												
 		Select appType = new Select(driver.findElement(DirectorNavigateOut)); //DirectorNavigateOut
 
@@ -400,7 +400,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalDirector).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		}
 
@@ -418,7 +418,7 @@ public class RNVLInternal extends MyPage {
 
 	public void Processing_IncompleteByDirector_Case1120(String KeepAppNo) throws InterruptedException, IOException {
 
-		// ÇÓÊßãÇá äæÇŞÕ ãÏíÑ ÇáãÏíÑíÉ
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		driver.findElement(HomeMenu).click(); // Home-Page
 
@@ -428,11 +428,11 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ù…Ø¯ÙŠØ±
 									
 		Select appType = new Select(driver.findElement(DirectorNavigateOut)); //DirectorNavigateOut
 
-		appType.selectByIndex(1); // Jordanian// ÇáãÏíÑíÉ
+		appType.selectByIndex(1); // Jordanian// Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		Thread.sleep(Const * 2);
 
@@ -474,7 +474,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalDirector).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		}
@@ -492,7 +492,7 @@ public class RNVLInternal extends MyPage {
 
 	public void Processing_IncompleteByDirector_Case1120_2(String KeepAppNo) throws InterruptedException, IOException {
 
-		// ÇÓÊßãÇá äæÇŞÕ ãÏíÑ ÇáãÏíÑíÉ
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 		
 		this.CallandLogin();
 
@@ -502,7 +502,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ù…Ø¯ÙŠØ±
 									
 		Select status = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
 
@@ -548,7 +548,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		}
@@ -568,7 +568,7 @@ public class RNVLInternal extends MyPage {
 			
 		this.CallandLogin();
 		
-		// ÑİÖ ÑÆíÓ ÇáŞÓã
+		// Ø±ÙØ¶ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
 
 		driver.findElement(Applications).click();
 
@@ -576,7 +576,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(1); 
@@ -625,7 +625,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		}
@@ -650,7 +650,7 @@ public class RNVLInternal extends MyPage {
 	public String Processing_IncompleteByHead_Case1140(String AppNo) throws InterruptedException, IOException {
 	
 		this.CallandLogin();
-		// ÇÓÊßãÇá äæÇŞÕ ÑÆíÓ ÇáŞÓã
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
 
 		driver.findElement(Applications).click();
 
@@ -658,7 +658,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(1); 
@@ -707,7 +707,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÈäÌÇÍ";
+			String ExpectedResult = "Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 					
 		}
@@ -730,7 +730,7 @@ public class RNVLInternal extends MyPage {
 		
 		this.CallandLogin();
 		
-		// ÇÓÊßãÇá äæÇŞÕ ÑÆíÓ ÇáŞÓã
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
 
 		driver.findElement(Applications).click();
 
@@ -738,7 +738,7 @@ public class RNVLInternal extends MyPage {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(2); 
@@ -781,7 +781,7 @@ public class RNVLInternal extends MyPage {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÈäÌÇÍ";
+			String ExpectedResult = "Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 					
 		}
