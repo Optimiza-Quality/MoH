@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -16,22 +17,39 @@ import org.testng.Assert;
 public class MyPage extends RNVLFields{
 
 	WebDriver driver;
-	Integer Const = 800;
+	Integer Const = 900;
 	
 	
-	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
-
-		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
-		
+	
+	
+	public void CallBrowser() throws InterruptedException{
+	
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
 		driver = new ChromeDriver();
+		
+		
+	//	 System.setProperty("webdriver.ie.driver","C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
+	//	 driver = new InternetExplorerDriver();
+
 
 		driver.manage().window().maximize();
 		driver.get("https://ohs-vip:4443/public/index.html");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
+		
+//		driver.findElement(By.id("overridelink")).click();
+		
+		Thread.sleep(Const * 5);
+		
 		driver.findElement(GoToMyPage).click(); // My-Page
+		
+	}
+	
+	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
+		
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("√›—«œ");
@@ -48,7 +66,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 2);
 
@@ -87,19 +105,9 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-//		driver.findElement(LicenseDate).sendKeys(date1);
-//		
-//		Thread.sleep(Const);
-//
-//		driver.findElement(SearchForLicense).sendKeys(Keys.ENTER);// Search
-//
-//		Thread.sleep(Const * 5);
-//		
-//		driver.findElement(DetailsLink).click();
-//
-//		Thread.sleep(Const * 10);
+		driver.findElement(LicenseDetails).click();
 		
-		// capture screenshot
+		Thread.sleep(Const * 20);
 
 		TakesScreenshot ts1 = (TakesScreenshot) driver;
 		File source1 = ts1.getScreenshotAs(OutputType.FILE);
@@ -116,19 +124,11 @@ public class MyPage extends RNVLFields{
 	
 	}
 
-	public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+	public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
-		// «” ﬂ„«· ‰Ê«ﬁ’
+		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ «”»«» «·—›÷
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("√›—«œ");
@@ -145,7 +145,86 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(DetailsLink).click(); // Details
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.1.1_AppDetails.png"));
+		
+		System.out.println("Passed " + KeepAppNo + " App Details Viewed");
+		
+		driver.findElement(PreviousToApps).click(); // Previous
+
+		// -------------------------------View-License----------------------------------
+		
+		Thread.sleep(Const * 2);
+		
+		driver.findElement(RejectionReasons).click(); // License-Tab
+
+		Thread.sleep(Const * 10);
+
+
+
+		TakesScreenshot ts1 = (TakesScreenshot) driver;
+		File source1 = ts1.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source1, new File("./ScreenShots/Case1.1.1.1_RejectionReasons.png"));
+
+		// -------------------------------Clear----------------------------------
+
+		
+		//driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+
+		System.out.println("Passed. Jordanian - View Application And Rejection Reasons 1.1.1.1");
+
+		driver.close();
+	
+	}
+	
+	public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// «” ﬂ„«· ‰Ê«ﬁ’
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("√›—«œ");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 2);
 
@@ -169,18 +248,124 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		// capture screenshot
+		driver.findElement(IncompleteButton).click();
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(ModifyAttachmentInc).click();
+		
+		driver.findElement(UploadFileInc).click();
+		
+		Thread.sleep(Const * 20);
+		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
 
-//		TakesScreenshot ts = (TakesScreenshot) driver;
-//		File source = ts.getScreenshotAs(OutputType.FILE);
-//		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
-//		
-//		System.out.println("Passed" + KeepAppNo + " App Details Viewed");
-//		
-//		driver.findElement(PreviousToApps).click(); // Previous
-//
-//		
-//		driver.close();
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(NextButtonInc).click();
+		
+		driver.findElement(NextButtonIncRev).click();
+		
+		driver.findElement(SubmitInc).click();
+		
+		
+		Thread.sleep(Const * 10);
+		
+		String ActualMessage = driver.findElement(SuccessInc).getText();
+		String ExpectedMessage = "ÿ·»ﬂ »‰Ã«Õ";
+		
+		System.out.println("Actual Message: " + ActualMessage);
+		System.out.println("Expected Message: " + ExpectedMessage);
+		
+		Assert.assertTrue(ActualMessage.contains(ExpectedMessage));
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(BackToHomeInc).click();
+
+		
+		driver.close();
+	
+	}
+	
+
+	public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// «” ﬂ„«· ‰Ê«ﬁ’ - »Ì«‰«  «Œ—Ï
+		
+		this.CallBrowser();
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("√›—«œ");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(IncompleteApp).click(); // Complete
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(IncompleteButton).click();
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(ModifyOtherInc).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select CertificateYear = new Select(driver.findElement(SSYIncOther)); // Certificate-Year
+
+		CertificateYear.selectByIndex(10);
+		
+		Thread.sleep(Const);
+		
+		driver.findElement(NextButtonIncOther).click();
+		
+		driver.findElement(NextButtonIncRev).click();
+		
+		driver.findElement(SubmitInc).click();
+		
+		
+		Thread.sleep(Const * 10);
+		
+		String ActualMessage = driver.findElement(SuccessInc).getText();
+		String ExpectedMessage = "ÿ·»ﬂ »‰Ã«Õ";
+		
+		System.out.println("Actual Message: " + ActualMessage);
+		System.out.println("Expected Message: " + ExpectedMessage);
+		
+		Assert.assertTrue(ActualMessage.contains(ExpectedMessage));
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(BackToHomeInc).click();
+
+		
+		driver.close();
 	
 	}
 	
@@ -188,15 +373,7 @@ public class MyPage extends RNVLFields{
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
@@ -213,7 +390,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 2);
 
@@ -292,16 +469,7 @@ public class MyPage extends RNVLFields{
 	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101(String KeepAppNo) throws InterruptedException, IOException {
 
 		// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
-		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
@@ -318,7 +486,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 2);
 
@@ -393,19 +561,11 @@ public class MyPage extends RNVLFields{
 
 	}
 
+
 	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
-		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("√›—«œ");
@@ -444,19 +604,12 @@ public class MyPage extends RNVLFields{
 
 	}
 
+	
 	public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("‘—ﬂ…");
@@ -500,15 +653,7 @@ public class MyPage extends RNVLFields{
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
@@ -552,15 +697,7 @@ public class MyPage extends RNVLFields{
 
 		// «·„” Œœ„ €Ì— „”Ã· ›Ì «·‰Ÿ«„
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
@@ -604,15 +741,7 @@ public class MyPage extends RNVLFields{
 
 		// «·„⁄·Ê„«  €Ì— „ÿ«»ﬁ…
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-
-		driver.findElement(GoToMyPage).click(); // My-Page
+		this.CallBrowser();
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
 		appType.selectByVisibleText("√›—«œ");
@@ -663,7 +792,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(MyPageNationalNumber).sendKeys("200012345"); // Company-National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("313548792"); // Company-National-ID
 
 		driver.findElement(MyPageCardNo).sendKeys("981944"); // Company-No
 
@@ -698,9 +827,7 @@ public class MyPage extends RNVLFields{
 
 	public void MyPage_HealthInstitute_Case7300_3() throws InterruptedException, IOException {
 
-		Integer Const = 100;
-
-		// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
+			// „⁄·Ê„«  «·œŒÊ· €Ì— „ÿ«»ﬁ…
 
 		driver.findElement(GoToMyPage).click(); // My-Page
 
@@ -709,7 +836,7 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(MyPageNationalNumber).sendKeys("200000000"); // Company-National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("200040000"); // Company-National-ID
 
 		driver.findElement(MyPageCardNo).sendKeys("2000"); // Private-No
 
@@ -797,9 +924,9 @@ public class MyPage extends RNVLFields{
 
 		Thread.sleep(Const * 3);
 
-		driver.findElement(MyPageNationalNumber).sendKeys("200000000"); // Company-National-ID
+		driver.findElement(MyPageNationalNumber).sendKeys("313548792"); // Company-National-ID
 
-		driver.findElement(MyPageCardNo).sendKeys("20000"); // Private-No
+		driver.findElement(MyPageCardNo).sendKeys("Nn@1234"); // Private-No
 
 		Thread.sleep(Const * 2);
 
@@ -851,7 +978,7 @@ public class MyPage extends RNVLFields{
 
 		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
 
-		driver.findElement(MyPageCardNo).sendKeys("ABC12345"); // Card-No
+		driver.findElement(MyPageCardNo).sendKeys("DIP68802"); // Card-No
 
 		Thread.sleep(Const * 2);
 
