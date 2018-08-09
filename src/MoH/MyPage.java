@@ -1,0 +1,1037 @@
+package MoH;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+
+public class MyPage extends RNVLFields{
+
+	WebDriver driver;
+	Integer Const = 900;
+	
+	
+	
+	
+	public void CallBrowser() throws InterruptedException{
+	
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\yabumeshrif\\Desktop\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		
+	//	 System.setProperty("webdriver.ie.driver","C:\\Users\\yabumeshrif\\Desktop\\IEDriverServer.exe");
+	//	 driver = new InternetExplorerDriver();
+
+
+		driver.manage().window().maximize();
+		driver.get("http://test-soa:7003/public/index.html");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		
+//		driver.findElement(By.id("overridelink")).click();
+		
+		Thread.sleep(Const * 5);
+		
+		driver.findElement(GoToMyPage).click(); // My-Page
+		
+	}
+	
+	public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// الاستعلام عن الطلب وعرض رخصة المزاولة
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(DetailsLink).click(); // Details
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
+		
+		System.out.println("Passed " + KeepAppNo + " App Details Viewed");
+		
+		driver.findElement(PreviousToApps).click(); // Previous
+
+		// -------------------------------View-License----------------------------------
+		driver.findElement(MyLicenseTab).click(); // License-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LicenseDetails).click();
+		
+		Thread.sleep(Const * 20);
+
+		TakesScreenshot ts1 = (TakesScreenshot) driver;
+		File source1 = ts1.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source1, new File("./ScreenShots/Case1.1.0.1_LicenseDetails.png"));
+
+		// -------------------------------Clear----------------------------------
+
+		
+		//driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+
+		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1");
+
+		driver.close();
+	
+	}
+
+	public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// الاستعلام عن الطلب وعرض اسباب الرفض
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(DetailsLink).click(); // Details
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.1.1_AppDetails.png"));
+		
+		System.out.println("Passed " + KeepAppNo + " App Details Viewed");
+		
+		driver.findElement(PreviousToApps).click(); // Previous
+
+		// -------------------------------View-License----------------------------------
+		
+		Thread.sleep(Const * 2);
+		
+		driver.findElement(RejectionReasons).click(); // License-Tab
+
+		Thread.sleep(Const * 10);
+
+
+
+		TakesScreenshot ts1 = (TakesScreenshot) driver;
+		File source1 = ts1.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source1, new File("./ScreenShots/Case1.1.1.1_RejectionReasons.png"));
+
+		// -------------------------------Clear----------------------------------
+
+		
+		//driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+
+		System.out.println("Passed. Jordanian - View Application And Rejection Reasons 1.1.1.1");
+
+		driver.close();
+	
+	}
+	
+	public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// استكمال نواقص
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(IncompleteApp).click(); // Complete
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(IncompleteButton).click();
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(ModifyAttachmentInc).click();
+		
+		driver.findElement(UploadFileInc).click();
+		
+		Thread.sleep(Const * 20);
+		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\Uploader.exe");
+		// Give path where the au3 is saved.
+
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(NextButtonInc).click();
+		
+		driver.findElement(NextButtonIncRev).click();
+		
+		driver.findElement(SubmitInc).click();
+		
+		
+		Thread.sleep(Const * 10);
+		
+		String ActualMessage = driver.findElement(SuccessInc).getText();
+		String ExpectedMessage = "طلبك بنجاح";
+		
+		System.out.println("Actual Message: " + ActualMessage);
+		System.out.println("Expected Message: " + ExpectedMessage);
+		
+		Assert.assertTrue(ActualMessage.contains(ExpectedMessage));
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(BackToHomeInc).click();
+
+		
+		driver.close();
+	
+	}
+	
+
+	public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+
+		// استكمال نواقص - بيانات اخرى
+		
+		this.CallBrowser();
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(IncompleteApp).click(); // Complete
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(IncompleteButton).click();
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(ModifyOtherInc).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select CertificateYear = new Select(driver.findElement(SSYIncOther)); // Certificate-Year
+
+		CertificateYear.selectByIndex(10);
+		
+		Thread.sleep(Const);
+		
+		driver.findElement(NextButtonIncOther).click();
+		
+		driver.findElement(NextButtonIncRev).click();
+		
+		driver.findElement(SubmitInc).click();
+		
+		
+		Thread.sleep(Const * 10);
+		
+		String ActualMessage = driver.findElement(SuccessInc).getText();
+		String ExpectedMessage = "طلبك بنجاح";
+		
+		System.out.println("Actual Message: " + ActualMessage);
+		System.out.println("Expected Message: " + ExpectedMessage);
+		
+		Assert.assertTrue(ActualMessage.contains(ExpectedMessage));
+		
+		Thread.sleep(Const * 2);
+		driver.findElement(BackToHomeInc).click();
+
+		
+		driver.close();
+	
+	}
+	
+	public void ViewApplicationAndLicense_HealthInstitute_Case2101(String KeepAppNo) throws InterruptedException, IOException {
+
+		// الاستعلام عن الطلب وعرض رخصة المزاولة
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("مؤسسة صحية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("52317954"); // Institute-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("41725"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
+		// //
+		// Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(DetailsLink).click(); // Details
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case2.1.0.1_AppDetails.png"));
+
+		driver.findElement(PreviousToApps).click(); // Previous
+
+		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
+		// //
+		// Clear-Search
+
+		// -------------------------------View-License----------------------------------
+		driver.findElement(MyLicenseTab).click(); // License-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForLicense).sendKeys(Keys.ENTER);// Search
+
+		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
+		// //
+		// Search
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts1 = (TakesScreenshot) driver;
+		File source1 = ts1.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase2.1.0.1.png"));
+
+		// -------------------------------Clear----------------------------------
+
+		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
+		// //
+		// Clear-Search
+
+		driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+
+		System.out.println("Passed. Health Institute - View Application And License 2.1.0.1");
+
+	}
+
+	
+	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101(String KeepAppNo) throws InterruptedException, IOException {
+
+		// الاستعلام عن الطلب وعرض رخصة المزاولة
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("الخدمات الطبية الملكية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("717144523"); // RMS-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("523317"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		// -------------------------------View-App----------------------------------
+
+		driver.findElement(MyAppTab).click(); // My-Applications-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForApp).sendKeys(KeepAppNo); // Search-For-App-Number
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForApp).sendKeys(Keys.ENTER); // Search
+
+		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_search")).click();
+		// //
+		// Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(DetailsLink).click(); // Details
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case3.1.0.1_AppDetails.png"));
+
+		driver.findElement(PreviousToApps).click(); // Previous
+
+		// driver.findElement(By.id("pt1:r1:2:r1:0:qryId1:_reset")).click();
+		// //
+		// Clear-Search
+
+		// -------------------------------View-License----------------------------------
+		driver.findElement(MyLicenseTab).click(); // License-Tab
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(SearchForLicense).sendKeys(KeepAppNo);// Search-For-License
+
+		Thread.sleep(Const);
+
+		driver.findElement(SearchForLicense).sendKeys(Keys.ENTER);// Search
+
+		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_search")).click();
+		// //
+		// Search
+
+		Thread.sleep(Const * 10);
+
+		// capture screenshot
+
+		TakesScreenshot ts1 = (TakesScreenshot) driver;
+		File source1 = ts1.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source1, new File("./ScreenShots/LicenseDetailsCase3.1.0.1.png"));
+
+		// -------------------------------Clear----------------------------------
+
+		// driver.findElement(By.id("pt1:r1:2:r3:0:qryId1:_reset")).click();
+		// //
+		// Clear-Search
+
+		driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
+
+		System.out.println("Passed. Royal Medical Service - View Application And License 3.1.0.1");
+
+	}
+
+
+	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
+
+		// المستخدم غير مسجل في النظام
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("98526488"); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("9813944"); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.0.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.0.0.0");
+
+	}
+
+	
+	public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
+
+		// المستخدم غير مسجل في النظام
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("شركة");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("200012345"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("981944"); // Company-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.1.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.1.0.0");
+
+	}
+
+	
+	public void MyPage_HealthInstitute_Case7200() throws InterruptedException, IOException {
+
+		// المستخدم غير مسجل في النظام
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("مؤسسة صحية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("981944"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "لا يوجد حساب";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.2.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.2.0.0");
+
+	}
+
+	
+	public void MyPage_RoyalMedicalServices_Case7200_2() throws InterruptedException, IOException {
+
+		// المستخدم غير مسجل في النظام
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("الخدمات الطبية الملكية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("205646454"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("981944"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "لا يوجد حساب";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.2.0.0_2.png"));
+
+		System.out.println("Passed. My Page - Individual 7.2.0.0_2");
+
+	}
+
+
+	public void MyPage_Individuals_Case7300() throws InterruptedException, IOException {
+
+		// المعلومات غير مطابقة
+		
+		this.CallBrowser();
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("9813944"); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.3.0.0");
+
+	}
+
+	
+	public void MyPage_Companies_Case7300_2() throws InterruptedException, IOException {
+
+		// معلومات الدخول غير مطابقة
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("شركة");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("313548792"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("981944"); // Company-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_2.png"));
+
+		System.out.println("Passed. My Page - Individual 7.3.0.0_2");
+
+	}
+
+
+	public void MyPage_HealthInstitute_Case7300_3() throws InterruptedException, IOException {
+
+			// معلومات الدخول غير مطابقة
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("مؤسسة صحية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("200040000"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("2000"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_3.png"));
+
+		System.out.println("Passed. My Page - Individual 7.3.0.0_3");
+
+	}
+
+
+	public void MyPage_RoyalMedicalServices_Case7300_4() throws InterruptedException, IOException {
+
+		// معلومات الدخول غير مطابقة
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("الخدمات الطبية الملكية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("200040000"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("4000"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.3.0.0_4.png"));
+
+		System.out.println("Passed. My Page - Individual 7.3.0.0_4");
+
+	}
+
+	
+	public void MyPage_RoyalMedicalServices_Case7400() throws InterruptedException, IOException {
+
+		// معلومات الدخول غير مطابقة – نوع المستخدم خطأ
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("الخدمات الطبية الملكية");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("313548792"); // Company-National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("Nn@1234"); // Private-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في معلومات الدخول";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.4.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.4.0.0");
+
+	}
+
+	
+	public void MyPage_WrongVerificationCode_Case7500() throws InterruptedException, IOException {
+
+		// خطأ في رمز التحقق المدخل
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\yabumeshrif\\Desktop\\chromedriver2.35.exe");
+		driver = new ChromeDriver();
+
+		driver.manage().window().maximize();
+		driver.get("https://ohs-vip:4443/public/index.html");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+		driver.findElement(GoToMyPage).click(); // My-Page
+
+		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
+		appType.selectByVisibleText("أفراد");
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(MyPageNationalNumber).sendKeys("9882013944"); // National-ID
+
+		driver.findElement(MyPageCardNo).sendKeys("DIP68802"); // Card-No
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(MyPageSearch).click(); // Search
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(LoginVerificationCode).sendKeys("0010"); // Verification-Code
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(NextToMyPage).click(); // Next
+
+		Thread.sleep(Const * 10);
+
+		// Assert
+
+		String ActualResult = driver.findElement(ErrorMessage).getText();
+
+		System.out.println("Actual Message: " + ActualResult);
+
+		String ExpectedResult = "خطأ في رمز التحقق المدخل";
+
+		System.out.println("Expected Message: " + ExpectedResult);
+
+		Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case7.5.0.0.png"));
+
+		System.out.println("Passed. My Page - Individual 7.5.0.0");
+
+	}
+
+
+//	 public static String Date(String[] args) {
+//		 
+//		 // Create object of SimpleDateFormat class and decide the format
+//		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
+//		 
+//		 //get current date time with Date()
+//		 Date date = new Date();
+//		 
+//		 // Now format the date
+//		 String date1= dateFormat.format(date);
+//		 
+//		 // Print the Date
+//		return date1;
+//		 
+//		 }
+
+	
+}
