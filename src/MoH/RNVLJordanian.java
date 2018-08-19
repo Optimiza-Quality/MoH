@@ -19,89 +19,77 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.google.common.base.Verify;
+
 public class RNVLJordanian extends RNVLInternal {
 
 	WebDriver driver;
 
 	Integer Const = 500;
 	
-	public static String AppNo;
+	public static String AppNo, KeepAppNo;
+		
+	public String NationalIDValue, IDNumberValue, year;
 	
-	public static String KeepAppNo;
 	
-	public String NationalIDValue;
 	
-	public String IDNumberValue;
+	public void CatchError() throws InterruptedException, IOException{
 	
-	public String CatchError (String AppNo) throws InterruptedException, IOException{
-	
-		driver.navigate().refresh();
+		boolean result = false;
+		try {
 			
-		Thread.sleep(Const+ 200);
+			if(driver.findElement(ErrorMessage).isDisplayed()) {
+				
+				String ActualResult = driver.findElement(ErrorMessage).getText();
+				
+			//	Assert.assertTrue(ActualResult.contains("ÕœÀ Œÿ√"));
+				
+				Verify.verify(ActualResult.contains("ÕœÀ Œÿ√"));
+				 result = true;
+				
+				if(result == true){
+						
+				System.out.println("ÕœÀ Œÿ√");
+			
+				// Graduation-Year
+				Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+				
+				Graduation.deselectByVisibleText(year);
+						
+				Thread.sleep(Const+200);
+				
+				Graduation.selectByVisibleText(year); // Graduation-Year
+
+				Thread.sleep(Const+200);
+				
+				// Degree
+				Select Degree = new Select(driver.findElement(DegreeDDL));
+				
+				Degree.deselectByIndex(1);
+				
+				Thread.sleep(Const+200);
+				
+				Degree.selectByIndex(1); // Bachelor
+
+				Thread.sleep(Const+200);
+
+				driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+				
+		}
+			}
+			
+			else{
+				System.out.println("Correct Error");	
+				
+			}
+			
+			}
+			
+			catch(Exception e) {
+				System.out.println("No Errors");
+				
+			}
 		
-		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(ReGraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
-
-		Thread.sleep(Const + 200);
-		
-		// Degree
-		Select Degree = new Select(driver.findElement(ReDegreeDDL));
-		Degree.selectByIndex(1); // Bachelor
-
-		driver.findElement(ReNextToReviewOrAttachments).click(); // Next-Button
-
-		// ---------------------------------Attachments--------------------------
-
-		driver.findElement(ReUploadSchoolCertificate).click();
-
-		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_3-PNG\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(ReNextToReviewAttachmentCases).click();
-
-		// ---------------------------------Review-Section----------------------------
-
-		driver.findElement(ReNextToSubmitAttachmentCases).click(); // Next-Button
-
-		// ---------------------------------Rate-and-Submit--------------------------
-
-		Thread.sleep(Const * 10);
-		driver.findElement(ReRateSadAttachmentCases).click(); // Rate-Sad
-
-		Thread.sleep(Const * 10);
-		driver.findElement(ReNotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
-
-		Thread.sleep(Const * 2);
-		driver.findElement(ReSubmitAttachmentCases).click(); // Submit
-
-		Thread.sleep(Const * 10);
-
-		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
-		System.out.println("Actual Message: " + ActualResult);
-		System.out.println("Expected Message: " + ExpectedResult);
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Metigation.png"));
-
-		// ----------------------------------------------------------------------------
-		System.out.println("Passed. Jordanian Nurse Metigation");
-		
-		AppNo = driver.findElement(ReApplicationNumberAttachmentCases).getText(); // Get-App-No
-
-		System.out.println("Application Number: " + AppNo);
-
-		driver.findElement(ReBackToHomeAttachmentCases).click(); // Home-Page
-		
-		return AppNo;
 	}
 	
 		@BeforeMethod(enabled = true, groups = {"Start"})
@@ -334,13 +322,14 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
-		Thread.sleep(Const);
+	//	Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2015";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2015"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+	//	Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -353,6 +342,8 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 5);
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		
+		this.CatchError();
 		
 		// ---------------------------------Review-Section----------------------------
 
@@ -519,13 +510,14 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2012";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2012"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -536,8 +528,8 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NCRC).sendKeys("1234856", Keys.TAB); // NCRC
 
 		Thread.sleep(Const * 5);
-
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+	
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -583,6 +575,159 @@ public class RNVLJordanian extends RNVLInternal {
 		this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
 
 	}
+
+		@Test(priority = 2, enabled = true, groups = {"Success", "Full"})
+	public void SubmitNursingApp_Jordanian_Case1200_2() throws InterruptedException, IOException {
+
+			// «·„” Œœ„ ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
+			// —›÷ „œÌ— «·„œÌ—Ì…
+			
+			driver.findElement(Apply).click(); // Select-Service
+
+			// --------------------------------Select-Applicant-Type------------------------------
+
+			Select appType = new Select(driver.findElement(ApplicantTypeDDL)); // Applicant-Type
+
+			appType.selectByIndex(1); // Jordanian
+
+			Thread.sleep(Const * 3);
+			driver.findElement(NextToBasicInfo).click(); // Next
+
+			// --------------------------------Fill-Basic-Info---------------------------------
+			NationalIDValue = "9831052891";
+			driver.findElement(NationalID).sendKeys(NationalIDValue); // National-ID
+
+			IDNumberValue = "KSE61743";
+			driver.findElement(IDNumber).sendKeys(IDNumberValue); // ID-Number
+
+			driver.findElement(AssociationNumber).sendKeys("9764"); // Association-Number
+
+			driver.findElement(Captcha).sendKeys("0000"); // Captcha-Field
+
+			Thread.sleep(Const * 7);
+
+			driver.findElement(VerifyButton).click(); // Verify
+
+			Thread.sleep(Const * 10);
+			
+			try {
+
+				driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+
+				driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+
+				driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+
+				Thread.sleep(Const * 4);
+			} catch (Exception e) {// do nothing
+
+			}
+
+			driver.findElement(NextToVerificationCode).click(); // Next-Button
+
+			// --------------------------------Verification-Code---------------------------------
+
+			driver.findElement(VerificationCodeText).click(); // Verification-Code
+
+			driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+
+			Thread.sleep(Const * 3);
+
+			driver.findElement(NextToOtherInfo).click(); // Next
+
+			// --------------------------------Fill-Other-Info---------------------------------
+
+			// Schooling-System
+			Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+			SchoolingSystem.selectByIndex(1); // Jordanian-Inside
+
+			// Certificate-Year
+			Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+			CertificateYear.selectByIndex(1); // 1981
+
+			Thread.sleep(Const * 8);
+
+			// Semester
+			Select Semester = new Select(driver.findElement(SemesterDDL));
+			Semester.selectByIndex(1); // Winter
+
+			// -----Bachelor-Degree-Frame-----
+
+			// University-Country
+			Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+			UniversityCountry.selectByVisibleText("«·√—œ‰");
+
+			Thread.sleep(Const * 8);
+
+			// University
+			Select University = new Select(driver.findElement(UniversityDDL));
+			University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+
+			// Thread.sleep(Const);
+			
+			// Graduation-Year
+			year = "2012";
+			Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+			Graduation.selectByVisibleText(year); // Graduation-Year
+
+			// Thread.sleep(Const);
+			
+			// Degree
+			Select Degree = new Select(driver.findElement(DegreeDDL));
+			Degree.selectByIndex(1); // Bachelor
+
+			// -----------NCRC-------
+
+			driver.findElement(NCRC).sendKeys("1234614", Keys.TAB); // NCRC
+
+			Thread.sleep(Const * 5);
+
+			driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+
+			// ---------------------------------Review-Section----------------------------
+
+			driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+
+			// ------------------------------Rate-and-Submit---------------------
+
+			Thread.sleep(Const * 10);
+			driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
+
+			Thread.sleep(Const * 10);
+			driver.findElement(NotesGeneralCases).sendKeys("„Õ«Ìœ"); // Notes
+
+			Thread.sleep(Const * 20);
+			driver.findElement(SubmitGeneralCases).click(); // Submit
+
+			Thread.sleep(Const * 20);
+
+			String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+			String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+			System.out.println("Expected Message: " + ExpectedResult);
+			System.out.println("Actual Message: " + ActualResult);
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+			// capture screenshot
+
+			TakesScreenshot ts3 = (TakesScreenshot) driver;
+			File source3 = ts3.getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(source3, new File("./ScreenShots/Case1.2.0.0_1.png"));
+
+			// --------------------------------------------------------------------------------------
+			System.out.println("Passed. Jordanian Nurse Case 1.2.0.0_1");
+
+			AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
+
+			System.out.println("Application Number: " + AppNo);
+
+			driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+
+			KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo);
+			this.Processing_RejectByDirector_Case1110(KeepAppNo);
+			
+			this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
+
+		}
 		
 	@Test(priority = 3, enabled = true, groups = {"Previous"})
 	public void SubmitNursingApp_Jordanian_Case1420() throws InterruptedException, IOException {
@@ -993,16 +1138,17 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const*2);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const*2);
+	//	Thread.sleep(Const*2);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
 		Degree.selectByIndex(1); // Bachelor
 		
-		Thread.sleep(Const);
+//		Thread.sleep(Const);
 
 		// -----------NCRC-------
 
@@ -1010,7 +1156,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -1164,13 +1310,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -1182,7 +1329,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -1346,8 +1493,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const+ 200);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		Thread.sleep(Const + 200);
 		
@@ -1361,11 +1509,10 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
-		try {
 		driver.findElement(UploadSchoolCertificate).click();
 	
 		Thread.sleep(Const * 20);
@@ -1413,14 +1560,6 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
-		
-		}
-		
-		catch(Exception e){
-			
-			AppNo=this.CatchError(AppNo);
-		}
-		
 		
 		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo);
 		
@@ -1545,8 +1684,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const+200);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		Thread.sleep(Const+200);
 		
@@ -1560,7 +1700,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 	
 		// ---------------------------------Review-Section----------------------------
 
@@ -1702,13 +1842,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -1720,7 +1861,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -1865,13 +2006,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -1883,7 +2025,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2022,10 +2164,11 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		// Graduation-Year
+		year = "2005";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2005"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2040,7 +2183,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2186,13 +2329,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2204,7 +2348,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2320,13 +2464,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2338,7 +2483,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2454,13 +2599,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2472,7 +2618,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2588,13 +2734,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2606,7 +2753,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2722,13 +2869,14 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2014";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2740,7 +2888,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Attachments--------------------------
 
@@ -2856,8 +3004,9 @@ public class RNVLJordanian extends RNVLInternal {
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Graduation-Year
+		year = "2016";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2869,7 +3018,8 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click();
+		this.CatchError();
 
 		Thread.sleep(Const * 10);
 
@@ -2978,8 +3128,9 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
 
 		// Graduation-Year
+		year = "2006";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2006"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -2991,7 +3142,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 10);
 
@@ -3101,13 +3252,14 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "2016";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -3119,7 +3271,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 10);
 
@@ -3234,13 +3386,14 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("ﬂ·Ì… «·«„Ì—… „‰Ï ·· „—Ì÷");
 		// University.selectByIndex(139); // Jordanian-University
 
-		Thread.sleep(Const + 200);
+		// Thread.sleep(Const);
 		
 		// Graduation-Year
+		year = "1998";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("1998"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const+200);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -3252,7 +3405,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -3394,8 +3547,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 8);
 
 		// Graduation-Year
+		year = "2005";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2005"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -3410,14 +3564,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Review-Section----------------------------
 
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
-		// ------------------------------Rate and
-		// Submit---------------------
+		// ------------------------------Rate-and-Submit---------------------
 
 		Thread.sleep(Const * 10);
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
@@ -3450,7 +3603,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
 		
-		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(IDNumberValue, NationalIDValue, KeepAppNo);
+		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, IDNumberValue, NationalIDValue);
 		
 		
 
@@ -3595,8 +3748,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 8);
 
 		// Graduation-Year
+		year = "2005";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2005"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -3611,7 +3765,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 10);
 
@@ -3731,8 +3885,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Admission.selectByVisibleText("2000");
 
 		// Graduation-Year
+		year = "2004";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2004");
+		Graduation.selectByVisibleText(year);
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -3744,7 +3899,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -3898,8 +4053,9 @@ public class RNVLJordanian extends RNVLInternal {
 		Admission.selectByVisibleText("2002");
 
 		// Graduation-Year
+		year = "2016";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016");
+		Graduation.selectByVisibleText(year);
 
 		Thread.sleep(Const * 10);
 
@@ -3916,7 +4072,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -4025,7 +4181,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
 		SchoolingSystem.selectByIndex(2); // Non-Jordanian-Inside
 
-		Thread.sleep(Const);
+		 Thread.sleep(Const);
 		
 		// Certificate-Year
 		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
@@ -4050,19 +4206,20 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// Graduation-Year
+		year = "2013";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2013"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
 		Degree.selectByIndex(1); // Bachelor
 		
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		// -----------NCRC-------
 
@@ -4070,7 +4227,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 20);
 
@@ -4177,12 +4334,13 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("Ã«„⁄… «·ﬂÊÌ ");
 
-		Thread.sleep(Const);
+		// Thread.sleep(Const);
 
 		
 		// Graduation-Year
+		year = "2016";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		Thread.sleep(Const * 10);
 
@@ -4198,7 +4356,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 20);
 
@@ -4310,8 +4468,9 @@ public class RNVLJordanian extends RNVLInternal {
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Graduation-Year
+		year = "2016";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2016"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -4323,7 +4482,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
 
 		Thread.sleep(Const * 20);
 
@@ -4432,8 +4591,9 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
 		// Graduation-Year
+		year = "2012";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2012"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -4553,8 +4713,9 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
 		// Graduation-Year
+		year = "2012";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2012"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -4661,8 +4822,9 @@ public class RNVLJordanian extends RNVLInternal {
 		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
 
 		// Graduation-Year
+		year = "2012";
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
-		Graduation.selectByVisibleText("2012"); // Graduation-Year
+		Graduation.selectByVisibleText(year); // Graduation-Year
 
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
