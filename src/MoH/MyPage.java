@@ -1,15 +1,18 @@
 package MoH;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -18,9 +21,6 @@ public class MyPage extends RNVLFields{
 
 	WebDriver driver;
 	Integer Const = 900;
-	
-	
-	
 	
 	public void CallBrowser() throws InterruptedException{
 	
@@ -94,7 +94,7 @@ public class MyPage extends RNVLFields{
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.1_AppDetails.png"));
+		FileUtils.copyFile(source, new File("./ScreenShots/" + "App " + KeepAppNo + ".png"));
 		
 		System.out.println("Passed " + KeepAppNo + " App Details Viewed");
 		
@@ -108,17 +108,21 @@ public class MyPage extends RNVLFields{
 		driver.findElement(LicenseDetails).click();
 		
 		Thread.sleep(Const * 20);
-
+	
+		this.SwitchTab();
+		
+		Thread.sleep(Const * 20);
+		
 		TakesScreenshot ts1 = (TakesScreenshot) driver;
 		File source1 = ts1.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source1, new File("./ScreenShots/Case1.1.0.1_LicenseDetails.png"));
+		FileUtils.copyFile(source1, new File("./ScreenShots/" + "License " + KeepAppNo + ".png"));
 
 		// -------------------------------Clear----------------------------------
 
 		
 		//driver.findElement(By.id("GoToHomePage")).click(); // Home-Page
 
-		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1");
+		System.out.println("Passed. Jordanian - View Application And License 1.1.0.1 " + KeepAppNo);
 
 		driver.close();
 	
@@ -251,6 +255,7 @@ public class MyPage extends RNVLFields{
 		driver.findElement(IncompleteButton).click();
 		
 		Thread.sleep(Const * 2);
+		
 		driver.findElement(ModifyAttachmentInc).click();
 		
 		driver.findElement(UploadFileInc).click();
@@ -262,6 +267,8 @@ public class MyPage extends RNVLFields{
 		Thread.sleep(Const * 10);
 		
 		driver.findElement(NextButtonInc).click();
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1200)");
 		
 		driver.findElement(NextButtonIncRev).click();
 		
@@ -286,7 +293,6 @@ public class MyPage extends RNVLFields{
 	
 	}
 	
-
 	public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
 		// استكمال نواقص - بيانات اخرى
@@ -346,6 +352,7 @@ public class MyPage extends RNVLFields{
 		
 		driver.findElement(NextButtonIncOther).click();
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextButtonIncRev).click();
 		
 		driver.findElement(SubmitInc).click();
@@ -465,7 +472,6 @@ public class MyPage extends RNVLFields{
 
 	}
 
-	
 	public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101(String KeepAppNo) throws InterruptedException, IOException {
 
 		// الاستعلام عن الطلب وعرض رخصة المزاولة
@@ -560,7 +566,6 @@ public class MyPage extends RNVLFields{
 		System.out.println("Passed. Royal Medical Service - View Application And License 3.1.0.1");
 
 	}
-
 
 	public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
 
@@ -1016,22 +1021,16 @@ public class MyPage extends RNVLFields{
 
 	}
 
-
-//	 public static String Date(String[] args) {
-//		 
-//		 // Create object of SimpleDateFormat class and decide the format
-//		 DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
-//		 
-//		 //get current date time with Date()
-//		 Date date = new Date();
-//		 
-//		 // Now format the date
-//		 String date1= dateFormat.format(date);
-//		 
-//		 // Print the Date
-//		return date1;
-//		 
-//		 }
-
+	public void SwitchTab () {
 	
-}
+
+		  String windowHandle = driver.getWindowHandle();
+		    ArrayList tabs = new ArrayList (driver.getWindowHandles());
+		   
+		    driver.switchTo().window((String) tabs.get(1)); 
+    
+//    Actions action= new Actions(driver);
+//    action.keyDown(Keys.CONTROL).sendKeys(Keys.TAB).build().perform();
+//    driver.navigate().refresh();
+	
+}	}

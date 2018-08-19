@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,9 +17,11 @@ import org.testng.Assert;
 
 
 public class RNVLInternal extends MyPage {
-	Integer Const = 500;
-		
+	
+	Integer Const = 700;
+			
 	public String KeepAppNo;
+	
 	
 	public void CallandLogin() throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\yabumeshrif\\Desktop\\chromedriver.exe");
@@ -91,6 +94,8 @@ public class RNVLInternal extends MyPage {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.0.png"));
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
+		
 		driver.findElement(HeadApprove).click(); // Radio-Approve
 
 		Thread.sleep(Const * 10);
@@ -117,6 +122,8 @@ public class RNVLInternal extends MyPage {
 		}
 		
 		driver.findElement(BackButtonInternal).click();
+		
+		Thread.sleep(Const * 2);
 
 		System.out.println("Passed. " + KeepAppNo + " Approved by Head of Department");
 		
@@ -162,6 +169,8 @@ public class RNVLInternal extends MyPage {
 			System.out.println("No Warning Message");
 		}
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
+		
 		driver.findElement(HeadApprove).click(); // Radio-Approve
 
 		Thread.sleep(Const * 10);
@@ -241,6 +250,7 @@ public class RNVLInternal extends MyPage {
 			System.out.println("No Warning Message");
 		}
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(DirectorApprove).click(); // Radio-Approve
 
 		Thread.sleep(Const * 10);
@@ -313,7 +323,9 @@ public class RNVLInternal extends MyPage {
 		catch(Exception e){
 			System.out.println("No Warning Message");
 		}
-
+		
+	 JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
+		
 		driver.findElement(HeadApprove).click(); // Radio-Approve
 
 		Thread.sleep(Const * 10);
@@ -385,6 +397,7 @@ public class RNVLInternal extends MyPage {
 			System.out.println("No Warning Message");
 		}
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(DirectorReject).click(); // Radio-Reject
 
 		Thread.sleep(Const * 10);
@@ -457,6 +470,7 @@ public class RNVLInternal extends MyPage {
 			System.out.println("No Warning Message");
 		}
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(DirectorIncomplete).click(); // Radio-Incomplete
 
 		Thread.sleep(Const * 10);
@@ -530,6 +544,7 @@ public class RNVLInternal extends MyPage {
 		catch(Exception e){
 			System.out.println("No Warning Message");
 		}
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 
 		driver.findElement(HeadIncomplete).click(); // Radio-Incomplete
 
@@ -610,6 +625,7 @@ public class RNVLInternal extends MyPage {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.0.png"));
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(HeadReject).click(); // Radio-Reject
 
 		Thread.sleep(Const * 10);
@@ -692,6 +708,7 @@ public class RNVLInternal extends MyPage {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.0.png"));
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(HeadIncomplete).click(); // Radio-Incomplete
 
 		Thread.sleep(Const * 10);
@@ -766,6 +783,7 @@ public class RNVLInternal extends MyPage {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.0.png"));
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(HeadIncomplete).click(); // Radio-Incomplete
 
 		Thread.sleep(Const * 10);

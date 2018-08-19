@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,7 +24,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	WebDriver driver;
 
-	Integer Const = 700;
+	Integer Const = 800;
 	
 	public static String AppNo;
 	
@@ -33,75 +34,44 @@ public class RNVLJordanian extends RNVLInternal {
 	
 	public String IDNumberValue;
 	
-	public String CatchError (String AppNo) throws InterruptedException, IOException{
+	public void CatchError () throws InterruptedException, IOException{
 	
-		driver.navigate().refresh();
+	try {
+		if(driver.findElement(ErrorMessageHead).isDisplayed()) {
 			
-		Thread.sleep(Const+ 200);
+			System.out.println("خطأ");
 		
-		// Graduation-Year
-		Select Graduation = new Select(driver.findElement(ReGraduationYearDDL));
-		Graduation.selectByVisibleText("2014"); // Graduation-Year
+			// Graduation-Year
+			Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+			
+			Graduation.deselectByVisibleText("2015");
+					
+			Thread.sleep(Const+200);
+			
+			Graduation.selectByVisibleText("2015"); // Graduation-Year
 
-		Thread.sleep(Const + 200);
+			Thread.sleep(Const+200);
+			
+			// Degree
+			Select Degree = new Select(driver.findElement(DegreeDDL));
+			
+			Degree.deselectByIndex(1);
+			
+			Thread.sleep(Const+200);
+			
+			Degree.selectByIndex(1); // Bachelor
+
+			Thread.sleep(Const+200);
+
+			driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+			
+	}
+		}
 		
-		// Degree
-		Select Degree = new Select(driver.findElement(ReDegreeDDL));
-		Degree.selectByIndex(1); // Bachelor
-
-		driver.findElement(ReNextToReviewOrAttachments).click(); // Next-Button
-
-		// ---------------------------------Attachments--------------------------
-
-		driver.findElement(ReUploadSchoolCertificate).click();
-
-		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_3-PNG\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(ReNextToReviewAttachmentCases).click();
-
-		// ---------------------------------Review-Section----------------------------
-
-		driver.findElement(ReNextToSubmitAttachmentCases).click(); // Next-Button
-
-		// ---------------------------------Rate-and-Submit--------------------------
-
-		Thread.sleep(Const * 10);
-		driver.findElement(ReRateSadAttachmentCases).click(); // Rate-Sad
-
-		Thread.sleep(Const * 10);
-		driver.findElement(ReNotesAttachmentCases).sendKeys("حزين"); // Notes
-
-		Thread.sleep(Const * 2);
-		driver.findElement(ReSubmitAttachmentCases).click(); // Submit
-
-		Thread.sleep(Const * 10);
-
-		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "طلبك بنجاح";
-		System.out.println("Actual Message: " + ActualResult);
-		System.out.println("Expected Message: " + ExpectedResult);
-		Assert.assertTrue(ActualResult.contains(ExpectedResult));
-
-		// capture screenshot
-
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source, new File("./ScreenShots/Metigation.png"));
-
-		// ----------------------------------------------------------------------------
-		System.out.println("Passed. Jordanian Nurse Metigation");
-		
-		AppNo = driver.findElement(ReApplicationNumberAttachmentCases).getText(); // Get-App-No
-
-		System.out.println("Application Number: " + AppNo);
-
-		driver.findElement(ReBackToHomeAttachmentCases).click(); // Home-Page
-		
-		return AppNo;
+		catch(Exception e) {
+			System.out.println("else");
+			
+		}
 	}
 	
 		@BeforeMethod(enabled = true, groups = {"Start"})
@@ -176,7 +146,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	@AfterMethod(enabled =true, groups = {"Start"})
-	public void End(ITestResult result) throws InterruptedException {
+	public void TearDown(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into
 		// if
 		// condition
@@ -334,13 +304,13 @@ public class RNVLJordanian extends RNVLInternal {
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("الجامعة الاردنية");
 
-		Thread.sleep(Const);
+		Thread.sleep(Const+100);
 		
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
 		Graduation.selectByVisibleText("2015"); // Graduation-Year
 
-		Thread.sleep(Const);
+		Thread.sleep(Const+100);
 		
 		// Degree
 		Select Degree = new Select(driver.findElement(DegreeDDL));
@@ -354,8 +324,12 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		
+		this.CatchError();
+		
 		// ---------------------------------Review-Section----------------------------
-
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
+		
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 			
 		// ------------------------------Rate-and-Submit---------------------
@@ -403,7 +377,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 	}
 
-		@Test(priority = 2, enabled = true, groups = {"Success", "Full"}, retryAnalyzer = MoH.RetryAnalyzer.class)
+		@Test(priority = 2, enabled = true, groups = {"Success", "Full", "Redo"}, retryAnalyzer = MoH.RetryAnalyzer.class)
 	public void SubmitNursingApp_Jordanian_Case1200() throws InterruptedException, IOException {
 
 		// المستخدم قام بانشاء حساب ولم يتم عملية تقديم الطلب
@@ -541,6 +515,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// ---------------------------------Review-Section----------------------------
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate-and-Submit---------------------
@@ -583,6 +558,227 @@ public class RNVLJordanian extends RNVLInternal {
 		this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
 
 	}
+	
+	@Test(priority = 2, enabled = true, groups = {"Success", "Full"})
+	public void SubmitNursingApp_Jordanian_Case1200_2() throws InterruptedException, IOException {
+
+              // المستخدم قام بانشاء حساب ولم يتم عملية تقديم الطلب
+
+              // رفض مدير المديرية
+
+              driver.findElement(Apply).click(); // Select-Service
+
+              // --------------------------------Select-Applicant-Type------------------------------
+
+              Select appType = new Select(driver.findElement(ApplicantTypeDDL)); // Applicant-Type
+
+              appType.selectByIndex(1); // Jordanian
+
+              Thread.sleep(Const * 3);
+
+              driver.findElement(NextToBasicInfo).click(); // Next
+
+              // --------------------------------Fill-Basic-Info---------------------------------
+
+              NationalIDValue = "9831052891";
+
+              driver.findElement(NationalID).sendKeys(NationalIDValue); // National-ID
+
+              IDNumberValue = "KSE61743";
+
+              driver.findElement(IDNumber).sendKeys(IDNumberValue); // ID-Number
+
+              driver.findElement(AssociationNumber).sendKeys("9764"); // Association-Number
+
+              driver.findElement(Captcha).sendKeys("0000"); // Captcha-Field
+
+              Thread.sleep(Const * 7);
+
+              driver.findElement(VerifyButton).click(); // Verify
+
+              Thread.sleep(Const * 10);
+
+              // Screenshot for Initial Contact Details
+
+              TakesScreenshot ts = (TakesScreenshot) driver;
+
+              File source = ts.getScreenshotAs(OutputType.FILE);
+
+              FileUtils.copyFile(source, new File("./ScreenShots/Case1.2.0.0_Initial_Contact_Detials.png"));
+
+              // --------------------------------Edit-Contact-Details---------------------------------
+
+              driver.findElement(ModifyContactDetails).click(); // Edit-Contact-Details-Link
+
+              this.EditContactDetails();
+
+              // -------------------------Go-Back-To-Application-Form---------------------------------
+
+              driver.findElement(Apply).click(); // Select-Service
+
+              // --------------------------------Select-Applicant-Type------------------------------
+
+              Select appTypeAgain = new Select(driver.findElement(ApplicantTypeDDL)); // Applicant-Type
+
+              appTypeAgain.selectByIndex(1); // Jordanian
+
+              Thread.sleep(Const * 3);
+
+              driver.findElement(NextToBasicInfo).click(); // Next
+
+              // --------------------------------Fill-Basic-Info---------------------------------
+
+              driver.findElement(NationalID).sendKeys(NationalIDValue); // National-ID
+        
+              driver.findElement(IDNumber).sendKeys(IDNumberValue); // ID-Number
+
+              driver.findElement(AssociationNumber).sendKeys("9764"); // Association-Number
+
+              driver.findElement(Captcha).sendKeys("0090"); // Captcha-Field
+
+              Thread.sleep(Const * 7);
+
+              driver.findElement(VerifyButton).click(); // Verify
+
+              Thread.sleep(Const * 10);
+
+              // Screenshot for Updated Contact Details
+
+              TakesScreenshot ts2 = (TakesScreenshot) driver;
+
+              File source2 = ts2.getScreenshotAs(OutputType.FILE);
+
+              FileUtils.copyFile(source2, new File("./ScreenShots/Case1.2.0.0_2Updated_Contact_Detials.png"));
+
+              driver.findElement(NextToVerificationCode).click(); // Next-Button
+
+              // --------------------------------Verification-Code---------------------------------
+
+              driver.findElement(VerificationCodeText).click(); // Verification-Code
+
+              driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+
+              Thread.sleep(Const * 3);
+
+              driver.findElement(NextToOtherInfo).click(); // Next
+
+             // --------------------------------Fill-Other-Info---------------------------------
+
+              // Schooling-System
+
+              Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+
+              SchoolingSystem.selectByIndex(1); // Jordanian-Inside
+
+              // Certificate-Year
+
+              Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+
+              CertificateYear.selectByIndex(1); // 1981
+
+              Thread.sleep(Const * 8);
+
+              // Semester
+
+              Select Semester = new Select(driver.findElement(SemesterDDL));
+
+              Semester.selectByIndex(1); // Winter
+
+              // -----Bachelor-Degree-Frame-----
+
+              // University-Country
+
+              Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+
+              UniversityCountry.selectByVisibleText("الأردن");
+
+              Thread.sleep(Const * 8);
+
+              // University
+
+              Select University = new Select(driver.findElement(UniversityDDL));
+
+              University.selectByVisibleText("الجامعة الاردنية");
+
+              Thread.sleep(Const);
+
+               // Graduation-Year
+
+              Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+
+              Graduation.selectByVisibleText("2012"); // Graduation-Year
+
+              Thread.sleep(Const);
+
+              // Degree
+
+              Select Degree = new Select(driver.findElement(DegreeDDL));
+
+              Degree.selectByIndex(1); // Bachelor
+
+              // -----------NCRC-------
+
+              driver.findElement(NCRC).sendKeys("1234614", Keys.TAB); // NCRC
+
+             Thread.sleep(Const * 5);
+
+              driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+
+              // ---------------------------------Review-Section----------------------------
+
+              driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
+
+              // ------------------------------Rate-and-Submit---------------------
+
+              Thread.sleep(Const * 10);
+
+              driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
+
+              Thread.sleep(Const * 10);
+
+              driver.findElement(NotesGeneralCases).sendKeys("محايد"); // Notes
+
+              Thread.sleep(Const * 20);
+
+              driver.findElement(SubmitGeneralCases).click(); // Submit
+
+              Thread.sleep(Const * 20);
+
+              String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
+
+              String ExpectedResult = "طلبك بنجاح";
+
+              System.out.println("Expected Message: " + ExpectedResult);
+
+              System.out.println("Actual Message: " + ActualResult);
+
+              Assert.assertTrue(ActualResult.contains(ExpectedResult));
+
+              // capture screenshot
+
+              TakesScreenshot ts3 = (TakesScreenshot) driver;
+
+              File source3 = ts3.getScreenshotAs(OutputType.FILE);
+
+              FileUtils.copyFile(source3, new File("./ScreenShots/Case1.2.0.0_1.png"));
+
+              // --------------------------------------------------------------------------------------
+
+              System.out.println("Passed. Jordanian Nurse Case 1.2.0.0_1");
+
+              AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
+
+              System.out.println("Application Number: " + AppNo);
+
+              driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
+
+              KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo);
+
+              this.Processing_RejectByDirector_Case1110(KeepAppNo);           
+
+              this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
+
+        }
 		
 	@Test(priority = 3, enabled = true, groups = {"Previous"})
 	public void SubmitNursingApp_Jordanian_Case1420() throws InterruptedException, IOException {
@@ -636,7 +832,8 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
-	@Test(priority = 4, enabled = true, groups = {"Previous"})
+
+	@Test(priority = 4, enabled = true, groups = {"Previous", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1400() throws InterruptedException, IOException {
 
 		// المستخدم حاصل على رخصة مزاولة مهنة
@@ -690,6 +887,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
+	
 	@Test(priority = 4, enabled = true, groups = {"Previous"})
 	public void SubmitNursingApp_Jordanian_Case1410() throws InterruptedException, IOException {
 
@@ -707,11 +905,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 
-		driver.findElement(NationalID).sendKeys("7411325533"); // National-ID
+		driver.findElement(NationalID).sendKeys("9612004436"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("7799266"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("IBZ47819"); // ID-Number
 
-		driver.findElement(AssociationNumber).sendKeys("10224"); // Association-Number
+		driver.findElement(AssociationNumber).sendKeys("1009"); // Association-Number
 
 		driver.findElement(Captcha).click();
 
@@ -794,6 +992,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
+	
 	@Test(priority = 5, enabled = true, groups = {"CSPD"})
 	public void SubmitNursingApp_Jordanian_Case1500_2() throws InterruptedException, IOException {
 
@@ -846,6 +1045,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
+	
 	@Test(priority = 6, groups = {"CSPD"})
 	public void SubmitNursingApp_Jordanian_Case1510() throws InterruptedException, IOException {
 
@@ -863,9 +1063,9 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// --------------------------------Fill-Basic-Info---------------------------------
 
-		driver.findElement(NationalID).sendKeys("9762030643"); // National-ID
+		driver.findElement(NationalID).sendKeys("9861004187"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("BSF31951"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("7409093"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("5630"); // Association-Number
 
@@ -898,6 +1098,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
+
 	@Test(priority = 8, groups = {"High", "Full"})
 	public void SubmitNursingApp_Jordanian_Case1600() throws InterruptedException, IOException {
 
@@ -920,7 +1121,7 @@ public class RNVLJordanian extends RNVLInternal {
 		NationalIDValue = "9791051994";
 		driver.findElement(NationalID).sendKeys(NationalIDValue); // National-ID
 
-		IDNumberValue="11624403";
+		IDNumberValue="QYV32858";
 		driver.findElement(IDNumber).sendKeys(IDNumberValue); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
@@ -1026,6 +1227,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// ---------------------------------Review-Section----------------------------
 	
+	JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1073,6 +1275,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 
 	}
+
 
 	@Test(priority = 7, enabled = true, groups = {"High", "Full"})
 	public void SubmitNursingApp_Jordanian_Case1600_2() throws InterruptedException, IOException {
@@ -1189,7 +1392,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_2 - jpeg\\Uploader2.exe");
+		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1197,7 +1400,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewAttachmentCases).click();
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1250,7 +1453,8 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
-	@Test(priority = 7, enabled= true ,groups = {"High", "Full"})
+
+	@Test(priority = 7, enabled= true ,groups = {"High", "Full", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1600_3() throws InterruptedException, IOException {
 
 		// عدم استرجاع معلومات الثانوية
@@ -1365,11 +1569,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// ---------------------------------Attachments--------------------------
 
-		try {
+		
 		driver.findElement(UploadSchoolCertificate).click();
 	
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_3-PNG\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1378,6 +1582,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// ---------------------------------Review-Section----------------------------
 
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1414,14 +1619,6 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
 		
-		}
-		
-		catch(Exception e){
-			
-			AppNo=this.CatchError(AppNo);
-		}
-		
-		
 		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
@@ -1448,7 +1645,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 7, enabled = true,  groups = {"High", "Full"})
+	@Test(priority = 7, enabled = true,  groups = {"High", "Full", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1600_4() throws InterruptedException, IOException {
 
 		// غير اردني خارج الاردن
@@ -1563,7 +1760,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 	
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 	
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1613,7 +1810,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 
-	@Test(priority = 7, enabled = true, groups = {"High", "Full"})
+	@Test(priority = 7, enabled = true, groups = {"High", "Full", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1600_5() throws InterruptedException, IOException {
 
 		// عدم استرجاع معلومات الثانوية
@@ -1727,7 +1924,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_5-jpg\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1735,7 +1932,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewAttachmentCases).click();
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1890,7 +2087,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1898,7 +2095,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewAttachmentCases).click();
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -1934,7 +2131,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 7, groups = {"High", "Full"})
+	@Test(priority = 7, groups = {"High", "Full", "Redo"})
 	public void SubmitNursingApp_Jordanian_Case1600_7() throws InterruptedException, IOException {
 
 		// عدم استرجاع معلومات الثانوية من معلومات وثيقة المعادلة
@@ -2047,7 +2244,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2055,7 +2252,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewAttachmentCases).click();
 
 		// ---------------------------------Review-Section----------------------------
-	
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
 		// ---------------------------------Rate-and-Submit--------------------------
@@ -2119,7 +2316,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NationalID).sendKeys("9791051994"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("11624403"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("QYV32858"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
 
@@ -2211,7 +2408,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_8-doc\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2253,7 +2450,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NationalID).sendKeys("9791051994"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("11624403"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("QYV32858"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
 
@@ -2345,7 +2542,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_9-zip\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2387,7 +2584,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NationalID).sendKeys("9791051994"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("11624403"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("QYV32858"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
 
@@ -2479,7 +2676,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_10-exe\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2521,7 +2718,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NationalID).sendKeys("9791051994"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("11624403"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("QYV32858"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
 
@@ -2613,7 +2810,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_11-gif\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2655,7 +2852,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NationalID).sendKeys("9791051994"); // National-ID
 
-		driver.findElement(IDNumber).sendKeys("11624403"); // ID-Number
+		driver.findElement(IDNumber).sendKeys("QYV32858"); // ID-Number
 
 		driver.findElement(AssociationNumber).sendKeys("7196"); // Association-Number
 
@@ -2747,7 +2944,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\yabumeshrif\\Desktop\\attachemnts\\1.6.0.0_12-JPG - large\\Uploader.exe");
+		Runtime.getRuntime().exec("C:\\\\Users\\\\yabumeshrif\\\\Desktop\\\\attachemnts\\\\Uploader.exe");
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2770,7 +2967,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 
-	@Test(priority = 8, groups = {"Uni"})
+	@Test(priority = 8, groups = {"Uni", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1700() throws InterruptedException, IOException {
 
 		// عدم استرجاع معلومات البكالوريوس
@@ -2895,7 +3092,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 9, groups = {"Uni"})
+	@Test(priority = 9, groups = {"Uni", "Redo"})
 	public void SubmitNursingApp_Jordanian_Case1700_2() throws InterruptedException, IOException {
 
 		// عدم تطابق معلومات البكالوريوس
@@ -3017,7 +3214,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 9, groups = {"Uni"})
+	@Test(priority = 9, groups = {"Uni", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1700_3() throws InterruptedException, IOException {
 
 		// عدم تطابق معلومات البكالوريوس - الجامعة
@@ -3144,6 +3341,133 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
+	@Test(priority = 9, groups = {"Uni", "Pass"})	
+	public void SubmitNursingApp_Jordanian_Case1700_4() throws InterruptedException, IOException {
+
+		// عدم تطابق معلومات البكالوريوس - سنة التخرج قبل 2001
+
+		driver.findElement(Apply).click(); // Select-Service
+
+		// --------------------------------Select-Applicant-Type------------------------------
+		Select appType = new Select(driver.findElement(ApplicantTypeDDL)); // Applicant-Type
+
+		appType.selectByIndex(1); // Jordanian
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(NextToBasicInfo).click(); // Next
+
+		// --------------------------------Fill-Basic-Info---------------------------------
+
+		driver.findElement(NationalID).sendKeys("9872003176"); // National-ID
+
+		driver.findElement(IDNumber).sendKeys("PJX99004"); // ID-Number
+
+		driver.findElement(AssociationNumber).sendKeys("19728"); // Association-Number
+
+		driver.findElement(Captcha).sendKeys("9999"); // Captcha-Field
+
+		Thread.sleep(Const * 7);
+
+		driver.findElement(VerifyButton).click(); // Verify
+
+		Thread.sleep(Const * 20);
+
+		try {
+			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+
+			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+
+			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+
+			Thread.sleep(Const * 10);
+		} catch (Exception e) {// do nothing
+
+		}
+
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
+
+		// --------------------------------Verification-Code---------------------------------
+
+		driver.findElement(VerificationCodeText).click(); // Verification-Code
+
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+
+		Thread.sleep(Const * 3);
+
+		driver.findElement(NextToOtherInfo).click(); // Next
+
+		// --------------------------------Fill-Other-Info---------------------------------
+
+		// Schooling-System
+		Select SchoolingSystem = new Select(driver.findElement(SchoolingSysDDL));
+		SchoolingSystem.selectByIndex(1); // Jordanian
+
+		// Certificate-Year
+		Select CertificateYear = new Select(driver.findElement(CertificateYearDDL));
+		CertificateYear.selectByIndex(1); // 1981
+
+		Thread.sleep(Const * 3);
+		// Semester
+		Select Semester = new Select(driver.findElement(SemesterDDL));
+		Semester.selectByIndex(1); // Winter
+
+		// -----Bachelor-Degree-Frame-----
+
+		// University-Country
+		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
+		UniversityCountry.selectByVisibleText("الأردن");
+		// UniversityCountry.selectByIndex(139); // الأردن
+
+		Thread.sleep(Const * 8);
+
+		// University
+		Select University = new Select(driver.findElement(UniversityDDL));
+		University.selectByVisibleText("الجامعة الاردنية");
+
+		Thread.sleep(Const);
+		
+		// Graduation-Year
+		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
+		Graduation.selectByVisibleText("2000"); // Graduation-Year
+
+		Thread.sleep(Const);
+		
+		// Degree
+		Select Degree = new Select(driver.findElement(DegreeDDL));
+		Degree.selectByIndex(1); // Bachelor
+
+		// -----------NCRC--------
+
+		driver.findElement(NCRC).sendKeys("1234637", Keys.TAB); // NCRC
+
+		Thread.sleep(Const * 5);
+
+		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
+
+		Thread.sleep(Const * 10);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "معلومات البكالوريوس المدخلة غير صحيحة. لا يمكنك استكمال تقديم الطلب. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة";
+		System.out.println("Expected Message: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// capture screenshot
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File("./ScreenShots/Case1.7.0.0_4.png"));
+
+		// -----------------------------------------------------------------------------------------------
+		System.out.println("Passed. Jordanian Nurse 1.7.0.0_4");
+
+	}
+
+	
 	@Test(priority = 10, groups = {"Uni", "Full"})
 	public void SubmitNursingApp_Jordanian_Case1710() throws InterruptedException, IOException {
 
@@ -3255,7 +3579,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate-and-Submit---------------------
@@ -3305,7 +3629,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 11, groups = {"Uni", "Full", "Equi"})
+	@Test(priority = 11, groups = {"Uni", "Full", "Equi", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1720() throws InterruptedException, IOException {
 
 		// شهادة البكالوريوس من جامعة خارج الاردن
@@ -3413,7 +3737,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate and
@@ -3457,7 +3781,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 	
 
-	@Test(priority = 12, enabled = true, groups = {"Uni", "Full"})
+	@Test(priority = 12, enabled = true, groups = {"Uni", "Full", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1300() throws InterruptedException, IOException {
 
 		// المستخدم قام بتقديم طلب سابق ولا يزال قيد التنفيذ
@@ -3510,7 +3834,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 	
 	
-	@Test(priority = 12, groups = {"Uni", "Equi"})
+	@Test(priority = 12, groups = {"Uni", "Equi", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1721() throws InterruptedException, IOException {
 
 		// شهادة البكالوريوس من جامعة خارج الاردن - خطأ في رقم وثيقة
@@ -3637,7 +3961,7 @@ public class RNVLJordanian extends RNVLInternal {
 		}
 
 	
-	@Test(priority = 13,enabled = true ,groups = {"Uni", "Full", "Equi"})
+	@Test(priority = 13,enabled = true ,groups = {"Uni", "Full", "Equi", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1730() throws InterruptedException, IOException {
 
 		// جامعة عربية حكومية قبل 2001
@@ -3754,7 +4078,7 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Warning Message: " + WarningMessage);
 		
 		Assert.assertTrue(WarningMessage.contains("يمكنك تقديم طلب المزاولة الكترونيا من خلال نظام الخدمات الإلكترونية، لكن يتوجب عليك مراجعة وزارة الصحة مصطحبا الشهادات الأصلية للبكالوريوس و ذلك نظرا لأنك خريج جامعة عربية حكومية و التحقت بالدراسة قبل 2001"));
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate-and-Submit---------------------
@@ -3802,7 +4126,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 	
-	@Test(priority = 14, groups = {"Uni", "Equi"})
+	@Test(priority = 14, groups = {"Uni", "Equi", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1731() throws InterruptedException, IOException {
 
 		// جامعة عربية حكومية في او بعد 2001
@@ -3919,7 +4243,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 
 		// ---------------------------------Review-Section----------------------------
-
+		JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate-and-Submit---------------------
@@ -4096,7 +4420,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 
-	@Test(priority = 16, enabled = true ,groups = {"Uni", "Equi"})
+	@Test(priority = 16, enabled = true ,groups = {"Uni", "Equi", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1750() throws InterruptedException, IOException {
 
 		// قرار المعادلة غير معادل
@@ -4224,7 +4548,7 @@ public class RNVLJordanian extends RNVLInternal {
 	}
 
 
-	@Test(priority = 17, groups = {"Uni"})
+	@Test(priority = 17, groups = {"Uni", "Pass"})
 	public void SubmitNursingApp_Jordanian_Case1760() throws InterruptedException, IOException {
 
 		// التخصص ليس من ضمن تخصصات التمريض

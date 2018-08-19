@@ -7,6 +7,8 @@ public class RNVLFields {
 	// General
 	By ErrorMessage = By.id("pt1:exceptionMsg");
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
+	By Body = By.cssSelector("body");
+	By ErrorMessageHead = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/table/tbody/tr/td[2]");
 
 	// HomePage
 	By ChangeLanguage = By.linkText("English");
@@ -135,7 +137,9 @@ public class RNVLFields {
 	By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
 	//Review Screen Incomplete
 	By ModifyOtherInc = By.linkText("تعديل");
-	By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
+	By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l4\"]");
+	//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
+	
 	By NextButtonIncRev = By.id("pt1:r1:2:r1:2:btnOtherDataNextButton");
 	//OtherInfo Screen Incomplete
 	By SSYIncOther = By.id("pt1:r1:2:r1:3:socSecondaryStudyYearRid::content");
