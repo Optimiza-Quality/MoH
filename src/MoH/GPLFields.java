@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 public class GPLFields extends Vars{
 	
 	By ErrorMessage = By.id("pt1:exceptionMsg");
+	By SuccessMessageMyPage = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
 	
 	//HomePage
 	By Apply = By.id("txt14");
@@ -31,7 +32,7 @@ public class GPLFields extends Vars{
 	By CoEmail = By.id("pt1:r1:1:e2:itEmail::content");
 	By NextToVerificationCode = By.id("pt1:r1:1:b2");
 	
-	By ModifyContactDetails = By.linkText("ÊÚÏíá ãÚáæãÇÊ ÇáÇÊÕÇá");
+	By ModifyContactDetails = By.linkText("ØªØ¹Ø¯ÙŠÙ„ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø§ØªØµØ§Ù„");
 	By CompanyNumber = By.id("pt1:r1:1:it11");
 	By VerificationCode = By.id("pt1:r1:2:vc1:dc_it1::content"); 
 	By NextToOtherInfo = By.id("pt1:r1:2:vc1:dc_b2");
@@ -98,19 +99,19 @@ public class GPLFields extends Vars{
 		By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
 		By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
 		By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
-		By IncompleteApp = By.linkText("ÇÓÊßãÇá äæÇŞÕ");
+		By IncompleteApp = By.linkText("Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ");
 		By PreviousToApps = By.id("pt1:r1:2:r1:1:b3");
 		By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
 		By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
 		By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
-		By LicenseDetails = By.linkText("ÊİÇÕíá");
+		By LicenseDetails = By.linkText("ØªÙØ§ØµÙŠÙ„");
 		By MyPaymentsTab = By.id("pt1:r1:2:myPayments::body");
 		By PaymentNumber = By.id("pt1:r1:2:r2:0:t1:0:c1");
 		
 
 		By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
 		//Review Screen Incomplete
-		By ModifyOtherInc = By.linkText("ÊÚÏíá");
+		By ModifyOtherInc = By.linkText("ØªØ¹Ø¯ÙŠÙ„");
 		By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l3\"]");
 		//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
 		
@@ -129,7 +130,7 @@ public class GPLFields extends Vars{
 		By SuccessInc = By.id("pt1:r1:2:r1:5:fp1:dc_pgl2");
 		By BackToHomeInc = By.id("pt1:r1:2:r1:5:fp1:dc_b1");
 		
-		By RejectionReasons = By.linkText("ÃÓÈÇÈ ÇáÑİÖ");
+		By RejectionReasons = By.linkText("Ø£Ø³Ø¨Ø§Ø¨ Ø§Ù„Ø±ÙØ¶");
 		
 		// Internal-Login
 		By EMPUsername = By.id("pt1:lid1:dc_it1::content");
@@ -154,7 +155,7 @@ public class GPLFields extends Vars{
 		By HeadNavigateOut = By.id("pt1:r1:2:requestStatus::content");
 		By HeadSearchld = By.id("pt1:r1:2:requestNo::content");
 		By HeadSearchBtn = By.id("pt1:r1:2:b1");
-		By DetailsLink = By.linkText("ÊİÇÕíá");
+		By DetailsLink = By.linkText("ØªÙØ§ØµÙŠÙ„");
 		
 		By HeadNotes = By.id("pt1:r1:3:itNotes::content");
 		By HeadApprove = By.xpath("//*[@id=\"pt1:r1:3:r1:0:sorRidDecision:_0\"]");
@@ -188,7 +189,7 @@ public class GPLFields extends Vars{
 		By ICAPPNavigateOut = By.id("pt1:r1:7:requestStatus::content");
 		By ICAPPSearchld = By.id("pt1:r1:7:requestNo::content");
 		By ICAPPSearchBtn = By.id("pt1:r1:7:b1");
-		By AppointmentLink = By.linkText("ÊÍÏíÏ ãæÚÏ áÌäÉ");
+		By AppointmentLink = By.linkText("ØªØ­Ø¯ÙŠØ¯ Ù…ÙˆØ¹Ø¯ Ù„Ø¬Ù†Ø©");
 		By Date = By.id("pt1:r1:3:id1::content");
 		By TempBtn = By.id("pt1:r1:3:b1");
 		By SaveBtn = By.id("pt1:r1:3:b2");
