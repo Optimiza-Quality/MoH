@@ -133,9 +133,9 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		Thread.sleep(Const * 10);
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID  7802506
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber  pO@309
-		driver.findElement(AssociationNumber).sendKeys("8255"); // Association-Number 7418
-		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber 
-		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
+		driver.findElement(AssociationNumber).sendKeys("7418"); // Association-Number 7418
+		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber 821976434
+		driver.findElement(Birthdate).sendKeys("1/6/1996"); // Birthdate 01/06/1996
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
@@ -589,7 +589,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		driver.findElement(NationalID).sendKeys("52317954"); // National-ID
 		driver.findElement(PrivateNo).sendKeys("41725"); // PrivateNumber
 		driver.findElement(AssociationNumber).sendKeys("1274"); // Association-Number
-		driver.findElement(PersonalNumber).sendKeys("741335844"); // PersonalNumber  821976434
+		driver.findElement(PersonalNumber).sendKeys("782114553"); // PersonalNumber  821976434
 																	// //LicenseIssueDate
 																	// 2015
 		driver.findElement(Birthdate).sendKeys("31/12/1996"); // Birthdate  01/06/1996
@@ -819,9 +819,9 @@ System.out.println("Passed. Health Institute Nurse Case 2.4.2.0 " + ActualResult
 
 		driver.findElement(PrivateNo).sendKeys("41223"); // PrivateNumber
 
-		driver.findElement(AssociationNumber).sendKeys("3205"); // Association-Number
-		driver.findElement(PersonalNumber).sendKeys("821976434"); // PersonalNumber
-		driver.findElement(Birthdate).sendKeys("01/06/1996"); // Birthdate
+		driver.findElement(AssociationNumber).sendKeys("4278"); // Association-Number
+		driver.findElement(PersonalNumber).sendKeys("412236698"); // PersonalNumber
+		driver.findElement(Birthdate).sendKeys("16-07-2018"); // Birthdate
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha
 														// code
