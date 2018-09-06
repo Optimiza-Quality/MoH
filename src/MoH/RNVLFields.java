@@ -32,7 +32,7 @@ public class RNVLFields extends Vars{
 	By MilitaryNo = By.id("pt1:r1:1:itMilitaryNo::content");
 	By PersonalNumber = By.id("pt1:r1:1:itForeignerNo::content");
 	By Birthdate = By.id("pt1:r1:1:idBirthDate::content");
-	By ModifyContactDetails = By.linkText("ÊÛííÑ ãÚáæãÇÊ ÇáÇÊÕÇá");
+	By ModifyContactDetails = By.linkText("ØªØºÙŠÙŠØ± Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø§ØªØµØ§Ù„");
 
 	// VerificationPage
 	By VerificationCodeText = By.id("pt1:r1:2:vc1:dc_it1::content");
@@ -126,17 +126,17 @@ public class RNVLFields extends Vars{
 	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
 	By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
 	By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
-	By IncompleteApp = By.linkText("ÇÓÊßãÇá äæÇŞÕ");
-	By RejectionReasons = By.linkText("ÃÓÈÇÈ ÇáÑİÖ");
+	By IncompleteApp = By.linkText("Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ");
+	By RejectionReasons = By.linkText("Ø£Ø³Ø¨Ø§Ø¨ Ø§Ù„Ø±ÙØ¶");
 	By PreviousToApps = By.id("pt1:r1:2:r1:1:b1");
 	By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
 	By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
 	By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
-	By LicenseDetails = By.linkText("ÊİÇÕíá");
+	By LicenseDetails = By.linkText("ØªÙØ§ØµÙŠÙ„");
 
 	By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
 	//Review Screen Incomplete
-	By ModifyOtherInc = By.linkText("ÊÚÏíá");
+	By ModifyOtherInc = By.linkText("ØªØ¹Ø¯ÙŠÙ„");
 	By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l4\"]");
 	//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
 	
@@ -180,7 +180,7 @@ public class RNVLFields extends Vars{
 	By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
 	By HeadProcessBtn = By.id("pt1:r1:2:b2");
 	By HeadMoveAll = By.id("pt1:r1:2:smsShuttle::moveall");
-	By DetailsLink = By.linkText("ÊİÇÕíá");
+	By DetailsLink = By.linkText("ØªÙØ§ØµÙŠÙ„");
 
 	By SuccessMessageInternal = By.id("pt1:r1:3:m1");
 	By BackButtonInternal = By.id("pt1:r1:3:b1");
