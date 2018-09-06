@@ -207,7 +207,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 1,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4000() throws InterruptedException, IOException{
 		
-		//ÊŞÏÈã ÇáØáÈ ÈäÌÇÍ - ÈíÇäÇÊ ÕÍíÍÉ
+		//ØªÙ‚Ø¯Ø¨Ù… Ø§Ù„Ø·Ù„Ø¨ Ø¨Ù†Ø¬Ø§Ø­ - Ø¨ÙŠØ§Ù†Ø§Øª ØµØ­ÙŠØ­Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -304,7 +304,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -346,7 +346,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
 		
-		//ŞÇã ÈÇäÔÇÁ ÍÓÇÈ æáã íÊã ÚãáíÉ ÊŞÏíã ÇáØáÈ
+		//Ù‚Ø§Ù… Ø¨Ø§Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨ ÙˆÙ„Ù… ÙŠØªÙ… Ø¹Ù…Ù„ÙŠØ© ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨
 		
 		driver.findElement(Apply).click();
 		
@@ -457,7 +457,7 @@ public class GPLIndividual extends GPLInternal{
 		driver.findElement(RateNeutralAttachmentCases).click();
 		
 		Thread.sleep(Const * 5);
-		driver.findElement(NotesAttachmentCases).sendKeys("ãÍÇíÏ");
+		driver.findElement(NotesAttachmentCases).sendKeys("Ù…Ø­Ø§ÙŠØ¯");
 		
 		Thread.sleep(Const * 8);
 		
@@ -467,7 +467,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -518,7 +518,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3, groups = {"Previous"})
 	public void SubmitIndividualApp_Case4300() throws InterruptedException, IOException{
 		
-		//áÏíå ØáÈ ÇÎÑ
+		//Ù„Ø¯ÙŠÙ‡ Ø·Ù„Ø¨ Ø§Ø®Ø±
 		
 		driver.findElement(Apply).click();
 		
@@ -551,7 +551,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áæÌæÏ ØáÈ ÊÑÎíÕ ÕíÏáíÉ ÚÇãÉ ÓÇÈŞ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„ÙˆØ¬ÙˆØ¯ Ø·Ù„Ø¨ ØªØ±Ø®ÙŠØµ ØµÙŠØ¯Ù„ÙŠØ© Ø¹Ø§Ù…Ø© Ø³Ø§Ø¨Ù‚";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -573,7 +573,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400() throws InterruptedException, IOException{
 		
-		//ÈíÇäÇÊ ÇáÇÍæÇá ÛíÑ ãØÇÈŞÉ
+		//Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø§Ø­ÙˆØ§Ù„ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -606,7 +606,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÇáÑŞã ÇáæØäí æÑŞã ÇáåæíÉ ÛíÑ ãØÇÈŞíä¡ íÑÌì ÇáÊÃßÏ ãä ÕÍÉ ÇáÃÑŞÇã ÇáãÏÎáÉ";
+		String ExpectedErrorMessage = "Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ÙˆØ·Ù†ÙŠ ÙˆØ±Ù‚Ù… Ø§Ù„Ù‡ÙˆÙŠØ© ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚ÙŠÙ†ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ£ÙƒØ¯ Ù…Ù† ØµØ­Ø© Ø§Ù„Ø£Ø±Ù‚Ø§Ù… Ø§Ù„Ù…Ø¯Ø®Ù„Ø©";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -628,7 +628,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4410() throws InterruptedException, IOException{
 		
-		//ÇáåæíÉ ãäÊåíÉ ÇáÕáÇÍíÉ
+		//Ø§Ù„Ù‡ÙˆÙŠØ© Ù…Ù†ØªÙ‡ÙŠØ© Ø§Ù„ØµÙ„Ø§Ø­ÙŠØ©
 		
 		driver.findElement(Apply).click();
 		
@@ -661,7 +661,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÅäÊåÇÁ ÕáÇÍíÉ ÇáåæíÉ¡ íÑÌì ãÑÇÌÚÉ ÏÇÆÑÉ ÇáÃÍæÇá ÇáãÏäíÉ áÊÌÏíÏ ÇáåæíÉ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø¥Ù†ØªÙ‡Ø§Ø¡ ØµÙ„Ø§Ø­ÙŠØ© Ø§Ù„Ù‡ÙˆÙŠØ©ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¯Ø§Ø¦Ø±Ø© Ø§Ù„Ø£Ø­ÙˆØ§Ù„ Ø§Ù„Ù…Ø¯Ù†ÙŠØ© Ù„ØªØ¬Ø¯ÙŠØ¯ Ø§Ù„Ù‡ÙˆÙŠØ©";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -683,7 +683,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 5, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400_2() throws InterruptedException, IOException{
 		
-		//ÇáÔÎÕ ãÊæİí
+		//Ø§Ù„Ø´Ø®Øµ Ù…ØªÙˆÙÙŠ
 		
 		driver.findElement(Apply).click();
 		
@@ -716,7 +716,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÇáÑŞã ÇáæØäí ÇáãÏÎá áÔÎÕ ãÊæİí. áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ";
+		String ExpectedErrorMessage = "Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ÙˆØ·Ù†ÙŠ Ø§Ù„Ù…Ø¯Ø®Ù„ Ù„Ø´Ø®Øµ Ù…ØªÙˆÙÙŠ. Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨";
 
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
@@ -741,7 +741,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT" , "CCD"})
 	public void SubmitIndividualApp_Case4500() throws InterruptedException, IOException{
 		
-		//ÑŞã ÇáãäÔÃÉ ÛíÑ ãæÌæÏ
+		//Ø±Ù‚Ù… Ø§Ù„Ù…Ù†Ø´Ø£Ø© ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯
 		
 		driver.findElement(Apply).click();
 		
@@ -774,7 +774,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÑŞã ÇáãäÔÃÉ ÇáæØäí ÛíÑ ãæÌæÏ¡ íÑÌì ÇáÊÃßÏ ãä ÕÍÉ ÇáÑŞã ÇáãÏÎá";
+		String ExpectedErrorMessage = "Ø±Ù‚Ù… Ø§Ù„Ù…Ù†Ø´Ø£Ø© Ø§Ù„ÙˆØ·Ù†ÙŠ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ£ÙƒØ¯ Ù…Ù† ØµØ­Ø© Ø§Ù„Ø±Ù‚Ù… Ø§Ù„Ù…Ø¯Ø®Ù„";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -796,7 +796,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT", "CCD"})
 	public void SubmitIndividualApp_Case4510() throws InterruptedException, IOException{
 		
-		//ÇáãäÔÃÉ ÛíÑ İÚÇáÉ
+		//Ø§Ù„Ù…Ù†Ø´Ø£Ø© ØºÙŠØ± ÙØ¹Ø§Ù„Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -829,7 +829,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃä ÍÇáÉ ÇáãäÔÃÉ ÛíÑ İÚÇáÉ¡ íÑÌì ãÑÇÌÚÉ æÒÇÑÉ ÇáÕäÇÚÉ æÇáÊÌÇÑÉ Ãæ ÏÇÆÑÉ ãÑÇŞÈÉ ÇáÔÑßÇÊ áÊÕæíÈ ÇáÃæÖÇÚ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù† Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ù†Ø´Ø£Ø© ØºÙŠØ± ÙØ¹Ø§Ù„Ø©ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµÙ†Ø§Ø¹Ø© ÙˆØ§Ù„ØªØ¬Ø§Ø±Ø© Ø£Ùˆ Ø¯Ø§Ø¦Ø±Ø© Ù…Ø±Ø§Ù‚Ø¨Ø© Ø§Ù„Ø´Ø±ÙƒØ§Øª Ù„ØªØµÙˆÙŠØ¨ Ø§Ù„Ø£ÙˆØ¶Ø§Ø¹";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -851,7 +851,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 7, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4520() throws InterruptedException, IOException{
 		
-		//ÇáãäÔÃÉ ãÓÌáÉ İí ÏÇÆÑÉ ãÑÇŞÈÉ ÇáÔÑßÇÊ
+		//Ø§Ù„Ù…Ù†Ø´Ø£Ø© Ù…Ø³Ø¬Ù„Ø© ÙÙŠ Ø¯Ø§Ø¦Ø±Ø© Ù…Ø±Ø§Ù‚Ø¨Ø© Ø§Ù„Ø´Ø±ÙƒØ§Øª
 		
 		driver.findElement(Apply).click();
 		
@@ -948,7 +948,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ØáÈß ÈäÌÇÍ";
+		String ExpectedResult = "Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -979,7 +979,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 8, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4530() throws InterruptedException, IOException{
 		
-		//ÚÏÏ ÇáÔÑßÇÁ ÇßËÑ ãä æÇÍÏ
+		//Ø¹Ø¯Ø¯ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡ Ø§ÙƒØ«Ø± Ù…Ù† ÙˆØ§Ø­Ø¯
 		
 		driver.findElement(Apply).click();
 		
@@ -1012,7 +1012,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íÌæÒ ÊŞÏíã ÇáØáÈ ÈåĞÇ ÇáäæÚ ãä ÇäæÇÚ ãŞÏãí ÇáØáÈ ßæä ÚÏÏ ÇáÔÑßÇÁ ÃßËÑ ãä æÇÍÏ¡ íÑÌì ÇáÑÌæÚ áÕİÍÉ ŞÇÆãÉ ÇáÊÍŞŞ æÇÎÊíÇÑ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠØ¬ÙˆØ² ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ø¨Ù‡Ø°Ø§ Ø§Ù„Ù†ÙˆØ¹ Ù…Ù† Ø§Ù†ÙˆØ§Ø¹ Ù…Ù‚Ø¯Ù…ÙŠ Ø§Ù„Ø·Ù„Ø¨ ÙƒÙˆÙ† Ø¹Ø¯Ø¯ Ø§Ù„Ø´Ø±ÙƒØ§Ø¡ Ø£ÙƒØ«Ø± Ù…Ù† ÙˆØ§Ø­Ø¯ØŒ ÙŠØ±Ø¬Ù‰ Ø§Ù„Ø±Ø¬ÙˆØ¹ Ù„ØµÙØ­Ø© Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ØªØ­Ù‚Ù‚ ÙˆØ§Ø®ØªÙŠØ§Ø±";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1034,7 +1034,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 9, groups = {"CCD, MIT"})
 	public void SubmitIndividualApp_Case4540() throws InterruptedException, IOException{
 		
-		//ÇáãäÔÃÉ áíÓ áåÇ ÇÓã ÊÌÇÑí
+		//Ø§Ù„Ù…Ù†Ø´Ø£Ø© Ù„ÙŠØ³ Ù„Ù‡Ø§ Ø§Ø³Ù… ØªØ¬Ø§Ø±ÙŠ
 		
 		driver.findElement(Apply).click();
 		
@@ -1082,7 +1082,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÇÓã ÊÌÇÑí";
+		String ExpectedErrorMessage = "Ø§Ø³Ù… ØªØ¬Ø§Ø±ÙŠ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1104,7 +1104,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 10, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4600() throws InterruptedException, IOException{
 		
-		//ÛíÑ ãäÊÓÈ ááäŞÇÈÉ
+		//ØºÙŠØ± Ù…Ù†ØªØ³Ø¨ Ù„Ù„Ù†Ù‚Ø§Ø¨Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -1137,7 +1137,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÛíÑ ãäÊÓÈ";
+		String ExpectedErrorMessage = "ØºÙŠØ± Ù…Ù†ØªØ³Ø¨";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1159,7 +1159,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4610() throws InterruptedException, IOException{
 		
-		//ãäÊÓÈ æÛíÑ ãÓÏÏ
+		//Ù…Ù†ØªØ³Ø¨ ÙˆØºÙŠØ± Ù…Ø³Ø¯Ø¯
 		
 		driver.findElement(Apply).click();
 		
@@ -1192,7 +1192,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÛíÑ ãÓÏÏ";
+		String ExpectedErrorMessage = "ØºÙŠØ± Ù…Ø³Ø¯Ø¯";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1214,7 +1214,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, enabled = false, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4620() throws InterruptedException, IOException{
 		
-		//ÚÏã ÇÓÊÑÌÇÚ ÈíÇäÇÊ ãä ÇáäŞÇÈÉ
+		//Ø¹Ø¯Ù… Ø§Ø³ØªØ±Ø¬Ø§Ø¹ Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ù† Ø§Ù„Ù†Ù‚Ø§Ø¨Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -1247,7 +1247,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÊÕæíÈ";
+		String ExpectedErrorMessage = "ØªØµÙˆÙŠØ¨";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1269,7 +1269,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 12, groups = {"VL"})
 	public void SubmitIndividualApp_Case4700() throws InterruptedException, IOException{
 		
-		//áíÓ áÏíå ÑÎÕÉ ãÒÇæáÉ
+		//Ù„ÙŠØ³ Ù„Ø¯ÙŠÙ‡ Ø±Ø®ØµØ© Ù…Ø²Ø§ÙˆÙ„Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -1302,7 +1302,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áÃäß ÛíÑ ãÒÇæá ááãåäÉ áËáÇË ÓäæÇÊ İÃßËÑ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„Ø£Ù†Ùƒ ØºÙŠØ± Ù…Ø²Ø§ÙˆÙ„ Ù„Ù„Ù…Ù‡Ù†Ø© Ù„Ø«Ù„Ø§Ø« Ø³Ù†ÙˆØ§Øª ÙØ£ÙƒØ«Ø±";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1324,7 +1324,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 13, groups = {"VL"})
 	public void SubmitIndividualApp_Case4710() throws InterruptedException, IOException{
 		
-		//ãÒÇæá áÇŞá ãä 3 ÓäæÇÊ
+		//Ù…Ø²Ø§ÙˆÙ„ Ù„Ø§Ù‚Ù„ Ù…Ù† 3 Ø³Ù†ÙˆØ§Øª
 		
 		driver.findElement(Apply).click();
 		
@@ -1357,7 +1357,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ËáÇË ÓäæÇÊ";
+		String ExpectedErrorMessage = "Ø«Ù„Ø§Ø« Ø³Ù†ÙˆØ§Øª";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1379,7 +1379,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4800() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí íãÊáß ÕíÏáíÉ ÇÎÑì
+		//Ø§Ù„ØµÙŠØ¯Ù„ÙŠ ÙŠÙ…ØªÙ„Ùƒ ØµÙŠØ¯Ù„ÙŠØ© Ø§Ø®Ø±Ù‰
 		
 		driver.findElement(Apply).click();
 		
@@ -1412,7 +1412,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "íãÊáß";
+		String ExpectedErrorMessage = "ÙŠÙ…ØªÙ„Ùƒ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1435,7 +1435,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810() throws InterruptedException, IOException{
 		
-		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ŞÈá ÇŞá ãä ÓäÊíä - ÇáÛÇÁ
+		// Ø§Ù„ØµÙŠØ¯Ù„ÙŠ ÙƒØ§Ù† ÙŠÙ…ØªÙ„Ùƒ ØµÙŠØ¯Ù„ÙŠØ© Ø§Ø®Ø±Ù‰ Ù‚Ø¨Ù„ Ø§Ù‚Ù„ Ù…Ù† Ø³Ù†ØªÙŠÙ† - Ø§Ù„ØºØ§Ø¡
 		
 		driver.findElement(Apply).click();
 		
@@ -1468,7 +1468,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÚÏã ãÑæÑ ÓäÊíä";
+		String ExpectedErrorMessage = "Ø¹Ø¯Ù… Ù…Ø±ÙˆØ± Ø³Ù†ØªÙŠÙ†";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1491,7 +1491,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810_2() throws InterruptedException, IOException{
 		
-		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ŞÈá ÇŞá ãä ÓäÊíä - ÇÛáÇŞ
+		// Ø§Ù„ØµÙŠØ¯Ù„ÙŠ ÙƒØ§Ù† ÙŠÙ…ØªÙ„Ùƒ ØµÙŠØ¯Ù„ÙŠØ© Ø§Ø®Ø±Ù‰ Ù‚Ø¨Ù„ Ø§Ù‚Ù„ Ù…Ù† Ø³Ù†ØªÙŠÙ† - Ø§ØºÙ„Ø§Ù‚
 		
 		driver.findElement(Apply).click();
 		
@@ -1524,7 +1524,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÚÏã ãÑæÑ ÓäÊíä";
+		String ExpectedErrorMessage = "Ø¹Ø¯Ù… Ù…Ø±ÙˆØ± Ø³Ù†ØªÙŠÙ†";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1547,7 +1547,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 2, groups = {"SSN", "Commitment"})
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
-		//ÑŞã ÇäÊÓÇÈ ÇáÖãÇä ÛíÑ ÕÍíÍ
+		//Ø±Ù‚Ù… Ø§Ù†ØªØ³Ø§Ø¨ Ø§Ù„Ø¶Ù…Ø§Ù† ØºÙŠØ± ØµØ­ÙŠØ­
 		
 		driver.findElement(Apply).click();
 		
@@ -1627,7 +1627,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÖãÇä";
+		String ExpectedErrorMessage = "Ø¶Ù…Ø§Ù†";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1649,7 +1649,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"SSN", "Commitment"})
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí ÛíÑ ãÊİÑÛ ááÚãá İí ÇáÕíÏáíÉ ÍÓÈ ÑŞã ÇáÖãÇä
+		//Ø§Ù„ØµÙŠØ¯Ù„ÙŠ ØºÙŠØ± Ù…ØªÙØ±Øº Ù„Ù„Ø¹Ù…Ù„ ÙÙŠ Ø§Ù„ØµÙŠØ¯Ù„ÙŠØ© Ø­Ø³Ø¨ Ø±Ù‚Ù… Ø§Ù„Ø¶Ù…Ø§Ù†
 		
 		driver.findElement(Apply).click();
 		
@@ -1729,7 +1729,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÚÏã ÊİÑÛ";
+		String ExpectedErrorMessage = "Ø¹Ø¯Ù… ØªÙØ±Øº";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1751,7 +1751,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"MoH", "Commitment"})
 	public void SubmitIndividualApp_Case4920() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí ÛíÑ ãÊİÑÛ ááÚãá İí ÇáÕíÏáíÉ ÍÓÈ æÒÇÑÉ ÇáÕÍÉ 
+		//Ø§Ù„ØµÙŠØ¯Ù„ÙŠ ØºÙŠØ± Ù…ØªÙØ±Øº Ù„Ù„Ø¹Ù…Ù„ ÙÙŠ Ø§Ù„ØµÙŠØ¯Ù„ÙŠØ© Ø­Ø³Ø¨ ÙˆØ²Ø§Ø±Ø© Ø§Ù„ØµØ­Ø© 
 		
 		driver.findElement(Apply).click();
 		
@@ -1831,7 +1831,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÚÏã ÊİÑÛ";
+		String ExpectedErrorMessage = "Ø¹Ø¯Ù… ØªÙØ±Øº";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1853,7 +1853,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41000() throws InterruptedException, IOException{
 		
-		//ÎØÃ İí ÑŞã ÓäÏ ÊÓÌíá ÇáÚŞÇÑ
+		//Ø®Ø·Ø£ ÙÙŠ Ø±Ù‚Ù… Ø³Ù†Ø¯ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¹Ù‚Ø§Ø±
 		
 		driver.findElement(Apply).click();
 		
@@ -1916,7 +1916,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "ÑŞã ÓäÏ ÊÓÌíá ÇáÚŞÇÑ ÇáãÏÎá ÛíÑ ÕÍíÍ";
+		String ExpectedErrorMessage = "Ø±Ù‚Ù… Ø³Ù†Ø¯ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¹Ù‚Ø§Ø± Ø§Ù„Ù…Ø¯Ø®Ù„ ØºÙŠØ± ØµØ­ÙŠØ­";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1938,7 +1938,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41010() throws InterruptedException, IOException{
 		
-		//ÇáÚŞÇÑ ÊÇÈÚ áÓáØÉ ÇŞáíã ÇáÚŞÈÉ
+		//Ø§Ù„Ø¹Ù‚Ø§Ø± ØªØ§Ø¨Ø¹ Ù„Ø³Ù„Ø·Ø© Ø§Ù‚Ù„ÙŠÙ… Ø§Ù„Ø¹Ù‚Ø¨Ø©
 		
 		driver.findElement(Apply).click();
 		
@@ -2001,7 +2001,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áæÌæÏ ÇáÚŞÇÑ Öãä ÃÑÇÖí ÓáØÉ ÅŞáíã ÇáÚŞÈÉ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„ÙˆØ¬ÙˆØ¯ Ø§Ù„Ø¹Ù‚Ø§Ø± Ø¶Ù…Ù† Ø£Ø±Ø§Ø¶ÙŠ Ø³Ù„Ø·Ø© Ø¥Ù‚Ù„ÙŠÙ… Ø§Ù„Ø¹Ù‚Ø¨Ø©";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -2023,7 +2023,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS", "Previous"})
 	public void SubmitIndividualApp_Case41020() throws InterruptedException, IOException{
 		
-		//ÇáÚŞÇÑ Úáíå ØáÈ ÓÇÈŞ
+		//Ø§Ù„Ø¹Ù‚Ø§Ø± Ø¹Ù„ÙŠÙ‡ Ø·Ù„Ø¨ Ø³Ø§Ø¨Ù‚
 		
 		driver.findElement(Apply).click();
 		
@@ -2086,7 +2086,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "áÇ íãßäß ÇÓÊßãÇá ÊŞÏíã ÇáØáÈ äÙÑÇ áæÌæÏ ØáÈ ÅÕÏÇÑ ÑÎÕÉ ÕíÏáíÉ ÚÇãÉ Úáì äİÓ ÇáÚŞÇÑ";
+		String ExpectedErrorMessage = "Ù„Ø§ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ø³ØªÙƒÙ…Ø§Ù„ ØªÙ‚Ø¯ÙŠÙ… Ø§Ù„Ø·Ù„Ø¨ Ù†Ø¸Ø±Ø§ Ù„ÙˆØ¬ÙˆØ¯ Ø·Ù„Ø¨ Ø¥ØµØ¯Ø§Ø± Ø±Ø®ØµØ© ØµÙŠØ¯Ù„ÙŠØ© Ø¹Ø§Ù…Ø© Ø¹Ù„Ù‰ Ù†ÙØ³ Ø§Ù„Ø¹Ù‚Ø§Ø±";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
