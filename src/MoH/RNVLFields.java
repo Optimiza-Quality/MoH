@@ -2,11 +2,13 @@ package MoH;
 
 import org.openqa.selenium.By;
 
-public class RNVLFields {
+public class RNVLFields extends Vars{
 
 	// General
 	By ErrorMessage = By.id("pt1:exceptionMsg");
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
+	By Body = By.cssSelector("body");
+	By ErrorMessageHead = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/table/tbody/tr/td[2]");
 
 	// HomePage
 	By ChangeLanguage = By.linkText("English");
@@ -58,6 +60,7 @@ public class RNVLFields {
 
 	// ReviewPage-WithoutAttachemnts
 	By NextToSubmitGeneralCases = By.id("pt1:r1:4:btnOtherDataNextButton");
+	By NextToSubmitGeneralCasesXpath = By.xpath("//*[@id=\"pt1:r1:4:btnOtherDataNextButton\"]");
 	By ReNextToSubmitGeneralCases = By.id("pt1:r1:1:btnOtherDataNextButton");
 	By WarningMessageGeneralCases = By.id("pt1:r1:4:m2");
 
@@ -134,7 +137,9 @@ public class RNVLFields {
 	By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
 	//Review Screen Incomplete
 	By ModifyOtherInc = By.linkText(" ⁄œÌ·");
-	By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
+	By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l4\"]");
+	//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
+	
 	By NextButtonIncRev = By.id("pt1:r1:2:r1:2:btnOtherDataNextButton");
 	//OtherInfo Screen Incomplete
 	By SSYIncOther = By.id("pt1:r1:2:r1:3:socSecondaryStudyYearRid::content");
@@ -170,6 +175,7 @@ public class RNVLFields {
 	
 	By HeadNotes = By.id("pt1:r1:2:itNotes::content");
 	By HeadApprove = By.xpath("//*[@id=\"pt1:r1:2:sor1:_0\"]");
+
 	By HeadReject = By.xpath("//*[@id=\"pt1:r1:2:sor1:_2\"]");
 	By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
 	By HeadProcessBtn = By.id("pt1:r1:2:b2");

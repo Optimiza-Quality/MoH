@@ -27,38 +27,33 @@ public class RNVLJordanian extends RNVLInternal {
 
 	Integer Const = 500;
 	
-	public static String AppNo, KeepAppNo;
+	public void CatchError(String Year) throws InterruptedException, IOException{
 		
-	public String NationalIDValue, IDNumberValue, year;
-	
-	
-	
-	public void CatchError() throws InterruptedException, IOException{
-	
-		boolean result = false;
+	//	boolean result = false;
+		Thread.sleep(Const * 10);
 		try {
+			System.out.println("Ahem..Ahem..");
 			
 			if(driver.findElement(ErrorMessage).isDisplayed()) {
+				System.out.println("First if");
 				
 				String ActualResult = driver.findElement(ErrorMessage).getText();
 				
-			//	Assert.assertTrue(ActualResult.contains("мок ньц"));
-				
 				Verify.verify(ActualResult.contains("мок ньц"));
-				 result = true;
+				 //result = true;
 				
-				if(result == true){
+				//if(result == true){
 						
 				System.out.println("мок ньц");
 			
 				// Graduation-Year
 				Select Graduation = new Select(driver.findElement(GraduationYearDDL));
 				
-				Graduation.deselectByVisibleText(year);
+				Graduation.deselectByVisibleText(Year);
 						
 				Thread.sleep(Const+200);
 				
-				Graduation.selectByVisibleText(year); // Graduation-Year
+				Graduation.selectByVisibleText(Year); // Graduation-Year
 
 				Thread.sleep(Const+200);
 				
@@ -74,15 +69,9 @@ public class RNVLJordanian extends RNVLInternal {
 				Thread.sleep(Const+200);
 
 				driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
-				
-		}
+			//	}
+
 			}
-			
-			else{
-				System.out.println("Correct Error");	
-				
-			}
-			
 			}
 			
 			catch(Exception e) {
@@ -95,16 +84,16 @@ public class RNVLJordanian extends RNVLInternal {
 		@BeforeMethod(enabled = true, groups = {"Start"})
 	public void GetDriver() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", ChromeDriver);
 		driver = new ChromeDriver();
 		
 		
-		// System.setProperty("webdriver.ie.driver","C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
+		// System.setProperty("webdriver.ie.driver", IEDriver);
 		 //driver = new InternetExplorerDriver();
 
 		driver.manage().window().maximize();
-		driver.get("https://ohs-vip:4443/public/index.html");
-		
+	
+		driver.get(ExternalTesting);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		
@@ -122,10 +111,10 @@ public class RNVLJordanian extends RNVLInternal {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+			System.setProperty("webdriver.chrome.driver", ChromeDriver);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://ohs-vip:4443/public/index.html");
+			driver.get(ExternalTesting);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
@@ -135,10 +124,10 @@ public class RNVLJordanian extends RNVLInternal {
 				 if (browsername.equalsIgnoreCase("ie")) {
 			// // create IE instance
 			//
-			 System.setProperty("webdriver.ie.driver","C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
+			 System.setProperty("webdriver.ie.driver",IEDriver);
 			 driver = new InternetExplorerDriver();
 			 driver.manage().window().maximize();
-			 driver.get("https://ohs-vip:4443/public/index.html");
+			 driver.get(ExternalTesting);
 			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			 driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 			driver.findElement(By.id("overridelink")).click();
@@ -151,10 +140,10 @@ public class RNVLJordanian extends RNVLInternal {
 			// // create firefox instance
 			//
 			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
+			// FirefoxDriver);
 			// driver = new FirefoxDriver();
 			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
+			// driver.get(ExternalTesting);
 			// driver.manage().timeouts().implicitlyWait(30,
 			// TimeUnit.SECONDS);
 			// driver.manage().timeouts().pageLoadTimeout(30,
@@ -343,7 +332,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		
-		this.CatchError();
+		this.CatchError(year);
 		
 		// ---------------------------------Review-Section----------------------------
 
@@ -529,7 +518,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 	
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -682,7 +671,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 			Thread.sleep(Const * 5);
 
-			driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+			driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 			// ---------------------------------Review-Section----------------------------
 
@@ -1156,14 +1145,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		Runtime.getRuntime().exec(JPGAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1329,14 +1318,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_2 - jpeg\\Uploader2.exe");
+		Runtime.getRuntime().exec(JPEG18Att);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1509,14 +1498,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 	
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_3-PNG\\Uploader.exe");
+		Runtime.getRuntime().exec(PNGAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -1586,7 +1575,6 @@ public class RNVLJordanian extends RNVLInternal {
 
 	}
 
-	
 	@Test(priority = 7, enabled = true,  groups = {"High", "Full"})
 	public void SubmitNursingApp_Jordanian_Case1600_4() throws InterruptedException, IOException {
 
@@ -1700,7 +1688,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 	
 		// ---------------------------------Review-Section----------------------------
 
@@ -1861,14 +1849,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_5-jpg\\Uploader.exe");
+		Runtime.getRuntime().exec(JPG199Att);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2025,14 +2013,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		Runtime.getRuntime().exec(JPGAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2183,14 +2171,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
+		Runtime.getRuntime().exec(JPGAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2348,14 +2336,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_8-doc\\Uploader.exe");
+		Runtime.getRuntime().exec(DocAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2483,14 +2471,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_9-zip\\Uploader.exe");
+		Runtime.getRuntime().exec(ZipAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2618,14 +2606,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_10-exe\\Uploader.exe");
+		Runtime.getRuntime().exec(ExeAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2753,14 +2741,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_11-gif\\Uploader.exe");
+		Runtime.getRuntime().exec(GIFAtt);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -2888,14 +2876,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Attachments--------------------------
 
 		driver.findElement(UploadSchoolCertificate).click();
 
 		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_12-JPG - large\\Uploader.exe");
+		Runtime.getRuntime().exec(JPGLarge);
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
@@ -3019,7 +3007,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 5);
 
 		driver.findElement(NextToReviewOrAttachments).click();
-		this.CatchError();
+		this.CatchError(year);
 
 		Thread.sleep(Const * 10);
 
@@ -3142,7 +3130,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 10);
 
@@ -3271,7 +3259,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 10);
 
@@ -3405,7 +3393,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -3564,7 +3552,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -3603,7 +3591,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
 		
-		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, IDNumberValue, NationalIDValue);
+		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo,NationalIDValue ,IDNumberValue);
 		
 		
 
@@ -3765,7 +3753,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 10);
 
@@ -3899,7 +3887,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -4072,7 +4060,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		// ---------------------------------Review-Section----------------------------
 
@@ -4227,7 +4215,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 20);
 
@@ -4356,7 +4344,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 20);
 
@@ -4482,7 +4470,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError();
+		driver.findElement(NextToReviewOrAttachments).click(); this.CatchError(year);
 
 		Thread.sleep(Const * 20);
 

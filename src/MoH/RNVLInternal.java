@@ -15,27 +15,25 @@ import org.testng.Assert;
 
 
 
-public class RNVLInternal extends MyPage {
+public class RNVLInternal extends MyPageRNVL {
 	Integer Const = 500;
 		
-	public String KeepAppNo;
-	
 	public void CallandLogin() throws InterruptedException{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", ChromeDriver);
 		driver = new ChromeDriver();
 		
-	//	 System.setProperty("webdriver.ie.driver","C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
+	//	 System.setProperty("webdriver.ie.driver",IEDriver);
 	//	 driver = new InternetExplorerDriver();
 
 
 		driver.manage().window().maximize();
-		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
+		driver.get(InternalTesting);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		
-		driver.findElement(EMPUsername).sendKeys("ESRAA"); // Username
+		driver.findElement(EMPUsername).sendKeys(CapitalUserName1); // Username
 
-		driver.findElement(EMPPassword).sendKeys("12345"); // Password
+		driver.findElement(EMPPassword).sendKeys(CapitalPassword1); // Password
 
 		Thread.sleep(Const * 5);
 

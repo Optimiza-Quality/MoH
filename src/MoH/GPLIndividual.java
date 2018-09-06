@@ -9,6 +9,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -17,70 +19,68 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class GPLIndividual extends GPLFields{
+public class GPLIndividual extends GPLInternal{
 	
 	WebDriver driver;
 
-	Integer Const = 400;
-	public static String AppNo;
-
+	Integer Const = 800;
+	
 	@BeforeMethod(enabled = true)
 	public void GetDriver() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+		System.setProperty("webdriver.chrome.driver", ChromeDriver);
 		driver = new ChromeDriver();
 
 		// System.setProperty("webdriver.gecko.driver",
-		// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
+		// MyFirefoxDriver);
 		// driver = new FirefoxDriver();
-		driver.get("https://172.16.0.254:4443/public/index.html");
+		
+		driver.get(ExternalTesting);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
-	@BeforeMethod(enabled = false)
+	@BeforeMethod(enabled =false)
 	@Parameters("browsers")
 	public void CrossBrowser(String browsername) throws Exception {
 
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+			System.setProperty("webdriver.chrome.driver", ChromeDriver);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://172.16.0.254:4443/public/index.html");
+			driver.get(ExternalTesting);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
-			// } else
-			//
-			// // Check if parameter passed from TestNG is 'IE'
-			// if (browsername.equalsIgnoreCase("ie")) {
-			// // create IE instance
-			//
-			// System.setProperty("webdriver.ie.driver",
-			// "C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
-			// driver = new InternetExplorerDriver();
-			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
-			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			// driver.findElement(By.id("overridelink")).click();
-			//
-			// Thread.sleep(2000);
-			// } else
-			//
-			// // Check if parameter passed from TestNG is 'firefox'
-			// if (browsername.equalsIgnoreCase("firefox")) {
-			// // create firefox instance
-			//
-			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
-			// driver = new FirefoxDriver();
-			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
-			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+			 } else
+			
+		 // Check if parameter passed from TestNG is 'IE'
+			 if (browsername.equalsIgnoreCase("ie")) {
+			 // create IE instance
+			
+			 System.setProperty("webdriver.ie.driver", IEDriver);
+			 driver = new InternetExplorerDriver();
+			 driver.manage().window().maximize();
+			 driver.get(ExternalTesting);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+			// driver.findElement(overridelink).click();
+			
+			 Thread.sleep(2000);
+			 } else
+			
+			 // Check if parameter passed from TestNG is 'firefox'
+			 if (browsername.equalsIgnoreCase("firefox")) {
+			 // create firefox instance
+			
+			 System.setProperty("webdriver.gecko.driver", MyFirefoxDriver);
+			 driver = new FirefoxDriver();
+			 driver.manage().window().maximize();
+			 driver.get(ExternalTesting);
+			 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			 driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		}
 	}
@@ -116,7 +116,7 @@ public class GPLIndividual extends GPLFields{
 
 	public void EditContactDetails() throws InterruptedException {
 
-		driver.findElement(LoginVerificationCode).sendKeys("0000"); // Verification-Code
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 5);
 
@@ -155,8 +155,56 @@ public class GPLIndividual extends GPLFields{
 		driver.findElement(GoToHomePage).click(); // Home-Page-Icon
 
 	}
+
+	public void Attachments() throws InterruptedException, IOException{
+		driver.findElement(Resignation).click();
+		
+		Thread.sleep(Const * 10);
 	
-	@Test(priority = 1)
+		Runtime.getRuntime().exec(JPGAtt);
+		// Give path where the au3 is saved.
+
+		Thread.sleep(Const * 20);
+		
+		driver.findElement(Sketch).click();
+		
+		Thread.sleep(Const * 10);
+		
+		Runtime.getRuntime().exec(JPGAtt);
+		// Give path where the au3 is saved.
+		
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(GAM).click();
+
+		Runtime.getRuntime().exec(JPGAtt);
+		// Give path where the au3 is saved.
+		
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(COSketch).click();
+		
+		Thread.sleep(Const * 10);
+		
+		Runtime.getRuntime().exec(JPGAtt);
+		// Give path where the au3 is saved.
+	
+		Thread.sleep(Const * 10);
+		
+		driver.findElement(Lease).click();
+
+		Thread.sleep(Const * 10);
+		
+		Runtime.getRuntime().exec(JPGAtt);
+		// Give path where the au3 is saved.
+		
+		Thread.sleep(Const * 20);
+		
+		driver.findElement(CoNextToReview).click();
+		
+	}
+	
+	@Test(priority = 1,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4000() throws InterruptedException, IOException{
 		
 		// ﬁœ»„ «·ÿ·» »‰Ã«Õ - »Ì«‰«  ’ÕÌÕ…
@@ -176,9 +224,11 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9822056900");
+		NationalIDValue = "9822056900";
+		driver.findElement(PharmNationalID).sendKeys(NationalIDValue);
 		
-		driver.findElement(PharmIDNumber).sendKeys("19820222");
+		IDNumberValue = "19820222";
+		driver.findElement(PharmIDNumber).sendKeys(IDNumberValue);
 		
 		driver.findElement(CoNationalNumber).sendKeys("100045693");
 		
@@ -194,9 +244,9 @@ public class GPLIndividual extends GPLFields{
 
 			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com", Keys.TAB); // Email
 
-			Thread.sleep(Const * 4);
+			Thread.sleep(Const * 10);
 			
 		} catch (Exception e) {// do nothing
 
@@ -214,7 +264,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Other-Info---------------------------------------
 		
-		driver.findElement(PropertyNumber).sendKeys("91751103828112");
+		driver.findElement(PropertyNumber).sendKeys("91751103828112", Keys.TAB);
 		
 		Thread.sleep(Const * 8);
 		
@@ -235,23 +285,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Attachments---------------------------------------
 		
-		driver.findElement(Sketch).click();
-		
-		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 10);
-		
-		driver.findElement(Lease).click();
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 20);
-		
-		driver.findElement(NextToReview).click();
-		
-		Thread.sleep(Const * 10);
+		this.Attachments();
 		
 		driver.findElement(NextToRating).click();
 		//---------------------------Review---------------------------------------
@@ -288,9 +322,28 @@ public class GPLIndividual extends GPLFields{
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
 		
+		//--------------------------------Processing--------------------------
+		
+		Round = 1;
+		KeepAppNo = this.Processing_ApproveByAudit_Case4100(AppNo, IrbidUserName1, IrbidPassword1, Round);
+		this.Processing_ApproveByJPA_Case4100_2(KeepAppNo, JPAUserName, JPAPassword, Round);
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
+		
+		this.Processing_IncompleteByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
+		this.Processing_IncompleteByIC_Case4100_3(KeepAppNo, IrbidUserName3, IrbidPassword3);
+		
+	this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
+		
+		Round = 2;
+		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2, Round);
+		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, IrbidUserName3, IrbidPassword3, Round);
+		
+		this.Processing_ApproveByDirector_Case4100_4(KeepAppNo, IrbidUserName3, IrbidPassword3);
+		this.ViewApplication_Jordanain_Case4101(KeepAppNo, NationalIDValue, IDNumberValue);
+		
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
 		
 		//ﬁ«„ »«‰‘«¡ Õ”«» Ê·„ Ì „ ⁄„·Ì…  ﬁœÌ„ «·ÿ·»
@@ -310,9 +363,11 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9851032994");
+		NationalIDValue = "9851032994";
+		driver.findElement(PharmNationalID).sendKeys(NationalIDValue);
 		
-		driver.findElement(PharmIDNumber).sendKeys("19850115");
+		IDNumberValue = "19850115";
+		driver.findElement(PharmIDNumber).sendKeys(IDNumberValue);
 		
 		driver.findElement(CoNationalNumber).sendKeys("100000822");
 		
@@ -345,9 +400,9 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9851032994");
+		driver.findElement(PharmNationalID).sendKeys(NationalIDValue);
 		
-		driver.findElement(PharmIDNumber).sendKeys("19850115");
+		driver.findElement(PharmIDNumber).sendKeys(IDNumberValue);
 		
 		driver.findElement(CoNationalNumber).sendKeys("100000822");
 		
@@ -377,7 +432,7 @@ public class GPLIndividual extends GPLFields{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
-		driver.findElement(SocialSecurityNo).sendKeys("9822056900");
+		driver.findElement(SocialSecurityNo).sendKeys("9851032994");
 		
 		driver.findElement(PharmAddress).sendKeys("address 1");
 		
@@ -392,23 +447,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Attachments---------------------------------------
 		
-		driver.findElement(Sketch).click();
-		
-		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 10);
-		
-		driver.findElement(Lease).click();
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 40);
-		
-		driver.findElement(NextToReview).click();
-		
-		Thread.sleep(Const * 10);
+		this.Attachments();
 		
 		driver.findElement(NextToRating).click();
 			
@@ -445,10 +484,38 @@ public class GPLIndividual extends GPLFields{
 		System.out.println("Application Number: " + AppNo);
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+
+		//---------------------------------Processing----------------------------------
 		
+		Round = 1;
+		KeepAppNo = this.Processing_IncompleteByAudit_Case4140(AppNo, CapitalUserName1, CapitalPassword1, Round);
+		this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
+		
+		Round = 2;
+		this.Processing_ApproveByAudit_Case4100(KeepAppNo, CapitalUserName1, CapitalPassword1, Round);
+		
+		Round = 1;
+		this.Processing_IncompleteByJPA_Case4120_2(KeepAppNo, JPAUserName, JPAPassword, Round);
+		this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
+		
+		Round = 2;
+		this.Processing_ApproveByJPA_Case4100_2(KeepAppNo, JPAUserName, JPAPassword, Round);
+		
+		Round = 1;
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1);
+		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1, Round);
+		this.Processing_IncompleteByIC_Case4100_3(KeepAppNo, CapitalUserName2, CapitalPassword2);
+		
+		this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
+		
+		Round = 2;
+		this.Processing_RejectByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1, Round);
+		this.Processing_RejectByIC_Case4100_3(KeepAppNo, CapitalUserName2, CapitalPassword2, Round);
+		
+		this.ViewApplicationAndRejection_Jordanain_Case4111(KeepAppNo, NationalIDValue, IDNumberValue);
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 3, groups = {"Previous"})
 	public void SubmitIndividualApp_Case4300() throws InterruptedException, IOException{
 		
 		//·œÌÂ ÿ·» «Œ—
@@ -503,7 +570,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 		
-	@Test(priority = 4)
+	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400() throws InterruptedException, IOException{
 		
 		//»Ì«‰«  «·«ÕÊ«· €Ì— „ÿ«»ﬁ…
@@ -539,7 +606,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "€Ì— „ÿ«»ﬁ";
+		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì Ê—ﬁ„ «·ÂÊÌ… €Ì— „ÿ«»ﬁÌ‰° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·√—ﬁ«„ «·„œŒ·…";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -558,7 +625,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4410() throws InterruptedException, IOException{
 		
 		//«·ÂÊÌ… „‰ ÂÌ… «·’·«ÕÌ…
@@ -613,7 +680,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 5, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400_2() throws InterruptedException, IOException{
 		
 		//«·‘Œ’ „ Ê›Ì
@@ -671,7 +738,7 @@ public class GPLIndividual extends GPLFields{
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6, groups = {"MIT" , "CCD"})
 	public void SubmitIndividualApp_Case4500() throws InterruptedException, IOException{
 		
 		//—ﬁ„ «·„‰‘√… €Ì— „ÊÃÊœ
@@ -726,7 +793,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6, groups = {"MIT", "CCD"})
 	public void SubmitIndividualApp_Case4510() throws InterruptedException, IOException{
 		
 		//«·„‰‘√… €Ì— ›⁄«·…
@@ -781,7 +848,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 7, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4520() throws InterruptedException, IOException{
 		
 		//«·„‰‘√… „”Ã·… ›Ì œ«∆—… „—«ﬁ»… «·‘—ﬂ« 
@@ -800,10 +867,11 @@ public class GPLIndividual extends GPLFields{
 		Thread.sleep(Const * 2);
 		
 		//---------------------------Basic-Info---------------------------------------
+		NationalIDValue = "9832023360"; 
+		driver.findElement(PharmNationalID).sendKeys(NationalIDValue);
 		
-		driver.findElement(PharmNationalID).sendKeys("9832023360");
-		
-		driver.findElement(PharmIDNumber).sendKeys("19830804");
+		IDNumberValue = "19830804";
+		driver.findElement(PharmIDNumber).sendKeys(IDNumberValue);
 		
 		driver.findElement(CoNationalNumber).sendKeys("200045693");
 		
@@ -860,23 +928,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Attachments---------------------------------------
 		
-		driver.findElement(Sketch).click();
-		
-		Thread.sleep(Const * 20);
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 10);
-		
-		driver.findElement(Lease).click();
-		Runtime.getRuntime().exec("C:\\Users\\emasoud\\Desktop\\attachemnts\\Uploader.exe");
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 20);
-		
-		driver.findElement(NextToReview).click();
-		
-		Thread.sleep(Const * 10);
+		this.Attachments();
 		
 		driver.findElement(NextToRating).click();
 		
@@ -914,9 +966,17 @@ public class GPLIndividual extends GPLFields{
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
 		
+		Round = 1;
+		KeepAppNo = this.Processing_ApproveByAudit_Case4100(AppNo, CapitalUserName1, CapitalPassword1, Round);
+		this.Processing_ApproveByJPA_Case4100_2(KeepAppNo, JPAUserName, JPAPassword, Round);
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1);
+		this.Processing_RejectByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1, Round);
+		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, CapitalUserName2, CapitalPassword2, Round);
+		this.ViewApplicationAndRejection_Jordanain_Case4111(KeepAppNo, NationalIDValue, IDNumberValue);
+		
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 8, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4530() throws InterruptedException, IOException{
 		
 		//⁄œœ «·‘—ﬂ«¡ «ﬂÀ— „‰ Ê«Õœ
@@ -971,7 +1031,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 9, groups = {"CCD, MIT"})
 	public void SubmitIndividualApp_Case4540() throws InterruptedException, IOException{
 		
 		//«·„‰‘√… ·Ì” ·Â« «”„  Ã«—Ì
@@ -1003,7 +1063,22 @@ public class GPLIndividual extends GPLFields{
 		
 		driver.findElement(VerifyBtn).click();
 	
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
+		
+		try {
+
+			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
+
+			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com", Keys.TAB); // Email
+
+			Thread.sleep(Const * 10);
+			
+		} catch (Exception e) {// do nothing
+
+		}
+		
+		driver.findElement(NextToVerificationCode).click();
+			
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
@@ -1026,7 +1101,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 10)
+	@Test(priority = 10, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4600() throws InterruptedException, IOException{
 		
 		//€Ì— „‰ ”» ··‰ﬁ«»…
@@ -1081,7 +1156,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 11)
+	@Test(priority = 11, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4610() throws InterruptedException, IOException{
 		
 		//„‰ ”» Ê€Ì— „”œœ
@@ -1136,7 +1211,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 11, enabled = false)
+	@Test(priority = 11, enabled = false, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4620() throws InterruptedException, IOException{
 		
 		//⁄œ„ «” —Ã«⁄ »Ì«‰«  „‰ «·‰ﬁ«»…
@@ -1156,11 +1231,11 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9851055811");
+		driver.findElement(PharmNationalID).sendKeys("");
 		
-		driver.findElement(PharmIDNumber).sendKeys("19851002");
+		driver.findElement(PharmIDNumber).sendKeys("");
 		
-		driver.findElement(CoNationalNumber).sendKeys("100053864");
+		driver.findElement(CoNationalNumber).sendKeys("");
 		
 		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
 		
@@ -1172,7 +1247,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "€Ì— „”œœ";
+		String ExpectedErrorMessage = " ’ÊÌ»";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1185,13 +1260,13 @@ public class GPLIndividual extends GPLFields{
 
 		File source = ts.getScreenshotAs(OutputType.FILE);
 
-		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.6.1.0.png"));
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.6.2.0.png"));
 
-		System.out.println("Passed. Individual Pharmacist Case 4.6.1.0");
+		System.out.println("Passed. Individual Pharmacist Case 4.6.2.0");
 		
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 12, groups = {"VL"})
 	public void SubmitIndividualApp_Case4700() throws InterruptedException, IOException{
 		
 		//·Ì” ·œÌÂ —Œ’… „“«Ê·…
@@ -1246,7 +1321,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 13, groups = {"VL"})
 	public void SubmitIndividualApp_Case4710() throws InterruptedException, IOException{
 		
 		//„“«Ê· ·«ﬁ· „‰ 3 ”‰Ê« 
@@ -1301,7 +1376,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4800() throws InterruptedException, IOException{
 		
 		//«·’Ìœ·Ì Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï
@@ -1357,10 +1432,10 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 14)
+	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810() throws InterruptedException, IOException{
 		
-		//«·’Ìœ·Ì ﬂ«‰ Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï ﬁ»· «ﬁ· „‰ ”‰ Ì‰
+		// «·’Ìœ·Ì ﬂ«‰ Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï ﬁ»· «ﬁ· „‰ ”‰ Ì‰ - «·€«¡
 		
 		driver.findElement(Apply).click();
 		
@@ -1377,11 +1452,11 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Basic-Info---------------------------------------
 		
-		driver.findElement(PharmNationalID).sendKeys("9891061943");
+		driver.findElement(PharmNationalID).sendKeys("9931019949");
 		
-		driver.findElement(PharmIDNumber).sendKeys("12345678");
+		driver.findElement(PharmIDNumber).sendKeys("019949");
 		
-		driver.findElement(CoNationalNumber).sendKeys("100123055");
+		driver.findElement(CoNationalNumber).sendKeys("100264135");
 		
 		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
 		
@@ -1393,7 +1468,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·«„ ·«ﬂ «·”Ìœ";
+		String ExpectedErrorMessage = "⁄œ„ „—Ê— ”‰ Ì‰";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1413,7 +1488,63 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 14, groups = {"Own", "Commitment"})
+	public void SubmitIndividualApp_Case4810_2() throws InterruptedException, IOException{
+		
+		// «·’Ìœ·Ì ﬂ«‰ Ì„ ·ﬂ ’Ìœ·Ì… «Œ—Ï ﬁ»· «ﬁ· „‰ ”‰ Ì‰ - «€·«ﬁ
+		
+		driver.findElement(Apply).click();
+		
+		Thread.sleep(Const * 2);
+		
+		Select userType = new Select(driver.findElement(AppType));
+		userType.selectByIndex(1);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(NextToBasicInfo).click();
+		
+		Thread.sleep(Const * 2);
+		
+		//---------------------------Basic-Info---------------------------------------
+		
+		driver.findElement(PharmNationalID).sendKeys("9931019950");
+		
+		driver.findElement(PharmIDNumber).sendKeys("019950");
+		
+		driver.findElement(CoNationalNumber).sendKeys("100264136");
+		
+		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
+		
+		Thread.sleep(Const * 8);
+		
+		driver.findElement(VerifyBtn).click();
+			
+		Thread.sleep(Const * 20);
+
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
+
+		String ExpectedErrorMessage = "⁄œ„ „—Ê— ”‰ Ì‰";
+
+		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
+
+		System.out.println("Actual Message: " + ActualErrorMessage);
+
+		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
+
+		// Take SS
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File source = ts.getScreenshotAs(OutputType.FILE);
+
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.8.1.0_2.png"));
+
+		System.out.println("Passed. Individual Pharmacist Case 4.8.1.0_2");
+		
+		
+	}
+	
+	@Test(priority = 2, groups = {"SSN", "Commitment"})
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
 		//—ﬁ„ «‰ ”«» «·÷„«‰ €Ì— ’ÕÌÕ
@@ -1515,7 +1646,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 16)
+	@Test(priority = 16, groups = {"SSN", "Commitment"})
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
 		//«·’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» —ﬁ„ «·÷„«‰
@@ -1617,7 +1748,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 16)
+	@Test(priority = 16, groups = {"MoH", "Commitment"})
 	public void SubmitIndividualApp_Case4920() throws InterruptedException, IOException{
 		
 		//«·’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» Ê“«—… «·’Õ… 
@@ -1719,7 +1850,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 	
-	@Test(priority = 17)
+	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41000() throws InterruptedException, IOException{
 		
 		//Œÿ√ ›Ì —ﬁ„ ”‰œ  ”ÃÌ· «·⁄ﬁ«—
@@ -1804,7 +1935,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41010() throws InterruptedException, IOException{
 		
 		//«·⁄ﬁ«—  «»⁄ ·”·ÿ… «ﬁ·Ì„ «·⁄ﬁ»…
@@ -1862,7 +1993,7 @@ public class GPLIndividual extends GPLFields{
 		
 		//---------------------------Other-Info---------------------------------------
 		
-		driver.findElement(PropertyNumber).sendKeys("34637606978102", Keys.TAB);
+		driver.findElement(PropertyNumber).sendKeys("346481107028112", Keys.TAB);
 		
 		//---------------------------------
 		
@@ -1870,7 +2001,7 @@ public class GPLIndividual extends GPLFields{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "⁄ﬁ»…";
+		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ «·⁄ﬁ«— ÷„‰ √—«÷Ì ”·ÿ… ≈ﬁ·Ì„ «·⁄ﬁ»…";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1889,7 +2020,7 @@ public class GPLIndividual extends GPLFields{
 		
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 17, groups = {"DLS", "Previous"})
 	public void SubmitIndividualApp_Case41020() throws InterruptedException, IOException{
 		
 		//«·⁄ﬁ«— ⁄·ÌÂ ÿ·» ”«»ﬁ
