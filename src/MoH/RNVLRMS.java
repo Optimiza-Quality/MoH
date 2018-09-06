@@ -110,6 +110,7 @@ public class RNVLRMS extends RNVLInternal {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		//driver.findElement(By.linkText("English")).click();
 	}
 	// submit successfully
 	//approved 
@@ -132,8 +133,8 @@ public class RNVLRMS extends RNVLInternal {
 		driver.findElement(PrivateNo).sendKeys("523317"); // Private Number
 		Thread.sleep(Const * 10);
 
-		driver.findElement(AssociationNumber).sendKeys("7811"); // Association-Number  2005
-		driver.findElement(MilitaryNo).sendKeys("9671028885"); // Military ID-No9671027235
+		driver.findElement(AssociationNumber).sendKeys("2005"); // Association-Number  2005
+		driver.findElement(MilitaryNo).sendKeys("9671027235"); // Military ID-No9671027235
 		Thread.sleep(Const * 10);
 		driver.findElement(Captcha).sendKeys("0000"); // Captcha code
 		Thread.sleep(Const * 10);
@@ -653,7 +654,7 @@ String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الط�
 		Thread.sleep(Const * 10);
 		TakesScreenshot ts2 = (TakesScreenshot) driver;
 		File source2 = ts2.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(source2, new File("./ScreenShots-RMS/3.600ApplicationNoRMS.png"));
+		FileUtils.copyFile(source2, new File("./ScreenShots-RMS/3.6ApplicationNoRMS.png"));
 
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS Case3600");
@@ -728,20 +729,21 @@ String ExpectedErrorMessage = "لا يمكنك استكمال تقديم الط�
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 40);
 		Select University = new Select(driver.findElement(UniversityDDL));
 		University.selectByVisibleText("جامعة مؤته");
+		Thread.sleep(Const * 40);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
 		Graduation.selectByVisibleText("2016"); // Graduation-Year
 
 		// Degree
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 40);
 		Select Degree = new Select(driver.findElement(DegreeDDL));
 		Degree.selectByIndex(1); // Bachelor
 
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * 20);
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		// -----------------------------Assert--------------------------------------
 		Thread.sleep(Const * 10);
