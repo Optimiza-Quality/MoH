@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 public class GPLFields {
 	
 	By ErrorMessage = By.id("pt1:exceptionMsg");
-	
 	//HomePage
 	By Apply = By.id("txt14");
 	
@@ -25,15 +24,21 @@ public class GPLFields {
 	
 	By Captcha = By.id("pt1:r1:1:j_idt29::content");
 	By VerifyBtn = By.id("pt1:r1:1:btnCheck");
-	By MobileNo = By.id("pt1:r1:1:mn1:itMobileNumber::content");
+	By MobileNo = By.id("pt1:r1:1:mn1:itMobileNumber::content"); 
+	By MobileNo2 = By.id("pt1:r1:1:mn2:itMobileNumber::content");
 	By Email = By.id("pt1:r1:1:e1:itEmail::content");
+	By Email2 = By.id("pt1:r1:1:e2:itEmail::content");
 	By NextToVerificationCode = By.id("pt1:r1:1:b2");
 	
 	By ModifyContactDetails = By.linkText("تعديل معلومات الاتصال");
 	By CompanyNumber = By.id("pt1:r1:1:it11");
 	By VerificationCode = By.id("pt1:r1:2:vc1:dc_it1::content"); 
+	By VerificationCode2 = By.id("pt1:r1:0:vc1:dc_it1::content");
 	By NextToOtherInfo = By.id("pt1:r1:2:vc1:dc_b2");
-	
+	By SuccessMessageMyPage = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
+
+	//	.تم تنفيذ العملية بنجاح
+
 	//OtherInfo
 	By PropertyNumber = By.id("pt1:r1:3:it10::content");
 	By SocialSecurityNo = By.id("pt1:r1:3:it9::content");
@@ -42,6 +47,7 @@ public class GPLFields {
 	By Hoiday = By.id("pt1:r1:3:soc1::content");
 	By CheckBox = By.id("pt1:r1:3:sbc1::content");
 	By RadioButton = By.xpath("//*[@id=\"pt1:r1:3:t1:0:sbr1::content\"]");
+	By RadioButton2 = By.xpath("//*[@id=\"pt1:r1:3:t1:1:sbr1::content\"]");
 
 	By NextToAttachemnts = By.id("pt1:r1:3:b2");
 	By CoNextToAttachemnts = By.id("pt1:r1:3:b4");
