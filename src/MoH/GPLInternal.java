@@ -52,7 +52,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Thread.sleep(Const * 2);
 		
@@ -95,7 +95,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -120,7 +120,7 @@ public class GPLInternal extends MyPageGPL {
 		
 		System.out.println("Approve App: " + KeepAppNo);
 		
-		// ãæÇİŞÉ  ÇáäŞÇÈÉ
+		// Ù…ÙˆØ§ÙÙ‚Ø©  Ø§Ù„Ù†Ù‚Ø§Ø¨Ø©
 		
 		Thread.sleep(Const);
 
@@ -130,7 +130,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 												 
 
 		Thread.sleep(Const * 2);
@@ -165,7 +165,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -191,7 +191,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(ThirdStep).click(); // ÈÇäÊÙÇÑ ÇáãæÚÏ
+		driver.findElement(ThirdStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ù…ÙˆØ¹Ø¯
 
 		Thread.sleep(Const * 2);
 		
@@ -230,7 +230,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalAppoint).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -258,7 +258,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇááÌäÉ
+		driver.findElement(FourthStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù„Ø¬Ù†Ø©
 
 		Thread.sleep(Const * 2);
 		
@@ -301,7 +301,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -321,7 +321,7 @@ public class GPLInternal extends MyPageGPL {
 	
 	public void Processing_ApproveByDirector_Case4100_4(String KeepAppNo, String IUserName,String IPassword) throws InterruptedException, IOException {
 		this.CallandLogin(IUserName, IPassword);
-		// ãæÇİŞÉ  ÇáãÏíÑ
+		// Ù…ÙˆØ§ÙÙ‚Ø©  Ø§Ù„Ù…Ø¯ÙŠØ±
 		
 		Thread.sleep(Const * 4);
 
@@ -333,7 +333,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FifthStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
+		driver.findElement(FifthStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 												 
 
 		Thread.sleep(Const * 2);
@@ -362,7 +362,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalDirector).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -384,7 +384,7 @@ public class GPLInternal extends MyPageGPL {
 		
 		System.out.println("Reject App: " + KeepAppNo);
 		
-		// ÑİÖ  ÇáäŞÇÈÉ
+		// Ø±ÙØ¶  Ø§Ù„Ù†Ù‚Ø§Ø¨Ø©
 		
 		Thread.sleep(Const);
 
@@ -396,7 +396,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ÇáäŞÇÈÉ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ø§Ù„Ù†Ù‚Ø§Ø¨Ø©
 												 
 
 		Thread.sleep(Const * 2);
@@ -433,7 +433,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -452,7 +452,7 @@ public class GPLInternal extends MyPageGPL {
 
 		this.CallandLogin(IUserName, IPassword);
 		
-		// ÇÓÊßãÇá äæÇŞÕ äŞÇÈÉ
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ù†Ù‚Ø§Ø¨Ø©
 		
 		driver.findElement(Applications).click();
 
@@ -460,7 +460,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ äŞÇÈÉ 
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù†Ù‚Ø§Ø¨Ø© 
 									
 		Select status = new Select(driver.findElement(HeadNavigateOut)); 
 
@@ -497,7 +497,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		}
@@ -523,7 +523,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Thread.sleep(Const * 2);
 		
@@ -566,7 +566,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -588,7 +588,7 @@ public class GPLInternal extends MyPageGPL {
 	public String Processing_IncompleteByAudit_Case4140(String AppNo, String IUserName,String IPassword, Integer Round) throws InterruptedException, IOException {
 	
 		this.CallandLogin(IUserName,IPassword);
-		// ÇÓÊßãÇá äæÇŞÕ ÇáãÏŞŞ
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		driver.findElement(Applications).click();
 
@@ -596,7 +596,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(Round); 
@@ -636,7 +636,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÈäÌÇÍ";
+			String ExpectedResult = "Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 					
 		}
@@ -665,7 +665,7 @@ public class GPLInternal extends MyPageGPL {
 
 	driver.findElement(GPLApps).click();
 
-	driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇááÌäÉ
+	driver.findElement(FourthStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù„Ø¬Ù†Ø©
 
 	Thread.sleep(Const * 2);
 	
@@ -708,7 +708,7 @@ public class GPLInternal extends MyPageGPL {
 	try{
 		
 		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-		String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		
@@ -735,7 +735,7 @@ public class GPLInternal extends MyPageGPL {
 
 	driver.findElement(GPLApps).click();
 
-	driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇááÌäÉ
+	driver.findElement(FourthStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù„Ø¬Ù†Ø©
 
 	Thread.sleep(Const * 2);
 	
@@ -778,7 +778,7 @@ public class GPLInternal extends MyPageGPL {
 	try{
 		
 		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-		String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+		String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		
