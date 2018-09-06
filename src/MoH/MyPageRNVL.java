@@ -44,12 +44,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÑÎÕÉ ÇáãÒÇæáÉ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø±Ø®ØµØ© Ø§Ù„Ù…Ø²Ø§ÙˆÙ„Ø©
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -127,12 +127,12 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÇÓÈÇÈ ÇáÑİÖ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø§Ø³Ø¨Ø§Ø¨ Ø§Ù„Ø±ÙØ¶
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -207,11 +207,11 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -275,7 +275,7 @@ public class MyPageRNVL extends RNVLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = "Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -292,11 +292,11 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ - ÈíÇäÇÊ ÇÎÑì
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ - Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ø®Ø±Ù‰
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -358,7 +358,7 @@ public class MyPageRNVL extends RNVLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = "Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­";
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -375,12 +375,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void ViewApplicationAndLicense_HealthInstitute_Case2101(String KeepAppNo) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÑÎÕÉ ÇáãÒÇæáÉ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø±Ø®ØµØ© Ø§Ù„Ù…Ø²Ø§ÙˆÙ„Ø©
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ãÄÓÓÉ ÕÍíÉ");
+			appType.selectByVisibleText("Ù…Ø¤Ø³Ø³Ø© ØµØ­ÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -471,11 +471,11 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void ViewApplicationAndLicense_RoyalMedicalServices_Case3101(String KeepAppNo) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÑÎÕÉ ÇáãÒÇæáÉ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø±Ø®ØµØ© Ø§Ù„Ù…Ø²Ø§ÙˆÙ„Ø©
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÇáÎÏãÇÊ ÇáØÈíÉ ÇáãáßíÉ");
+			appType.selectByVisibleText("Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…Ù„ÙƒÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -566,11 +566,11 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void MyPage_Individuals_Case7000() throws InterruptedException, IOException {
 
-			// ÇáãÓÊÎÏã ÛíÑ ãÓÌá İí ÇáäÙÇã
+			// Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ØºÙŠØ± Ù…Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ù†Ø¸Ø§Ù…
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -590,7 +590,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -609,12 +609,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_Companies_Case7100() throws InterruptedException, IOException {
 
-			// ÇáãÓÊÎÏã ÛíÑ ãÓÌá İí ÇáäÙÇã
+			// Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ØºÙŠØ± Ù…Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ù†Ø¸Ø§Ù…
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText("Ø´Ø±ÙƒØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -634,7 +634,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -653,12 +653,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_HealthInstitute_Case7200() throws InterruptedException, IOException {
 
-			// ÇáãÓÊÎÏã ÛíÑ ãÓÌá İí ÇáäÙÇã
+			// Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ØºÙŠØ± Ù…Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ù†Ø¸Ø§Ù…
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ãÄÓÓÉ ÕÍíÉ");
+			appType.selectByVisibleText("Ù…Ø¤Ø³Ø³Ø© ØµØ­ÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -678,7 +678,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "áÇ íæÌÏ ÍÓÇÈ";
+			String ExpectedResult = "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø­Ø³Ø§Ø¨";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -697,12 +697,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_RoyalMedicalServices_Case7200_2() throws InterruptedException, IOException {
 
-			// ÇáãÓÊÎÏã ÛíÑ ãÓÌá İí ÇáäÙÇã
+			// Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ØºÙŠØ± Ù…Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ù†Ø¸Ø§Ù…
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÇáÎÏãÇÊ ÇáØÈíÉ ÇáãáßíÉ");
+			appType.selectByVisibleText("Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…Ù„ÙƒÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -722,7 +722,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "áÇ íæÌÏ ÍÓÇÈ";
+			String ExpectedResult = "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø­Ø³Ø§Ø¨";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -741,12 +741,12 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void MyPage_Individuals_Case7300() throws InterruptedException, IOException {
 
-			// ÇáãÚáæãÇÊ ÛíÑ ãØÇÈŞÉ
+			// Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -766,7 +766,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -785,12 +785,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_Companies_Case7300_2() throws InterruptedException, IOException {
 
-			// ãÚáæãÇÊ ÇáÏÎæá ÛíÑ ãØÇÈŞÉ
+			// Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©
 
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText("Ø´Ø±ÙƒØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -810,7 +810,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -829,12 +829,12 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void MyPage_HealthInstitute_Case7300_3() throws InterruptedException, IOException {
 
-				// ãÚáæãÇÊ ÇáÏÎæá ÛíÑ ãØÇÈŞÉ
+				// Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©
 
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ãÄÓÓÉ ÕÍíÉ");
+			appType.selectByVisibleText("Ù…Ø¤Ø³Ø³Ø© ØµØ­ÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -854,7 +854,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -873,12 +873,12 @@ public class MyPageRNVL extends RNVLFields{
 
 		public void MyPage_RoyalMedicalServices_Case7300_4() throws InterruptedException, IOException {
 
-			// ãÚáæãÇÊ ÇáÏÎæá ÛíÑ ãØÇÈŞÉ
+			// Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø©
 
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÇáÎÏãÇÊ ÇáØÈíÉ ÇáãáßíÉ");
+			appType.selectByVisibleText("Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…Ù„ÙƒÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -898,7 +898,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -917,12 +917,12 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_RoyalMedicalServices_Case7400() throws InterruptedException, IOException {
 
-			// ãÚáæãÇÊ ÇáÏÎæá ÛíÑ ãØÇÈŞÉ – äæÚ ÇáãÓÊÎÏã ÎØÃ
+			// Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„ ØºÙŠØ± Ù…Ø·Ø§Ø¨Ù‚Ø© â€“ Ù†ÙˆØ¹ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… Ø®Ø·Ø£
 
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÇáÎÏãÇÊ ÇáØÈíÉ ÇáãáßíÉ");
+			appType.selectByVisibleText("Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…Ù„ÙƒÙŠØ©");
 
 			Thread.sleep(Const * 3);
 
@@ -942,7 +942,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ãÚáæãÇÊ ÇáÏÎæá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -961,14 +961,14 @@ public class MyPageRNVL extends RNVLFields{
 		
 		public void MyPage_WrongVerificationCode_Case7500() throws InterruptedException, IOException {
 
-			// ÎØÃ İí ÑãÒ ÇáÊÍŞŞ ÇáãÏÎá
+			// Ø®Ø·Ø£ ÙÙŠ Ø±Ù…Ø² Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ù…Ø¯Ø®Ù„
 			
 			this.CallBrowser();
 			
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText("Ø£ÙØ±Ø§Ø¯");
 
 			Thread.sleep(Const * 3);
 
@@ -996,7 +996,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "ÎØÃ İí ÑãÒ ÇáÊÍŞŞ ÇáãÏÎá";
+			String ExpectedResult = "Ø®Ø·Ø£ ÙÙŠ Ø±Ù…Ø² Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ù…Ø¯Ø®Ù„";
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
