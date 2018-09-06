@@ -7,6 +7,7 @@ public class RNVLFields {
 	// General
 	By ErrorMessage = By.id("pt1:exceptionMsg");
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
+	By ErrorMessageBefore2001 = By.id("pt1:r1:4:m2");
 
 	// HomePage
 	By Apply = By.xpath("//*[@id=\"txt19\"]");
@@ -98,39 +99,83 @@ public class RNVLFields {
 	By MyAddress = By.xpath("//*[@id=\"pt1:r1:2:r4:0:it4::content\" or @id=\"pt1:r1:1:r4:0:it4::content\"]");
 	By SaveEditedInfo = By.xpath("//*[@id=\"pt1:r1:2:r4:0:b1\" or @id=\"pt1:r1:1:r4:0:b1\"]");
 	By GoToHomePage = By.xpath("//*[@id=\"pt1:r1:2:b1\" or @id=\"pt1:l1::icon\"]");
-
 	// Internal-Login
-	By EMPUsername = By.id("pt1:lid1:dc_it1::content");
-	By EMPPassword = By.id("pt1:lid1:dc_it2::content");
-	By LoginBtn = By.id("pt1:lid1:dc_b1");
 
-	// Internal-Menus
-	By Applications = By.id("icon3");
-	By TakeAction = By.id("icon8");
-	By RNVLApps = By.id("icon32");
-	By FirstStep = By.id("icon58");
-	By HomeMenu = By.id("icon1");
-	By SecondStep = By.id("icon59");
+		By EMPUsername = By.id("pt1:lid1:dc_it1::content");
 
-	// Internal-TakeAction-Head
-	By HeadSearchld = By.id("pt1:r1:1:requestNo::content");
-	By HeadSearchBtn = By.id("pt1:r1:1:b1");
-	By HeadNotes = By.id("pt1:r1:2:itNotes::content");
-	By HeadProcessBtn = By.id("pt1:r1:2:b2");
-	By HeadApprove = By.xpath("//*[@id=\"pt1:r1:2:sor1:_0\"]");
-	By HeadReject = By.xpath("//*[@id=\"pt1:r1:2:sor1:_2\"]");
-	By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
-	By HeadMoveAll = By.id("pt1:r1:2:smsShuttle::moveall");
-	By DetailsLink = By.linkText(" ›«’Ì·");
+		By EMPPassword = By.id("pt1:lid1:dc_it2::content");
 
+		By LoginBtn = By.id("pt1:lid1:dc_b1");
+
+
+
+		// Internal-Menus
+
+		By Applications = By.id("icon3");
+
+		By TakeAction = By.id("icon8");
+
+		By RNVLApps = By.id("icon32");
+
+		By FirstStep = By.id("icon58");
+
+		By HomeMenu = By.id("icon1");
+
+		By SecondStep = By.id("icon59");
+
+
+
+		// Internal-TakeAction-Head
+
+		By HeadNavigateOut = By.id("pt1:r1:1:requestStatus::content");
+
+		By HeadSearchld = By.id("pt1:r1:1:requestNo::content");
+
+		By HeadSearchBtn = By.id("pt1:r1:1:b1");
+
+		
+
+		By HeadNotes = By.id("pt1:r1:2:itNotes::content");
+
+		By HeadProcessBtn = By.id("pt1:r1:2:b2");
+
+		By HeadApprove = By.xpath("//*[@id=\"pt1:r1:2:sor1:_0\"]");
+
+		By HeadReject = By.xpath("//*[@id=\"pt1:r1:2:sor1:_2\"]");
+
+		By HeadIncomplete = By.xpath("//*[@id=\"pt1:r1:2:sor1:_1\"]");
+
+		By HeadMoveAll = By.id("pt1:r1:2:smsShuttle::moveall");
+
+		By DetailsLink = By.linkText("ÿ™ŸÅÿßÿµŸäŸÑ");
+
+
+
+		By SuccessMessageInternal = By.id("pt1:r1:3:m1");
+
+		By BackButtonInternal = By.id("pt1:r1:3:b1");
+
+			
+	
 	// Internal-TakeAction-Director
-	By DirectorSearchld = By.id("pt1:r1:4:requestNo::content");
-	By DirectorSearchBtn = By.id("pt1:r1:4:b1");
-	By DirectorNotes = By.id("pt1:r1:5:itNotes::content");
-	By DirectorProcessBtn = By.id("pt1:r1:5:b4");
-	By DirectorApprove = By.xpath("//*[@id=\"pt1:r1:5:sor1:_0\"]");
-	By DirectorReject = By.xpath("//*[@id=\"pt1:r1:5:sor1:_2\"]");
-	By DirectorMoveAll = By.id("pt1:r1:5:smsShuttle::moveall");
-	By DirectorIncomplete = By.xpath("//*[@id=\"pt1:r1:5:sor1:_1\"]");
 
+		By DirectorNavigateOut = By.id("pt1:r1:5:requestStatus::content");
+
+		By DirectorSearchld = By.id("pt1:r1:5:requestNo::content");
+
+		By DirectorSearchBtn = By.id("pt1:r1:5:b1");
+
+		
+
+		By DirectorNotes = By.id("pt1:r1:6:itNotes::content");
+
+		By DirectorProcessBtn = By.id("pt1:r1:6:b4");
+
+		By DirectorApprove = By.xpath("//*[@id=\"pt1:r1:6:sor1:_0\"]");
+
+		By DirectorReject = By.xpath("//*[@id=\"pt1:r1:6:sor1:_2\"]");
+
+		By DirectorMoveAll = By.id("pt1:r1:6:smsShuttle::moveall");
+
+		By DirectorIncomplete = By.xpath("//*[@id=\"pt1:r1:6:sor1:_1\"]");
 }
