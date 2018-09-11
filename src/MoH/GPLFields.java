@@ -44,6 +44,7 @@ public class GPLFields extends Vars{
 	By PharmAddress = By.id("pt1:r1:3:it13::content");
 	By Hoiday = By.id("pt1:r1:3:soc1::content");
 	By CheckBox = By.id("pt1:r1:3:sbc1::content");
+	By CheckBoxXpath = By.xpath("//*[@id=\"pt1:r1:3:sbc1::content\"]");
 	By RadioButton = By.xpath("//*[@id=\"pt1:r1:3:t1:0:sbr1::content\"]");
 	By RadioButton2 = By.xpath("//*[@id=\"pt1:r1:3:t1:1:sbr1::content\"]");
 	By RadioButton3 = By.xpath("//*[@id=\"pt1:r1:3:t1:2:sbr1::content\"]");
