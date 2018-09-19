@@ -1,5 +1,6 @@
 package MoH;
 
+import org.openqa.selenium.JavascriptExecutor;
 
 public class Vars {
 	public static String AppNo, NationalIDValue, IDNumberValue, year, KeepAppNo;
@@ -19,6 +20,7 @@ public class Vars {
 	String JPAUserName = "STK-ESS";
 	String JPAPassword = "Ee@123";
 	Integer Round;
+	String DecisionStep;
 	
 	//Drivers
 	String ChromeDriver = "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe";
@@ -36,9 +38,16 @@ public class Vars {
 	String GIFAtt = "C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_11-gif\\Uploader.exe";
 	String JPGLarge = "C:\\Users\\emasoud\\Desktop\\attachemnts\\1.6.0.0_12-JPG - large\\Uploader.exe";
 	
-	//URLS
+	//URLS-Staging
+	//String ExternalTesting = "http://test-soa:7003/public/index.html";
+	//String InternalTesting = "http://test-soa:7003/internal/faces/index.jsf";
+	
+	//URLS-Testing
 	String ExternalTesting = "http://soa-vip:7003/public/index.html";
 	String InternalTesting = "http://soa-vip:7003/internal/faces/index.jsf";
+	
+  
+
 	
 	
 

@@ -5,9 +5,11 @@ import org.openqa.selenium.By;
 public class GPLFields extends Vars{
 	
 	By ErrorMessage = By.id("pt1:exceptionMsg");
+	By SuccessMessageMyPage = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
 	
 	//HomePage
 	By Apply = By.id("txt14");
+	By ChangeLanguage = By.linkText("English");
 	
 	//Applicant
 	By AppType = By.id("pt1:r1:0:scl1:dc_smc1::content");

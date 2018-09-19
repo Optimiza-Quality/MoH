@@ -45,10 +45,10 @@ public class GPLMultiple extends GPLFields {
 		// Check if parameter passed from TestNG is 'Chrome'
 		if (browsername.equalsIgnoreCase("Chrome")) {
 			// create Chrome instance
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\emasoud\\Desktop\\chromedriver2.35.exe");
+			System.setProperty("webdriver.chrome.driver", ChromeDriver);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.get("https://ohs-vip:4443/public/index.html");
+			driver.get(ExternalTesting);
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
@@ -59,10 +59,10 @@ public class GPLMultiple extends GPLFields {
 			// // create IE instance
 			//
 			// System.setProperty("webdriver.ie.driver",
-			// "C:\\Users\\emasoud\\Desktop\\IEDriverServer.exe");
+			// IEDriver");
 			// driver = new InternetExplorerDriver();
 			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
+			// driver.get(ExternalTesting);
 			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 			// driver.findElement(By.id("overridelink")).click();
@@ -75,10 +75,10 @@ public class GPLMultiple extends GPLFields {
 			// // create firefox instance
 			//
 			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\emasoud\\Desktop\\geckodriver.exe");
+			//MyFirefoxDriver);
 			// driver = new FirefoxDriver();
 			// driver.manage().window().maximize();
-			// driver.get("https://ohs-vip:4443/public/index.html");
+			// driver.get(ExternalTesting);
 			// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 

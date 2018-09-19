@@ -103,24 +103,10 @@ public class MyPageGPL extends GPLFields{
 						
 			System.out.println("Pay For: " + NationalIDValue + IDNumberValue );
 			
-			this.ViewPaymentNumber();
-			
 			driver.close();
 		
 		}
 		
-		public void ViewPaymentNumber() throws InterruptedException{
-			
-			driver.findElement(MyPaymentsTab).click();
-			
-			Thread.sleep(Const * 10);
-			
-			String PaymentNo = driver.findElement(PaymentNumber).getText();
-			
-			System.out.println("Payment No: " + PaymentNo);
-			
-		}
-
 		public void ViewApplicationAndRejection_Jordanain_Case4111(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
 			// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ «”»«» «·—›÷
@@ -180,7 +166,7 @@ public class MyPageGPL extends GPLFields{
 			
 			Thread.sleep(Const * 2);
 			
-			driver.findElement(RejectionReasons).click(); // License-Tab
+			driver.findElement(RejectionReasons).click(); // rejection
 
 			Thread.sleep(Const * 10);
 
@@ -188,7 +174,7 @@ public class MyPageGPL extends GPLFields{
 
 			TakesScreenshot ts1 = (TakesScreenshot) driver;
 			File source1 = ts1.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(source1, new File("./ScreenShots/Case4.1.1.1_RejectionReasons.png"));
+			FileUtils.copyFile(source1, new File("./GPL-Individual-Screenshots/Case4.1.1.1_RejectionReasons.png"));
 
 			// -------------------------------Clear----------------------------------
 
@@ -499,7 +485,7 @@ public class MyPageGPL extends GPLFields{
 
 			TakesScreenshot ts1 = (TakesScreenshot) driver;
 			File source1 = ts1.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(source1, new File("./ScreenShots/Case6.1.1.1_RejectionReasons.png"));
+			FileUtils.copyFile(source1, new File("./GPL-Chain-Screenshots/Case6.1.1.1_RejectionReasons.png"));
 
 			// -------------------------------Clear----------------------------------
 

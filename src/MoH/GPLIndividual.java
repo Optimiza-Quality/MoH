@@ -38,6 +38,10 @@ public class GPLIndividual extends GPLInternal{
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+	
+	//	driver.findElement(ChangeLanguage).click();
+		
+		//Thread.sleep(Const * 4);
 	}
 
 	@BeforeMethod(enabled =false)
@@ -272,7 +276,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9822056900");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -434,7 +438,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9851032994");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -915,7 +919,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832023360");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(2);
@@ -1031,7 +1035,7 @@ public class GPLIndividual extends GPLInternal{
 		
 	}
 
-	@Test(priority = 9, groups = {"CCD, MIT"})
+	@Test(priority = 9,enabled = false ,groups = {"CCD, MIT"})
 	public void SubmitIndividualApp_Case4540() throws InterruptedException, IOException{
 		
 		//«·„‰‘√… ·Ì” ·Â« «”„  Ã«—Ì
@@ -1137,7 +1141,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "€Ì— „‰ ”»";
+		String ExpectedErrorMessage = "‰›«»…";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1412,7 +1416,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "Ì„ ·ﬂ";
+		String ExpectedErrorMessage = "Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·«„ ·«ﬂ «·”Ìœ";
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1544,7 +1548,7 @@ public class GPLIndividual extends GPLInternal{
 		
 	}
 	
-	@Test(priority = 2, groups = {"SSN", "Commitment"})
+	@Test(priority = 2, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
 		//—ﬁ„ «‰ ”«» «·÷„«‰ €Ì— ’ÕÌÕ
@@ -1610,7 +1614,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("555878");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1646,7 +1650,7 @@ public class GPLIndividual extends GPLInternal{
 		
 	}
 	
-	@Test(priority = 16, groups = {"SSN", "Commitment"})
+	@Test(priority = 16, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
 		//«·’Ìœ·Ì €Ì— „ ›—€ ··⁄„· ›Ì «·’Ìœ·Ì… Õ”» —ﬁ„ «·÷„«‰
@@ -1712,7 +1716,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1814,7 +1818,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		//driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("address 1");
+		driver.findElement(PharmAddress).sendKeys("‘«—⁄ „ﬂ…");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(3);

@@ -99,7 +99,7 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		//driver.findElement(By.id("overridelink")).click();
 		
-		//driver.findElement(ChangeLanguage).click();
+	//	driver.findElement(ChangeLanguage).click();
 		
 		//Thread.sleep(Const);
 	}
@@ -373,10 +373,12 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
-
-		KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo);
-
-		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo);
+		//------------------------------Processing----------------
+		Round =1;
+	
+		KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo, Round);
+		
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);
 		
@@ -558,8 +560,10 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
-		KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo);
-		this.Processing_RejectByDirector_Case1110(KeepAppNo);
+		//-------------------------Processing--------------------------
+		Round = 1;
+		KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo, Round);
+		this.Processing_RejectByDirector_Case1110(KeepAppNo, Round);
 		
 		this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
 
@@ -711,8 +715,10 @@ public class RNVLJordanian extends RNVLInternal {
 
 			driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
-			KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo);
-			this.Processing_RejectByDirector_Case1110(KeepAppNo);
+			//---------------------------Processing----------------------
+			Round = 1;
+			KeepAppNo = this.Processing_ApproveByHead_Case1100(AppNo, Round);
+			this.Processing_RejectByDirector_Case1110(KeepAppNo, Round);
 			
 			this.ViewApplicationAndRejection_Jordanain_Case1111(KeepAppNo, NationalIDValue, IDNumberValue);
 
@@ -1194,15 +1200,17 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
-
+		//-------------------------------Processing--------------------
+		Round = 1;
 	
-		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo);
+		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo, Round);
 	
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByDirector_Case1100_3(KeepAppNo);
+		Round = 2;
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);//View
 		
@@ -1369,18 +1377,22 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
+		
+		//-----------------------Processing---------------------------------------
+		Round = 1;
+		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo, Round);
 	
-		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo);
-	
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_IncompleteByDirector_Case1120_2(KeepAppNo);
+		Round = 2;
+		
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByDirector_Case1100_3(KeepAppNo);
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);//View
 
@@ -1550,25 +1562,32 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(BackToHomeAttachmentCases).click(); // Home-Page
 		
-		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo);
+		//--------------------------Processing----------------------------
+		
+		Round = 1;
+		
+		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_IncompleteByHead_Case1140_2(KeepAppNo);
+		Round = 2;
+		this.Processing_IncompleteByHead_Case1140(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByHead_Case1100_2(KeepAppNo);
+		this.Processing_ApproveByHead_Case1100(KeepAppNo, Round);
 	
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		Round = 1;
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_IncompleteByDirector_Case1120_2(KeepAppNo);
+		Round = 2;
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByDirector_Case1100_3(KeepAppNo);
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);//View
 
@@ -1728,13 +1747,17 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 		
-		
-		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo);
+		//-------------------------------Processing-------------------
+		Round=1;
+		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo, Round);
 		
 		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, NationalIDValue, IDNumberValue);
 		
-		this.Processing_ApproveByHead_Case1100_2(KeepAppNo);
-		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo);
+		Round =2;
+		this.Processing_ApproveByHead_Case1100(KeepAppNo, Round);
+		
+		Round =1;
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		this.ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);
 
@@ -3420,7 +3443,7 @@ public class RNVLJordanian extends RNVLInternal {
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.7.1.0.png"));
 
-		// -----------------------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------------
 		System.out.println("Passed. Jordanian Nurse 1.7.1.0 " + ActualResult);
 
 		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText(); // Get-App-No
@@ -3429,17 +3452,22 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
-		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo);
+		//---------------------------------Processing--------------------------------
+		Round = 1;
+		KeepAppNo = this.Processing_IncompleteByHead_Case1140(AppNo, Round);
 		
 		ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByHead_Case1100_2(AppNo);
+		Round = 2;
+		this.Processing_ApproveByHead_Case1100(AppNo, Round);
 		
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		Round = 1;
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByDirector_Case1100_3(KeepAppNo);
+		Round = 2;
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);
 
@@ -3587,9 +3615,11 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
 
-		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo);
+		//-------------------------Processing------------------
+		Round = 1;
+		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo, Round);
 		
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo,NationalIDValue ,IDNumberValue);
 		
@@ -3931,14 +3961,18 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 		
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
-
-		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo);
 		
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		//---------------------------------Processing----------------------------------
+
+		Round =1;
+		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo, Round);
+		
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, NationalIDValue, IDNumberValue);//Modify
 		
-		this.Processing_ApproveByDirector_Case1100_3(KeepAppNo);
+		Round =2;
+		this.Processing_ApproveByDirector_Case1100_2(KeepAppNo, Round);
 		
 		ViewApplicationAndLicense_Jordanain_Case1101(KeepAppNo, NationalIDValue, IDNumberValue);//View
 
@@ -4097,10 +4131,12 @@ public class RNVLJordanian extends RNVLInternal {
 		System.out.println("Application Number: " + AppNo);
 		
 		driver.findElement(BackToHomeGeneralCases).click(); // Home-Page
-
-		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo);
 		
-		this.Processing_IncompleteByDirector_Case1120(KeepAppNo);
+		//---------------------------------Processing----------------------
+		Round= 1;
+		KeepAppNo= this.Processing_ApproveByHead_Case1100(AppNo, Round);
+		
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
 		
 		ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo, NationalIDValue, IDNumberValue);//modify
 
