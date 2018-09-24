@@ -166,7 +166,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -175,7 +175,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -223,7 +223,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -231,7 +231,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// -------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult ="ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
@@ -270,7 +270,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "—ﬁ„ ﬁÌœ «·„‰‘√… «·Êÿ‰Ì €Ì— „ÊÃÊœ° Ì—ÃÏ „—«Ã⁄… Ê“«—… «·’Õ… ·≈‰‘«¡ Õ”«» Œ«’ »ﬂ. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = HealthCareNotExist;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -309,7 +309,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Œ«’ €Ì— ’ÕÌÕ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·—ﬁ„ «·„œŒ·. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongPrivteNumber;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ---------------ScreenShot--------------------
@@ -349,7 +349,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·«Ì“«· ﬁÌœ «· ‰›Ì–";
+		String ExpectedErrorMessage = AppInProgress;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -387,7 +387,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ ›⁄«· ··„„—÷ ·œÏ ‰›” «·„ƒ””… «·’ÕÌ…. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = PrevLicenseHealth;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -449,7 +449,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -458,7 +458,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -516,7 +516,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -524,7 +524,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		//-------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult ="ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
@@ -602,7 +602,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -611,7 +611,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -668,7 +668,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -676,7 +676,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// 	-------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual" + ActualResult);
-		String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ. ”Ì „ „—«Ã⁄ Â „‰ ﬁ»· «·„⁄‰ÌÌ‰ Ê„Ê«›« ﬂ »«· ÿÊ—«  Œ·«· () ⁄»— «·—”«∆· «·ﬁ’Ì—… Ê«·»—Ìœ «·≈·ﬂ —Ê‰Ì. ﬂ„« ÊÌ„ﬂ‰ﬂ «” Œœ«„ ŒÌ«— ’›Õ Ì «·„ÊÃÊœ ›Ì «·’›Õ… «·—∆Ì”Ì… ·„ «»⁄… ÿ·»ﬂ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected" +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
@@ -730,7 +730,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "«·—ﬁ„ «·‘Œ’Ì ·€Ì— «·√—œ‰Ì €Ì— ’ÕÌÕ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·—ﬁ„ «·„œŒ·. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongPersonalNumber;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -768,7 +768,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰  «—ÌŒ «·„Ì·«œ €Ì— „ÿ«»ﬁ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ…  «—ÌŒ «·„Ì·«œ. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongBDate;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -836,7 +836,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -845,7 +845,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -908,14 +908,14 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 20);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
 		// -------------------Assert-------------
 				String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ. ”Ì „ „—«Ã⁄ Â „‰ ﬁ»· «·„⁄‰ÌÌ‰ Ê„Ê«›« ﬂ »«· ÿÊ—«  Œ·«· () ⁄»— «·—”«∆· «·ﬁ’Ì—… Ê«·»—Ìœ «·≈·ﬂ —Ê‰Ì. ﬂ„« ÊÌ„ﬂ‰ﬂ «” Œœ«„ ŒÌ«— ’›Õ Ì «·„ÊÃÊœ ›Ì «·’›Õ… «·—∆Ì”Ì… ·„ «»⁄… ÿ·»ﬂ";
+				String ExpectedResult = SuccessMsg;
 				System.out.println("Expected " +ExpectedResult );
 				AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 				System.out.println("Application Number: " + AppNo);
@@ -993,7 +993,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -1002,7 +1002,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 		Thread.sleep(Const * 20);
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1030,7 +1030,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage ="„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1095,7 +1095,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -1134,7 +1134,7 @@ public class RNVLHealthInstitute extends RNVLInternal {
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:it2hh:1:cif1:bButtonFile")).click(); // Personal-Photo
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // Personal-Photo
 		Thread.sleep(Const * 10);
 		Runtime.getRuntime().exec(JPGAtt);
 
@@ -1153,7 +1153,7 @@ Thread.sleep(Const * 10);
 driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 Thread.sleep(Const * 10);
-driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
 Thread.sleep(Const * 10);
 driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1161,7 +1161,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 //-------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
@@ -1244,13 +1244,13 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -1283,7 +1283,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// Give path where the au3 is saved.
 
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:it2hh:1:cif1:bButtonFile")).click(); // Personal-Photo
+		driver.findElement(UploadSchoolCertificateHealthInstitute).click(); // Personal-Photo
 		Thread.sleep(Const * 10);
 		Runtime.getRuntime().exec(JPGAtt);
 
@@ -1293,25 +1293,25 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// Next button
 		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
 
-// ---------------------------------Review-Section----------------------------
-Thread.sleep(Const * 20);
-driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+		// ---------------------------------Review-Section----------------------------
+		Thread.sleep(Const * 20);
+		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
-// ------------------------------Rate and Submit---------------------
+		// ------------------------------Rate and Submit---------------------
 
-Thread.sleep(Const * 10);
-driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+		Thread.sleep(Const * 10);
+		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
-Thread.sleep(Const * 10);
-driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		Thread.sleep(Const * 10);
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
-Thread.sleep(Const * 10);
-driver.findElement(SubmitAttachmentCases).click(); // Submit
+		Thread.sleep(Const * 10);
+		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
-//-------------------Assert-------------
+		//-------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);
@@ -1393,13 +1393,13 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -1430,7 +1430,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1502,13 +1502,13 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1535,7 +1535,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ „⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” ° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄ ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = BachelorNotRetrieved;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1598,7 +1598,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -1609,7 +1609,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1636,7 +1636,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ Õ«·… ‘Â«œ… «·»ﬂ«·Ê—ÌÊ” \"€Ì— „⁄«œ·…\"° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = Equiv;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1703,7 +1703,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -1714,7 +1714,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -1741,7 +1741,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰  Œ’’ﬂ ·Ì”  «»⁄ ·ﬂ·Ì… «· „—Ì÷° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄ ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongMajor;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1799,7 +1799,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ÊÃÊœ ‘Â«œ… ⁄œ„ „ÕﬂÊ„Ì…° Ì—ÃÏ ≈’œ«— ‘Â«œ… ⁄œ„ „ÕﬂÊ„Ì… »«” Œœ«„ «·—«»ÿ «· «·Ì: https://ncrc.moj.gov.jo. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = MissingNCRC;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1858,7 +1858,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ Œÿ√ ›Ì «·„⁄·Ê„«  «·„” —Ã⁄… ·‘Â«œ… ⁄œ„ «·„ÕﬂÊ„Ì…. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 65004545";
+		String ExpectedErrorMessage = WrongNCRC;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		// ------------------ScreenShot---------------
@@ -1915,7 +1915,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 20);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ ‘Â«œ… ⁄œ„ «·„ÕﬂÊ„Ì… «·’«œ—… ﬁœ  Ã«Ê“  «·À·«À… √‘Â— „‰  «—ÌŒ ≈’œ«—Â«° Ì—ÃÏ ≈’œ«— ‘Â«œ… ⁄œ„ „ÕﬂÊ„Ì… ÕœÌÀ… »«” Œœ«„ «·—«»ÿ «· «·Ì: https://ncrc.moj.gov.jo. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = ExpiredNCRC;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1955,7 +1955,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		Thread.sleep(Const * 50);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „‰ ”» ··‰ﬁ«»…° Ì—ÃÏ «·«‰ ”«» ··‰ﬁ«»… Ê„‰ À„  ﬁœÌ„  ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 06500454";
+		String ExpectedErrorMessage = NCMembership;
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -1995,7 +1995,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		Thread.sleep(Const * 10);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „”œœ ··—”Ê„ «·„ — »… ⁄·ÌÂ ›Ì «·‰ﬁ«»…° Ì—ÃÏ  ”œÌœ —”Ê„ «·‰ﬁ«»… Ê„‰ À„  ﬁœÌ„ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = JNMCFees;
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -2035,7 +2035,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		Thread.sleep(Const * 10);
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÕœÊÀ Œÿ√ ›Ì ≈” —Ã«⁄ „⁄·Ê„«  «·„„—÷ „‰ ‰ﬁ«»… «·„„—÷Ì‰° Ì—ÃÏ „—«Ã⁄… ‰ﬁ«»… «·„„—÷Ì‰ ·· √ﬂœ „‰ «·≈‰ ”«» Ê’Õ… «·»Ì«‰« . ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = JNMCData;
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -2110,13 +2110,13 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 //				// University-Country
 //				Thread.sleep(Const * 20);
 //				Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-//				UniversityCountry.selectByVisibleText("›—‰”«");
+//				UniversityCountry.selectByVisibleText(DDLFrance);
 //				// UniversityCountry.selectByIndex(139); // Jordan
 //
 //				// University
 //				Thread.sleep(Const * 20);
 //				Select University = new Select(driver.findElement(UniversityDDL));
-//				University.selectByVisibleText("Centre International de Recontre Mathematiques");
+//				University.selectByVisibleText(DDLFrenchUni);
 //				Thread.sleep(Const * 20);
 //
 //				// Graduation-Year
@@ -2152,7 +2152,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 //				driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 //
 //				Thread.sleep(Const * 10);
-//				driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+//				driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 //
 //				Thread.sleep(Const * 10);
 //				driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -2160,7 +2160,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 //				// -------------------Assert-------------
 //				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 //
-//				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+//				String ExpectedResult =SuccessMsg;
 //
 //				Assert.assertTrue(ActualResult.contains(ExpectedResult));
 //				System.out.println("Passed. Jordanian Nurse Case 1.0.0.0 " + ActualResult);
@@ -2173,7 +2173,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 //
 		// ----------------Assert--------------------
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ·≈’œ«—  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ‰Ÿ—« ·√‰Â ﬁœ  „ —›÷ ÿ·»ﬂ „‰ √ﬁ· „‰ 3 ‘ÂÊ—. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = BlackListedMsg;
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
@@ -2237,7 +2237,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		Thread.sleep(Const * 10);
@@ -2246,7 +2246,7 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -2284,25 +2284,25 @@ driver.findElement(SubmitAttachmentCases).click(); // Submit
 		// Next button
 		driver.findElement(NextToReviewAttachmentCases).click(); // Next-Button
 
-// ---------------------------------Review-Section----------------------------
-Thread.sleep(Const * 20);
-driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
+		// ---------------------------------Review-Section----------------------------
+		Thread.sleep(Const * 20);
+		driver.findElement(NextToSubmitAttachmentCases).click(); // Next-Button
 
-// ------------------------------Rate and Submit---------------------
+		// ------------------------------Rate and Submit---------------------
 
-Thread.sleep(Const * 10);
-driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
+		Thread.sleep(Const * 10);
+		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
-Thread.sleep(Const * 10);
-driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		Thread.sleep(Const * 10);
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 
-Thread.sleep(Const * 10);
-driver.findElement(SubmitAttachmentCases).click(); // Submit
+		Thread.sleep(Const * 10);
+		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
-//-------------------Assert-------------
+		//-------------------Assert-------------
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " +ExpectedResult );
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
 		System.out.println("Application Number: " + AppNo);

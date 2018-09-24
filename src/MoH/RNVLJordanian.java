@@ -39,12 +39,12 @@ public class RNVLJordanian extends RNVLInternal {
 				
 				String ActualResult = driver.findElement(ErrorMessage).getText();
 				
-				Verify.verify(ActualResult.contains("ÕœÀ Œÿ√"));
+				Verify.verify(ActualResult.contains(ErrorMessageText));
 				 //result = true;
 				
 				//if(result == true){
 						
-				System.out.println("ÕœÀ Œÿ√");
+				System.out.println(ErrorMessageText);
 			
 				// Graduation-Year
 				Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -261,11 +261,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		} catch (Exception e) {// do nothing
@@ -303,13 +303,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 	//	Thread.sleep(Const);
 		
@@ -344,7 +344,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
 
 		Thread.sleep(Const * 5);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -352,7 +352,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		
 		System.out.println("Actual Message: " + ActualResult);
 		System.out.println("Expected Message: " + ExpectedResult);
@@ -493,13 +493,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Thread.sleep(Const);
 		
@@ -532,7 +532,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("„Õ«Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("RateNeutral"); // Notes
 
 		Thread.sleep(Const * 20);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -540,7 +540,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Expected Message: " + ExpectedResult);
 		System.out.println("Actual Message: " + ActualResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -605,11 +605,11 @@ public class RNVLJordanian extends RNVLInternal {
 			
 			try {
 
-				driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+				driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-				driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+				driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-				driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+				driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 				Thread.sleep(Const * 4);
 			} catch (Exception e) {// do nothing
@@ -648,13 +648,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 			// University-Country
 			Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-			UniversityCountry.selectByVisibleText("«·√—œ‰");
+			UniversityCountry.selectByVisibleText(DDLJordan);
 
 			Thread.sleep(Const * 8);
 
 			// University
 			Select University = new Select(driver.findElement(UniversityDDL));
-			University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+			University.selectByVisibleText(DDLJordanUni);
 
 			// Thread.sleep(Const);
 			
@@ -687,7 +687,7 @@ public class RNVLJordanian extends RNVLInternal {
 			driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
 
 			Thread.sleep(Const * 10);
-			driver.findElement(NotesGeneralCases).sendKeys("„Õ«Ìœ"); // Notes
+			driver.findElement(NotesGeneralCases).sendKeys("RateNeutral"); // Notes
 
 			Thread.sleep(Const * 20);
 			driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -695,7 +695,7 @@ public class RNVLJordanian extends RNVLInternal {
 			Thread.sleep(Const * 20);
 
 			String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-			String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+			String ExpectedResult = SuccessMsg;
 			System.out.println("Expected Message: " + ExpectedResult);
 			System.out.println("Actual Message: " + ActualResult);
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -757,7 +757,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ";
+		String ExpectedErrorMessage = PrevLicense;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -813,7 +813,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		System.out.println("Actual: " + ActualErrorMessage);
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = PrevLicense;
 
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
@@ -867,7 +867,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		System.out.println("Actual: " + ActualErrorMessage);
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ";
+		String ExpectedErrorMessage = PrevLicense;
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
@@ -916,7 +916,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì Ê—ﬁ„ «·ÂÊÌ… €Ì— „ÿ«»ﬁÌ‰° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·√—ﬁ«„ «·„œŒ·…";
+		String ExpectedErrorMessage = CSPDDataMM;
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -967,7 +967,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì «·„œŒ· ·‘Œ’ „ Ê›Ì";
+		String ExpectedErrorMessage = CSPDDead;
 
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
@@ -1019,7 +1019,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·≈‰ Â«¡ ’·«ÕÌ… «·ÂÊÌ…° Ì—ÃÏ „—«Ã⁄… œ«∆—… «·√ÕÊ«· «·„œ‰Ì… · ÃœÌœ «·ÂÊÌ…";
+		String ExpectedErrorMessage = CSPDExpiry;
 
 		System.out.println("Exoected Message: " + ExpectedErrorMessage);
 
@@ -1075,11 +1075,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -1120,14 +1120,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		Thread.sleep(Const*2);
@@ -1175,7 +1175,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1183,7 +1183,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -1254,11 +1254,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -1297,14 +1297,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -1350,7 +1350,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1359,7 +1359,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual Message: " + ActualResult);
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1435,11 +1435,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -1481,14 +1481,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		Thread.sleep(Const+ 200);
@@ -1534,7 +1534,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1542,7 +1542,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Message: " + ActualResult);
 		System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1630,11 +1630,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -1678,14 +1678,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		Thread.sleep(Const+200);
@@ -1719,7 +1719,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadGeneralCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -1727,7 +1727,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Message: " + ActualResult);
 		//System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1800,11 +1800,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -1843,14 +1843,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -1896,7 +1896,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1904,7 +1904,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Message: " + ActualResult);
 		System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1964,11 +1964,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2007,14 +2007,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -2060,7 +2060,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -2068,7 +2068,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Message: " + ActualResult);
 		System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -2121,11 +2121,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2164,13 +2164,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 
 		Thread.sleep(Const * 10);
 
@@ -2218,7 +2218,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("Õ“Ì‰"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -2226,7 +2226,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		
 		AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText(); // Get-App-No
@@ -2287,11 +2287,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2330,14 +2330,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -2372,7 +2372,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "«·„·›«  «·„”„ÊÕ »Â« „‰ ‰Ê⁄";
+		String ExpectedResult = WrongFile;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -2422,11 +2422,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2465,14 +2465,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 		
 		// Thread.sleep(Const);
@@ -2507,7 +2507,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "«·„·›«  «·„”„ÊÕ »Â« „‰ ‰Ê⁄";
+		String ExpectedResult = WrongFile;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -2557,11 +2557,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2600,14 +2600,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -2642,7 +2642,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "«·„·›«  «·„”„ÊÕ »Â« „‰ ‰Ê⁄";
+		String ExpectedResult = WrongFile;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -2692,11 +2692,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2735,14 +2735,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -2777,7 +2777,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "«·„·›«  «·„”„ÊÕ »Â« „‰ ‰Ê⁄";
+		String ExpectedResult = WrongFile;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -2827,11 +2827,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -2871,14 +2871,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		
 		// Thread.sleep(Const);
 		
@@ -2912,7 +2912,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "«·„·›«  «·„”„ÊÕ »Â«";
+		String ExpectedResult = WrongFile;
 		System.out.println("Actual Message: " + ActualResult);
 		System.out.println("Expected Message: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -2960,11 +2960,11 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		try {
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 10);
 
@@ -3003,7 +3003,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
@@ -3036,7 +3036,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ „⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ”° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄";
+		String ExpectedErrorMessage = BachelorNotRetrieved;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -3087,11 +3087,11 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		try {
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 10);
 		} catch (Exception e) {// do nothing
@@ -3129,7 +3129,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
@@ -3159,7 +3159,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ…";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -3212,11 +3212,11 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		try {
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 10);
 		} catch (Exception e) {// do nothing
@@ -3254,14 +3254,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Thread.sleep(Const);
 		
@@ -3288,7 +3288,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ…";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -3342,11 +3342,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 2);
 
@@ -3387,7 +3387,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
@@ -3434,7 +3434,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -3509,11 +3509,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 2);
 
@@ -3552,13 +3552,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 
 		Thread.sleep(Const * 8);
 
@@ -3597,7 +3597,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -3714,10 +3714,10 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com");// Email
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Email).sendKeys(FillEmailAddress);// Email
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 2);
 		} catch (Exception e) {// do nothing
@@ -3755,13 +3755,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 
 		Thread.sleep(Const * 8);
 
@@ -3789,7 +3789,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ…";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -3844,11 +3844,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 2);
 		} catch (
@@ -3888,13 +3888,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText(" Ê‰”");
+		UniversityCountry.selectByVisibleText(DDLTunisia);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… ”Ê”…");
+		University.selectByVisibleText(DDLSousaUni);
 
 		Thread.sleep(Const * 20);
 
@@ -3926,7 +3926,7 @@ public class RNVLJordanian extends RNVLInternal {
 		String WarningMessage = driver.findElement(WarningMessageGeneralCases).getText();
 		System.out.println("Warning Message: " + WarningMessage);
 		
-		Assert.assertTrue(WarningMessage.contains("Ì„ﬂ‰ﬂ  ﬁœÌ„ ÿ·» «·„“«Ê·… «·ﬂ —Ê‰Ì« „‰ Œ·«· ‰Ÿ«„ «·Œœ„«  «·≈·ﬂ —Ê‰Ì…° ·ﬂ‰ Ì ÊÃ» ⁄·Ìﬂ „—«Ã⁄… Ê“«—… «·’Õ… „’ÿÕ»« «·‘Â«œ«  «·√’·Ì… ··»ﬂ«·Ê—ÌÊ” Ê –·ﬂ ‰Ÿ—« ·√‰ﬂ Œ—ÌÃ Ã«„⁄… ⁄—»Ì… ÕﬂÊ„Ì… Ê «· Õﬁ  »«·œ—«”… ﬁ»· 2001"));
+		Assert.assertTrue(WarningMessage.contains(Warning2001));
 		
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
@@ -3936,7 +3936,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
 
 		Thread.sleep(Const * 20);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -3944,7 +3944,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -4014,11 +4014,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 4);
 		}
@@ -4060,13 +4060,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·⁄—«ﬁ");
+		UniversityCountry.selectByVisibleText(DDLIraq);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄…  ﬂ—Ì ");
+		University.selectByVisibleText(TakreetUni);
 
 		Thread.sleep(Const * 20);
 
@@ -4106,7 +4106,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -4114,7 +4114,7 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 10);
 
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture screenshot
@@ -4175,11 +4175,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 20);
 
@@ -4221,14 +4221,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Thread.sleep(Const);
 
@@ -4257,7 +4257,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ „⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ”° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄";
+		String ExpectedErrorMessage = BachelorNotRetrieved;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4308,11 +4308,11 @@ public class RNVLJordanian extends RNVLInternal {
 		Thread.sleep(Const * 20);
 
 		try {
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 20);
 		} catch (Exception e) {// do nothing
@@ -4350,13 +4350,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·ﬂÊÌ ");
+		UniversityCountry.selectByVisibleText(DDLKuwait);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·ﬂÊÌ ");
+		University.selectByVisibleText(DDLKuwaitUni);
 
 		// Thread.sleep(Const);
 
@@ -4386,7 +4386,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "€Ì— „⁄«œ·…";
+		String ExpectedErrorMessage = Equiv;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4438,11 +4438,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 20);
 		} catch (Exception e) {// do nothing
@@ -4480,14 +4480,14 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // «·√—œ‰
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·⁄·Ê„ Ê«· ﬂ‰Ê·ÊÃÌ« «·√—œ‰Ì…");
+		University.selectByVisibleText(DDLJust);
 
 		// University.selectByIndex(139); // Jordanian-University
 
@@ -4512,7 +4512,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰  Œ’’ﬂ ·Ì”  «»⁄ ·ﬂ·Ì… «· „—Ì÷";
+		String ExpectedErrorMessage = WrongMajor;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4563,11 +4563,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 20);
 		} catch (Exception e) {// do nothing
@@ -4606,13 +4606,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Graduation-Year
 		year = "2012";
@@ -4631,7 +4631,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ÊÃÊœ ‘Â«œ… ⁄œ„ „ÕﬂÊ„Ì…";
+		String ExpectedErrorMessage = MissingNCRC;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4682,11 +4682,11 @@ public class RNVLJordanian extends RNVLInternal {
 
 		try {
 
-			driver.findElement(MobileNumber).sendKeys("797352297"); // Mobile-Number
+			driver.findElement(MobileNumber).sendKeys(FillMobileNumber); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
-			driver.findElement(Address).sendKeys("Optimiza Solutions", Keys.TAB); // Address
+			driver.findElement(Address).sendKeys(FillAddress, Keys.TAB); // Address
 
 			Thread.sleep(Const * 20);
 			
@@ -4728,13 +4728,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Graduation-Year
 		year = "2012";
@@ -4753,7 +4753,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ Œÿ√ ›Ì «·„⁄·Ê„«  «·„” —Ã⁄… ·‘Â«œ… ⁄œ„ «·„ÕﬂÊ„Ì…";
+		String ExpectedErrorMessage = WrongNCRC;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4837,13 +4837,13 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University-Country
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 
 		Thread.sleep(Const * 8);
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Graduation-Year
 		year = "2012";
@@ -4862,7 +4862,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ ‘Â«œ… ⁄œ„ «·„ÕﬂÊ„Ì… «·’«œ—… ﬁœ  Ã«Ê“  «·À·«À… √‘Â— „‰  «—ÌŒ ≈’œ«—Â«";
+		String ExpectedErrorMessage = ExpiredNCRC;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4916,7 +4916,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „‰ ”» ··‰ﬁ«»…° Ì—ÃÏ «·«‰ ”«» ··‰ﬁ«»… Ê„‰ À„  ﬁœÌ„ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì";
+		String ExpectedErrorMessage = NCMembership;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -4970,7 +4970,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „”œœ ··—”Ê„ «·„ — »… ⁄·ÌÂ ›Ì «·‰ﬁ«»…° Ì—ÃÏ  ”œÌœ —”Ê„ «·‰ﬁ«»… Ê„‰ À„  ﬁœÌ„ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì";
+		String ExpectedErrorMessage = JNMCFees;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -5024,7 +5024,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÕœÊÀ Œÿ√ ›Ì ≈” —Ã«⁄ „⁄·Ê„«  «·„„—÷ „‰ ‰ﬁ«»… «·„„—÷Ì‰° Ì—ÃÏ „—«Ã⁄… ‰ﬁ«»… «·„„—÷Ì‰ ·· √ﬂœ „‰ «·≈‰ ”«» Ê’Õ… «·»Ì«‰« ";
+		String ExpectedErrorMessage = JNMCData;
 
 		System.out.println("Expected Message: " + ExpectedErrorMessage);
 
@@ -5051,29 +5051,29 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(By.id("customerImg")).click(); // Contact-Us
 
-		Select Service = new Select(driver.findElement(By.id("pt1:soc3::content"))); // Select-Service
+		Select Service = new Select(driver.findElement(SelectSerivce)); // Select-Service
 
 		Service.selectByIndex(1);
 
-		Select MessageType = new Select(driver.findElement(By.id("pt1:soc2::content"))); // Select-Type
+		Select MessageType = new Select(driver.findElement(MsgType)); // Select-Type
 
 		MessageType.selectByIndex(1);
 
-		driver.findElement(By.id("pt1:it3::content")).sendKeys("Essra");
+		driver.findElement(NameSend).sendKeys("Essra");
 
-		Select CountryCode = new Select(driver.findElement(By.id("pt1:mn1:dc_soc1::content"))); // Country-Code
+		Select CountryCode = new Select(driver.findElement(CountryCodeContact)); // Country-Code
 
 		CountryCode.selectByVisibleText("+962");
 
-		driver.findElement(By.id("pt1:mn1:itMobileNumber::content")).sendKeys("797352298"); // Mobile
+		driver.findElement(MobileSend).sendKeys("797352298"); // Mobile
 
-		driver.findElement(By.id("pt1:e1:itEmail::content")).sendKeys("e@e.com"); // Email
+		driver.findElement(EmailSend).sendKeys("e@e.com"); // Email
 
-		driver.findElement(By.id("pt1:it7::content")).sendKeys(" ‰’ «·—”«·… ‰’ «·—”«·… ‰’ «·—”«·… ‰’ «·—”«·…");
+		driver.findElement(MsgText).sendKeys(QueryText);
 
-		driver.findElement(By.id("pt1:itCaptchaValue::content")).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
 
-		driver.findElement(By.id("pt1:b2")).click(); // Send
+		driver.findElement(BtnSend).click(); // Send
 
 		// Assert
 
@@ -5083,7 +5083,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		System.out.println("Actual Message: " + ActualResult);
 
-		String ExpectedResult = " „  ﬁœÌ„ ≈” ›”«— »‰Ã«Õ. «·—ﬁ„ «·„—Ã⁄Ì ÂÊ";
+		String ExpectedResult = Query;
 
 		System.out.println("Expected Message: " + ExpectedResult);
 
@@ -5107,29 +5107,29 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(By.id("customerImg")).click(); // Contact-Us
 
-		Select Service = new Select(driver.findElement(By.id("pt1:soc3::content"))); // Select-Service
+		Select Service = new Select(driver.findElement(SelectSerivce)); // Select-Service
 
 		Service.selectByIndex(1);
 
-		Select MessageType = new Select(driver.findElement(By.id("pt1:soc2::content"))); // Select-Type
+		Select MessageType = new Select(driver.findElement(MsgType)); // Select-Type
 
 		MessageType.selectByIndex(2);
 
-		driver.findElement(By.id("pt1:it3::content")).sendKeys("Essra");
+		driver.findElement(NameSend).sendKeys("Essra");
 
-		Select CountryCode = new Select(driver.findElement(By.id("pt1:mn1:dc_soc1::content"))); // Country-Code
+		Select CountryCode = new Select(driver.findElement(CountryCodeContact)); // Country-Code
 
 		CountryCode.selectByVisibleText("+962");
 
-		driver.findElement(By.id("pt1:mn1:itMobileNumber::content")).sendKeys("797352298"); // Mobile
+		driver.findElement(MobileSend).sendKeys("797352298"); // Mobile
 
-		driver.findElement(By.id("pt1:e1:itEmail::content")).sendKeys("e@e.com"); // Email
+		driver.findElement(EmailSend).sendKeys("e@e.com"); // Email
 
-		driver.findElement(By.id("pt1:it7::content")).sendKeys("«—”«· «ﬁ —«Õ «—”«· «ﬁ —«Õ «—”«· «ﬁ —«Õ «—”«· «ﬁ —«Õ");
+		driver.findElement(MsgText).sendKeys(SuggestionText);
 
-		driver.findElement(By.id("pt1:itCaptchaValue::content")).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
 
-		driver.findElement(By.id("pt1:b2")).click(); // Send
+		driver.findElement(BtnSend).click(); // Send
 
 		// Assert
 
@@ -5139,7 +5139,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		System.out.println("Actual Message: " + ActualResult);
 
-		String ExpectedResult = " „  ﬁœÌ„ ≈ﬁ —«Õ »‰Ã«Õ. «·—ﬁ„ «·„—Ã⁄Ì ÂÊ";
+		String ExpectedResult = Suggestion;
 
 		System.out.println("Expected Message: " + ExpectedResult);
 
@@ -5163,29 +5163,29 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(By.id("customerImg")).click(); // Contact-Us
 
-		Select Service = new Select(driver.findElement(By.id("pt1:soc3::content"))); // Select-Service
+		Select Service = new Select(driver.findElement(SelectSerivce)); // Select-Service
 
 		Service.selectByIndex(1);
 
-		Select MessageType = new Select(driver.findElement(By.id("pt1:soc2::content"))); // Select-Type
+		Select MessageType = new Select(driver.findElement(MsgType)); // Select-Type
 
 		MessageType.selectByIndex(3);
 
-		driver.findElement(By.id("pt1:it3::content")).sendKeys("Essra");
+		driver.findElement(NameSend).sendKeys("Essra");
 
-		Select CountryCode = new Select(driver.findElement(By.id("pt1:mn1:dc_soc1::content"))); // Country-Code
+		Select CountryCode = new Select(driver.findElement(CountryCodeContact)); // Country-Code
 
 		CountryCode.selectByVisibleText("+962");
 
-		driver.findElement(By.id("pt1:mn1:itMobileNumber::content")).sendKeys("797352298"); // Mobile
+		driver.findElement(MobileSend).sendKeys("797352298"); // Mobile
 
-		driver.findElement(By.id("pt1:e1:itEmail::content")).sendKeys("e@e.com"); // Email
+		driver.findElement(EmailSend).sendKeys("e@e.com"); // Email
 
-		driver.findElement(By.id("pt1:it7::content")).sendKeys("«—”«· ‘ﬂÊÏ «—”«· ‘ﬂÊÏ «—”«· ‘ﬂÊÏ «—”«· ‘ﬂÊÏ");
+		driver.findElement(MsgText).sendKeys(ComplainText);
 
-		driver.findElement(By.id("pt1:itCaptchaValue::content")).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
 
-		driver.findElement(By.id("pt1:b2")).click(); // Send
+		driver.findElement(BtnSend).click(); // Send
 
 		// Assert
 
@@ -5195,7 +5195,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		System.out.println("Actual Message: " + ActualResult);
 
-		String ExpectedResult = " „  ﬁœÌ„ ‘ﬂ«ÊÏ »‰Ã«Õ. «·—ﬁ„ «·„—Ã⁄Ì";
+		String ExpectedResult = Complain;
 
 		System.out.println("Expected Message: " + ExpectedResult);
 
@@ -5222,7 +5222,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(GoToMyPage).click(); // My-Page
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-		appType.selectByVisibleText("√›—«œ");
+		appType.selectByVisibleText(Individual);
 
 		Thread.sleep(Const * 3);
 
@@ -5251,7 +5251,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(GoToMyPage).click(); // My-Page
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-		appType.selectByVisibleText("„ƒ””… ’ÕÌ…");
+		appType.selectByVisibleText(HealthCare);
 
 		Thread.sleep(Const * 3);
 
@@ -5280,7 +5280,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(GoToMyPage).click(); // My-Page
 
 		Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-		appType.selectByVisibleText("«·Œœ„«  «·ÿ»Ì… «·„·ﬂÌ…");
+		appType.selectByVisibleText(RMS);
 
 		Thread.sleep(Const * 3);
 

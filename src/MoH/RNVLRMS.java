@@ -147,9 +147,7 @@ public class RNVLRMS extends RNVLInternal {
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 20);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -176,13 +174,13 @@ public class RNVLRMS extends RNVLInternal {
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -206,7 +204,7 @@ public class RNVLRMS extends RNVLInternal {
 		Thread.sleep(Const * 10);
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 		
@@ -214,7 +212,7 @@ public class RNVLRMS extends RNVLInternal {
 		//----------------------------------------Assert-------------------------
 		String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 		System.out.println("Actual " + ActualResult);
-		String ExpectedResult ="ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult =SuccessMsg;
 		System.out.println("Expected " + ExpectedResult);
 		AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 		System.out.println("Application Number: " + AppNo);
@@ -264,9 +262,9 @@ public class RNVLRMS extends RNVLInternal {
 		// --------------------Assert---------------------
 
 		Thread.sleep(Const * 10);
-		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "—ﬁ„ ﬁÌœ «·„‰‘√… «·Êÿ‰Ì €Ì— „ÊÃÊœ° Ì—ÃÏ „—«Ã⁄… Ê“«—… «·’Õ… ·≈‰‘«¡ Õ”«» Œ«’ »ﬂ. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = HealthCareNotExist;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -312,9 +310,9 @@ public class RNVLRMS extends RNVLInternal {
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Œ«’ €Ì— ’ÕÌÕ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·—ﬁ„ «·„œŒ·. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongPrivteNumber;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
@@ -358,17 +356,16 @@ public class RNVLRMS extends RNVLInternal {
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 30);
-		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 20);
-String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ —ﬁ„ ·«Ì“«· ﬁÌœ «· ‰›Ì–. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = AppInProgress;
 		System.out.println("Expected Result" +ExpectedErrorMessage);
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		
-		// ---------------------------------Take
-		// ScreenShot------------------------------
+		// ---------------------------------Take-ScreenShot------------------------------
 		Thread.sleep(Const * 10);
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -408,11 +405,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		// -------------Assert---------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì ”«»ﬁ. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = PrevLicense;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.4.0.0");
@@ -452,12 +449,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		// ----------------------Assert-----------------------
 		Thread.sleep(Const * 20);
-		String ActualErrorMessage = driver.findElement(By.xpath("pt1:exceptionMsg")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessageIDXpath).getText();
 
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì «·„œŒ· €Ì— ’ÕÌÕ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·—ﬁ„ «·Êÿ‰Ì. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = CSPDWrongNational;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 		System.out.println("RMS 3.5.0.0");
@@ -503,11 +500,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ----------------------Assert-----------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage ="«·—ﬁ„ «·Êÿ‰Ì «·„œŒ· ·‘Œ’ „ Ê›Ì. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage =CSPDDead;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -551,13 +548,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -583,13 +578,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -613,7 +608,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// -------------------------------Attachments-Section-----------------------
 		// -----------------Assert for warning message --------------------
 		// String ActualErrorMessage =
-		// driver.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div")).getText();
+		// driver.findElement(ErrorMessageByXpath).getText();
 		// System.out.println("Actual Message: " + ActualErrorMessage);
 		//
 		// Thread.sleep(Const*10);
@@ -639,14 +634,14 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(RateHappyAttachmentCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
 
 		//----------------------------------------Assert-------------------------
 				String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+				String ExpectedResult =SuccessMsg;
 				System.out.println("Expected " + ExpectedResult);
 				String AppNo = driver.findElement(ApplicationNumberAttachmentCases).getText();
 				System.out.println("Application Number: " + AppNo);
@@ -696,13 +691,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 30);
 
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -728,13 +722,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 40);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… „ƒ Â");
+		University.selectByVisibleText(DDLMoutaUni);
 		Thread.sleep(Const * 40);
 
 		// Graduation-Year
@@ -750,11 +744,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		// -----------------------------Assert--------------------------------------
 		Thread.sleep(Const * 10);
-		String ActualErrorMessage = driver.findElement(By.id("pt1:exceptionMsg")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 		Thread.sleep(Const * 10);
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ „⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” ° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄ ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = BachelorNotRetrieved;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -792,13 +786,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -825,13 +817,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 30);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ﬂ·Ì… «·«„Ì—… „‰Ï ·· „—Ì÷");
+		University.selectByVisibleText(DDLMuna);
 
 		// Graduation-Year
 		Select Graduation = new Select(driver.findElement(GraduationYearDDL));
@@ -849,7 +841,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
+		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
@@ -857,13 +849,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 		//----------------------------------------Assert-------------------------
 				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+				String ExpectedResult =SuccessMsg;
 				System.out.println("Expected " + ExpectedResult);
 				 AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 				System.out.println("Application Number: " + AppNo);
@@ -910,13 +902,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 30);
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -939,12 +931,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·ﬂÊÌ ");
+		UniversityCountry.selectByVisibleText(DDLKuwait);
 		Thread.sleep(Const * 10);
 		// University
 		Thread.sleep(Const * 30);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·ﬂÊÌ ");
+		University.selectByVisibleText(DDLKuwaitUni);
 		Thread.sleep(Const * 20);
 		Thread.sleep(Const * 10);
 		// Graduation-Year
@@ -968,7 +960,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		System.out.println("Actual Message: " + ActualErrorMessage);
 
 		Thread.sleep(Const * 20);
-		String ExpectedErrorMessage = "„⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ” «·„œŒ·… €Ì— ’ÕÌÕ…. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·». ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongBachelorInfo;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Thread.sleep(Const * 20);
 
@@ -1008,12 +1000,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 40);
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -1039,13 +1031,13 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("›—‰”«");
+		UniversityCountry.selectByVisibleText(DDLFrance);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Centre International de Recontre Mathematiques");
+		University.selectByVisibleText(DDLFrenchUni);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -1066,7 +1058,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
+		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
@@ -1074,14 +1066,14 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		//----------------------------------------Assert-------------------------
 				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+				String ExpectedResult =SuccessMsg;
 				System.out.println("Expected " + ExpectedResult);
 				 AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 				System.out.println("Application Number: " + AppNo);
@@ -1137,13 +1129,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1171,16 +1161,16 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("„’—");
+		UniversityCountry.selectByVisibleText(DDLEgypt);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·ﬁ«Â—…");
+		University.selectByVisibleText(CairoUni);
 		// Admission date
 		Thread.sleep(Const * 50);
-		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
+		Select Admission = new Select(driver.findElement(AdmissionYear));
 		Admission.selectByVisibleText("1998"); // Graduation-Year
 		Thread.sleep(Const * 50);
 
@@ -1204,26 +1194,26 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		//---Assert Warning----
 		String ActualResult2 = driver.findElement(WarningMessageGeneralCases).getText();
 		System.out.println("Actual " + ActualResult2);
-        String Expected2 = "  Ì„ﬂ‰ﬂ  ﬁœÌ„ ÿ·» «·„“«Ê·… «·ﬂ —Ê‰Ì« „‰ Œ·«· ‰Ÿ«„ «·Œœ„«  «·≈·ﬂ —Ê‰Ì…° ·ﬂ‰ Ì ÊÃ» ⁄·Ìﬂ „—«Ã⁄… Ê“«—… «·’Õ… „’ÿÕ»« «·‘Â«œ«  «·√’·Ì… ··»ﬂ«·Ê—ÌÊ” Ê –·ﬂ ‰Ÿ—« ·√‰ﬂ Œ—ÌÃ Ã«„⁄… ⁄—»Ì… ÕﬂÊ„Ì… Ê «· Õﬁ  »«·œ—«”… ﬁ»· 2001. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·« ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+        String Expected2 = Warning2001;
         System.out.println("Expected " + Expected2);
         Assert.assertTrue(ActualResult2.contains(Expected2));
 
         Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
+		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
 		Thread.sleep(Const * 10);
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 
 		//----------------------------------------Assert-------------------------
 				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ. ”Ì „ „—«Ã⁄ Â „‰ ﬁ»· «·„⁄‰ÌÌ‰ Ê„Ê«›« ﬂ »«· ÿÊ—«  Œ·«· () ⁄»— «·—”«∆· «·ﬁ’Ì—… Ê«·»—Ìœ «·≈·ﬂ —Ê‰Ì. ﬂ„« ÊÌ„ﬂ‰ﬂ «” Œœ«„ ŒÌ«— ’›Õ Ì «·„ÊÃÊœ ›Ì «·’›Õ… «·—∆Ì”Ì… ·„ «»⁄… ÿ·»ﬂ";
+				String ExpectedResult =SuccessMsg;
 				System.out.println("Expected " + ExpectedResult);
 				String AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 				System.out.println("Application Number: " + AppNo);
@@ -1238,7 +1228,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// -----------------------------------------------------------------------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
+		driver.findElement(BackToHomeAnother).click(); // Home-Page
 	}
 
 	// Governmental outside , After 2001
@@ -1275,9 +1265,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1303,16 +1291,16 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 50);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·⁄—«ﬁ");
+		UniversityCountry.selectByVisibleText(DDLIraq);
 		// UniversityCountry.selectByIndex(139); // Jordan
 
 		// University
 		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄…  ﬂ—Ì ");
+		University.selectByVisibleText(TakreetUni);
 		// Admission date
 		Thread.sleep(Const * 50);
-		Select Admission = new Select(driver.findElement(By.id("pt1:r1:3:socAcademicStudyYearRid::content")));
+		Select Admission = new Select(driver.findElement(AdmissionYear));
 		Admission.selectByVisibleText("2002");
 		Thread.sleep(Const * 50);
 
@@ -1335,7 +1323,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ---------------------------------Review-Section----------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:4:btnOtherDataNextButton")).click(); // Next-Button
+		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
 		// ------------------------------Rate and Submit---------------------
 
@@ -1343,7 +1331,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("”⁄Ìœ"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 		Thread.sleep(Const * 10);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
 		Thread.sleep(Const * 50);
@@ -1351,7 +1339,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		//----------------------------------------Assert-------------------------
 				String ActualResult = driver.findElement(SuccessMessageGeneralCases).getText();
 				System.out.println("Actual " + ActualResult);
-				String ExpectedResult =" „  ﬁœÌ„ ÿ·»ﬂ »‰Ã«Õ";
+				String ExpectedResult =SuccessMsg;
 				System.out.println("Expected " + ExpectedResult);
 				AppNo = driver.findElement(ApplicationNumberGeneralCases).getText();
 				System.out.println("Application Number: " + AppNo);
@@ -1368,7 +1356,7 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// -----------------------------------------------------------------------------------------------
 		System.out.println("RMS 3.0.0.0" + ActualResult);
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:6:fp1:dc_pgl2")).click(); // Home-Page
+		driver.findElement(BackToHomeAnother).click(); // Home-Page
 		Round = 1;
 		KeepAppNo=Processing_ApproveByHead_Case1100(AppNo, Round);
 		Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
@@ -1404,13 +1392,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
 
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
 
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
@@ -1438,14 +1424,14 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 50);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 		Thread.sleep(Const * 50);
 
 		// University
 		Thread.sleep(Const * 50);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("«·Ã«„⁄… «·«—œ‰Ì…");
+		University.selectByVisibleText(DDLJordanUni);
 		Thread.sleep(Const * 10);
 
 		// Graduation-Year
@@ -1464,12 +1450,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// --------------------------Assert----------------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
 		
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ „⁄·Ê„«  «·»ﬂ«·Ê—ÌÊ”° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = BachelorNotRetrieved;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1506,12 +1492,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 10);
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -1537,14 +1523,14 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 20);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·√—œ‰");
+		UniversityCountry.selectByVisibleText(DDLJordan);
 		// UniversityCountry.selectByIndex(139); // Jordan
 		Thread.sleep(Const * 20);
 
 		// University
 		Thread.sleep(Const * 20);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·⁄·Ê„ Ê«· ﬂ‰Ê·ÊÃÌ« «·√—œ‰Ì…");
+		University.selectByVisibleText(DDLJust);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -1563,11 +1549,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// --------------------------Assert----------------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰  Œ’’ﬂ ·Ì”  «»⁄ ·ﬂ·Ì… «· „—Ì÷° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = WrongMajor;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		// ---------------------------------Take
@@ -1605,12 +1591,12 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		Thread.sleep(Const * 20);
-		driver.findElement(By.id("pt1:r1:1:btnBasicInfoNextButton")).click(); // Next-Button
+		driver.findElement(NextToVerificationCode).click(); // Next-Button
 
 		// --------------------------------Verification-Code---------------------------------
 		Thread.sleep(Const * 10);
-		driver.findElement(VerificationCodeText).sendKeys("0000"); // Verification-Code
-		driver.findElement(By.xpath("//*[@id=\"pt1:r1:2:vc1:dc_pgl3\"]/div[2]")).click(); // click-anywhere-to-navigate-out
+		driver.findElement(VerificationCodeText).sendKeys("0000", Keys.TAB); // Verification-Code
+		
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToOtherInfo).click(); // Next
 
@@ -1636,14 +1622,14 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		// University-Country
 		Thread.sleep(Const * 10);
 		Select UniversityCountry = new Select(driver.findElement(UniversityCountryDDL));
-		UniversityCountry.selectByVisibleText("«·ﬂÊÌ ");
+		UniversityCountry.selectByVisibleText(DDLKuwait);
 		// UniversityCountry.selectByIndex(139); // Jordan
 		Thread.sleep(Const * 20);
 
 		// University
 		Thread.sleep(Const * 10);
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("Ã«„⁄… «·ﬂÊÌ ");
+		University.selectByVisibleText(DDLKuwaitUni);
 		Thread.sleep(Const * 20);
 
 		// Graduation-Year
@@ -1662,10 +1648,10 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(NextToReviewOrAttachments).click(); // Next-Button
 		// ----------------------Assert-----------------------
-		String ActualErrorMessage = driver.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ Õ«·… ‘Â«œ… «·»ﬂ«·Ê—ÌÊ” \"€Ì— „⁄«œ·…\"° Ì—ÃÏ „—«Ã⁄… Ê“«—… «· ⁄·Ì„ «·⁄«·Ì Ê«·»ÕÀ «·⁄·„Ì · ’ÊÌ» «·√Ê÷«⁄. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = Equiv;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1704,11 +1690,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ----------------------Assert-----------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „‰ ”» ··‰ﬁ«»…° Ì—ÃÏ «·«‰ ”«» ··‰ﬁ«»… Ê„‰ À„  ﬁœÌ„ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 06500454";
+		String ExpectedErrorMessage = NCMembership;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1747,11 +1733,11 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 
 		// ----------------------Assert-----------------------
 		String ActualErrorMessage = driver
-				.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div"))
+				.findElement(ErrorMessageByXpath)
 				.getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ «·„„—÷ €Ì— „”œœ ··—”Ê„ «·„ — »… ⁄·ÌÂ ›Ì «·‰ﬁ«»…° Ì—ÃÏ  ”œÌœ —”Ê„ «·‰ﬁ«»… Ê„‰ À„  ﬁœÌ„ ÿ·»  ’—ÌÕ „“«Ê·… „Â‰… „„—÷ ﬁ«‰Ê‰Ì. ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = JNMCFees;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
 
@@ -1788,10 +1774,10 @@ String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  ’—ÌÕ
 		Thread.sleep(Const * 10);
 		driver.findElement(VerifyButton).click(); // VerifyButton
 		// -------------Assert---------------------
-		String ActualErrorMessage = driver.findElement(By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div")).getText();
+		String ActualErrorMessage = driver.findElement(ErrorMessageByXpath).getText();
 		System.out.println("Actual Message: " + ActualErrorMessage);
 		Thread.sleep(Const * 10);
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÕœÊÀ Œÿ√ ›Ì ≈” —Ã«⁄ „⁄·Ê„«  «·„„—÷ „‰ ‰ﬁ«»… «·„„—÷Ì‰° Ì—ÃÏ „—«Ã⁄… ‰ﬁ«»… «·„„—÷Ì‰ ·· √ﬂœ „‰ «·≈‰ ”«» Ê’Õ… «·»Ì«‰« . ·„“Ìœ „‰ «·„⁄·Ê„«  Ì—ÃÏ «·≈ ’«· ⁄·Ï «·Œÿ «·”«Œ‰ ·Ê“«—… «·’Õ… 065004545";
+		String ExpectedErrorMessage = JNMCData;
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
 		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));

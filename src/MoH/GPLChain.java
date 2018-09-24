@@ -318,7 +318,7 @@ public class GPLChain extends GPLInternal{
 		
 		
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -457,7 +457,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -565,7 +565,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -623,7 +623,7 @@ public class GPLChain extends GPLInternal{
 		js.executeScript("window.scrollBy(0,0)");
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "—ﬁ„ ﬁÌœ «·„‰‘√… «·Êÿ‰Ì €Ì— „ÊÃÊœ";
+		String ExpectedResult = CCDNonExist;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -664,7 +664,7 @@ public class GPLChain extends GPLInternal{
 		
 		System.out.println("Actual Result: " + ActualResult);
 		
-		String ExpectedResult = "—ﬁ„ ﬁÌœ «·„‰‘√… «·Êÿ‰Ì Ê—ﬁ„ «·‘—ﬂ… €Ì— „ÿ«»ﬁÌ‰";
+		String ExpectedResult = CCDMM;
 		
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		
@@ -703,7 +703,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "€Ì— ›⁄«·…";
+		String ExpectedResult = CCDInactive;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		
@@ -742,7 +742,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "·⁄œ„ ÊÃÊœ «”„ «Ê ⁄·«„…  Ã«—Ì… „”Ã·… ··’Ìœ·Ì…";
+		String ExpectedResult = CCDTradeMark;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		
@@ -805,7 +805,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 5);
 		
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ ≈” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ≈” —Ã«⁄ Ã„Ì⁄ «·√—ﬁ«„ «·Êÿ‰Ì… ··‘—ﬂ«¡";
+		String ExpectedResult = CCDPartnersNN;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -894,7 +894,7 @@ public class GPLChain extends GPLInternal{
 		
 		System.out.println("Actual Result: " + ActualResult);
 		
-		String ExpectedResult = "‰ﬁ«»…";
+		String ExpectedResult = JPAMembership;
 		
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		
@@ -977,7 +977,7 @@ public class GPLChain extends GPLInternal{
 		
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "€Ì— „”œœ ··—”Ê„ «·„ — »… ⁄·ÌÂ ›Ì «·‰ﬁ«»…";
+		String ExpectedResult = JPAFees;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1058,7 +1058,7 @@ public class GPLChain extends GPLInternal{
 		
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "€Ì— „“«Ê·";
+		String ExpectedResult = Practicing;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1159,7 +1159,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1266,7 +1266,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "€Ì— „“«Ê· ··„Â‰… ·À·«À ”‰Ê«  ›√ﬂÀ—";
+		String ExpectedResult = Practicing;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1352,7 +1352,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·«„ ·«ﬂ «·”Ìœ";
+		String ExpectedResult = Ownership;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1437,7 +1437,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ „—Ê— ”‰ Ì‰ ⁄·Ï «·€«¡ „·ﬂÌ… «·”Ìœ";
+		String ExpectedResult = PreviousOwnership;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1522,7 +1522,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "⁄œ„  ›—€";
+		String ExpectedResult = Job;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1607,7 +1607,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "Ì⁄„·";
+		String ExpectedResult = Job;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1696,7 +1696,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "Œÿ√";
+		String ExpectedResult = SSC;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1760,7 +1760,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "—ﬁ„ ”‰œ  ”ÃÌ· «·⁄ﬁ«— «·„œŒ· €Ì— ’ÕÌÕ";
+		String ExpectedResult = PropertyNotExist;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1826,7 +1826,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ «·⁄ﬁ«— ÷„‰ √—«÷Ì ”·ÿ… ≈ﬁ·Ì„ «·⁄ﬁ»…";
+		String ExpectedResult = PropertyASEZA;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -1890,7 +1890,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "ÿ·»";
+		String ExpectedResult = PropertyExist;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1955,7 +1955,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·⁄œ„ ÊÃÊœ ”Ã· «·‘—ﬂ… ·”·”·… «·’Ìœ·Ì«  ›Ì Ê“«—… «·’Õ…";
+		String ExpectedResult = ChainNotRegistered;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -2019,7 +2019,7 @@ public class GPLChain extends GPLInternal{
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual Result: " + ActualResult);
-		String ExpectedResult = "⁄œœ «·‘—ﬂ«¡";
+		String ExpectedResult = CCDMOHPartners;
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -2082,7 +2082,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« · Ã«Ê“ ⁄œœ «·›—Ê⁄ «· Ì  ‰œ—Ã  Õ  ”·”·… «·’Ìœ·Ì«  40 ›—⁄";
+		String ExpectedResult = BranchesNumber;
 		
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
@@ -2147,7 +2147,7 @@ public class GPLChain extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
-		String ExpectedResult = "‰Ÿ—« ·√‰ ⁄œœ «·√›—⁄ ›Ì ”·”·… «·’Ìœ·Ì«  ·« Ì”«ÊÌ ⁄œœ «·‘—ﬂ«¡";
+		String ExpectedResult = BranchesPartners;
 		System.out.println("Actual Result: " + ActualResult);
 		System.out.println("Expeccted Result: " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));

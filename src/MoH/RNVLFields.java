@@ -6,6 +6,7 @@ public class RNVLFields extends Vars{
 
 	// General
 	By ErrorMessage = By.id("pt1:exceptionMsg");
+	By ErrorMessageIDXpath = By.xpath("pt1:exceptionMsg");
 	By ErrorMessageByXpath = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
 	By Body = By.cssSelector("body");
 	By ErrorMessageHead = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/table/tbody/tr/td[2]");
@@ -75,7 +76,7 @@ public class RNVLFields extends Vars{
 	By SuccessMessageGeneralCases = By.id("pt1:r1:6:fp1:dc_pgl1");
 	By ApplicationNumberGeneralCases = By.id("pt1:r1:6:fp1:dc_ol5");
 	By BackToHomeGeneralCases = By.id("pt1:r1:6:fp1:dc_b1");
-
+	By BackToHomeAnother = By.id("pt1:r1:6:fp1:dc_pgl2");
 	// AttachmentsPage
 	By UploadSchoolCertificate = By.id("pt1:r1:4:it2hh:0:cif1:bButtonFile");
 	By ReUploadSchoolCertificate = By.id("pt1:r1:1:it2hh:0:cif1:bButtonFile");
@@ -204,5 +205,15 @@ public class RNVLFields extends Vars{
 	By SuccessMessageInternalDirector = By.id("pt1:r1:8:m1");
 	By BackButtonInternalDirector = By.id("pt1:r1:8:b1");
 	
+	//Contact-Us
+	By EmailSend = By.id("pt1:e1:itEmail::content");
+	By MsgText = By.id("pt1:it7::content");
+	By CaptchaContact = By.id("pt1:itCaptchaValue::content");
+	By MobileSend = By.id("pt1:mn1:itMobileNumber::content");
+	By CountryCodeContact = By.id("pt1:mn1:dc_soc1::content");
+	By NameSend = By.id("pt1:it3::content");
+	By MsgType = By.id("pt1:soc2::content");
+	By SelectSerivce = By.id("pt1:soc3::content");
+	By BtnSend = By.id("pt1:b2");
 
 }

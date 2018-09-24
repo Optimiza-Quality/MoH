@@ -2,7 +2,7 @@ package MoH;
 
 import org.openqa.selenium.JavascriptExecutor;
 
-public class Vars {
+public class Vars extends Msgs{
 	public static String AppNo, NationalIDValue, IDNumberValue, year, KeepAppNo;
 	//Internal Users
 	String CapitalUserName1 = "MOH-ESRAA";
@@ -48,8 +48,35 @@ public class Vars {
 	
   
 
-	
-	
+	String ComplainText = "ÇÑÓÇá Ôßæì ÇÑÓÇá Ôßæì ÇÑÓÇá Ôßæì ÇÑÓÇá Ôßæì";
+	String RMS = "ÇáÎÏãÇÊ ÇáØÈíÉ ÇáãáßíÉ";
+	String HealthCare = "ãÄÓÓÉ ÕÍíÉ";
+	String Individual = "ÃİÑÇÏ";
+
+	String RateSad = "ÍÒíä";
+	String RateHappy = "ÓÚíÏ";
+	String RateNeutral = "ãÍÇíÏ";
+
+	String DDLJordan = "ÇáÃÑÏä";
+	String DDLJordanUni = "ÇáÌÇãÚÉ ÇáÇÑÏäíÉ";
+	String DDLMoutaUni = "ÌÇãÚÉ ãÄÊå";
+	String DDLFrance = "İÑäÓÇ";
+	String DDLMuna = "ßáíÉ ÇáÇãíÑÉ ãäì ááÊãÑíÖ";
+	String DDLFrenchUni ="Centre International de Recontre Mathematiques";
+	String DDLTunisia = "ÊæäÓ";
+	String DDLSousaUni = "ÌÇãÚÉ ÓæÓÉ";
+	String DDLIraq = "ÇáÚÑÇŞ";
+	String TakreetUni = "ÌÇãÚÉ ÊßÑíÊ";
+	String DDLKuwait = "ÇáßæíÊ";
+	String DDLKuwaitUni = "ÌÇãÚÉ ÇáßæíÊ";
+	String DDLJust = "ÌÇãÚÉ ÇáÚáæã æÇáÊßäæáæÌíÇ ÇáÃÑÏäíÉ";
+	String DDLEgypt = "ãÕÑ";
+	String CairoUni = "ÌÇãÚÉ ÇáŞÇåÑÉ";
+	String QueryText = "äÕ ÇáÑÓÇáÉ äÕ ÇáÑÓÇáÉ äÕ ÇáÑÓÇáÉ äÕ ÇáÑÓÇáÉ";
+	String SuggestionText = "ÇÑÓÇá ÇŞÊÑÇÍ ÇÑÓÇá ÇŞÊÑÇÍ ÇÑÓÇá ÇŞÊÑÇÍ ÇÑÓÇá ÇŞÊÑÇÍ";
+	String FillMobileNumber = "797352297";
+	String FillEmailAddress = "emasoud@optimizasolutions.com";
+	String FillAddress = "Optimiza Solutions";
 
 	
 	

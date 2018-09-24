@@ -272,7 +272,7 @@ public class GPLMultiple extends GPLFields {
 		driver.findElement(RateHappyAttachmentCases).click();
 
 		Thread.sleep(Const * 5);
-		driver.findElement(NotesAttachmentCases).sendKeys("Happy");
+		driver.findElement(NotesAttachmentCases).sendKeys(RateHappy);
 
 		Thread.sleep(Const * 8);
 
@@ -283,7 +283,7 @@ public class GPLMultiple extends GPLFields {
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
 		System.out.println("Actual : " + ActualResult);
-		String ExpectedResult = "تم تقديم طلبك بنجاح";
+		String ExpectedResult = SuccessMsg;
 		System.out.println("Expected : " + ExpectedResult);
 		
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -346,7 +346,7 @@ public class GPLMultiple extends GPLFields {
 		driver.findElement(SaveEditedInfo).click();
 		String ActualResult = driver.findElement(SuccessMessageMyPage).getText();
 		System.out.println("Actual : " + ActualResult);
-		String ExpectedResult = "تم تنفيذ العملية بنجاح";
+		String ExpectedResult = UpdateSuccess;
 		System.out.println("Expected : " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -395,7 +395,7 @@ public class GPLMultiple extends GPLFields {
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual : " + ActualResult);
-		String ExpectedResult = "لايزال قيد التنفيذ";
+		String ExpectedResult = AppInProgress;
 		System.out.println("Expected = " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// capture-screenshot
@@ -446,7 +446,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual : " + ActualResult);
 
-		String ExpectedResult = "رقم المنشأة الوطني غير موجود";
+		String ExpectedResult = CCDNonExist;
 		System.out.println("Expected = " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -497,7 +497,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println("Actual : " + ActualResult);
 
-		String ExpectedResult = "رقم قيد المنشأة الوطني ورقم الشركة غير مطابقين";
+		String ExpectedResult = CCDMM;
 		System.out.println("Expected = " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
@@ -547,7 +547,7 @@ public class GPLMultiple extends GPLFields {
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.4.1.0 " + ActualResult);
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب نظرا لعدم وجود اسم او علامة تجارية مسجلة للصيدلية، يرجى التأكد من تسجيل الاسم أو العلامة التجارية في وزارة الصناعة والتجارة. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = CCDTradeMark;
 		System.out.println("Expected = " + ExpectedResult);
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		// capture-screenshot
@@ -596,7 +596,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Actual: " + ActualResult);
 
-		String ExpectedResult = "لأن حالة المنشأة غير فعالة";
+		String ExpectedResult = CCDInactive;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -649,7 +649,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.4.3.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، يرجى التأكد من تسجيل الاسم أو العلامة التجارية في وزارة الصناعة والتجارة.لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = CCDTradeName;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -702,7 +702,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.4.4.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، يرجى التأكد من تسجيل الاسم أو العلامة التجارية في وزارة الصناعة والتجارة.لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = CCDTradeName;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -752,7 +752,8 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.4.5.0 " + ActualResult);
 
-		String ExpectedResult = " لا يمكنك إستكمال تقديم الطلب، نظرا لعدم إسترجاع جميع الأرقام الوطنية للشركاء، يرجى مراجعة دائرة  مراقبة الشركات لتصويب الأوضاع. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = PartnersRetrieval;
+	
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -821,7 +822,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.5.0.0 " + ActualResult);
 
-		String ExpectedResult = " لا يمكنك استكمال تقديم الطلب نظرا لعدم استرجاع بينات السيد /السيدة () من النقابة , يرجى تصحيح البيانات عند النقابة,  لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = JPAMembership;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -892,7 +893,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.5.1.0 " + ActualResult);
 
-		String ExpectedResult = "يرجى تسديد رسوم النقابة ومن ثم تقديم طلب إصدار رخصة صيدلية";
+		String ExpectedResult = JPAFees;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -963,7 +964,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.5.1.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب نظرا لأن غير مسدد للرسوم المترتبة عليك في النقابة يرجى تسديد رسوم النقابة ومن ثم تقديم طلب إصدار رخصة صيدلية عامة.لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = JPAFees;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1034,7 +1035,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.6.0.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، نظرا لأن السيد/السيدة() غير مزاول للمهنة .لمزيد من المعلومات يرجى الاتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = Practicing;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1105,7 +1106,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.6.1.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، نظرا لأن السيد/السيدة() غير مزاول للمهنة لثلاث سنوات و أكثر .لمزيد من المعلومات يرجى الاتصال على الخط الساخن لوزارة الصحة ";
+		String ExpectedResult = PracticeThreeYears;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1177,7 +1178,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.7.0.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، نظرا لامتلاك السيد/السيدة () صيدلية عاملة أخرى و لعدم مرور سنتين على بيعه للصيدلية (إسم الصيدلية، أو إغلاق الصيدلية إسم الصيدلية أو إلغائه للصيدلية إسم الصيدلية). لمزيد من المعلومات يرجى الاتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = Ownership;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1248,7 +1249,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.7.1.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب، نظرا لامتلاك السيد/السيدة () صيدلية عاملة أخرى و لعدم مرور سنتين على بيعه للصيدلية (إسم الصيدلية، أو إغلاق الصيدلية إسم الصيدلية أو إلغائه للصيدلية إسم الصيدلية). لمزيد من المعلومات يرجى الاتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = PreviousOwnership;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1320,7 +1321,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.8.0.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب نظرا لعدم تفرغ السيد / السيدة () للعمل في الصيدلية، حيث تبين أنه يعمل في (إسم الصيدلية أو المصنع أو المستودع). لمزيد من المعلومات يرجى الإتصال على الخط الساخن وزارة الصحة 065004545";
+		String ExpectedResult = Job;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1390,7 +1391,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.8.1.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب،  نظرا لعدم تفرغ السيد / السيدة () للعمل بالصيدلية، حيث تبين أنك تعمل بالصيدلية (إسم الصيدلية) أو (إسم المصنع أو (إسم المستودع)  لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = Job;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1460,7 +1461,7 @@ public class GPLMultiple extends GPLFields {
 
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.8.2.0 " + ActualResult);
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب،  نظرا لعدم تفرغ السيد / السيدة () للعمل بالصيدلية، حيث تبين أنك تعمل بالصيدلية (إسم الصيدلية) أو (إسم المصنع أو (إسم المستودع)  لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = Job;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1499,7 +1500,7 @@ public class GPLMultiple extends GPLFields {
 
 			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
 
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(Email).sendKeys(FillEmailAddress); // Email
 
 			Thread.sleep(Const * 4);
 
@@ -1536,7 +1537,7 @@ public class GPLMultiple extends GPLFields {
 		driver.findElement(CheckBox).click();
 
 		Thread.sleep(Const * 8);
-		driver.findElement(By.id("pt1:r1:3:t1:1:it2::content")).sendKeys("45456");
+		driver.findElement(EnterSSN).sendKeys("45456");
 		Thread.sleep(Const * 8);
 
 		driver.findElement(CoNextToAttachemnts).click();
@@ -1586,7 +1587,7 @@ public class GPLMultiple extends GPLFields {
 
 			driver.findElement(CoMobileNo).sendKeys("797352297"); // Mobile-Number
 
-			driver.findElement(CoEmail).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(CoEmail).sendKeys(FillEmailAddress); // Email
 
 			Thread.sleep(Const * 4);
 
@@ -1616,7 +1617,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.9.0.0 " + ActualResult);
 
-		String ExpectedResult = "رقم سند تسجيل العقار المدخل غير صحيح، يرجى التأكد من صحة الرقم المدخل. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = PropertyNotExist;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
@@ -1655,7 +1656,7 @@ public class GPLMultiple extends GPLFields {
 
 			driver.findElement(CoMobileNo).sendKeys("797352297"); // Mobile-Number
 
-			driver.findElement(CoEmail).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(CoEmail).sendKeys(FillEmailAddress); // Email
 
 			Thread.sleep(Const * 4);
 
@@ -1685,7 +1686,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.9.1.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب نظرا لوجود العقار ضمن أراضي سلطة إقليم العقبة. يمكنك التقدم بطلبك لسلطة الإقليم مباشرة. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = PropertyASEZA;
 		System.out.println("Expected = " + ExpectedResult);
 		System.out.println("Expected = " + ExpectedResult);
 
@@ -1720,8 +1721,8 @@ public class GPLMultiple extends GPLFields {
 		driver.findElement(CoVerify).click();
 		Thread.sleep(Const * 8);
 		try {
-			driver.findElement(CoMobileNo).sendKeys("797352297"); // Mobile-Number
-			driver.findElement(CoEmail).sendKeys("emasoud@optimizasolutions.com"); // Email
+			driver.findElement(CoMobileNo).sendKeys(FillMobileNumber); // Mobile-Number
+			driver.findElement(CoEmail).sendKeys(FillEmailAddress); // Email
 			Thread.sleep(Const * 4);
 		} catch (Exception e) {// do nothing
 		}
@@ -1746,7 +1747,7 @@ public class GPLMultiple extends GPLFields {
 		String ActualResult = driver.findElement(ErrorMessage).getText();
 		System.out.println(" Multiple Pharmacists Case 5.9.2.0 " + ActualResult);
 
-		String ExpectedResult = "لا يمكنك استكمال تقديم الطلب نظرا لوجود طلب إصدار رخصة صيدلية عامة على نفس العقار. لمزيد من المعلومات يرجى الإتصال على الخط الساخن لوزارة الصحة 065004545";
+		String ExpectedResult = PropertyExist;
 		System.out.println("Expected = " + ExpectedResult);
 
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));

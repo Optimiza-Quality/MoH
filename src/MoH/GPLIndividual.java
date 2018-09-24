@@ -308,7 +308,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -471,7 +471,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -555,7 +555,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·»  —ŒÌ’ ’Ìœ·Ì… ⁄«„… ”«»ﬁ";
+		String ExpectedErrorMessage = PrevAppError;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -610,7 +610,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì Ê—ﬁ„ «·ÂÊÌ… €Ì— „ÿ«»ﬁÌ‰° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·√—ﬁ«„ «·„œŒ·…";
+		String ExpectedErrorMessage = CSPDDataMM;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -665,7 +665,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·≈‰ Â«¡ ’·«ÕÌ… «·ÂÊÌ…° Ì—ÃÏ „—«Ã⁄… œ«∆—… «·√ÕÊ«· «·„œ‰Ì… · ÃœÌœ «·ÂÊÌ…";
+		String ExpectedErrorMessage = CSPDExpiry;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -720,7 +720,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "«·—ﬁ„ «·Êÿ‰Ì «·„œŒ· ·‘Œ’ „ Ê›Ì. ·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·»";
+		String ExpectedErrorMessage = CSPDDead;
 
 		System.out.println("Expected: " + ExpectedErrorMessage);
 
@@ -778,7 +778,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "—ﬁ„ «·„‰‘√… «·Êÿ‰Ì €Ì— „ÊÃÊœ° Ì—ÃÏ «· √ﬂœ „‰ ’Õ… «·—ﬁ„ «·„œŒ·";
+		String ExpectedErrorMessage = CCDNonExist;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -833,7 +833,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ Õ«·… «·„‰‘√… €Ì— ›⁄«·…° Ì—ÃÏ „—«Ã⁄… Ê“«—… «·’‰«⁄… Ê«· Ã«—… √Ê œ«∆—… „—«ﬁ»… «·‘—ﬂ«  · ’ÊÌ» «·√Ê÷«⁄";
+		String ExpectedErrorMessage = CCDInactive;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -952,7 +952,7 @@ public class GPLIndividual extends GPLInternal{
 		Thread.sleep(Const * 20);
 
 		String ActualResult = driver.findElement(SuccessMessageAttachmentCases).getText();
-		String ExpectedResult = "ÿ·»ﬂ »‰Ã«Õ";
+		String ExpectedResult = SuccessMsg;
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		// capture-screenshot
@@ -1016,7 +1016,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« ÌÃÊ“  ﬁœÌ„ «·ÿ·» »Â–« «·‰Ê⁄ „‰ «‰Ê«⁄ „ﬁœ„Ì «·ÿ·» ﬂÊ‰ ⁄œœ «·‘—ﬂ«¡ √ﬂÀ— „‰ Ê«Õœ° Ì—ÃÏ «·—ÃÊ⁄ ·’›Õ… ﬁ«∆„… «· Õﬁﬁ Ê«Œ Ì«—";
+		String ExpectedErrorMessage = CCDPartnersNumber;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1032,76 +1032,6 @@ public class GPLIndividual extends GPLInternal{
 		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.5.3.0.png"));
 
 		System.out.println("Passed. Individual Pharmacist Case 4.5.3.0");
-		
-	}
-
-	@Test(priority = 9,enabled = false ,groups = {"CCD, MIT"})
-	public void SubmitIndividualApp_Case4540() throws InterruptedException, IOException{
-		
-		//«·„‰‘√… ·Ì” ·Â« «”„  Ã«—Ì
-		
-		driver.findElement(Apply).click();
-		
-		Thread.sleep(Const * 2);
-		
-		Select userType = new Select(driver.findElement(AppType));
-		userType.selectByIndex(1);
-		
-		Thread.sleep(Const * 8);
-		
-		driver.findElement(NextToBasicInfo).click();
-		
-		Thread.sleep(Const * 2);
-		
-		//---------------------------Basic-Info---------------------------------------
-		
-		driver.findElement(PharmNationalID).sendKeys("9802054679");
-		
-		driver.findElement(PharmIDNumber).sendKeys("19801028");
-		
-		driver.findElement(CoNationalNumber).sendKeys("100053866");
-		
-		driver.findElement(Captcha).sendKeys("4568", Keys.TAB);
-		
-		Thread.sleep(Const * 8);
-		
-		driver.findElement(VerifyBtn).click();
-	
-		Thread.sleep(Const * 10);
-		
-		try {
-
-			driver.findElement(MobileNo).sendKeys("797352297"); // Mobile-Number
-
-			driver.findElement(Email).sendKeys("emasoud@optimizasolutions.com", Keys.TAB); // Email
-
-			Thread.sleep(Const * 10);
-			
-		} catch (Exception e) {// do nothing
-
-		}
-		
-		driver.findElement(NextToVerificationCode).click();
-			
-
-		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
-
-		String ExpectedErrorMessage = "«”„  Ã«—Ì";
-
-		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
-
-		System.out.println("Actual Message: " + ActualErrorMessage);
-
-		Assert.assertTrue(ActualErrorMessage.contains(ExpectedErrorMessage));
-
-		// Take SS
-		TakesScreenshot ts = (TakesScreenshot) driver;
-
-		File source = ts.getScreenshotAs(OutputType.FILE);
-
-		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.5.4.0.png"));
-
-		System.out.println("Passed. Individual Pharmacist Case 4.5.4.0");
 		
 	}
 
@@ -1141,7 +1071,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "‰›«»…";
+		String ExpectedErrorMessage = JPAMembership;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1196,7 +1126,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "€Ì— „”œœ";
+		String ExpectedErrorMessage = JPAFees;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1251,7 +1181,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = " ’ÊÌ»";
+		String ExpectedErrorMessage = JPAIssue;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1306,7 +1236,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·√‰ﬂ €Ì— „“«Ê· ··„Â‰… ·À·«À ”‰Ê«  ›√ﬂÀ—";
+		String ExpectedErrorMessage = Practicing;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1361,7 +1291,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "À·«À ”‰Ê« ";
+		String ExpectedErrorMessage = Practicing;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1416,7 +1346,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·«„ ·«ﬂ «·”Ìœ";
+		String ExpectedErrorMessage = Ownership;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1472,7 +1402,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "⁄œ„ „—Ê— ”‰ Ì‰";
+		String ExpectedErrorMessage = PreviousOwnership;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1528,7 +1458,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "⁄œ„ „—Ê— ”‰ Ì‰";
+		String ExpectedErrorMessage = PreviousOwnership;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1631,7 +1561,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "÷„«‰";
+		String ExpectedErrorMessage = SSC;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1733,7 +1663,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "⁄œ„  ›—€";
+		String ExpectedErrorMessage = Job;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1835,7 +1765,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "⁄œ„  ›—€";
+		String ExpectedErrorMessage = Job;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -1920,7 +1850,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "—ﬁ„ ”‰œ  ”ÃÌ· «·⁄ﬁ«— «·„œŒ· €Ì— ’ÕÌÕ";
+		String ExpectedErrorMessage = PropertyNotExist;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -2005,7 +1935,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ «·⁄ﬁ«— ÷„‰ √—«÷Ì ”·ÿ… ≈ﬁ·Ì„ «·⁄ﬁ»…";
+		String ExpectedErrorMessage = PropertyASEZA;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
@@ -2090,7 +2020,7 @@ public class GPLIndividual extends GPLInternal{
 
 		String ActualErrorMessage = driver.findElement(ErrorMessage).getText();
 
-		String ExpectedErrorMessage = "·« Ì„ﬂ‰ﬂ «” ﬂ„«·  ﬁœÌ„ «·ÿ·» ‰Ÿ—« ·ÊÃÊœ ÿ·» ≈’œ«— —Œ’… ’Ìœ·Ì… ⁄«„… ⁄·Ï ‰›” «·⁄ﬁ«—";
+		String ExpectedErrorMessage = PropertyExist;
 
 		System.out.println("ExpectedErrorMessage: " + ExpectedErrorMessage);
 
