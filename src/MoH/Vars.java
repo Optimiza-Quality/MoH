@@ -48,32 +48,32 @@ public class Vars extends Msgs{
 	
   
 
-	String ComplainText = "วัำวแ ิ฿ๆ์ วัำวแ ิ฿ๆ์ วัำวแ ิ฿ๆ์ วัำวแ ิ฿ๆ์";
-	String RMS = "วแฮฯใวส วแุศํษ วแใแ฿ํษ";
-	String HealthCare = "ใฤำำษ ีอํษ";
-	String Individual = "รÝัวฯ";
+	String ComplainText = "ุงุฑุณุงู ุดููู ุงุฑุณุงู ุดููู ุงุฑุณุงู ุดููู ุงุฑุณุงู ุดููู";
+	String RMS = "ุงูุฎุฏู…ุงุช ุงูุทุจูุฉ ุงูู…ูููุฉ";
+	String HealthCare = "ู…ุคุณุณุฉ ุตุญูุฉ";
+	String Individual = "ุฃูุฑุงุฏ";
 
-	String RateSad = "อาํไ";
-	String RateHappy = "ำฺํฯ";
-	String RateNeutral = "ใอวํฯ";
+	String RateSad = "ุญุฒูู";
+	String RateHappy = "ุณุนูุฏ";
+	String RateNeutral = "ู…ุญุงูุฏ";
 
-	String DDLJordan = "วแรัฯไ";
-	String DDLJordanUni = "วแฬวใฺษ วแวัฯไํษ";
-	String DDLMoutaUni = "ฬวใฺษ ใฤสๅ";
-	String DDLFrance = "Ýัไำว";
-	String DDLMuna = "฿แํษ วแวใํัษ ใไ์ แแสใัํึ";
+	String DDLJordan = "ุงูุฃุฑุฏู";
+	String DDLJordanUni = "ุงูุฌุงู…ุนุฉ ุงูุงุฑุฏููุฉ";
+	String DDLMoutaUni = "ุฌุงู…ุนุฉ ู…ุคุชู";
+	String DDLFrance = "ูุฑูุณุง";
+	String DDLMuna = "ูููุฉ ุงูุงู…ูุฑุฉ ู…ูู ููุชู…ุฑูุถ";
 	String DDLFrenchUni ="Centre International de Recontre Mathematiques";
-	String DDLTunisia = "สๆไำ";
-	String DDLSousaUni = "ฬวใฺษ ำๆำษ";
-	String DDLIraq = "วแฺัวÞ";
-	String TakreetUni = "ฬวใฺษ ส฿ัํส";
-	String DDLKuwait = "วแ฿ๆํส";
-	String DDLKuwaitUni = "ฬวใฺษ วแ฿ๆํส";
-	String DDLJust = "ฬวใฺษ วแฺแๆใ ๆวแส฿ไๆแๆฬํว วแรัฯไํษ";
-	String DDLEgypt = "ใีั";
-	String CairoUni = "ฬวใฺษ วแÞวๅัษ";
-	String QueryText = "ไี วแัำวแษ ไี วแัำวแษ ไี วแัำวแษ ไี วแัำวแษ";
-	String SuggestionText = "วัำวแ วÞสัวอ วัำวแ วÞสัวอ วัำวแ วÞสัวอ วัำวแ วÞสัวอ";
+	String DDLTunisia = "ุชููุณ";
+	String DDLSousaUni = "ุฌุงู…ุนุฉ ุณูุณุฉ";
+	String DDLIraq = "ุงูุนุฑุงู";
+	String TakreetUni = "ุฌุงู…ุนุฉ ุชูุฑูุช";
+	String DDLKuwait = "ุงููููุช";
+	String DDLKuwaitUni = "ุฌุงู…ุนุฉ ุงููููุช";
+	String DDLJust = "ุฌุงู…ุนุฉ ุงูุนููู… ูุงูุชูููููุฌูุง ุงูุฃุฑุฏููุฉ";
+	String DDLEgypt = "ู…ุตุฑ";
+	String CairoUni = "ุฌุงู…ุนุฉ ุงููุงูุฑุฉ";
+	String QueryText = "ูุต ุงูุฑุณุงูุฉ ูุต ุงูุฑุณุงูุฉ ูุต ุงูุฑุณุงูุฉ ูุต ุงูุฑุณุงูุฉ";
+	String SuggestionText = "ุงุฑุณุงู ุงูุชุฑุงุญ ุงุฑุณุงู ุงูุชุฑุงุญ ุงุฑุณุงู ุงูุชุฑุงุญ ุงุฑุณุงู ุงูุชุฑุงุญ";
 	String FillMobileNumber = "797352297";
 	String FillEmailAddress = "emasoud@optimizasolutions.com";
 	String FillAddress = "Optimiza Solutions";
