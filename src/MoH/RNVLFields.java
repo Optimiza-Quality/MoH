@@ -33,7 +33,7 @@ public class RNVLFields extends Vars{
 	By MilitaryNo = By.id("pt1:r1:1:itMilitaryNo::content");
 	By PersonalNumber = By.id("pt1:r1:1:itForeignerNo::content");
 	By Birthdate = By.id("pt1:r1:1:idBirthDate::content");
-	By ModifyContactDetails = By.linkText(" €ÌÌ— „⁄·Ê„«  «·« ’«·");
+	By ModifyContactDetails = By.linkText(" ⁄œÌ· „⁄·Ê„«  «·« ’«·");
 
 	// VerificationPage
 	By VerificationCodeText = By.id("pt1:r1:2:vc1:dc_it1::content");
@@ -122,7 +122,7 @@ public class RNVLFields extends Vars{
 	By GoToMyPage = By.id("MyAppsImg");
 	By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
 	By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
-	By MyPageCardNo = By.id("pt1:r1:0:p1:dc_it1::content");
+	By MyPageCardNo = By.id("pt1:r1:0:it2::content");
 	By MyPageSearch = By.id("pt1:r1:0:b1");
 	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
 	By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
@@ -170,7 +170,8 @@ public class RNVLFields extends Vars{
 
 	// Internal-TakeAction-Head
 	By Warning = By.id("pt1:r1:2:m2");
-	By HeadNavigateOut = By.id("pt1:r1:2:requestStatus::content");
+	//By HeadNavigateOut = By.id("pt1:r1:2:requestStatus::content");
+	By HeadNavigateOut = By.id("pt1:r1:2:serviceType::content");
 	By HeadSearchld = By.id("pt1:r1:2:requestNo::content");
 	By HeadSearchBtn = By.id("pt1:r1:2:b1");
 	

@@ -42,7 +42,7 @@ public class MyPageRNVL extends RNVLFields{
 					
 		}
 		
-		public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ —Œ’… «·„“«Ê·…
 			
@@ -55,7 +55,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -125,7 +125,7 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 
-		public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// «·«” ⁄·«„ ⁄‰ «·ÿ·» Ê⁄—÷ «”»«» «·—›÷
 			
@@ -138,7 +138,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -205,7 +205,7 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 		
-		public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// «” ﬂ„«· ‰Ê«ﬁ’
 			this.CallBrowser();
@@ -217,7 +217,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -290,7 +290,7 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 		
-		public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// «” ﬂ„«· ‰Ê«ﬁ’ - »Ì«‰«  «Œ—Ï
 			
@@ -302,7 +302,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 

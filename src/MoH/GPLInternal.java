@@ -17,6 +17,7 @@ import org.testng.Assert;
 
 public class GPLInternal extends MyPageGPL {
 	Integer Const = 600;
+	Integer Round = 1;
 		
 	public void CallandLogin(String IUserName,String IPassword) throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver", ChromeDriver);

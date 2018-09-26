@@ -89,7 +89,7 @@ public class GPLIndividual extends GPLInternal{
 		}
 	}
 
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into if
 		// condition

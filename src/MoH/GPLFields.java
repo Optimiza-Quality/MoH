@@ -25,7 +25,7 @@ public class GPLFields extends Vars{
 	By Captcha2 = By.id("pt1:r1:1:it12::content");
 	By CoVerify = By.id("pt1:r1:1:btnCheckCompany");
 	
-	By Captcha = By.id("pt1:r1:1:j_idt31::content");
+	By Captcha = By.id("pt1:r1:1:j_idt33::content");
 	By VerifyBtn = By.id("pt1:r1:1:btnCheck");
 	By MobileNo = By.id("pt1:r1:1:mn1:itMobileNumber::content");
 	By CoMobileNo = By.id("pt1:r1:1:mn2:itMobileNumber::content");

@@ -45,7 +45,7 @@ public class RNVLInternal extends MyPageRNVL {
 	public String Processing_ApproveByHead_Case1100(String AppNo, Integer Round) throws InterruptedException, IOException {
 		
 		this.CallandLogin();
-		
+		Round = 2;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
@@ -129,7 +129,7 @@ public class RNVLInternal extends MyPageRNVL {
 		// „Ê«›ﬁ… „œÌ— «·„œÌ—Ì…
 		
 		this.CallandLogin();
-
+		Round = 2;
 	//	driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
@@ -204,7 +204,7 @@ public class RNVLInternal extends MyPageRNVL {
 		// —›÷ „œÌ— «·„œÌ—Ì…
 
 		this.CallandLogin();
-		
+		Round = 2;
 		//driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
@@ -263,7 +263,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		catch(Exception e){
 			
-			driver.findElement(HeadProcessBtn).click(); // Process
+			driver.findElement(HeadProcessBtn2).click(); // Process
 			Thread.sleep(Const * 7);
 			}
 		
@@ -279,7 +279,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		this.CallandLogin();
 	//	driver.findElement(HomeMenu).click(); // Home-Page
-
+		Round = 2;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
@@ -325,7 +325,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		Thread.sleep(Const * 8);
 
-		driver.findElement(HeadProcessBtn).click(); // Process
+		driver.findElement(HeadProcessBtn2).click(); // Process
 		
 		Thread.sleep(Const * 10);
 		
@@ -353,7 +353,7 @@ public class RNVLInternal extends MyPageRNVL {
 		this.CallandLogin();
 		
 		// —›÷ —∆Ì” «·ﬁ”„
-
+		Round = 2;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
@@ -435,7 +435,7 @@ public class RNVLInternal extends MyPageRNVL {
 	
 		this.CallandLogin();
 		// «” ﬂ„«· ‰Ê«ﬁ’ —∆Ì” «·ﬁ”„
-
+		Round = 2;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();

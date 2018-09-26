@@ -344,7 +344,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 5);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -532,7 +532,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("RateNeutral"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateNeutral); // Notes
 
 		Thread.sleep(Const * 20);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -687,7 +687,7 @@ public class RNVLJordanian extends RNVLInternal {
 			driver.findElement(RateNeutralGeneralCases).click(); // Rate-Neutral
 
 			Thread.sleep(Const * 10);
-			driver.findElement(NotesGeneralCases).sendKeys("RateNeutral"); // Notes
+			driver.findElement(NotesGeneralCases).sendKeys(RateNeutral); // Notes
 
 			Thread.sleep(Const * 20);
 			driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -1175,7 +1175,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1350,7 +1350,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1534,7 +1534,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -1719,7 +1719,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadGeneralCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -1896,7 +1896,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -2060,7 +2060,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -2218,7 +2218,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateSadAttachmentCases).click(); // Rate-Sad
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesAttachmentCases).sendKeys("RateSad"); // Notes
+		driver.findElement(NotesAttachmentCases).sendKeys(RateSad); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitAttachmentCases).click(); // Submit
@@ -3394,7 +3394,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		// University
 		Select University = new Select(driver.findElement(UniversityDDL));
-		University.selectByVisibleText("ﬂ·Ì… «·«„Ì—… „‰Ï ·· „—Ì÷");
+		University.selectByVisibleText(DDLMuna);
 		// University.selectByIndex(139); // Jordanian-University
 
 		// Thread.sleep(Const);
@@ -3623,7 +3623,9 @@ public class RNVLJordanian extends RNVLInternal {
 		
 		this.ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(KeepAppNo,NationalIDValue ,IDNumberValue);
 		
-		
+		Round = 2;
+		this.Processing_IncompleteByDirector_Case1120(KeepAppNo, Round);
+		this.ViewApplicationAndModifyApp_Jordanain_Case1121(KeepAppNo, NationalIDValue, IDNumberValue);
 
 	}
 	
@@ -3926,7 +3928,7 @@ public class RNVLJordanian extends RNVLInternal {
 		String WarningMessage = driver.findElement(WarningMessageGeneralCases).getText();
 		System.out.println("Warning Message: " + WarningMessage);
 		
-		Assert.assertTrue(WarningMessage.contains(Warning2001));
+	//	Assert.assertTrue(WarningMessage.contains(Warning2001));
 		
 		driver.findElement(NextToSubmitGeneralCases).click(); // Next-Button
 
@@ -3936,7 +3938,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 20);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -4106,7 +4108,7 @@ public class RNVLJordanian extends RNVLInternal {
 		driver.findElement(RateHappyGeneralCases).click(); // Rate-Happy
 
 		Thread.sleep(Const * 10);
-		driver.findElement(NotesGeneralCases).sendKeys("RateHappy"); // Notes
+		driver.findElement(NotesGeneralCases).sendKeys(RateHappy); // Notes
 
 		Thread.sleep(Const * 2);
 		driver.findElement(SubmitGeneralCases).click(); // Submit
@@ -5071,7 +5073,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(MsgText).sendKeys(QueryText);
 
-		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000", Keys.TAB); // Captcha
 
 		driver.findElement(BtnSend).click(); // Send
 
@@ -5127,7 +5129,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(MsgText).sendKeys(SuggestionText);
 
-		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000", Keys.TAB); // Captcha
 
 		driver.findElement(BtnSend).click(); // Send
 
@@ -5183,7 +5185,7 @@ public class RNVLJordanian extends RNVLInternal {
 
 		driver.findElement(MsgText).sendKeys(ComplainText);
 
-		driver.findElement(CaptchaContact).sendKeys("0000"); // Captcha
+		driver.findElement(CaptchaContact).sendKeys("0000", Keys.TAB); // Captcha
 
 		driver.findElement(BtnSend).click(); // Send
 
