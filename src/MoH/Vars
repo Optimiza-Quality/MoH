@@ -78,6 +78,5 @@ public class Vars extends Msgs{
 	String FillEmailAddress = "emasoud@optimizasolutions.com";
 	String FillAddress = "Optimiza Solutions";
 
-	
-	
+
 }
