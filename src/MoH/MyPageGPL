@@ -51,7 +51,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -114,7 +114,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -193,7 +193,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -257,7 +257,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -278,7 +278,7 @@ public class MyPageGPL extends GPLFields{
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -340,7 +340,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -362,7 +362,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -425,7 +425,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -504,7 +504,7 @@ public class MyPageGPL extends GPLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -572,7 +572,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -593,7 +593,7 @@ public class MyPageGPL extends GPLFields{
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -655,7 +655,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
