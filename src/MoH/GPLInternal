@@ -17,6 +17,7 @@ import org.testng.Assert;
 
 public class GPLInternal extends MyPageGPL {
 	Integer Const = 600;
+	Integer Round = 1;
 		
 	public void CallandLogin(String IUserName,String IPassword) throws InterruptedException{
 		System.setProperty("webdriver.chrome.driver", ChromeDriver);
@@ -52,7 +53,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // بانتظار قرار المدقق
+		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇáãÏÞÞ
 
 		Thread.sleep(Const * 2);
 		
@@ -95,7 +96,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -120,7 +121,7 @@ public class GPLInternal extends MyPageGPL {
 		
 		System.out.println("Approve App: " + KeepAppNo);
 		
-		// موافقة  النقابة
+		// ãæÇÝÞÉ  ÇáäÞÇÈÉ
 		
 		Thread.sleep(Const);
 
@@ -130,7 +131,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // بانتظار-قرار-مدير-المديرية
+		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ÞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
 												 
 
 		Thread.sleep(Const * 2);
@@ -165,7 +166,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -191,7 +192,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(ThirdStep).click(); // بانتظار الموعد
+		driver.findElement(ThirdStep).click(); // ÈÇäÊÙÇÑ ÇáãæÚÏ
 
 		Thread.sleep(Const * 2);
 		
@@ -230,7 +231,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalAppoint).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -258,7 +259,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FourthStep).click(); // بانتظار قرار اللجنة
+		driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇááÌäÉ
 
 		Thread.sleep(Const * 2);
 		
@@ -301,7 +302,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -321,7 +322,7 @@ public class GPLInternal extends MyPageGPL {
 	
 	public void Processing_ApproveByDirector_Case4100_4(String KeepAppNo, String IUserName,String IPassword) throws InterruptedException, IOException {
 		this.CallandLogin(IUserName, IPassword);
-		// موافقة  المدير
+		// ãæÇÝÞÉ  ÇáãÏíÑ
 		
 		Thread.sleep(Const * 4);
 
@@ -333,7 +334,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FifthStep).click(); // بانتظار-قرار-مدير-المديرية
+		driver.findElement(FifthStep).click(); // ÈÇäÊÙÇÑ-ÞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
 												 
 
 		Thread.sleep(Const * 2);
@@ -362,7 +363,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternalDirector).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -384,7 +385,7 @@ public class GPLInternal extends MyPageGPL {
 		
 		System.out.println("Reject App: " + KeepAppNo);
 		
-		// رفض  النقابة
+		// ÑÝÖ  ÇáäÞÇÈÉ
 		
 		Thread.sleep(Const);
 
@@ -396,7 +397,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // بانتظار-قرار-النقابة
+		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ÞÑÇÑ-ÇáäÞÇÈÉ
 												 
 
 		Thread.sleep(Const * 2);
@@ -433,7 +434,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -452,7 +453,7 @@ public class GPLInternal extends MyPageGPL {
 
 		this.CallandLogin(IUserName, IPassword);
 		
-		// استكمال نواقص نقابة
+		// ÇÓÊßãÇá äæÇÞÕ äÞÇÈÉ
 		
 		driver.findElement(Applications).click();
 
@@ -460,7 +461,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(SecondStep).click(); // بانتظار نقابة 
+		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ äÞÇÈÉ 
 									
 		Select status = new Select(driver.findElement(HeadNavigateOut)); 
 
@@ -497,7 +498,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		}
@@ -523,7 +524,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // بانتظار قرار المدقق
+		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇáãÏÞÞ
 
 		Thread.sleep(Const * 2);
 		
@@ -566,7 +567,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "تمت العملية بنجاح";
+			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -588,7 +589,7 @@ public class GPLInternal extends MyPageGPL {
 	public String Processing_IncompleteByAudit_Case4140(String AppNo, String IUserName,String IPassword, Integer Round) throws InterruptedException, IOException {
 	
 		this.CallandLogin(IUserName,IPassword);
-		// استكمال نواقص المدقق
+		// ÇÓÊßãÇá äæÇÞÕ ÇáãÏÞÞ
 
 		driver.findElement(Applications).click();
 
@@ -596,7 +597,7 @@ public class GPLInternal extends MyPageGPL {
 
 		driver.findElement(GPLApps).click();
 
-		driver.findElement(FirstStep).click(); // بانتظار قرار المدقق
+		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇáãÏÞÞ
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(Round); 
@@ -636,7 +637,7 @@ public class GPLInternal extends MyPageGPL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "بنجاح";
+			String ExpectedResult = "ÈäÌÇÍ";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 					
 		}
@@ -665,7 +666,7 @@ public class GPLInternal extends MyPageGPL {
 
 	driver.findElement(GPLApps).click();
 
-	driver.findElement(FourthStep).click(); // بانتظار قرار اللجنة
+	driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇááÌäÉ
 
 	Thread.sleep(Const * 2);
 	
@@ -708,7 +709,7 @@ public class GPLInternal extends MyPageGPL {
 	try{
 		
 		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-		String ExpectedResult = "تمت العملية بنجاح";
+		String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		
@@ -735,7 +736,7 @@ public class GPLInternal extends MyPageGPL {
 
 	driver.findElement(GPLApps).click();
 
-	driver.findElement(FourthStep).click(); // بانتظار قرار اللجنة
+	driver.findElement(FourthStep).click(); // ÈÇäÊÙÇÑ ÞÑÇÑ ÇááÌäÉ
 
 	Thread.sleep(Const * 2);
 	
@@ -778,7 +779,7 @@ public class GPLInternal extends MyPageGPL {
 	try{
 		
 		String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-		String ExpectedResult = "تمت العملية بنجاح";
+		String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
 		Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		
