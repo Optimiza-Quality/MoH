@@ -3,61 +3,66 @@ package MoH;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
-public class RNVLInternal extends RNVLFields {
 
-	WebDriver driver;
 
-	Integer Const = 200;
-	String AppNo;
-	String KeepAppNo;
+public class RNVLInternal extends MyPageRNVL {
+	Integer Const = 500;
+		
+	public void CallandLogin() throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", ChromeDriver);
+		driver = new ChromeDriver();
+		
+	//	 System.setProperty("webdriver.ie.driver",IEDriver);
+	//	 driver = new InternetExplorerDriver();
 
-	public void Processing_Jordanian_Case1100() throws InterruptedException, IOException {
-
-		// ãæÇİŞÉ ÑÆíÓ ÇáŞÓã
-
-		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get(InternalTesting);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		
+		driver.findElement(EMPUsername).sendKeys(CapitalUserName1); // Username
 
-		driver.findElement(EMPUsername).sendKeys("ESRAA"); // Username
-
-		driver.findElement(EMPPassword).sendKeys("12345"); // Password
+		driver.findElement(EMPPassword).sendKeys(CapitalPassword1); // Password
 
 		Thread.sleep(Const * 5);
 
 		driver.findElement(LoginBtn).click(); // Login
 
+		
+	}
+	
+	public String Processing_ApproveByHead_Case1100(String AppNo, Integer Round) throws InterruptedException, IOException {
+		
+		this.CallandLogin();
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
+		Thread.sleep(Const * 2);
+		
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
+
+		appType.selectByIndex(Round); 
 
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+		this.TrimAppNo(AppNo);	
 
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
@@ -65,12 +70,26 @@ public class RNVLInternal extends RNVLFields {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 2);
 
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		Thread.sleep(Const * 10);
+
+		
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
-
+		Thread.sleep(Const * 10);
+		
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
+		
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(source, new File("./ScreenShots/Case1.1.0.0.png"));
@@ -79,23 +98,44 @@ public class RNVLInternal extends RNVLFields {
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(HeadNotes).sendKeys("notes", Keys.TAB);// Notes
+		//driver.findElement(HeadNotes).sendKeys("notes", Keys.TAB);// Notes
 
-		Thread.sleep(Const * 5);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(HeadProcessBtn).click(); // Process
+		
+		Thread.sleep(Const * 8);
+		
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
-		Thread.sleep(Const * 20);
+			
+		} catch (Exception e) {// do nothing
 
-		System.out.println("Approved by Head of Departemnt");
+			driver.findElement(HeadProcessBtn).click(); // Process
+			Thread.sleep(Const * 7);
+		}
+		
+		driver.findElement(BackButtonInternal).click();
+
+		System.out.println("Passed. " + KeepAppNo + " Approved by Head of Department");
+		
+		driver.close();
+		
+		return KeepAppNo;
 
 	}
-
-	public void Processing_Jordanian_Case1100_2() throws InterruptedException, IOException {
-
-		// ãæÇİŞÉ ãÏíÑ ÇáãÏíÑíÉ
-
-		driver.findElement(HomeMenu).click(); // Home-Page
+	
+	public void Processing_ApproveByDirector_Case1100_2(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
+		
+		// Ù…ÙˆØ§ÙÙ‚Ø© Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
+		
+		this.CallandLogin();
+		Round = 5;
+	//	driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
 
@@ -103,156 +143,78 @@ public class RNVLInternal extends RNVLFields {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
-												// ÇáãÏíÑíÉ
-
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
+												 
 
 		Thread.sleep(Const * 2);
-
-		driver.findElement(DirectorSearchld).sendKeys(KeepAppNo); // SearchApp
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DirectorSearchBtn).click(); // Search-Button
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DetailsLink).click();
-
-		Thread.sleep(Const * 20);
-
-		driver.findElement(DirectorApprove).click(); // Radio-Approve
-
-		Thread.sleep(Const * 10);
-
-		driver.findElement(DirectorNotes).sendKeys("notes", Keys.TAB);// Notes
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DirectorProcessBtn).click(); // Process
-
-		System.out.println("Processed by Departemnt Director");
-
-	}
-
-	public void Processing_Jordanian_Case1110() throws InterruptedException, IOException {
-
-		// ÑİÖ ãÏíÑ ÇáãÏíÑíÉ
-
-		driver.findElement(HomeMenu).click(); // Home-Page
-
-		driver.findElement(Applications).click();
-
-		driver.findElement(TakeAction).click();
-
-		driver.findElement(RNVLApps).click();
-
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
-												// ÇáãÏíÑíÉ
-
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
-
+		
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
+		appType.selectByIndex(Round); 
+		
 		Thread.sleep(Const * 2);
 
-		driver.findElement(DirectorSearchld).sendKeys(KeepAppNo); // SearchApp
+		driver.findElement(HeadSearchld).sendKeys(KeepAppNo); // SearchApp
 
 		Thread.sleep(Const * 5);
 
-		driver.findElement(DirectorSearchBtn).click(); // Search-Button
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DetailsLink).click();
-
-		Thread.sleep(Const * 20);
-
-		driver.findElement(DirectorReject).click(); // Radio-Reject
-
-		Thread.sleep(Const * 10);
-
-		// driver.findElement(By.xpath("//*[@id=\"pt1:r1:6:smsShuttle::leadUl\"]/li[1]/label")).click();//Rejection-Reasons
-
-		Thread.sleep(Const);
-
-		// driver.findElement(By.id("pt1:r1:6:smsShuttle::move")).click();
-		// //Move
-
-		driver.findElement(DirectorMoveAll).click(); // Move-All
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DirectorProcessBtn).click(); // Process
-
-		System.out.println("Rejected by Departemnt Director");
-
-	}
-
-	public void Processing_Jordanian_Case1120() throws InterruptedException, IOException {
-
-		// ÇÓÊßãÇá äæÇŞÕ ãÏíÑ ÇáãÏíÑíÉ
-
-		driver.findElement(HomeMenu).click(); // Home-Page
-
-		driver.findElement(Applications).click();
-
-		driver.findElement(TakeAction).click();
-
-		driver.findElement(RNVLApps).click();
-
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
-												// ÇáãÏíÑíÉ
-
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
-
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+	
 		Thread.sleep(Const * 2);
 
-		driver.findElement(DirectorSearchld).sendKeys(KeepAppNo); // SearchApp
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DirectorSearchBtn).click(); // Search-Button
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(DetailsLink).click();
-
-		Thread.sleep(Const * 20);
-
-		driver.findElement(DirectorIncomplete).click(); // Radio-Incomplete
-
-		Thread.sleep(Const * 10);
-
-		// driver.findElement(By.xpath("//*[@id=\"pt1:r1:6:smsShuttle::leadUl\"]/li[1]/label")).click();//Rejection-Reasons
-
-		Thread.sleep(Const);
-
-		// driver.findElement(By.id("pt1:r1:6:smsShuttle::move")).click();
-		// //Move
-
-		driver.findElement(DirectorMoveAll).click(); // Move-All
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
 		Thread.sleep(Const * 8);
+		
+		driver.findElement(DetailsLink).click();
 
-		driver.findElement(DirectorProcessBtn).click(); // Process
+		Thread.sleep(Const * 10);
 
-		System.out.println("Incomplete by Departemnt Director");
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
+		
+		driver.findElement(HeadApprove).click(); // Radio-Approve
 
+		Thread.sleep(Const * 10);
+
+//		driver.findElement(DirectorNotes).sendKeys("notes", Keys.TAB);// Notes
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(HeadProcessBtn2).click(); // Process
+		
+		Thread.sleep(Const * 10);
+		
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
+			
+		} catch (Exception e) {
+
+			driver.findElement(HeadProcessBtn2).click(); // Process
+			Thread.sleep(Const * 7);
+			
+		}
+
+		System.out.println("Passed. " + KeepAppNo + " Approved by Department Director");
+
+		driver.close();
 	}
 
-	public void Processing_Jordanian_Case1130() throws InterruptedException, IOException {
+	public void Processing_RejectByDirector_Case1110(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
 
-		// ÑİÖ ÑÆíÓ ÇáŞÓã
+		// Ø±ÙØ¶ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
-		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
-
-		driver.findElement(EMPUsername).sendKeys("ESRAA"); // Username
-
-		driver.findElement(EMPPassword).sendKeys("12345"); // Password
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(LoginBtn).click(); // Login
+		this.CallandLogin();
+		Round = 5;
+		//driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
 
@@ -260,33 +222,199 @@ public class RNVLInternal extends RNVLFields {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©  
+												
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
 
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
+		appType.selectByIndex(Round); 
+		
+		Thread.sleep(Const * 2);
 
-		Thread.sleep(Const * 5);
-
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
-
-		System.out.println("Trimmed App No: " + KeepAppNo);
+		driver.findElement(HeadSearchld).sendKeys(KeepAppNo); // SearchApp
 
 		Thread.sleep(Const * 5);
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
+		Thread.sleep(Const * 8);
+
+		driver.findElement(DetailsLink).click();
+
+		Thread.sleep(Const * 10);
+
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
+		
+		driver.findElement(HeadReject).click(); // Radio-Reject
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(HeadMoveAll).click(); // Move-All
+
+		Thread.sleep(Const * 10);
+
+		driver.findElement(HeadProcessBtn2).click(); // Process
+		
+		Thread.sleep(Const * 10);
+		
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
+		}
+
+		catch(Exception e){
+			
+			driver.findElement(HeadProcessBtn2).click(); // Process
+			Thread.sleep(Const * 7);
+			}
+		
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Department Director");
+		
+		driver.close();
+
+	}
+
+	public void Processing_IncompleteByDirector_Case1120(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
+
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
+
+		this.CallandLogin();
+	//	driver.findElement(HomeMenu).click(); // Home-Page
+		Round = 5;
+		driver.findElement(Applications).click();
+
+		driver.findElement(TakeAction).click();
+
+		driver.findElement(RNVLApps).click();
+
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ù…Ø¯ÙŠØ±
+									
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
+
+		appType.selectByIndex(Round); // Jordanian// Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchld).sendKeys(KeepAppNo); // SearchApp
+
+		Thread.sleep(Const * 5);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
+		Thread.sleep(Const * 5);
 
 		driver.findElement(DetailsLink).click();
 
 		Thread.sleep(Const * 20);
+		
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
+
+		driver.findElement(HeadIncomplete).click(); // Radio-Incomplete
+
+		Thread.sleep(Const * 10);
+
+		Thread.sleep(Const);
+
+		driver.findElement(HeadMoveAll).click(); // Move-All
+
+		Thread.sleep(Const * 8);
+
+		driver.findElement(HeadProcessBtn2).click(); // Process
+		
+		Thread.sleep(Const * 10);
+		
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
+			
+		}
+		catch(Exception e){
+	
+			driver.findElement(HeadProcessBtn).click(); // Process
+			Thread.sleep(Const * 7);
+		}
+		
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Department Director");
+		
+		driver.close();
+
+	}
+
+	public String Processing_RejectByHead_Case1130(String AppNo) throws InterruptedException, IOException {
+			
+		this.CallandLogin();
+		
+		// Ø±ÙØ¶ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
+		Round = 5;
+		driver.findElement(Applications).click();
+
+		driver.findElement(TakeAction).click();
+
+		driver.findElement(RNVLApps).click();
+
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
+
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
+		appType.selectByIndex(1); 
+		
+		Thread.sleep(Const * 5);
+
+		this.TrimAppNo(AppNo);
+
+		System.out.println("Trimmed App No: " + KeepAppNo);
+
+		Thread.sleep(Const * 8);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
+		Thread.sleep(Const * 10);
+
+		driver.findElement(DetailsLink).click();
+
+		Thread.sleep(Const * 10);
+		
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -298,63 +426,81 @@ public class RNVLInternal extends RNVLFields {
 
 		driver.findElement(HeadMoveAll).click(); // Move-all
 
-		Thread.sleep(Const * 5);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(HeadProcessBtn).click(); // Process
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
+		
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
-		System.out.println("Rejected by Head of Departemnt");
+		}
+		catch (Exception e){
+			
+			driver.findElement(HeadProcessBtn).click(); // Process
+
+			Thread.sleep(Const * 7);
+
+		}
+		
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Head of Department");
+		
+		driver.findElement(BackButtonInternal).click();
+		driver.close();
+		return KeepAppNo;
+		
+		
 
 	}
 
-	public void Processing_Jordanian_Case1140() throws InterruptedException, IOException {
-
-		// ÇÓÊßãÇá äæÇŞÕ ÑÆíÓ ÇáŞÓã
-
-		driver.get("http://soa-vip:7003/internal/faces/index.jsf");
-
-		driver.findElement(EMPUsername).sendKeys("ESRAA"); // Username
-
-		driver.findElement(EMPPassword).sendKeys("12345"); // Password
-
-		Thread.sleep(Const * 5);
-
-		driver.findElement(LoginBtn).click(); // Login
-
+	public String Processing_IncompleteByHead_Case1140(String AppNo, Integer Round) throws InterruptedException, IOException {
+	
+		this.CallandLogin();
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
-		driver.findElement(By.id("pt1:pgl14")).click(); // Navigate-Out
-
+		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
+		appType.selectByIndex(Round); 
+	
 		Thread.sleep(Const * 5);
 
-		String[] TrimmedAppNo = AppNo.split("/");
-
-		for (String str : TrimmedAppNo) {
-			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
-
-			break;
-		}
-
-		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+		this.TrimAppNo(AppNo);
 
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
-		Thread.sleep(Const * 5);
+		Thread.sleep(Const * 8);
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		Thread.sleep(Const * 10);
 
 		driver.findElement(DetailsLink).click();
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
+		
+		try{
+		String WarningMessage = driver.findElement(Warning).getText();
+		System.out.println("WarningM Message: " + WarningMessage);
+		}
+		
+		catch(Exception e){
+			System.out.println("No Warning Message");
+		}
 
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
@@ -366,14 +512,47 @@ public class RNVLInternal extends RNVLFields {
 
 		driver.findElement(HeadMoveAll).click(); // Move-all
 
-		Thread.sleep(Const * 5);
+		Thread.sleep(Const * 10);
 
 		driver.findElement(HeadProcessBtn).click(); // Process
 
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * 10);
 
-		System.out.println("Incomplete by Head of Departemnt");
+		try{
+			
+			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
+			String ExpectedResult = "Ø¨Ù†Ø¬Ø§Ø­";
+			Assert.assertTrue(ActualResult.contains(ExpectedResult));
+					
+		}
+		catch (Exception e){
+			driver.findElement(HeadProcessBtn).click(); // Process
 
+			Thread.sleep(Const * 7);
+		}
+		
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Head of Department");
+			
+		
+		driver.findElement(BackButtonInternal).click();
+		driver.close();
+		return KeepAppNo;
+		
 	}
 
+	public void TrimAppNo(String AppNo)
+	{
+		
+		String[] TrimmedAppNo = AppNo.split(" ");
+
+		for (String str : TrimmedAppNo) {
+			driver.findElement(HeadSearchld).sendKeys(str); // SearchApp
+
+			break;
+		}
+		
+		KeepAppNo = driver.findElement(HeadSearchld).getAttribute("value");
+	}
+	
+	
 }
