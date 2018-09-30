@@ -45,14 +45,14 @@ public class RNVLInternal extends MyPageRNVL {
 	public String Processing_ApproveByHead_Case1100(String AppNo, Integer Round) throws InterruptedException, IOException {
 		
 		this.CallandLogin();
-		Round = 2;
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Thread.sleep(Const * 2);
 		
@@ -70,8 +70,13 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
 		Thread.sleep(Const * 10);
 
+		
 		driver.findElement(DetailsLink).click();
 
 		Thread.sleep(Const * 10);
@@ -104,7 +109,7 @@ public class RNVLInternal extends MyPageRNVL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 			
@@ -126,10 +131,10 @@ public class RNVLInternal extends MyPageRNVL {
 	
 	public void Processing_ApproveByDirector_Case1100_2(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
 		
-		// ãæÇİŞÉ ãÏíÑ ÇáãÏíÑíÉ
+		// Ù…ÙˆØ§ÙÙ‚Ø© Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 		
 		this.CallandLogin();
-		Round = 2;
+		Round = 5;
 	//	driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
@@ -138,7 +143,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 												 
 
 		Thread.sleep(Const * 2);
@@ -153,9 +158,13 @@ public class RNVLInternal extends MyPageRNVL {
 		Thread.sleep(Const * 5);
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
+	
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
 		Thread.sleep(Const * 8);
-
+		
 		driver.findElement(DetailsLink).click();
 
 		Thread.sleep(Const * 10);
@@ -184,7 +193,7 @@ public class RNVLInternal extends MyPageRNVL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		} catch (Exception e) {
@@ -194,17 +203,17 @@ public class RNVLInternal extends MyPageRNVL {
 			
 		}
 
-		System.out.println("Passed. " + KeepAppNo + " Approved by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Approved by Department Director");
 
 		driver.close();
 	}
 
 	public void Processing_RejectByDirector_Case1110(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
 
-		// ÑİÖ ãÏíÑ ÇáãÏíÑíÉ
+		// Ø±ÙØ¶ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		this.CallandLogin();
-		Round = 2;
+		Round = 5;
 		//driver.findElement(HomeMenu).click(); // Home-Page
 
 		driver.findElement(Applications).click();
@@ -213,7 +222,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ-ŞÑÇÑ-ãÏíÑ-ÇáãÏíÑíÉ  
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø±-Ù‚Ø±Ø§Ø±-Ù…Ø¯ÙŠØ±-Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©  
 												
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
 
@@ -227,6 +236,11 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
 		Thread.sleep(Const * 8);
 
 		driver.findElement(DetailsLink).click();
@@ -250,14 +264,14 @@ public class RNVLInternal extends MyPageRNVL {
 
 		Thread.sleep(Const * 10);
 
-		driver.findElement(HeadProcessBtn).click(); // Process
+		driver.findElement(HeadProcessBtn2).click(); // Process
 		
 		Thread.sleep(Const * 10);
 		
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 		}
 
@@ -267,7 +281,7 @@ public class RNVLInternal extends MyPageRNVL {
 			Thread.sleep(Const * 7);
 			}
 		
-		System.out.println("Passed. " + KeepAppNo + " Rejected by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Department Director");
 		
 		driver.close();
 
@@ -275,22 +289,22 @@ public class RNVLInternal extends MyPageRNVL {
 
 	public void Processing_IncompleteByDirector_Case1120(String KeepAppNo, Integer Round) throws InterruptedException, IOException {
 
-		// ÇÓÊßãÇá äæÇŞÕ ãÏíÑ ÇáãÏíÑíÉ
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ù…Ø¯ÙŠØ± Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		this.CallandLogin();
 	//	driver.findElement(HomeMenu).click(); // Home-Page
-		Round = 2;
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(SecondStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ãÏíÑ
+		driver.findElement(SecondStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ù…Ø¯ÙŠØ±
 									
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //DirectorNavigateOut
 
-		appType.selectByIndex(Round); // Jordanian// ÇáãÏíÑíÉ
+		appType.selectByIndex(Round); // Jordanian// Ø§Ù„Ù…Ø¯ÙŠØ±ÙŠØ©
 
 		Thread.sleep(Const * 2);
 
@@ -300,6 +314,12 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
 		Thread.sleep(Const * 5);
 
 		driver.findElement(DetailsLink).click();
@@ -332,7 +352,7 @@ public class RNVLInternal extends MyPageRNVL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 			
 		}
@@ -342,7 +362,7 @@ public class RNVLInternal extends MyPageRNVL {
 			Thread.sleep(Const * 7);
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + " Incomplete by Departemnt Director");
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Department Director");
 		
 		driver.close();
 
@@ -352,15 +372,15 @@ public class RNVLInternal extends MyPageRNVL {
 			
 		this.CallandLogin();
 		
-		// ÑİÖ ÑÆíÓ ÇáŞÓã
-		Round = 2;
+		// Ø±ÙØ¶ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(1); 
@@ -375,6 +395,12 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
+
+		Thread.sleep(Const * 2);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		
 		Thread.sleep(Const * 10);
 
 		driver.findElement(DetailsLink).click();
@@ -409,7 +435,7 @@ public class RNVLInternal extends MyPageRNVL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÊãÊ ÇáÚãáíÉ ÈäÌÇÍ";
+			String ExpectedResult = "ØªÙ…Øª Ø§Ù„Ø¹Ù…Ù„ÙŠØ© Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 
 		}
@@ -421,7 +447,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + " Rejected by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + " Rejected by Head of Department");
 		
 		driver.findElement(BackButtonInternal).click();
 		driver.close();
@@ -434,15 +460,15 @@ public class RNVLInternal extends MyPageRNVL {
 	public String Processing_IncompleteByHead_Case1140(String AppNo, Integer Round) throws InterruptedException, IOException {
 	
 		this.CallandLogin();
-		// ÇÓÊßãÇá äæÇŞÕ ÑÆíÓ ÇáŞÓã
-		Round = 2;
+		// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ Ø±Ø¦ÙŠØ³ Ø§Ù„Ù‚Ø³Ù…
+		Round = 5;
 		driver.findElement(Applications).click();
 
 		driver.findElement(TakeAction).click();
 
 		driver.findElement(RNVLApps).click();
 
-		driver.findElement(FirstStep).click(); // ÈÇäÊÙÇÑ ŞÑÇÑ ÇáãÏŞŞ
+		driver.findElement(FirstStep).click(); // Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ù‚Ø±Ø§Ø± Ø§Ù„Ù…Ø¯Ù‚Ù‚
 
 		Select appType = new Select(driver.findElement(HeadNavigateOut)); //HeadNavigateOut
 		appType.selectByIndex(Round); 
@@ -454,6 +480,10 @@ public class RNVLInternal extends MyPageRNVL {
 		System.out.println("Trimmed App No: " + KeepAppNo);
 
 		Thread.sleep(Const * 8);
+
+		driver.findElement(HeadSearchBtn).click(); // Search-Button
+
+		Thread.sleep(Const * 2);
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
@@ -491,7 +521,7 @@ public class RNVLInternal extends MyPageRNVL {
 		try{
 			
 			String ActualResult = driver.findElement(SuccessMessageInternal).getText();
-			String ExpectedResult = "ÈäÌÇÍ";
+			String ExpectedResult = "Ø¨Ù†Ø¬Ø§Ø­";
 			Assert.assertTrue(ActualResult.contains(ExpectedResult));
 					
 		}
@@ -501,7 +531,7 @@ public class RNVLInternal extends MyPageRNVL {
 			Thread.sleep(Const * 7);
 		}
 		
-		System.out.println("Passed. " + KeepAppNo + " Incomplete by Head of Departemnt");
+		System.out.println("Passed. " + KeepAppNo + " Incomplete by Head of Department");
 			
 		
 		driver.findElement(BackButtonInternal).click();
