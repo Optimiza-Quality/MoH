@@ -231,7 +231,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 1, enabled = true, groups = {"Full", "Redo"})
 	public void SubmitChainApp_Case6000() throws InterruptedException, IOException{
 	
-		//تقديم الطلب بنجاح
+		//ÊÞÏíã ÇáØáÈ ÈäÌÇÍ
 		
 		this.ApplyForType();
 		//---------------------------Basic-Info---------------------------------------
@@ -281,7 +281,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -360,7 +360,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 2, enabled = true, groups = {"Previous"})
 	public void SubmitChainApp_Case6200() throws InterruptedException, IOException{
 	
-		//لديه حساب
+		//áÏíå ÍÓÇÈ
 		
 		this.ApplyForType();
 		//---------------------------Basic-Info---------------------------------------
@@ -422,7 +422,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -492,7 +492,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 3, enabled = true, groups = {"Previous", "Redo"})
 	public void SubmitChainApp_Case6300() throws InterruptedException, IOException{
 	
-		//لديه طلب مسبق
+		//áÏíå ØáÈ ãÓÈÞ
 		
 		this.ApplyForType();
 		
@@ -531,7 +531,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -600,7 +600,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 4, groups = {"CCD"})
 	public void SubmitChainApp_Case6400() throws InterruptedException, IOException{
 	
-		//معلومات غير صحيحة - الشركة غير موجودة
+		//ãÚáæãÇÊ ÛíÑ ÕÍíÍÉ - ÇáÔÑßÉ ÛíÑ ãæÌæÏÉ
 		
 		this.ApplyForType();
 		
@@ -640,7 +640,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 4, groups = {"CCD", "Redo"})
 	public void SubmitChainApp_Case6400_2() throws InterruptedException, IOException{
 	
-		//معلومات غير صحيحة - رقم الشركة غير مطابق
+		//ãÚáæãÇÊ ÛíÑ ÕÍíÍÉ - ÑÞã ÇáÔÑßÉ ÛíÑ ãØÇÈÞ
 		
 		this.ApplyForType();
 		
@@ -682,7 +682,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 5, groups = {"CCD"})
 	public void SubmitChainApp_Case6410() throws InterruptedException, IOException{
 	
-		//الشركة غير فعالة
+		//ÇáÔÑßÉ ÛíÑ ÝÚÇáÉ
 		
 		this.ApplyForType();
 		
@@ -721,7 +721,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 5, enabled = true, groups = {"CCD"})
 	public void SubmitChainApp_Case6420() throws InterruptedException, IOException{
 	
-		//الشركة ليس لها اسم تجاري
+		//ÇáÔÑßÉ áíÓ áåÇ ÇÓã ÊÌÇÑí
 		
 		this.ApplyForType();
 		
@@ -760,7 +760,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 5, groups = {"CCD"})
 	public void SubmitChainApp_Case6450() throws InterruptedException, IOException{
 	
-		//عدم استرجاع الارقام الوطنية من دائرة مراقبة الشركات
+		//ÚÏã ÇÓÊÑÌÇÚ ÇáÇÑÞÇã ÇáæØäíÉ ãä ÏÇÆÑÉ ãÑÇÞÈÉ ÇáÔÑßÇÊ
 		
 		this.ApplyForType();
 		
@@ -822,7 +822,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 6,groups = {"JPA", "Redo"})
 	public void SubmitChainApp_Case6500() throws InterruptedException, IOException{
 	
-		//احد الشركاء غير منتسب لنقابة الصيادلة
+		//ÇÍÏ ÇáÔÑßÇÁ ÛíÑ ãäÊÓÈ áäÞÇÈÉ ÇáÕíÇÏáÉ
 		
 		this.ApplyForType();
 		
@@ -869,7 +869,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -912,7 +912,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 6, groups = {"JPA"})
 	public void SubmitChainApp_Case6510() throws InterruptedException, IOException{
 	
-		//احد الشركاء غير مسدد لرسوم النقابة
+		//ÇÍÏ ÇáÔÑßÇÁ ÛíÑ ãÓÏÏ áÑÓæã ÇáäÞÇÈÉ
 		
 		this.ApplyForType();
 		
@@ -959,7 +959,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -993,7 +993,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 6, groups = {"VL"})
 	public void SubmitChainApp_Case6600() throws InterruptedException, IOException{
 	
-		//احد الشركاء ليس لديه رخصة مزاولة مهنة صيدلة
+		//ÇÍÏ ÇáÔÑßÇÁ áíÓ áÏíå ÑÎÕÉ ãÒÇæáÉ ãåäÉ ÕíÏáÉ
 		
 		this.ApplyForType();
 		
@@ -1040,7 +1040,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1075,7 +1075,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 6, groups = {"VL", "Redo"})
 	public void SubmitChainApp_Case6600_2() throws InterruptedException, IOException{
 	
-		// الشريك غير المسؤول لديه رخصة مزاولة مهنة صيدلة اقل من 3 سنوات
+		// ÇáÔÑíß ÛíÑ ÇáãÓÄæá áÏíå ÑÎÕÉ ãÒÇæáÉ ãåäÉ ÕíÏáÉ ÇÞá ãä 3 ÓäæÇÊ
 		
 		this.ApplyForType();
 		
@@ -1124,7 +1124,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1200,7 +1200,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 6, groups = {"VL"})
 	public void SubmitChainApp_Case6610() throws InterruptedException, IOException{
 		
-		// الشريك المسؤول لديه رخصة مزاولة مهنة صيدلة اقل من 3 سنوات
+		// ÇáÔÑíß ÇáãÓÄæá áÏíå ÑÎÕÉ ãÒÇæáÉ ãåäÉ ÕíÏáÉ ÇÞá ãä 3 ÓäæÇÊ
 		
 		this.ApplyForType();
 		
@@ -1247,7 +1247,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1285,7 +1285,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 7,groups = {"Own", "CommitmentChain", "Redo"})
 	public void SubmitChainApp_Case6700() throws InterruptedException, IOException{
 	
-		// الصيدلي الملتزم يمتلك صيدلية اخرى
+		// ÇáÕíÏáí ÇáãáÊÒã íãÊáß ÕíÏáíÉ ÇÎÑì
 		
 		this.ApplyForType();
 		
@@ -1332,7 +1332,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1370,7 +1370,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 7,groups = {"Own", "CommitmentChain", "Redo"})
 	public void SubmitChainApp_Case6710() throws InterruptedException, IOException{
 	
-		//  الصيدلي الملتزم كان يمتلك صيدلية اخرى قبل سنتين
+		//  ÇáÕíÏáí ÇáãáÊÒã ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ÞÈá ÓäÊíä
 		
 		this.ApplyForType();
 		
@@ -1417,7 +1417,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1455,7 +1455,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 8,groups = {"SS", "CommitmentChain"})
 	public void SubmitChainApp_Case6800() throws InterruptedException, IOException{
 	
-		//  الصيدلي الملتزم غير متفرغ من الضمان
+		//  ÇáÕíÏáí ÇáãáÊÒã ÛíÑ ãÊÝÑÛ ãä ÇáÖãÇä
 		
 		this.ApplyForType();
 		
@@ -1502,7 +1502,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1540,7 +1540,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 9,groups = {"MOH", "CommitmentChain", "Redo"})
 	public void SubmitChainApp_Case6810() throws InterruptedException, IOException{
 	
-		//  الصيدلي الملتزم غير متفرغ من الصحة
+		//  ÇáÕíÏáí ÇáãáÊÒã ÛíÑ ãÊÝÑÛ ãä ÇáÕÍÉ
 		
 		this.ApplyForType();
 		
@@ -1587,7 +1587,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1625,7 +1625,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 9,groups = {"SS", "CommitmentChain", "Redo"})
 	public void SubmitChainApp_Case6830() throws InterruptedException, IOException{
 	
-		//  رقم ضمان خطأ
+		//  ÑÞã ÖãÇä ÎØÃ
 		
 		this.ApplyForType();
 		
@@ -1672,7 +1672,7 @@ public class GPLChain extends GPLInternal{
 		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 				
-		driver.findElement(PharmAddress).sendKeys("شارع مكة - السلام 1 - عمارة 555");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ - ÇáÓáÇã 1 - ÚãÇÑÉ 555");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1714,7 +1714,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 10, groups = {"DLS"})
 	public void SubmitChainApp_Case6900() throws InterruptedException, IOException{
 	
-		//  رقم سند تسجيل عقار خطأ
+		//  ÑÞã ÓäÏ ÊÓÌíá ÚÞÇÑ ÎØÃ
 		
 		this.ApplyForType();
 		
@@ -1779,7 +1779,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 11, groups = {"DLS"})
 	public void SubmitChainApp_Case6910() throws InterruptedException, IOException{
 	
-		//  العقار في العقبة
+		//  ÇáÚÞÇÑ Ýí ÇáÚÞÈÉ
 		
 		this.ApplyForType();
 		
@@ -1844,7 +1844,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 11, groups = {"DLS", "Previous", "Redo"})
 	public void SubmitChainApp_Case6920() throws InterruptedException, IOException{
 	
-		//  العقار عليه طلب ترخيص
+		//  ÇáÚÞÇÑ Úáíå ØáÈ ÊÑÎíÕ
 		
 		this.ApplyForType();
 		
@@ -1909,7 +1909,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 12,groups = {"MOH", "Chain"})
 	public void SubmitChainApp_Case61000() throws InterruptedException, IOException{
 	
-		//  الشركة غير مسجلة في وزارة الصحة كسلسلة صيدليات
+		//  ÇáÔÑßÉ ÛíÑ ãÓÌáÉ Ýí æÒÇÑÉ ÇáÕÍÉ ßÓáÓáÉ ÕíÏáíÇÊ
 		
 		this.ApplyForType();
 		
@@ -1973,7 +1973,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 13,groups = {"MOH", "Chain"})
 	public void SubmitChainApp_Case61010() throws InterruptedException, IOException{
 	
-		//  عدد الشركاء المسجل في دائرة مراقبة الشركات غير مطابق لنظام الصحة
+		//  ÚÏÏ ÇáÔÑßÇÁ ÇáãÓÌá Ýí ÏÇÆÑÉ ãÑÇÞÈÉ ÇáÔÑßÇÊ ÛíÑ ãØÇÈÞ áäÙÇã ÇáÕÍÉ
 		
 		this.ApplyForType();
 		
@@ -2037,7 +2037,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 14,groups = {"MOH", "Chain"})
 	public void SubmitChainApp_Case61100() throws InterruptedException, IOException{
 	
-		//  شركة عدد فروعها اربعين فرع
+		//  ÔÑßÉ ÚÏÏ ÝÑæÚåÇ ÇÑÈÚíä ÝÑÚ
 		
 		this.ApplyForType();
 		
@@ -2102,7 +2102,7 @@ public class GPLChain extends GPLInternal{
 	@Test(priority = 14, groups = {"MOH", "Chain"})
 	public void SubmitChainApp_Case61110() throws InterruptedException, IOException{
 	
-		//  زيادة عدد الفروع عن عدد الشركاء
+		//  ÒíÇÏÉ ÚÏÏ ÇáÝÑæÚ Úä ÚÏÏ ÇáÔÑßÇÁ
 		
 		this.ApplyForType();
 		
