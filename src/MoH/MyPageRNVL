@@ -42,20 +42,20 @@ public class MyPageRNVL extends RNVLFields{
 					
 		}
 		
-		public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndLicense_Jordanain_Case1101(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// الاستعلام عن الطلب وعرض رخصة المزاولة
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -125,20 +125,20 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 
-		public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndRejection_Jordanain_Case1111(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// الاستعلام عن الطلب وعرض اسباب الرفض
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -205,19 +205,19 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 		
-		public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndModifyApp_Jordanain_Case1121(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// استكمال نواقص
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -265,7 +265,9 @@ public class MyPageRNVL extends RNVLFields{
 			
 			driver.findElement(NextButtonInc).click();
 			
-			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1200)");
+			Thread.sleep(Const * 5);
+			
+		//	JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1200)");
 			
 			driver.findElement(NextButtonIncRev).click();
 			
@@ -275,7 +277,7 @@ public class MyPageRNVL extends RNVLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -290,19 +292,19 @@ public class MyPageRNVL extends RNVLFields{
 		
 		}
 		
-		public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumberVlaue ) throws InterruptedException, IOException {
+		public void ViewApplicationAndModifyAppOther_Jordanain_Case1121_1(String KeepAppNo, String NationalIDValue, String IDNumbervalue ) throws InterruptedException, IOException {
 
 			// استكمال نواقص - بيانات اخرى
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
 			driver.findElement(MyPageNationalNumber).sendKeys(NationalIDValue); // National-ID
 
-			driver.findElement(MyPageCardNo).sendKeys(IDNumberVlaue); // Card-No
+			driver.findElement(MyPageCardNo).sendKeys(IDNumbervalue); // Card-No
 
 			Thread.sleep(Const * 2);
 
@@ -349,7 +351,9 @@ public class MyPageRNVL extends RNVLFields{
 			
 			driver.findElement(NextButtonIncOther).click();
 			
-			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
+			Thread.sleep(Const * 2);
+			
+		//	JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
 			driver.findElement(NextButtonIncRev).click();
 			
 			driver.findElement(SubmitInc).click();
@@ -358,7 +362,7 @@ public class MyPageRNVL extends RNVLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "طلبك بنجاح";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -380,7 +384,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("مؤسسة صحية");
+			appType.selectByVisibleText(HealthCare);
 
 			Thread.sleep(Const * 3);
 
@@ -475,7 +479,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("الخدمات الطبية الملكية");
+			appType.selectByVisibleText(RMS);
 
 			Thread.sleep(Const * 3);
 
@@ -570,7 +574,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -590,7 +594,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -614,7 +618,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -634,7 +638,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -658,7 +662,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("مؤسسة صحية");
+			appType.selectByVisibleText(HealthCare);
 
 			Thread.sleep(Const * 3);
 
@@ -678,7 +682,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "لا يوجد حساب";
+			String ExpectedResult = NoAccount;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -702,7 +706,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("الخدمات الطبية الملكية");
+			appType.selectByVisibleText(RMS);
 
 			Thread.sleep(Const * 3);
 
@@ -722,7 +726,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "لا يوجد حساب";
+			String ExpectedResult = NoAccount;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -746,7 +750,7 @@ public class MyPageRNVL extends RNVLFields{
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -766,7 +770,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -790,7 +794,7 @@ public class MyPageRNVL extends RNVLFields{
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("شركة");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -810,7 +814,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -834,7 +838,7 @@ public class MyPageRNVL extends RNVLFields{
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("مؤسسة صحية");
+			appType.selectByVisibleText(HealthCare);
 
 			Thread.sleep(Const * 3);
 
@@ -854,7 +858,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -878,7 +882,7 @@ public class MyPageRNVL extends RNVLFields{
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("الخدمات الطبية الملكية");
+			appType.selectByVisibleText(RMS);
 
 			Thread.sleep(Const * 3);
 
@@ -898,7 +902,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -922,7 +926,7 @@ public class MyPageRNVL extends RNVLFields{
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("الخدمات الطبية الملكية");
+			appType.selectByVisibleText(RMS);
 
 			Thread.sleep(Const * 3);
 
@@ -942,7 +946,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في معلومات الدخول";
+			String ExpectedResult = FailedAttempt;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
@@ -968,7 +972,7 @@ public class MyPageRNVL extends RNVLFields{
 			driver.findElement(GoToMyPage).click(); // My-Page
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("أفراد");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -996,7 +1000,7 @@ public class MyPageRNVL extends RNVLFields{
 
 			System.out.println("Actual Message: " + ActualResult);
 
-			String ExpectedResult = "خطأ في رمز التحقق المدخل";
+			String ExpectedResult = WrongVC;
 
 			System.out.println("Expected Message: " + ExpectedResult);
 
