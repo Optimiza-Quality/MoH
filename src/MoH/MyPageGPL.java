@@ -46,12 +46,12 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplication_Jordanain_Case4101(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ  
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨  
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -109,12 +109,12 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplicationAndRejection_Jordanain_Case4111(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÇÓÈÇÈ ÇáÑİÖ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø§Ø³Ø¨Ø§Ø¨ Ø§Ù„Ø±ÙØ¶
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -189,11 +189,11 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplicationAndModifyApp_Jordanain_Case4121(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -257,7 +257,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -274,11 +274,11 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplicationAndModifyAppOther_Jordanain_Case4121_1(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ - ÈíÇäÇÊ ÇÎÑì
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ - Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ø®Ø±Ù‰
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÃİÑÇÏ");
+			appType.selectByVisibleText(Individual);
 
 			Thread.sleep(Const * 3);
 
@@ -340,7 +340,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -357,12 +357,12 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplication_Chain_Case6101(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÑÎÕÉ ÇáãÒÇæáÉ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø±Ø®ØµØ© Ø§Ù„Ù…Ø²Ø§ÙˆÙ„Ø©
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -420,12 +420,12 @@ public class MyPageGPL extends GPLFields{
 
 		public void ViewApplicationAndRejection_Chain_Case6111(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇáÇÓÊÚáÇã Úä ÇáØáÈ æÚÑÖ ÇÓÈÇÈ ÇáÑİÖ
+			// Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¹Ø±Ø¶ Ø§Ø³Ø¨Ø§Ø¨ Ø§Ù„Ø±ÙØ¶
 			
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -500,11 +500,11 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplicationAndModifyApp_Chain_Case6121(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ
 			this.CallBrowser();
 
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -572,7 +572,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
@@ -589,11 +589,11 @@ public class MyPageGPL extends GPLFields{
 		
 		public void ViewApplicationAndModifyAppOther_Cahin_Case6121_1(String KeepAppNo, String NationalIDValue, String IDNumberValue ) throws InterruptedException, IOException {
 
-			// ÇÓÊßãÇá äæÇŞÕ - ÈíÇäÇÊ ÇÎÑì
+			// Ø§Ø³ØªÙƒÙ…Ø§Ù„ Ù†ÙˆØ§Ù‚Øµ - Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ø®Ø±Ù‰
 			
 			this.CallBrowser();
 			Select appType = new Select(driver.findElement(MyPageApplicantType)); // Applicant-Type
-			appType.selectByVisibleText("ÔÑßÉ");
+			appType.selectByVisibleText(Compnay);
 
 			Thread.sleep(Const * 3);
 
@@ -655,7 +655,7 @@ public class MyPageGPL extends GPLFields{
 			Thread.sleep(Const * 10);
 			
 			String ActualMessage = driver.findElement(SuccessInc).getText();
-			String ExpectedMessage = "ØáÈß ÈäÌÇÍ";
+			String ExpectedMessage = SuccessMsg;
 			
 			System.out.println("Actual Message: " + ActualMessage);
 			System.out.println("Expected Message: " + ExpectedMessage);
