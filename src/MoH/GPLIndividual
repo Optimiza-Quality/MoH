@@ -89,7 +89,7 @@ public class GPLIndividual extends GPLInternal{
 		}
 	}
 
-	@AfterMethod(enabled = true)
+	@AfterMethod(enabled = false)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into if
 		// condition
@@ -211,7 +211,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 1,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4000() throws InterruptedException, IOException{
 		
-		//تقدبم الطلب بنجاح - بيانات صحيحة
+		//ÊÞÏÈã ÇáØáÈ ÈäÌÇÍ - ÈíÇäÇÊ ÕÍíÍÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -276,7 +276,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9822056900");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -350,7 +350,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
 		
-		//قام بانشاء حساب ولم يتم عملية تقديم الطلب
+		//ÞÇã ÈÇäÔÇÁ ÍÓÇÈ æáã íÊã ÚãáíÉ ÊÞÏíã ÇáØáÈ
 		
 		driver.findElement(Apply).click();
 		
@@ -438,7 +438,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9851032994");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -461,7 +461,7 @@ public class GPLIndividual extends GPLInternal{
 		driver.findElement(RateNeutralAttachmentCases).click();
 		
 		Thread.sleep(Const * 5);
-		driver.findElement(NotesAttachmentCases).sendKeys("محايد");
+		driver.findElement(NotesAttachmentCases).sendKeys("ãÍÇíÏ");
 		
 		Thread.sleep(Const * 8);
 		
@@ -522,7 +522,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3, groups = {"Previous"})
 	public void SubmitIndividualApp_Case4300() throws InterruptedException, IOException{
 		
-		//لديه طلب اخر
+		//áÏíå ØáÈ ÇÎÑ
 		
 		driver.findElement(Apply).click();
 		
@@ -577,7 +577,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400() throws InterruptedException, IOException{
 		
-		//بيانات الاحوال غير مطابقة
+		//ÈíÇäÇÊ ÇáÇÍæÇá ÛíÑ ãØÇÈÞÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -632,7 +632,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4410() throws InterruptedException, IOException{
 		
-		//الهوية منتهية الصلاحية
+		//ÇáåæíÉ ãäÊåíÉ ÇáÕáÇÍíÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -687,7 +687,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 5, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400_2() throws InterruptedException, IOException{
 		
-		//الشخص متوفي
+		//ÇáÔÎÕ ãÊæÝí
 		
 		driver.findElement(Apply).click();
 		
@@ -745,7 +745,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT" , "CCD"})
 	public void SubmitIndividualApp_Case4500() throws InterruptedException, IOException{
 		
-		//رقم المنشأة غير موجود
+		//ÑÞã ÇáãäÔÃÉ ÛíÑ ãæÌæÏ
 		
 		driver.findElement(Apply).click();
 		
@@ -800,7 +800,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT", "CCD"})
 	public void SubmitIndividualApp_Case4510() throws InterruptedException, IOException{
 		
-		//المنشأة غير فعالة
+		//ÇáãäÔÃÉ ÛíÑ ÝÚÇáÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -855,7 +855,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 7, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4520() throws InterruptedException, IOException{
 		
-		//المنشأة مسجلة في دائرة مراقبة الشركات
+		//ÇáãäÔÃÉ ãÓÌáÉ Ýí ÏÇÆÑÉ ãÑÇÞÈÉ ÇáÔÑßÇÊ
 		
 		driver.findElement(Apply).click();
 		
@@ -919,7 +919,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832023360");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(2);
@@ -983,7 +983,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 8, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4530() throws InterruptedException, IOException{
 		
-		//عدد الشركاء اكثر من واحد
+		//ÚÏÏ ÇáÔÑßÇÁ ÇßËÑ ãä æÇÍÏ
 		
 		driver.findElement(Apply).click();
 		
@@ -1038,7 +1038,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 10, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4600() throws InterruptedException, IOException{
 		
-		//غير منتسب للنقابة
+		//ÛíÑ ãäÊÓÈ ááäÞÇÈÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -1093,7 +1093,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4610() throws InterruptedException, IOException{
 		
-		//منتسب وغير مسدد
+		//ãäÊÓÈ æÛíÑ ãÓÏÏ
 		
 		driver.findElement(Apply).click();
 		
@@ -1148,7 +1148,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, enabled = false, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4620() throws InterruptedException, IOException{
 		
-		//عدم استرجاع بيانات من النقابة
+		//ÚÏã ÇÓÊÑÌÇÚ ÈíÇäÇÊ ãä ÇáäÞÇÈÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -1203,7 +1203,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 12, groups = {"VL"})
 	public void SubmitIndividualApp_Case4700() throws InterruptedException, IOException{
 		
-		//ليس لديه رخصة مزاولة
+		//áíÓ áÏíå ÑÎÕÉ ãÒÇæáÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -1258,7 +1258,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 13, groups = {"VL"})
 	public void SubmitIndividualApp_Case4710() throws InterruptedException, IOException{
 		
-		//مزاول لاقل من 3 سنوات
+		//ãÒÇæá áÇÞá ãä 3 ÓäæÇÊ
 		
 		driver.findElement(Apply).click();
 		
@@ -1313,7 +1313,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4800() throws InterruptedException, IOException{
 		
-		//الصيدلي يمتلك صيدلية اخرى
+		//ÇáÕíÏáí íãÊáß ÕíÏáíÉ ÇÎÑì
 		
 		driver.findElement(Apply).click();
 		
@@ -1369,7 +1369,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810() throws InterruptedException, IOException{
 		
-		// الصيدلي كان يمتلك صيدلية اخرى قبل اقل من سنتين - الغاء
+		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ÞÈá ÇÞá ãä ÓäÊíä - ÇáÛÇÁ
 		
 		driver.findElement(Apply).click();
 		
@@ -1425,7 +1425,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810_2() throws InterruptedException, IOException{
 		
-		// الصيدلي كان يمتلك صيدلية اخرى قبل اقل من سنتين - اغلاق
+		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ÞÈá ÇÞá ãä ÓäÊíä - ÇÛáÇÞ
 		
 		driver.findElement(Apply).click();
 		
@@ -1481,7 +1481,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 2, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
-		//رقم انتساب الضمان غير صحيح
+		//ÑÞã ÇäÊÓÇÈ ÇáÖãÇä ÛíÑ ÕÍíÍ
 		
 		driver.findElement(Apply).click();
 		
@@ -1544,7 +1544,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("555878");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1583,7 +1583,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
-		//الصيدلي غير متفرغ للعمل في الصيدلية حسب رقم الضمان
+		//ÇáÕíÏáí ÛíÑ ãÊÝÑÛ ááÚãá Ýí ÇáÕíÏáíÉ ÍÓÈ ÑÞã ÇáÖãÇä
 		
 		driver.findElement(Apply).click();
 		
@@ -1646,7 +1646,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1685,7 +1685,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"MoH", "Commitment"})
 	public void SubmitIndividualApp_Case4920() throws InterruptedException, IOException{
 		
-		//الصيدلي غير متفرغ للعمل في الصيدلية حسب وزارة الصحة 
+		//ÇáÕíÏáí ÛíÑ ãÊÝÑÛ ááÚãá Ýí ÇáÕíÏáíÉ ÍÓÈ æÒÇÑÉ ÇáÕÍÉ 
 		
 		driver.findElement(Apply).click();
 		
@@ -1748,7 +1748,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		//driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("شارع مكة");
+		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(3);
@@ -1787,7 +1787,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41000() throws InterruptedException, IOException{
 		
-		//خطأ في رقم سند تسجيل العقار
+		//ÎØÃ Ýí ÑÞã ÓäÏ ÊÓÌíá ÇáÚÞÇÑ
 		
 		driver.findElement(Apply).click();
 		
@@ -1872,7 +1872,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41010() throws InterruptedException, IOException{
 		
-		//العقار تابع لسلطة اقليم العقبة
+		//ÇáÚÞÇÑ ÊÇÈÚ áÓáØÉ ÇÞáíã ÇáÚÞÈÉ
 		
 		driver.findElement(Apply).click();
 		
@@ -1957,7 +1957,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS", "Previous"})
 	public void SubmitIndividualApp_Case41020() throws InterruptedException, IOException{
 		
-		//العقار عليه طلب سابق
+		//ÇáÚÞÇÑ Úáíå ØáÈ ÓÇÈÞ
 		
 		driver.findElement(Apply).click();
 		
