@@ -52,7 +52,8 @@ public class Vars extends Msgs{
 	String RMS = "الخدمات الطبية الملكية";
 	String HealthCare = "مؤسسة صحية";
 	String Individual = "أفراد";
-
+	String Compnay = "شركة";
+	
 	String RateSad = "حزين";
 	String RateHappy = "سعيد";
 	String RateNeutral = "محايد";
