@@ -32,7 +32,7 @@ public class RNVLJordanian extends RNVLInternal {
 	//	boolean result = false;
 		Thread.sleep(Const * 10);
 		try {
-			System.out.println("Ahem..Ahem..");
+		//	System.out.println("Ahem..Ahem..");
 			
 			if(driver.findElement(ErrorMessage).isDisplayed()) {
 				System.out.println("First if");
