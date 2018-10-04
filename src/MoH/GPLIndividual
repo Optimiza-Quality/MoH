@@ -89,7 +89,7 @@ public class GPLIndividual extends GPLInternal{
 		}
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void End(ITestResult result) throws InterruptedException {
 		// Here will compare if test is failing then only it will enter into if
 		// condition
@@ -161,48 +161,31 @@ public class GPLIndividual extends GPLInternal{
 	}
 
 	public void Attachments() throws InterruptedException, IOException{
+		Integer fileSize = 10; 
 		driver.findElement(Resignation).click();
-		
-		Thread.sleep(Const * 10);
-	
+		Thread.sleep(Const * 2);
 		Runtime.getRuntime().exec(JPGAtt);
-		// Give path where the au3 is saved.
-
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * fileSize);
 		
 		driver.findElement(Sketch).click();
-		
-		Thread.sleep(Const * 10);
-		
+		Thread.sleep(Const * 2);
 		Runtime.getRuntime().exec(JPGAtt);
-		// Give path where the au3 is saved.
-		
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * fileSize);
 		
 		driver.findElement(GAM).click();
-
+		Thread.sleep(Const * 2);
 		Runtime.getRuntime().exec(JPGAtt);
-		// Give path where the au3 is saved.
-		
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * fileSize);
 		
 		driver.findElement(COSketch).click();
-		
-		Thread.sleep(Const * 10);
-		
+		Thread.sleep(Const * 2);
 		Runtime.getRuntime().exec(JPGAtt);
-		// Give path where the au3 is saved.
-	
-		Thread.sleep(Const * 10);
+		Thread.sleep(Const * fileSize);
 		
-		driver.findElement(Lease).click();
-
-		Thread.sleep(Const * 10);
-		
+		driver.findElement(Other).click();
+		Thread.sleep(Const * 2);
 		Runtime.getRuntime().exec(JPGAtt);
-		// Give path where the au3 is saved.
-		
-		Thread.sleep(Const * 20);
+		Thread.sleep(Const * fileSize);
 		
 		driver.findElement(CoNextToReview).click();
 		
@@ -211,7 +194,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 1,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4000() throws InterruptedException, IOException{
 		
-		//ÊÞÏÈã ÇáØáÈ ÈäÌÇÍ - ÈíÇäÇÊ ÕÍíÍÉ
+		//تقدبم الطلب بنجاح - بيانات صحيحة
 		
 		driver.findElement(Apply).click();
 		
@@ -270,13 +253,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("91751103828112", Keys.TAB);
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9822056900");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -291,7 +272,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		this.Attachments();
 		
-		driver.findElement(NextToRating).click();
+		driver.findElement(NextToReview).click();
 		//---------------------------Review---------------------------------------
 		
 		Thread.sleep(Const * 5);
@@ -336,12 +317,14 @@ public class GPLIndividual extends GPLInternal{
 		this.Processing_IncompleteByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
 		this.Processing_IncompleteByIC_Case4100_3(KeepAppNo, IrbidUserName3, IrbidPassword3);
 		
-	this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
+		this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
 		
 		Round = 2;
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
 		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2, Round);
 		this.Processing_ApproveByIC_Case4100_3(KeepAppNo, IrbidUserName3, IrbidPassword3, Round);
 		
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
 		this.Processing_ApproveByDirector_Case4100_4(KeepAppNo, IrbidUserName3, IrbidPassword3);
 		this.ViewApplication_Jordanain_Case4101(KeepAppNo, NationalIDValue, IDNumberValue);
 		
@@ -350,7 +333,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3,enabled = true ,groups = {"Success, Full"})
 	public void SubmitIndividualApp_Case4200() throws InterruptedException, IOException{
 		
-		//ÞÇã ÈÇäÔÇÁ ÍÓÇÈ æáã íÊã ÚãáíÉ ÊÞÏíã ÇáØáÈ
+		//قام بانشاء حساب ولم يتم عملية تقديم الطلب
 		
 		driver.findElement(Apply).click();
 		
@@ -432,13 +415,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("51282027248131");
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9851032994");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -453,7 +434,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		this.Attachments();
 		
-		driver.findElement(NextToRating).click();
+		driver.findElement(NextToReview).click();
 			
 		//---------------------------Review---------------------------------------
 		
@@ -461,7 +442,7 @@ public class GPLIndividual extends GPLInternal{
 		driver.findElement(RateNeutralAttachmentCases).click();
 		
 		Thread.sleep(Const * 5);
-		driver.findElement(NotesAttachmentCases).sendKeys("ãÍÇíÏ");
+		driver.findElement(NotesAttachmentCases).sendKeys("محايد");
 		
 		Thread.sleep(Const * 8);
 		
@@ -513,6 +494,7 @@ public class GPLIndividual extends GPLInternal{
 		this.ViewApplicationAndModifyApp_Jordanain_Case4121(KeepAppNo, NationalIDValue, IDNumberValue);
 		
 		Round = 2;
+		this.Processing_AppointByIC_Case4100_3(KeepAppNo, IrbidUserName2, IrbidPassword2);
 		this.Processing_RejectByIC_Case4100_3(KeepAppNo, CapitalUserName1, CapitalPassword1, Round);
 		this.Processing_RejectByIC_Case4100_3(KeepAppNo, CapitalUserName2, CapitalPassword2, Round);
 		
@@ -522,7 +504,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 3, groups = {"Previous"})
 	public void SubmitIndividualApp_Case4300() throws InterruptedException, IOException{
 		
-		//áÏíå ØáÈ ÇÎÑ
+		//لديه طلب اخر
 		
 		driver.findElement(Apply).click();
 		
@@ -577,7 +559,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400() throws InterruptedException, IOException{
 		
-		//ÈíÇäÇÊ ÇáÇÍæÇá ÛíÑ ãØÇÈÞÉ
+		//بيانات الاحوال غير مطابقة
 		
 		driver.findElement(Apply).click();
 		
@@ -632,7 +614,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 4, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4410() throws InterruptedException, IOException{
 		
-		//ÇáåæíÉ ãäÊåíÉ ÇáÕáÇÍíÉ
+		//الهوية منتهية الصلاحية
 		
 		driver.findElement(Apply).click();
 		
@@ -687,7 +669,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 5, groups = {"CSPD"})
 	public void SubmitIndividualApp_Case4400_2() throws InterruptedException, IOException{
 		
-		//ÇáÔÎÕ ãÊæÝí
+		//الشخص متوفي
 		
 		driver.findElement(Apply).click();
 		
@@ -745,7 +727,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT" , "CCD"})
 	public void SubmitIndividualApp_Case4500() throws InterruptedException, IOException{
 		
-		//ÑÞã ÇáãäÔÃÉ ÛíÑ ãæÌæÏ
+		//رقم المنشأة غير موجود
 		
 		driver.findElement(Apply).click();
 		
@@ -800,7 +782,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 6, groups = {"MIT", "CCD"})
 	public void SubmitIndividualApp_Case4510() throws InterruptedException, IOException{
 		
-		//ÇáãäÔÃÉ ÛíÑ ÝÚÇáÉ
+		//المنشأة غير فعالة
 		
 		driver.findElement(Apply).click();
 		
@@ -855,7 +837,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 7, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4520() throws InterruptedException, IOException{
 		
-		//ÇáãäÔÃÉ ãÓÌáÉ Ýí ÏÇÆÑÉ ãÑÇÞÈÉ ÇáÔÑßÇÊ
+		//المنشأة مسجلة في دائرة مراقبة الشركات
 		
 		driver.findElement(Apply).click();
 		
@@ -913,13 +895,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("2624010298134");
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832023360");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(2);
@@ -934,7 +914,7 @@ public class GPLIndividual extends GPLInternal{
 		
 		this.Attachments();
 		
-		driver.findElement(NextToRating).click();
+		driver.findElement(NextToReview).click();
 		
 		//---------------------------Review---------------------------------------
 		
@@ -983,7 +963,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 8, groups = {"CCD"})
 	public void SubmitIndividualApp_Case4530() throws InterruptedException, IOException{
 		
-		//ÚÏÏ ÇáÔÑßÇÁ ÇßËÑ ãä æÇÍÏ
+		//عدد الشركاء اكثر من واحد
 		
 		driver.findElement(Apply).click();
 		
@@ -1038,7 +1018,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 10, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4600() throws InterruptedException, IOException{
 		
-		//ÛíÑ ãäÊÓÈ ááäÞÇÈÉ
+		//غير منتسب للنقابة
 		
 		driver.findElement(Apply).click();
 		
@@ -1093,7 +1073,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4610() throws InterruptedException, IOException{
 		
-		//ãäÊÓÈ æÛíÑ ãÓÏÏ
+		//منتسب وغير مسدد
 		
 		driver.findElement(Apply).click();
 		
@@ -1148,7 +1128,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 11, enabled = false, groups = {"JPA"})
 	public void SubmitIndividualApp_Case4620() throws InterruptedException, IOException{
 		
-		//ÚÏã ÇÓÊÑÌÇÚ ÈíÇäÇÊ ãä ÇáäÞÇÈÉ
+		//عدم استرجاع بيانات من النقابة
 		
 		driver.findElement(Apply).click();
 		
@@ -1203,7 +1183,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 12, groups = {"VL"})
 	public void SubmitIndividualApp_Case4700() throws InterruptedException, IOException{
 		
-		//áíÓ áÏíå ÑÎÕÉ ãÒÇæáÉ
+		//ليس لديه رخصة مزاولة
 		
 		driver.findElement(Apply).click();
 		
@@ -1258,7 +1238,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 13, groups = {"VL"})
 	public void SubmitIndividualApp_Case4710() throws InterruptedException, IOException{
 		
-		//ãÒÇæá áÇÞá ãä 3 ÓäæÇÊ
+		//مزاول لاقل من 3 سنوات
 		
 		driver.findElement(Apply).click();
 		
@@ -1313,7 +1293,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4800() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí íãÊáß ÕíÏáíÉ ÇÎÑì
+		//الصيدلي يمتلك صيدلية اخرى
 		
 		driver.findElement(Apply).click();
 		
@@ -1359,9 +1339,9 @@ public class GPLIndividual extends GPLInternal{
 
 		File source = ts.getScreenshotAs(OutputType.FILE);
 
-		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.8.2.0.png"));
+		FileUtils.copyFile(source, new File("./GPL-Individual-ScreenShots/Case4.8.0.0.png"));
 
-		System.out.println("Passed. Individual Pharmacist Case 4.8.2.0");
+		System.out.println("Passed. Individual Pharmacist Case 4.8.0.0");
 		
 		
 	}
@@ -1369,7 +1349,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 14, groups = {"Own", "Commitment"})
 	public void SubmitIndividualApp_Case4810() throws InterruptedException, IOException{
 		
-		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ÞÈá ÇÞá ãä ÓäÊíä - ÇáÛÇÁ
+		// الصيدلي كان يمتلك صيدلية اخرى قبل اقل من سنتين - الغاء
 		
 		driver.findElement(Apply).click();
 		
@@ -1423,9 +1403,9 @@ public class GPLIndividual extends GPLInternal{
 	}
 	
 	@Test(priority = 14, groups = {"Own", "Commitment"})
-	public void SubmitIndividualApp_Case4810_2() throws InterruptedException, IOException{
+	public void SubmitIndividualApp_Case4820() throws InterruptedException, IOException{
 		
-		// ÇáÕíÏáí ßÇä íãÊáß ÕíÏáíÉ ÇÎÑì ÞÈá ÇÞá ãä ÓäÊíä - ÇÛáÇÞ
+		// الصيدلي يمتلك صيدلية - اغلاق
 		
 		driver.findElement(Apply).click();
 		
@@ -1481,7 +1461,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 2, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4900() throws InterruptedException, IOException{
 		
-		//ÑÞã ÇäÊÓÇÈ ÇáÖãÇä ÛíÑ ÕÍíÍ
+		//رقم انتساب الضمان غير صحيح
 		
 		driver.findElement(Apply).click();
 		
@@ -1538,13 +1518,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("51282027248131");
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		driver.findElement(SocialSecurityNo).sendKeys("555878");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1583,7 +1561,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"SSNIndev", "Commitment"})
 	public void SubmitIndividualApp_Case4910() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí ÛíÑ ãÊÝÑÛ ááÚãá Ýí ÇáÕíÏáíÉ ÍÓÈ ÑÞã ÇáÖãÇä
+		//الصيدلي غير متفرغ للعمل في الصيدلية حسب رقم الضمان
 		
 		driver.findElement(Apply).click();
 		
@@ -1640,13 +1618,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("223928003998122",Keys.TAB);
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(1);
@@ -1685,7 +1661,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 16, groups = {"MoH", "Commitment"})
 	public void SubmitIndividualApp_Case4920() throws InterruptedException, IOException{
 		
-		//ÇáÕíÏáí ÛíÑ ãÊÝÑÛ ááÚãá Ýí ÇáÕíÏáíÉ ÍÓÈ æÒÇÑÉ ÇáÕÍÉ 
+		//الصيدلي غير متفرغ للعمل في الصيدلية حسب وزارة الصحة 
 		
 		driver.findElement(Apply).click();
 		
@@ -1742,13 +1718,11 @@ public class GPLIndividual extends GPLInternal{
 		
 		driver.findElement(PropertyNumber).sendKeys("917116018328101",Keys.TAB);
 		
-		Thread.sleep(Const * 8);
-		
 		driver.findElement(PharmCoordinates).sendKeys("45456");
 		
 		//driver.findElement(SocialSecurityNo).sendKeys("9832000159");
 		
-		driver.findElement(PharmAddress).sendKeys("ÔÇÑÚ ãßÉ");
+		driver.findElement(PharmAddress).sendKeys(PharmaAddress);
 		
 		Select holiday = new Select(driver.findElement(Hoiday));
 		holiday.selectByIndex(3);
@@ -1787,7 +1761,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41000() throws InterruptedException, IOException{
 		
-		//ÎØÃ Ýí ÑÞã ÓäÏ ÊÓÌíá ÇáÚÞÇÑ
+		//خطأ في رقم سند تسجيل العقار
 		
 		driver.findElement(Apply).click();
 		
@@ -1872,7 +1846,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS"})
 	public void SubmitIndividualApp_Case41010() throws InterruptedException, IOException{
 		
-		//ÇáÚÞÇÑ ÊÇÈÚ áÓáØÉ ÇÞáíã ÇáÚÞÈÉ
+		//العقار تابع لسلطة اقليم العقبة
 		
 		driver.findElement(Apply).click();
 		
@@ -1957,7 +1931,7 @@ public class GPLIndividual extends GPLInternal{
 	@Test(priority = 17, groups = {"DLS", "Previous"})
 	public void SubmitIndividualApp_Case41020() throws InterruptedException, IOException{
 		
-		//ÇáÚÞÇÑ Úáíå ØáÈ ÓÇÈÞ
+		//العقار عليه طلب سابق
 		
 		driver.findElement(Apply).click();
 		
