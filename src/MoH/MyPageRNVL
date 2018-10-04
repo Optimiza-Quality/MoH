@@ -108,7 +108,7 @@ public class MyPageRNVL extends RNVLFields{
 		
 			this.SwitchTab();
 			
-			Thread.sleep(Const * 20);
+			Thread.sleep(Const * 4);
 			
 			TakesScreenshot ts1 = (TakesScreenshot) driver;
 			File source1 = ts1.getScreenshotAs(OutputType.FILE);
