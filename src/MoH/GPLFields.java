@@ -2,7 +2,7 @@ package MoH;
 
 import org.openqa.selenium.By;
 
-public class GPLFields extends Vars{
+public class GPLFields extends CommonFields{
 	
 	By ErrorMessage = By.id("pt1:exceptionMsg");
 	By SuccessMessageMyPage = By.xpath("//*[@id=\"pt1:exceptionMsg\"]/div/table/tbody/tr/td/table/tbody/tr/td[2]/div");
@@ -33,7 +33,7 @@ public class GPLFields extends Vars{
 	By CoEmail = By.id("pt1:r1:1:e2:itEmail::content");
 	By NextToVerificationCode = By.id("pt1:r1:1:b2");
 	
-	By ModifyContactDetails = By.linkText("ÊÚÏíá ãÚáæãÇÊ ÇáÇÊÕÇá");
+	By ModifyContactDetails = By.linkText("تعديل معلومات الاتصال");
 	By CompanyNumber = By.id("pt1:r1:1:it11");
 	By VerificationCode = By.id("pt1:r1:2:vc1:dc_it1::content"); 
 	By NextToOtherInfo = By.id("pt1:r1:2:vc1:dc_b2");
@@ -60,12 +60,12 @@ public class GPLFields extends Vars{
 	By GAM = By.id("pt1:r1:4:it2:2:cif1:bButtonFile");
 	By COSketch = By.id("pt1:r1:4:it2:3:cif1:bButtonFile");
 	By Lease = By.id("pt1:r1:4:it2:4:cif1:bButtonFile");
+	By Other = By.id("pt1:r1:4:it2:5:cif1:bButtonFile");
 	
 	By NextToReview = By.id("pt1:r1:5:b2");
 	By NextToReviewChain = By.id("pt1:r1:4:b2");
 	
-	//Review
-	By NextToRating = By.id("pt1:r1:5:b2"); 
+	//Review 
 	By CoNextToReview = By.id("pt1:r1:4:b2");
 	
 	By RateHappyAttachmentCases = By.id("pt1:r1:6:rs1:link1::icon");
@@ -81,57 +81,57 @@ public class GPLFields extends Vars{
 	
 	
 	// MyPage
-		By LoginVerificationCode = By
-				.xpath("//*[@id=\"pt1:r1:1:vc1:dc_it1::content\" or @id=\"pt1:r1:0:vc1:dc_it1::content\"]");
-		By NextToMyPage = By.xpath("//*[@id=\"pt1:r1:1:vc1:dc_b2\" or @id=\"pt1:r1:0:vc1:dc_b2\"]");
-		By MyMobileNumber = By.xpath(
-				"//*[@id=\"pt1:r1:2:r4:0:mn1:itMobileNumber::content\" or @id=\"pt1:r1:1:r4:0:mn1:itMobileNumber::content\"]");
-		By MyEmail = By
-				.xpath("//*[@id=\"pt1:r1:2:r4:0:e1:itEmail::content\" or @id=\"pt1:r1:1:r4:0:e1:itEmail::content\"]");
-		By MyAddress = By.xpath("//*[@id=\"pt1:r1:2:r4:0:it4::content\" or @id=\"pt1:r1:1:r4:0:it4::content\"]");
-		By SaveEditedInfo = By.xpath("//*[@id=\"pt1:r1:2:r4:0:b1\" or @id=\"pt1:r1:1:r4:0:b1\"]");
-		By GoToHomePage = By.xpath("//*[@id=\"pt1:r1:2:b1\" or @id=\"pt1:l1::icon\"]");
-		By GoToMyPage = By.id("MyAppsImg");
-		By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
-		By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
-		By MyPageCardNo = By.id("pt1:r1:0:p1:dc_it1::content");
-		By MyPageSearch = By.id("pt1:r1:0:b1");
-		By VerificationCodeMyPage = By.id("pt1:r1:0:vc1:dc_it1::content");
-		By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
-		By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
-		By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
-		By IncompleteApp = By.linkText("ÇÓÊßãÇá äæÇÞÕ");
-		By PreviousToApps = By.id("pt1:r1:2:r1:1:b3");
-		By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
-		By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
-		By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
-		By LicenseDetails = By.linkText("ÊÝÇÕíá");
-		By MyPaymentsTab = By.id("pt1:r1:2:myPayments::body");
-		By PaymentNumber = By.id("pt1:r1:2:r2:0:t1:0:c1");
-		
-
-		By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
-		//Review Screen Incomplete
-		By ModifyOtherInc = By.linkText("ÊÚÏíá");
-		By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l3\"]");
-		//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
-		
-		By NextButtonIncRev = By.id("pt1:r1:2:r1:2:b2");
-		//OtherInfo Screen Incomplete
-		By SSYIncOther = By.id("pt1:r1:2:r1:3:socSecondaryStudyYearRid::content");
-		By NextButtonIncOther = By.id("pt1:r1:2:r1:3:btnOtherDataNextButton");
-		//Attachment Screen Incomplete
-		By UploadFileInc = By.id("pt1:r1:2:r1:3:it2:0:cif1:bButtonFile");
-		
-		By NextButtonInc = By.id("pt1:r1:2:r1:3:b2");
-		//Rating Screen Inc
-		By RateInc = By.id("pt1:r1:2:r1:4:rs1:link1::icon");
-		By SubmitInc = By.id("pt1:r1:2:r1:4:rs1:b2");
-		//Success
-		By SuccessInc = By.id("pt1:r1:2:r1:5:fp1:dc_pgl2");
-		By BackToHomeInc = By.id("pt1:r1:2:r1:5:fp1:dc_b1");
-		
-		By RejectionReasons = By.linkText("ÃÓÈÇÈ ÇáÑÝÖ");
+//		By LoginVerificationCode = By
+//				.xpath("//*[@id=\"pt1:r1:1:vc1:dc_it1::content\" or @id=\"pt1:r1:0:vc1:dc_it1::content\"]");
+//		By NextToMyPage = By.xpath("//*[@id=\"pt1:r1:1:vc1:dc_b2\" or @id=\"pt1:r1:0:vc1:dc_b2\"]");
+//		By MyMobileNumber = By.xpath(
+//				"//*[@id=\"pt1:r1:2:r4:0:mn1:itMobileNumber::content\" or @id=\"pt1:r1:1:r4:0:mn1:itMobileNumber::content\"]");
+//		By MyEmail = By
+//				.xpath("//*[@id=\"pt1:r1:2:r4:0:e1:itEmail::content\" or @id=\"pt1:r1:1:r4:0:e1:itEmail::content\"]");
+//		By MyAddress = By.xpath("//*[@id=\"pt1:r1:2:r4:0:it4::content\" or @id=\"pt1:r1:1:r4:0:it4::content\"]");
+//		By SaveEditedInfo = By.xpath("//*[@id=\"pt1:r1:2:r4:0:b1\" or @id=\"pt1:r1:1:r4:0:b1\"]");
+//		By GoToHomePage = By.xpath("//*[@id=\"pt1:r1:2:b1\" or @id=\"pt1:l1::icon\"]");
+//		By GoToMyPage = By.id("MyAppsImg");
+//		By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
+//		By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
+//		By MyPageCardNo = By.id("pt1:r1:0:it2::content");
+//		By MyPageSearch = By.id("pt1:r1:0:b1");
+//		By VerificationCodeMyPage = By.id("pt1:r1:0:vc1:dc_it1::content");
+//		By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
+//		By SearchForApp = By.id("pt1:r1:2:r1:0:qryId1:val00::content");
+//		By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
+//		By IncompleteApp = By.linkText("استكمال نواقص");
+//		By PreviousToApps = By.id("pt1:r1:2:r1:1:b3");
+//		By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
+//		By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
+//		By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
+//		By LicenseDetails = By.linkText("تفاصيل");
+//		By MyPaymentsTab = By.id("pt1:r1:2:myPayments::body");
+//		By PaymentNumber = By.id("pt1:r1:2:r2:0:t1:0:c1");
+//		
+//
+//		By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
+//		//Review Screen Incomplete
+//		By ModifyOtherInc = By.linkText("تعديل");
+//		By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l3\"]");
+//		//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
+//		
+//		By NextButtonIncRev = By.id("pt1:r1:2:r1:2:b2");
+//		//OtherInfo Screen Incomplete
+//		By SSYIncOther = By.id("pt1:r1:2:r1:3:socSecondaryStudyYearRid::content");
+//		By NextButtonIncOther = By.id("pt1:r1:2:r1:3:btnOtherDataNextButton");
+//		//Attachment Screen Incomplete
+//		By UploadFileInc = By.id("pt1:r1:2:r1:3:it2:0:cif1:bButtonFile");
+//		
+//		By NextButtonInc = By.id("pt1:r1:2:r1:3:b2");
+//		//Rating Screen Inc
+//		By RateInc = By.id("pt1:r1:2:r1:4:rs1:link1::icon");
+//		By SubmitInc = By.id("pt1:r1:2:r1:4:rs1:b2");
+//		//Success
+//		By SuccessInc = By.id("pt1:r1:2:r1:5:fp1:dc_pgl2");
+//		By BackToHomeInc = By.id("pt1:r1:2:r1:5:fp1:dc_b1");
+//		
+//		By RejectionReasons = By.linkText("أسباب الرفض");
 		
 		// Internal-Login
 		By EMPUsername = By.id("pt1:lid1:dc_it1::content");
@@ -156,7 +156,7 @@ public class GPLFields extends Vars{
 		By HeadNavigateOut = By.id("pt1:r1:2:requestStatus::content");
 		By HeadSearchld = By.id("pt1:r1:2:requestNo::content");
 		By HeadSearchBtn = By.id("pt1:r1:2:b1");
-		By DetailsLink = By.linkText("ÊÝÇÕíá");
+		By DetailsLink = By.linkText("تفاصيل");
 		
 		By HeadNotes = By.id("pt1:r1:3:itNotes::content");
 		By HeadApprove = By.xpath("//*[@id=\"pt1:r1:3:r1:0:sorRidDecision:_0\"]");
@@ -165,7 +165,8 @@ public class GPLFields extends Vars{
 		By HeadProcessBtn = By.id("pt1:r1:3:r1:0:b1");
 		By HeadMoveAll = By.id("pt1:r1:3:r1:0:sms2::moveall");
 		By HeadMoveAll2 = By.id("pt1:r1:3:r1:0:sms1::moveall");
-		
+		By SessionNumber = By.id("pt1:r1:3:r1:0:it16::content");
+		By SessionDate = By.id("pt1:r1:3:r1:0:id1::content");
 
 		By SuccessMessageInternal = By.id("pt1:r1:3:r1:1:m1");
 		By BackButtonInternal = By.id("pt1:r1:3:r1:1:b2");
@@ -190,7 +191,7 @@ public class GPLFields extends Vars{
 		By ICAPPNavigateOut = By.id("pt1:r1:7:requestStatus::content");
 		By ICAPPSearchld = By.id("pt1:r1:7:requestNo::content");
 		By ICAPPSearchBtn = By.id("pt1:r1:7:b1");
-		By AppointmentLink = By.linkText("ÊÍÏíÏ ãæÚÏ áÌäÉ");
+		By AppointmentLink = By.linkText("تحديد موعد لجنة");
 		By Date = By.id("pt1:r1:3:id1::content");
 		By TempBtn = By.id("pt1:r1:3:b1");
 		By SaveBtn = By.id("pt1:r1:3:b2");
