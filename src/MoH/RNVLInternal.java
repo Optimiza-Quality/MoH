@@ -159,7 +159,7 @@ public class RNVLInternal extends MyPageRNVL {
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 	
-		Thread.sleep(Const * 2);
+		Thread.sleep(Const * 3);
 
 		driver.findElement(HeadSearchBtn).click(); // Search-Button
 
