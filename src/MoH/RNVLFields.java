@@ -2,7 +2,7 @@ package MoH;
 
 import org.openqa.selenium.By;
 
-public class RNVLFields extends Vars{
+public class RNVLFields extends CommonFields{
 
 	// General
 	By ErrorMessage = By.id("pt1:exceptionMsg");
@@ -15,6 +15,8 @@ public class RNVLFields extends Vars{
 	By ChangeLanguage = By.linkText("English");
 	By Apply = By.xpath("//*[@id=\"txt19\"]");
 	By ApplyCSS = By.cssSelector("#txt19");
+	
+	//CheckList
 	By ApplicantTypeDDL = By.id("pt1:r1:0:scl1:dc_smc1::content");
 	By ApplicantTypeDDLCSS = By.cssSelector("#pt1\\3a r1\\3a 0\\3a scl1\\3a dc_smc1\\3a \\3a content");
 	By NextToBasicInfo = By.xpath("//*[@id=\"pt1:r1:0:scl1:dc_b1\"]/a");
@@ -108,53 +110,6 @@ public class RNVLFields extends Vars{
 	By BackToHomeAttachmentCases = By.id("pt1:r1:7:fp1:dc_b1");
 	By ReBackToHomeAttachmentCases = By.id("pt1:r1:4:fp1:dc_b1");
 
-	// MyPage
-	By LoginVerificationCode = By
-			.xpath("//*[@id=\"pt1:r1:1:vc1:dc_it1::content\" or @id=\"pt1:r1:0:vc1:dc_it1::content\"]");
-	By NextToMyPage = By.xpath("//*[@id=\"pt1:r1:1:vc1:dc_b2\" or @id=\"pt1:r1:0:vc1:dc_b2\"]");
-	By MyMobileNumber = By.xpath(
-			"//*[@id=\"pt1:r1:2:r4:0:mn1:itMobileNumber::content\" or @id=\"pt1:r1:1:r4:0:mn1:itMobileNumber::content\"]");
-	By MyEmail = By
-			.xpath("//*[@id=\"pt1:r1:2:r4:0:e1:itEmail::content\" or @id=\"pt1:r1:1:r4:0:e1:itEmail::content\"]");
-	By MyAddress = By.xpath("//*[@id=\"pt1:r1:2:r4:0:it4::content\" or @id=\"pt1:r1:1:r4:0:it4::content\"]");
-	By SaveEditedInfo = By.xpath("//*[@id=\"pt1:r1:2:r4:0:b1\" or @id=\"pt1:r1:1:r4:0:b1\"]");
-	By GoToHomePage = By.xpath("//*[@id=\"pt1:r1:2:b1\" or @id=\"pt1:l1::icon\"]");
-	By GoToMyPage = By.id("MyAppsImg");
-	By MyPageApplicantType = By.id("pt1:r1:0:soc1::content");
-	By MyPageNationalNumber = By.id("pt1:r1:0:it1::content");
-	By MyPageCardNo = By.id("pt1:r1:0:it2::content");
-	By MyPageSearch = By.id("pt1:r1:0:b1");
-	By MyAppTab = By.id("pt1:r1:2:myRequests::ti");
-	By SearchForApp = By.id("pt1:r1:2:r1:0:qyrmp:val00::content");
-	By AppDetails = By.id("pt1:r1:2:r1:0:t1:0:l1::text");
-	By IncompleteApp = By.linkText("استكمال نواقص");
-	By RejectionReasons = By.linkText("أسباب الرفض");
-	By PreviousToApps = By.id("pt1:r1:2:r1:1:b1");
-	By MyLicenseTab = By.id("pt1:r1:2:myPermits::ti");
-	By SearchForLicense = By.id("pt1:r1:2:r3:0:qryId1:val00::content");
-	By LicenseDate = By.id("pt1:r1:2:r3:0:qryId1:val30::content");
-	By LicenseDetails = By.linkText("تفاصيل");
-
-	By IncompleteButton = By.id("pt1:r1:2:r1:1:b2");
-	//Review Screen Incomplete
-	By ModifyOtherInc = By.linkText("تعديل");
-	By ModifyAttachmentInc = By.xpath("//*[@id=\"pt1:r1:2:r1:2:l4\"]");
-	//By ModifyAttachmentInc = By.id("pt1:r1:2:r1:2:l4::text");
-	
-	By NextButtonIncRev = By.xpath("//*[@id=\"pt1:r1:2:r1:2:btnOtherDataNextButton\"]");
-	//OtherInfo Screen Incomplete
-	By SSYIncOther = By.id("pt1:r1:2:r1:3:socSecondaryStudyYearRid::content");
-	By NextButtonIncOther = By.id("pt1:r1:2:r1:3:btnOtherDataNextButton");
-	//Attachment Screen Incomplete
-	By UploadFileInc = By.id("pt1:r1:2:r1:3:it2hh:0:cif1:bButtonFile");
-	By NextButtonInc = By.id("pt1:r1:2:r1:3:bAttamentNext");
-	//Rating Screen Inc
-	By SubmitInc = By.id("pt1:r1:2:r1:4:rs1:b2");
-	//Success
-	By SuccessInc = By.id("pt1:r1:2:r1:5:fp1:dc_pgl2");
-	By BackToHomeInc = By.id("pt1:r1:2:r1:5:fp1:dc_b1");
-	
-	
 	// Internal-Login
 	By EMPUsername = By.id("pt1:lid1:dc_it1::content");
 	By EMPPassword = By.id("pt1:lid1:dc_it2::content");
@@ -206,15 +161,6 @@ public class RNVLFields extends Vars{
 	By SuccessMessageInternalDirector = By.id("pt1:r1:8:m1");
 	By BackButtonInternalDirector = By.id("pt1:r1:8:b1");
 	
-	//Contact-Us
-	By EmailSend = By.id("pt1:e1:itEmail::content");
-	By MsgText = By.id("pt1:it7::content");
-	By CaptchaContact = By.id("pt1:itCaptchaValue::content");
-	By MobileSend = By.id("pt1:mn1:itMobileNumber::content");
-	By CountryCodeContact = By.id("pt1:mn1:dc_soc1::content");
-	By NameSend = By.id("pt1:it3::content");
-	By MsgType = By.id("pt1:soc2::content");
-	By SelectSerivce = By.id("pt1:soc3::content");
-	By BtnSend = By.id("pt1:b2");
+
 
 }
