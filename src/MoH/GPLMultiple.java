@@ -266,7 +266,7 @@ public class GPLMultiple extends GPLFields {
 		this.Attachments();
 		
 		// ---------------------------Review---------------------------------------
-		driver.findElement(NextToRating).click();
+		driver.findElement(NextToReview).click();
 
 		Thread.sleep(Const * 5);
 		driver.findElement(RateHappyAttachmentCases).click();
@@ -337,7 +337,7 @@ public class GPLMultiple extends GPLFields {
 		driver.findElement(ModifyContactDetails).click();
 		//
 		Thread.sleep(Const * 20);
-		driver.findElement(VerificationCodeMyPage).sendKeys("0000", Keys.TAB);
+		driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB);
 		Thread.sleep(Const * 40);
 		driver.findElement(NextToMyPage).click();
 		Thread.sleep(Const * 20);
