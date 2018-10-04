@@ -78,6 +78,7 @@ public class Vars extends Msgs{
 	String FillMobileNumber = "797352297";
 	String FillEmailAddress = "emasoud@optimizasolutions.com";
 	String FillAddress = "Optimiza Solutions";
+	String PharmaAddress = "عمان، خلدا، شارع مكة، السلام 1 - عمارة 555";
 
 	
 	
