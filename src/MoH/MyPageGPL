@@ -63,7 +63,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -97,7 +97,7 @@ public class MyPageGPL extends GPLFields{
 			
 			System.out.println("Passed " + KeepAppNo + " App Details Viewed");
 			
-			driver.findElement(PreviousToApps).click(); // Previous
+			driver.findElement(BackToApps).click(); // Previous
 
 			System.out.println("Passed. Jordanian - View Application And License 4.1.0.1 " + KeepAppNo);
 						
@@ -126,7 +126,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -160,7 +160,7 @@ public class MyPageGPL extends GPLFields{
 			
 			System.out.println("Passed " + KeepAppNo + " App Details Viewed");
 			
-			driver.findElement(PreviousToApps).click(); // Previous
+			driver.findElement(BackToApps).click(); // Previous
 
 			// -------------------------------View-License----------------------------------
 			
@@ -205,7 +205,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -233,23 +233,25 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(IncompleteButton).click();
 			
+			Thread.sleep(Const * 4);
+			
+			driver.findElement(ModifyAttachmentIncPha).click();
+			
 			Thread.sleep(Const * 2);
 			
-			driver.findElement(ModifyAttachmentInc).click();
-			
-			driver.findElement(UploadFileInc).click();
+			driver.findElement(UploadFileIncPHA).click();
 			
 			Thread.sleep(Const * 20);
-			Runtime.getRuntime().exec(JPGAtt);
+			Runtime.getRuntime().exec(PNGAtt);
 			// Give path where the au3 is saved.
 
 			Thread.sleep(Const * 10);
 			
-			driver.findElement(NextButtonInc).click();
+			driver.findElement(NextButtonIncPHA).click();
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1200)");
 			
-			driver.findElement(NextButtonIncRev).click();
+			driver.findElement(NextButtonIncRevPha).click();
 			
 			driver.findElement(SubmitInc).click();
 			
@@ -290,7 +292,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -332,7 +334,7 @@ public class MyPageGPL extends GPLFields{
 			driver.findElement(NextButtonIncOther).click();
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
-			driver.findElement(NextButtonIncRev).click();
+			driver.findElement(NextButtonIncRevPha).click();
 			
 			driver.findElement(SubmitInc).click();
 			
@@ -374,7 +376,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -408,7 +410,7 @@ public class MyPageGPL extends GPLFields{
 			
 			System.out.println("Passed " + KeepAppNo + " App Details Viewed");
 			
-			driver.findElement(PreviousToApps).click(); // Previous
+			driver.findElement(BackToApps).click(); // Previous
 
 			System.out.println("Passed. Chain - View Application 46.1.0.1 " + KeepAppNo);
 			
@@ -437,7 +439,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -471,7 +473,7 @@ public class MyPageGPL extends GPLFields{
 			
 			System.out.println("Passed " + KeepAppNo + " App Details Viewed");
 			
-			driver.findElement(PreviousToApps).click(); // Previous
+			driver.findElement(BackToApps).click(); // Previous
 
 			// -------------------------------View-License----------------------------------
 			
@@ -516,7 +518,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 4);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -544,23 +546,25 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(IncompleteButton).click();
 			
+			Thread.sleep(Const * 4);
+			
+			driver.findElement(ModifyAttachmentIncPha).click();
+			
 			Thread.sleep(Const * 2);
 			
-			driver.findElement(ModifyAttachmentInc).click();
-			
-			driver.findElement(UploadFileInc).click();
+			driver.findElement(UploadFileIncPHA).click();
 			
 			Thread.sleep(Const * 20);
-			Runtime.getRuntime().exec(JPGAtt);
+			Runtime.getRuntime().exec(PNGAtt);
 			// Give path where the au3 is saved.
 
 			Thread.sleep(Const * 10);
 			
-			driver.findElement(NextButtonInc).click();
+			driver.findElement(NextButtonIncPHA).click();
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1200)");
 			
-			driver.findElement(NextButtonIncRev).click();
+			driver.findElement(NextButtonIncRevPha).click();
 			
 			Thread.sleep(Const * 5);
 			driver.findElement(RateInc).click();
@@ -605,7 +609,7 @@ public class MyPageGPL extends GPLFields{
 
 			driver.findElement(MyPageSearch).click(); // Search
 
-			Thread.sleep(Const * 10);
+			Thread.sleep(Const * 3);
 
 			driver.findElement(LoginVerificationCode).sendKeys("0000", Keys.TAB); // Verification-Code
 
@@ -647,7 +651,7 @@ public class MyPageGPL extends GPLFields{
 			driver.findElement(NextButtonIncOther).click();
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;  js.executeScript("window.scrollBy(0,1000)");
-			driver.findElement(NextButtonIncRev).click();
+			driver.findElement(NextButtonIncRevPha).click();
 			
 			driver.findElement(SubmitInc).click();
 			
@@ -669,4 +673,3 @@ public class MyPageGPL extends GPLFields{
 			driver.close();
 		
 		}
-}
