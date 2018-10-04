@@ -375,7 +375,7 @@ public class RNVLRMS extends RNVLInternal {
 
 	}
 
-	// ÇáãÓÊÎÏã ÍÇÕá Úáì ÑÎÕÉ ãÒÇæáÉ ãåäÉ
+	// المستخدم حاصل على رخصة مزاولة مهنة
 	// Nurse has an active license
 	@Test(priority = 4, enabled = true)
 	public void SubmitNursingApp_RMS_Case3400() throws InterruptedException, IOException {
@@ -612,9 +612,9 @@ public class RNVLRMS extends RNVLInternal {
 		// System.out.println("Actual Message: " + ActualErrorMessage);
 		//
 		// Thread.sleep(Const*10);
-		// String ExpectedErrorMessage ="íÑÌì ÅÑÝÇÞ ÕæÑÉ Úä ÔåÇÏÉ ÇáËÇäæíÉ ÇáÚÇãÉ / ÕæÑÉ
-		// Úä ãÚÇÏáÉ ÔåÇÏÉ ÇáËÇäæíÉ ÇáÚÇãÉ Ýí ÕÝÍÉ ÇáãÑÝÞÇÊ. áãÒíÏ ãä ÇáãÚáæãÇÊ íÑÌì
-		// ÇáÅÊÕÇá Úáì ÇáÎØ ÇáÓÇÎä áæÒÇÑÉ ÇáÕÍÉ 065004545";
+		// String ExpectedErrorMessage ="يرجى إرفاق صورة عن شهادة الثانوية العامة / صورة
+		// عن معادلة شهادة الثانوية العامة في صفحة المرفقات. لمزيد من المعلومات يرجى
+		// الإتصال على الخط الساخن لوزارة الصحة 065004545";
 		// System.out.println("ExpectedErrorMessage: "+ ExpectedErrorMessage);
 		//
 		//
