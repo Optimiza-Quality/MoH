@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MoH.GPLMultiple">
+      <class name="MoH.InternalReviewRequests">
         <methods>
-          <include name="GetDriver"/>
+          <include name="DefineNewMOHUser"/>
           <include name="End"/>
-          <include name="SubmitMultipleApp_Case5000"/>
-          <include name="CrossBrowser"/>
+          <include name="CallandLogin"/>
         </methods>
-      </class> <!-- MoH.GPLMultiple -->
+      </class> <!-- MoH.InternalReviewRequests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

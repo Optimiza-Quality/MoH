@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\nftaiha\AppData\Local\Temp\testng-eclipse--39827687\testng-customsuite.xml</span>
+                    <span>C:\Users\hrasheed\AppData\Local\Temp\testng-eclipse--1132310998\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content failed suite-Default_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="MoH.GPLMultiple" class="method navigator-link" hash-for-method="SubmitMultipleApp_Case5200">SubmitMultipleApp_Case5200</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="MoH.InternalReviewRequests" class="method navigator-link" hash-for-method="DefineNewMOHUser">DefineNewMOHUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,25 +117,58 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">MoH.GPLMultiple</span>
+              <img src="failed.png"/>
+              <span class="class-name">MoH.InternalReviewRequests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="SubmitMultipleApp_Case5200">
-                  </a> <!-- SubmitMultipleApp_Case5200 -->
-                  <span class="method-name">SubmitMultipleApp_Case5200</span>
+                  <a name="DefineNewMOHUser">
+                  </a> <!-- DefineNewMOHUser -->
+                  <span class="method-name">DefineNewMOHUser</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at org.testng.Assert.assertTrue(Assert.java:54)
+	at MoH.InternalReviewRequests.DefineNewMOHUser(InternalReviewRequests.java:304)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-failed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nftaiha\AppData\Local\Temp\testng-eclipse--39827687\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\hrasheed\AppData\Local\Temp\testng-eclipse--1132310998\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,11 +177,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;MoH.GPLMultiple&quot;&gt;
+      &lt;class name=&quot;MoH.InternalReviewRequests&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;SubmitMultipleApp_Case5200&quot;/&gt;
+          &lt;include name=&quot;DefineNewMOHUser&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- MoH.GPLMultiple --&gt;
+      &lt;/class&gt; &lt;!-- MoH.InternalReviewRequests --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -190,14 +223,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'SubmitMultipleApp_Case5200')
-data.setCell(0, 2, 'MoH.GPLMultiple')
-data.setCell(0, 3, 22004);
+data.setCell(0, 1, 'DefineNewMOHUser')
+data.setCell(0, 2, 'MoH.InternalReviewRequests')
+data.setCell(0, 3, 39981);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 22 seconds</span>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -212,17 +245,107 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">48 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">MoH.GPLMultiple</span>
+              <span class="ignored-class-name">MoH.InternalReviewRequests</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">SubmitMultipleApp_Case5400</span>
+                <span class="ignored-method-name">employeesaManagement</span>
                 <br/>
-                <span class="ignored-method-name">SubmitMultipleApp_Case5000</span>
+                <span class="ignored-method-name">DefineNewSTKUser</span>
                 <br/>
-                <span class="ignored-method-name">SubmitMultipleApp_Case5300</span>
+                <span class="ignored-method-name">fieldARLanguageMOHUserDefinition</span>
+                <br/>
+                <span class="ignored-method-name">DefineExistingRMSUser</span>
+                <br/>
+                <span class="ignored-method-name">defineCommittee</span>
+                <br/>
+                <span class="ignored-method-name">ViewandSearchallPermits</span>
+                <br/>
+                <span class="ignored-method-name">RolesManagement</span>
+                <br/>
+                <span class="ignored-method-name">serviceCardOrder</span>
+                <br/>
+                <span class="ignored-method-name">ViewandSearchGPLRequests</span>
+                <br/>
+                <span class="ignored-method-name">CommitteeMemebersLessthan3orMore</span>
+                <br/>
+                <span class="ignored-method-name">AddServiceFees</span>
+                <br/>
+                <span class="ignored-method-name">ServicesValidationMenues</span>
+                <br/>
+                <span class="ignored-method-name">FAQManagement</span>
+                <br/>
+                <span class="ignored-method-name">SystemMessages</span>
+                <br/>
+                <span class="ignored-method-name">definePrivilege</span>
+                <br/>
+                <span class="ignored-method-name">DefinePrivacyPolicy</span>
+                <br/>
+                <span class="ignored-method-name">nccManagement</span>
+                <br/>
+                <span class="ignored-method-name">AddFAQ</span>
+                <br/>
+                <span class="ignored-method-name">RejectionandIncompleteReasonsManagement</span>
+                <br/>
+                <span class="ignored-method-name">fieldEnLanguageMOHUserDefinition</span>
+                <br/>
+                <span class="ignored-method-name">ViewandSearchallRequests</span>
+                <br/>
+                <span class="ignored-method-name">FeesManagement</span>
+                <br/>
+                <span class="ignored-method-name">NationalNumberVerificationHealthInstituteUser</span>
+                <br/>
+                <span class="ignored-method-name">Ratings</span>
+                <br/>
+                <span class="ignored-method-name">MissingFiledofMOHUserDefinition</span>
+                <br/>
+                <span class="ignored-method-name">GenerlaizationAddition</span>
+                <br/>
+                <span class="ignored-method-name">ExecuteServicesManagements</span>
+                <br/>
+                <span class="ignored-method-name">DefineAlreadyExistingNCCUser</span>
+                <br/>
+                <span class="ignored-method-name">DefineExistingSTKUser</span>
+                <br/>
+                <span class="ignored-method-name">AddServiceAttachments</span>
+                <br/>
+                <span class="ignored-method-name">DefineAlreadyExistingMOHUser</span>
+                <br/>
+                <span class="ignored-method-name">ViewandSearchRNVLRequests</span>
+                <br/>
+                <span class="ignored-method-name">ExistingCommitteeName</span>
+                <br/>
+                <span class="ignored-method-name">DefineDefaultCommittee</span>
+                <br/>
+                <span class="ignored-method-name">ServiceAttachmentsManagement</span>
+                <br/>
+                <span class="ignored-method-name">Roles</span>
+                <br/>
+                <span class="ignored-method-name">RejectionandIncompleteReasons</span>
+                <br/>
+                <span class="ignored-method-name">SystemSettings</span>
+                <br/>
+                <span class="ignored-method-name">DefineNewHealthInstituteUser</span>
+                <br/>
+                <span class="ignored-method-name">NotificationsManagement</span>
+                <br/>
+                <span class="ignored-method-name">DefineNewNCCUser</span>
+                <br/>
+                <span class="ignored-method-name">STKManagement</span>
+                <br/>
+                <span class="ignored-method-name">serviceCard</span>
+                <br/>
+                <span class="ignored-method-name">GeneralizationManagement</span>
+                <br/>
+                <span class="ignored-method-name">CommitteesManagement</span>
+                <br/>
+                <span class="ignored-method-name">IncorrectPasswordofMOHUserDefinition</span>
+                <br/>
+                <span class="ignored-method-name">DefineNewRMSUser</span>
+                <br/>
+                <span class="ignored-method-name">UnrelatedNationalNumberHealthInstituteUser</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -234,18 +357,20 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">MoH.GPLMultiple</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">MoH.InternalReviewRequests</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">GetDriver</span>
+                <span class="method-name">CallandLogin</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">SubmitMultipleApp_Case5200</span>
-                <span class="method-start">6052 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">DefineNewMOHUser</span>
+                <span class="method-start">9343 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">End([TestResult name=SubmitMultipleApp_Case5200 status=SUCCESS method=GPLMultiple.SubmitMultipleApp_Case...)</span>
-                <span class="method-start">28056 ms</span>
+                <span class="method-name">End([TestResult name=DefineNewMOHUser status=FAILURE method=InternalReviewRequests.DefineNewMOHUser()[pr...)</span>
+                <span class="method-start">49324 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
